@@ -1,0 +1,4 @@
+{% extends "main" %}
+{% block body %}
+<p> a link was sent to your email</p>
+{% endblock body %}

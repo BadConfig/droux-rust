@@ -1,0 +1,19 @@
+{% extends "main" %}
+{# {% import "product/instance.html" as gen_product %} #}
+{% block body %}
+
+  <p>title - {{ product.title }}</p>
+    <p>price - {{ product.price }}</p>
+    <p>cat - {{ product.category_name }}</p>
+    <p>created at - {{ product.create_datetime }}</p>
+    {% for url in product.pictures %}
+        <img src="/{{ url }}">
+    {% endfor %}
+
+<form action="/chat/create" method="POST" >
+<input type="hidden" name="other_id" value="{{ product.seller_id }}">
+<input type="hidden" name="product_id" value="{{ product.id }}">
+  <p> чат с продавцом <input type="submit"></p>
+</form>
+ 
+{% endblock body %}

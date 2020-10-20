@@ -1,0 +1,10 @@
+{# {% macro product_instance(product,seller = false) %}
+    {% if seller != false %}
+    {% endif %}
+    <p>title - {{ product.title }}</p>
+    <p>price - {{ product.price }}</p>
+    <p>created at - {{ product.create_datetime }}</p>
+    {% for url in product.pictures %}
+        <img src="{{ url }}">
+    {% endfor %}
+{% endmacro product_instance %} #}

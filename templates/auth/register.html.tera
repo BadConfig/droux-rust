@@ -1,0 +1,11 @@
+{% extends "main" %}
+{% block body %}
+{% if not register_sucess %}
+<h1>wrong reg data</h1>
+{% endif %}
+<form method="POST" url="/chat/send">
+   <p>uname<input name="username"></p>
+   <p>email<input name="email"></p>
+   <p>pass<input name="pass"> <input type="submit"></p>
+</form>
+{% endblock body %}

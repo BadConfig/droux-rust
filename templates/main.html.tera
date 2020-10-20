@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       
+    </head>
+    <body>
+        <header>
+            {% include "header" %}
+        </header>
+            <hr/>
+            {% block body %}
+             
+            {% endblock body %}
+            <hr/>
+        <footer>
+            {% include "footer" %}
+        </footer>
+    </body>
+</html>

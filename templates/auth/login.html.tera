@@ -1,0 +1,11 @@
+{% extends "main" %}
+{% block body %}
+{% if auth_fail %}
+<h1>wrong auth data</h1>
+{% endif %}
+<form method="POST" url="/login">
+   <p><input name="login"></p>
+   <p><input name="pass"> <input type="submit"></p>
+</form>
+ 
+{% endblock body %}

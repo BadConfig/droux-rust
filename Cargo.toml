@@ -1,0 +1,36 @@
+[package]
+name = "droux"
+version = "0.1.0"
+authors = ["badconfig <array.clean@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+lettre = "0.10.0-alpha.2"
+hex = "0.4.2"
+sha2 = "0.9.1"
+hmac = "0.10.1"
+base64 = "0.13.0"
+rocket="0.4.5"
+rocket-multipart-form-data="0.9.5"
+rand="0.7.3"
+ring = "0.17.0-alpha.4"
+data-encoding = "2.3.0"
+regex = "1"
+
+serde = { version = "1.0", features = ["derive"] }
+
+# serde_json is just for the example, not required in general
+serde_json = "1.0"
+
+#disel & environment (for postgre connection)
+chrono = { version = "0.4.10", features = ["serde"] }
+diesel = { version = "1.4.3", features = ["postgres", "chrono"] }
+dotenv = "0.15.0"
+
+[dependencies.rocket_contrib]
+version = "0.4.5"
+default-features = false
+features = ["handlebars_templates", "tera_templates","json", "diesel_postgres_pool","serve"]
+

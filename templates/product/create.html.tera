@@ -1,0 +1,45 @@
+{% extends "main" %}
+{% block body %}
+
+<form method='POST' url='/product/create' enctype='multipart/form-data'>
+
+
+    <p><select name="category_id" >
+    {% for brand in brands %}
+        <option value="{{ brand.id }}">{{ brand.name }}</option>
+    {% endfor %}
+   </select>
+
+    <p><input type="text" name="title" value="text default">
+  
+    <p><select name="size">
+    <option selected value="no_size">no_size</option>
+    <option value="1US">1US</option>
+    <option value="2US">2US</option>
+    <option value="3US">3US</option>
+    <option value="4US">4US</option>
+   </select>
+
+    <p><select name="state">
+    <option selected value="новое с биркой">новое с биркой</option>
+    <option value="новое без бирки">новое без бирки</option>
+    <option value="немного ношенное">немного ношенное</option>
+    <option value="активно ношенное">активно ношенное</option>
+    <option value="есть дефекты">есть дефекты</option>
+   </select>
+
+    <p>цена: <input type="text" name="price">
+    <p>местонахождение товара: <input type="text" name="location">
+    <p>Описание<input type="text" name="descr">
+
+    <p><input type="file" name="photo1">
+    <p><input type="file" name="photo2">
+    <p><input type="file" name="photo3">
+    <p><input type="file" name="photo4">
+    <p><input type="file" name="photo5">
+    <input type="hidden" name="seller_id" value="{{ user.id }}">
+    <p><button type="submit">Submit</button>
+
+</form>
+ 
+{% endblock body %}

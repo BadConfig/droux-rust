@@ -1,0 +1,55 @@
+version: '3'
+services:
+  #rocket.rs app
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+        #image: badconfig/site
+    container_name: app
+    tty: true
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+    environment:
+      DATABASE_URL: postgres://docker:docker@postgres:5432/diesel_db
+    networks:
+      - app-network
+  #Nginx
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:8080"
+    volumes:
+      - ./:/app
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+  postgres:
+    image: "postgres:9.6"
+    container_name: postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: diesel_db
+      POSTGRES_PASSWORD: docker
+      POSTGRES_USER: docker
+    networks:
+      - app-network
+
+      
+#network
+networks:
+  app-network:
+    driver: bridge
+#volumes:
+ # postgres_data: {}
+

@@ -1,0 +1,16 @@
+{% extends "my_page/main" %}
+{% block chat_block %}
+    {% for msg in messages %}
+        <p> {{ from_user.username }} </p>
+        <span> {{ msg.msg_data }} </span>
+        <hr/>
+    {% endfor %}
+
+<form method="POST" action="/chat/send">
+<input type="hidden" name="other_id" value="{{ from_user.id }}">
+<input type="hidden" name="product_id" value="{{ prod_id }}">
+   <p>type here<input name="message" type="text"></p>
+   <p><input type="submit"></p>
+</form>
+       
+{% endblock chat_block %}

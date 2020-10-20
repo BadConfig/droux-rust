@@ -1,0 +1,4 @@
+{% macro product_instance(product,seller = 'null') %}
+    {% if seller != 'null' %}
+    {% endif %}
+{% endmacro product_instance %}

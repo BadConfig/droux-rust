@@ -1,0 +1,4 @@
+<h1> Admin Pannel </h1>
+<p>is admin: {{ is_admin }} </p>
+<p>is moderator{{ is_moderator }} </p>
+<p>is editor {{ is_editor }} </p>
