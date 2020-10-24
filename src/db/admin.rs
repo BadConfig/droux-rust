@@ -33,7 +33,8 @@ pub fn change_privelege(uid: i32, new_type: UserPriveleges, conn: &PgConnection)
     diesel::update(priveleges)
         .filter(user_id.eq(uid))
         .set( privelege_type.eq(new_type.get_string()))
-        .execute(conn);
+        .execute(conn)
+        .expect("Can't change privelege in db::change_privelege");
 
 }
 

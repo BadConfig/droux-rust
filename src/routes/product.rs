@@ -30,14 +30,15 @@ pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Te
 
     let product = get_product_data(id, &conn);
     let product = ProductContext {
-        category_name: get_brand_name(product.category_id,&conn).name,
+        category_name: get_brand_name(product.brand_id,&conn).name,
         id: product.id,
+        sub_category_id: product.sub_category_id,
         title: product.title,
         descr: product.descr,
         price: product.price,
         location: product.location,
         state: product.state,
-        category_id: product.category_id,
+        brand_id: product.brand_id,
         seller_id: product.seller_id,
         pictures: product.pictures,
         create_datetime: product.create_datetime,
@@ -58,10 +59,14 @@ pub fn file(file: PathBuf) -> Option<NamedFile> {
 #[get("/product/create")]
 pub fn product_create_get(user: CommonUser, conn: crate::db::Conn) -> Either {
    
-    use crate::db::product::get_brand_list;
+    use crate::db::product::{
+        get_brand_list,
+        get_category_list,
+    };
 
     let mut ctx = get_base_context(user.clone(), &conn);
     ctx.insert("brands", &get_brand_list(&conn));
+    ctx.insert("categories",&get_category_list(&conn));
 
     if let CommonUser::Logged(user_data) = user {
             Either::Template(Template::render("product/create", &ctx))
@@ -90,13 +95,14 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
             MultipartFormDataField::raw("photo2")
                 .size_limit(16*1024*1024),
             MultipartFormDataField::text("title"),
+            MultipartFormDataField::text("sub_category_id"),
             MultipartFormDataField::text("descr"),
             MultipartFormDataField::text("size"),
             MultipartFormDataField::text("state"),
             MultipartFormDataField::text("price"),   
             MultipartFormDataField::text("location"),         
             MultipartFormDataField::text("seller_id"),
-            MultipartFormDataField::text("category_id"),
+            MultipartFormDataField::text("brand_id"),
         ]
     );
 
@@ -111,12 +117,13 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
     let title = multipart_form_data.texts.remove("title"); // Use the remove method to move text fields out of the MultipartFormData instance (recommended)
     let email = multipart_form_data.texts.remove("email");
     let descr = multipart_form_data.texts.remove("descr");
+    let sub_category_id = multipart_form_data.texts.remove("sub_category_id");
     let size = multipart_form_data.texts.remove("size");
     let price = multipart_form_data.texts.remove("price");
     let location = multipart_form_data.texts.remove("location");
     let state = multipart_form_data.texts.remove("state");
     let seller_id = multipart_form_data.texts.remove("seller_id");
-    let category_id = multipart_form_data.texts.remove("category_id");
+    let brand_id = multipart_form_data.texts.remove("brand_id");
 
     fn unpack(data: Option<std::vec::Vec<routes::product::rocket_multipart_form_data::TextField>>) -> String {
                 match data {
@@ -145,8 +152,9 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
 
     let price       : i32 = unpack(price).trim().parse().expect("error parsing price");
     let seller_id   : i32 = unpack(seller_id).trim().parse().expect("error parsing seller_id");
-    let category_id : i32 = unpack(category_id).trim().parse().expect("error parsing category_id");
-
+    let brand_id : i32 = unpack(brand_id).trim().parse().expect("error parsing category_id");
+    let sub_category_id : i32 = unpack(sub_category_id).trim().parse().expect("error parsing category_id");
+ 
     let mut photos_array = Vec::new();
     if !unpack_photo(&photo1, &mut photos_array, &title,1) {
         panic!("can't load product without photo");
@@ -159,12 +167,13 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
     use crate::db::product::create_product;
     use crate::models::product::NewProduct;
     let new_product = NewProduct {
+        sub_category_id: sub_category_id,
         title: title,
         descr: descr,
         price: price,
         location: location,
         state: state,
-        category_id: category_id,
+        brand_id: brand_id,
         seller_id: seller_id,
         pictures: photos_array,
     };

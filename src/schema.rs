@@ -14,6 +14,13 @@ table! {
 }
 
 table! {
+    categories (id) {
+        id -> Int4,
+        name -> Varchar,
+    }
+}
+
+table! {
     chat (id) {
         id -> Int4,
         from_user_id -> Int4,
@@ -53,12 +60,13 @@ table! {
 table! {
     products (id) {
         id -> Int4,
+        sub_category_id -> Int4,
         title -> Varchar,
         descr -> Text,
         price -> Int4,
         location -> Varchar,
         state -> Varchar,
-        category_id -> Int4,
+        brand_id -> Int4,
         seller_id -> Int4,
         pictures -> Array<Text>,
         create_datetime -> Timestamp,
@@ -87,6 +95,14 @@ table! {
 }
 
 table! {
+    sub_categories (id) {
+        id -> Int4,
+        category_id -> Int4,
+        name -> Varchar,
+    }
+}
+
+table! {
     users (id) {
         id -> Int4,
         email -> Varchar,
@@ -103,6 +119,7 @@ table! {
 allow_tables_to_appear_in_same_query!(
     activation_links,
     brands,
+    categories,
     chat,
     chat_messages,
     favourites,
@@ -110,5 +127,6 @@ allow_tables_to_appear_in_same_query!(
     products,
     promotions,
     rating,
+    sub_categories,
     users,
 );

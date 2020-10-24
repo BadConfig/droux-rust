@@ -3,8 +3,21 @@
 
 <form method='POST' url='/product/create' enctype='multipart/form-data'>
 
+    <p>
+        <select name="sub_category_id">
+            {% for category in categories %}
+                <optgroup label="{{ category.category_name }}">
+                {% for sub_category in category.sub_categories %}
+                    <option value="{{ sub_category.id }}">
+                        {{ sub_category.name }}
+                    </option>
+                {% endfor %}
+                </optgroup>
+            {% endfor %}
+        </select>
+    </p>
 
-    <p><select name="category_id" >
+    <p><select name="brand_id" >
     {% for brand in brands %}
         <option value="{{ brand.id }}">{{ brand.name }}</option>
     {% endfor %}
