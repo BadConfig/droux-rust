@@ -4,6 +4,7 @@ use rocket::request::Form;
 use rocket::response::Redirect;
 use std::fs::File;
 use std::io::prelude::*;
+use crate::db::filters::get_filter_context;
 
 extern crate rocket_multipart_form_data;
 use rocket::Data;
@@ -25,26 +26,17 @@ pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Te
     use crate::models::product::ProductContext;
     use crate::db::product::{get_brand_list,get_brand_name,get_product_data};
 
-    let mut ctx = get_base_context(user, &conn);
+    let mut ctx = get_base_context(user.clone(), &conn);
     ctx.insert("brands", &get_brand_list(&conn));
 
     let product = get_product_data(id, &conn);
-    let product = ProductContext {
-        category_name: get_brand_name(product.brand_id,&conn).name,
-        id: product.id,
-        sub_category_id: product.sub_category_id,
-        title: product.title,
-        descr: product.descr,
-        price: product.price,
-        location: product.location,
-        state: product.state,
-        brand_id: product.brand_id,
-        seller_id: product.seller_id,
-        pictures: product.pictures,
-        create_datetime: product.create_datetime,
+    let user_id = match user {
+        CommonUser::Logged(u) => Some(u.id),
+        CommonUser::NotLogged() => None,
     };
+    let (product,seller) = ProductContext::get_by_id(id, user_id, &conn);
     ctx.insert("product", &product);
-    ctx.insert("brands", &get_brand_list(&conn));
+    ctx.insert("seller", &seller);
     Template::render("product/main", &ctx)
 }
 
@@ -58,15 +50,9 @@ pub fn file(file: PathBuf) -> Option<NamedFile> {
 
 #[get("/product/create")]
 pub fn product_create_get(user: CommonUser, conn: crate::db::Conn) -> Either {
-   
-    use crate::db::product::{
-        get_brand_list,
-        get_category_list,
-    };
 
     let mut ctx = get_base_context(user.clone(), &conn);
-    ctx.insert("brands", &get_brand_list(&conn));
-    ctx.insert("categories",&get_category_list(&conn));
+    get_filter_context(&mut ctx, &conn);
 
     if let CommonUser::Logged(user_data) = user {
             Either::Template(Template::render("product/create", &ctx))
@@ -83,26 +69,35 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
         vec! [
             //.content_type_by_string(Some(mime::IMAGE_STAR)).unwrap()
             MultipartFormDataField::raw("photo1")
-                .size_limit(16*1024*1024)
-                .content_type_by_string(Some(mime::IMAGE_STAR))
-                .unwrap(),
+                .size_limit(16*1920*1080),
             MultipartFormDataField::raw("photo2")
-                .size_limit(16*1024*1024),
+                .size_limit(16*1920*1080),
             MultipartFormDataField::raw("photo3")
-                .size_limit(16*1024*1024),
+                .size_limit(16*1920*1080),
             MultipartFormDataField::raw("photo4")
-                .size_limit(16*1024*1024),
-            MultipartFormDataField::raw("photo2")
-                .size_limit(16*1024*1024),
+                .size_limit(16*1920*1080),
+            MultipartFormDataField::raw("photo5")
+                .size_limit(16*1920*1080),
+            MultipartFormDataField::raw("photo6")
+                .size_limit(16*1920*1080),
+            MultipartFormDataField::raw("photo7")
+                .size_limit(16*1920*1080),
+            MultipartFormDataField::raw("photo8")
+                .size_limit(16*1920*1080),
+            MultipartFormDataField::raw("photo9")
+                .size_limit(16*1920*1080),
+            MultipartFormDataField::raw("photo10")
+                .size_limit(16*1920*1080),
             MultipartFormDataField::text("title"),
             MultipartFormDataField::text("sub_category_id"),
             MultipartFormDataField::text("descr"),
-            MultipartFormDataField::text("size"),
-            MultipartFormDataField::text("state"),
+            MultipartFormDataField::text("size_id"),
+            MultipartFormDataField::text("state_id"),
             MultipartFormDataField::text("price"),   
             MultipartFormDataField::text("location"),         
             MultipartFormDataField::text("seller_id"),
             MultipartFormDataField::text("brand_id"),
+            MultipartFormDataField::text("type_id"),
         ]
     );
 
@@ -114,21 +109,27 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
     let photo3 = multipart_form_data.raw.get("photo3");
     let photo4 = multipart_form_data.raw.get("photo4");
     let photo5 = multipart_form_data.raw.get("photo5");
+    let photo6 = multipart_form_data.raw.get("photo6"); // Use the get method to preserve file fields from moving out of the MultipartFormData instance in order to delete them automatically when the MultipartFormData instance is being dropped
+    let photo7 = multipart_form_data.raw.get("photo7");
+    let photo8 = multipart_form_data.raw.get("photo8");
+    let photo9 = multipart_form_data.raw.get("photo9");
+    let photo10 = multipart_form_data.raw.get("photo10");
     let title = multipart_form_data.texts.remove("title"); // Use the remove method to move text fields out of the MultipartFormData instance (recommended)
-    let email = multipart_form_data.texts.remove("email");
     let descr = multipart_form_data.texts.remove("descr");
     let sub_category_id = multipart_form_data.texts.remove("sub_category_id");
-    let size = multipart_form_data.texts.remove("size");
+    let size_id = multipart_form_data.texts.remove("size_id");
     let price = multipart_form_data.texts.remove("price");
     let location = multipart_form_data.texts.remove("location");
-    let state = multipart_form_data.texts.remove("state");
+    let state_id = multipart_form_data.texts.remove("state_id");
     let seller_id = multipart_form_data.texts.remove("seller_id");
     let brand_id = multipart_form_data.texts.remove("brand_id");
+    let type_id = multipart_form_data.texts.remove("type_id");
+
 
     fn unpack(data: Option<std::vec::Vec<routes::product::rocket_multipart_form_data::TextField>>) -> String {
                 match data {
                     Some(mut d) => d.remove(0).text,
-                    None => panic!("error: field does not exist"),
+                    None => panic!("error: field does not exist "),
                 }
     }
     fn unpack_photo(photo: &Option<&std::vec::Vec<routes::product::rocket_multipart_form_data::RawField>>, paths: &mut Vec<String>, title: &String, num: i32) -> bool {
@@ -146,15 +147,17 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
 
     let title   = unpack(title);
     let descr   = unpack(descr);
-    let size    = unpack(size);
-    let state   = unpack(state);
     let location= unpack(location);
 
     let price       : i32 = unpack(price).trim().parse().expect("error parsing price");
     let seller_id   : i32 = unpack(seller_id).trim().parse().expect("error parsing seller_id");
-    let brand_id : i32 = unpack(brand_id).trim().parse().expect("error parsing category_id");
+    let brand_id    : i32 = unpack(brand_id).trim().parse().expect("error parsing category_id");
     let sub_category_id : i32 = unpack(sub_category_id).trim().parse().expect("error parsing category_id");
- 
+    let size_id     : i32 = unpack(size_id).trim().parse().expect("error parsing category_id");
+    let state_id    : i32 = unpack(state_id).trim().parse().expect("error parsing category_id");
+    let type_id     : i32 = unpack(type_id).trim().parse().expect("error parsing category_id");
+
+
     let mut photos_array = Vec::new();
     if !unpack_photo(&photo1, &mut photos_array, &title,1) {
         panic!("can't load product without photo");
@@ -163,6 +166,12 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
     unpack_photo(&photo3, &mut photos_array, &title,3);
     unpack_photo(&photo4, &mut photos_array, &title,4);
     unpack_photo(&photo5, &mut photos_array, &title,5);
+    unpack_photo(&photo6, &mut photos_array, &title,6);
+    unpack_photo(&photo7, &mut photos_array, &title,7);
+    unpack_photo(&photo8, &mut photos_array, &title,8);
+    unpack_photo(&photo9, &mut photos_array, &title,9);
+    unpack_photo(&photo10, &mut photos_array, &title,10);
+    
     
     use crate::db::product::create_product;
     use crate::models::product::NewProduct;
@@ -172,11 +181,28 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
         descr: descr,
         price: price,
         location: location,
-        state: state,
+        product_state: state_id,
         brand_id: brand_id,
         seller_id: seller_id,
         pictures: photos_array,
+        type_id: type_id,
+        size_id: size_id,
     };
     create_product(new_product, &conn);
+    Redirect::to("/")
+}
+
+
+#[derive(FromForm,Clone)]
+pub struct StarsForm {
+    toid: i32,
+    strs: i16,
+}
+#[post("/users/rating",data="<form>")]
+pub fn rating_add(form: Form<StarsForm>, user: CommonUser, conn: crate::db::Conn) -> Redirect {
+    use crate::models::product::ProductRating;
+    if let CommonUser::Logged(user) = user {
+        ProductRating::set_rating(user.id,form.toid,form.strs, &conn);
+    }
     Redirect::to("/")
 }

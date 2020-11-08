@@ -70,6 +70,5 @@ pub fn get_category_list(conn: &PgConnection) -> Vec<AllSubCategories> {
             });
         prev_id = instance.category_id;
     }
-    print!("\nResult: {:?}\n",&result);
     result
 }

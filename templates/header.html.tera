@@ -3,6 +3,7 @@
 {% if is_logged %}
 <a href="/logout">выйти</a>
 <p>{{ user.username }}</p>
+<img src="/static/profile_pictures/{{ user.picture_path }}">
 <a href="/chat">чат</a>
 <a href="/product/create">create new product</a>
 {% else %}

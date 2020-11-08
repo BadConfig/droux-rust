@@ -14,13 +14,20 @@ use diesel::PgConnection;
 use rocket::State;
 use crate::auth::IsLogged;
 use std::sync::atomic::{Ordering,AtomicUsize};
+use crate::models::product::ProductCard;
 
 use crate::users::CommonUser;
 
 #[get("/")]
 pub fn index(user: CommonUser, conn: crate::db::Conn) -> Template {
-    let mut ctx = get_base_context(user, &conn);
-    ctx.insert("val", "works!!!");
+    let mut ctx = get_base_context(user.clone(), &conn);
+    let opt_id = match user.clone() {
+        CommonUser::Logged(u) => Some(u.id),
+        CommonUser::NotLogged() => None,
+    };
+    ctx.insert("most_viewed_products",&ProductCard::get_most_viewed(opt_id.clone(), &conn));
+    ctx.insert("new_products", &ProductCard::get_recently_added(opt_id.clone(), &conn));
+    ctx.insert("popular_seller_products", &ProductCard::get_by_seller_popular_products(opt_id.clone(), &conn));
     Template::render("index", &ctx )
 }
 

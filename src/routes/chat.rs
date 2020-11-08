@@ -12,7 +12,7 @@ use crate::db::chat::*;
 
 use crate::auth::make_jwt_for_user;
 use crate::routes::Either;
-use crate::db::users::get_user_by_id;
+use crate::models::users::Users;
 
 #[get("/chat/<prod_id>/<user_id>")]
 pub fn get_chat_messages(user: CommonUser, user_id: i32, prod_id: i32, conn: crate::db::Conn) -> Either {
@@ -22,7 +22,7 @@ pub fn get_chat_messages(user: CommonUser, user_id: i32, prod_id: i32, conn: cra
 
         ctx.insert("people_list",&get_dialoge_list(user.id, &conn));
         ctx.insert("messages",&get_messages(chat, user.id, &conn));
-        ctx.insert("from_user",&get_user_by_id(user_id, &conn));
+        ctx.insert("from_user",&Users::get_by_id(user_id, &conn));
         ctx.insert("prod_id",&prod_id);
         Either::Template(Template::render("my_page/chat", &ctx))
     } else {

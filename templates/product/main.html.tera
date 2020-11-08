@@ -1,7 +1,7 @@
 {% extends "main" %}
 {# {% import "product/instance.html" as gen_product %} #}
 {% block body %}
-
+  {{ product }}
   <p>title - {{ product.title }}</p>
     <p>price - {{ product.price }}</p>
     <p>cat - {{ product.category_name }}</p>

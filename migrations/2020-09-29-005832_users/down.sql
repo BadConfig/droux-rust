@@ -1,2 +1,20 @@
 -- This file should undo anything in `up.sql`
-DROP TABLE users;
+DROP TABLE users,
+    products,
+    activation_links,
+    brands,
+    categories,
+    chat,
+    chat_messages,
+    deleted_posts,
+    favourites,
+    priveleges,
+    product_state,
+    product_type,
+    products,
+    promotions,
+    rating,
+    sizes,
+    sub_categories,
+    subscribes,
+    views CASCADE;

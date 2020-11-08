@@ -42,6 +42,8 @@ pub fn app() -> rocket::Rocket {
             routes::chat::create_chat_messages,
             routes::chat::get_chat_messages,
             routes::chat::get_chats,
+            routes::filters::filter_get,
+            routes::filters::filter_post,
             ])
         .attach(Template::fairing())
         .attach(db::Conn::fairing())

@@ -1,10 +1,10 @@
-{# {% macro product_instance(product,seller = false) %}
-    {% if seller != false %}
+{% macro instance(product, seller) %}
+  {% if seller != false %}
+        <p>seller.username</p>
     {% endif %}
     <p>title - {{ product.title }}</p>
     <p>price - {{ product.price }}</p>
-    <p>created at - {{ product.create_datetime }}</p>
     {% for url in product.pictures %}
-        <img src="{{ url }}">
+        <img src="/{{ url }}">
     {% endfor %}
-{% endmacro product_instance %} #}
+{% endmacro instance %}

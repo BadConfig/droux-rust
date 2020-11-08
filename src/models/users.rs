@@ -1,5 +1,6 @@
 extern crate serde;
 use serde::{Serialize, Deserialize};
+use diesel::*;
 
 use crate::schema::users;
 
@@ -14,6 +15,20 @@ pub struct Users {
     pub rate_summ: i64,
     pub rate_count: i64,
     pub register_data: chrono::NaiveDateTime,
+}
+
+impl Users {
+
+    pub fn get_by_id(u_id: i32, conn: &PgConnection) -> Users {
+        
+        use crate::schema::users::dsl::*;
+
+        
+        users
+            .filter(id.eq(u_id))
+            .get_result::<Users>(conn)
+            .expect("Error getting user by id in get_user_by_id")
+    }
 }
 
 #[derive(Insertable,AsChangeset,Debug)]
