@@ -1,0 +1,255 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Roboto, "Liberation Sans", Arial, sans-serif;
+}
+
+input[type=text] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    border-radius: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    display: flex;
+    width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.services {
+    height: 40px;
+    padding: 13px 0 9px;
+    background-color: #E0E0E0;
+}
+
+.services__icon{
+    width: 18px;
+    height: 18px;
+    display: block;
+    margin-right: 20px;
+}
+.services__item{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 14px;
+    color: #303030;
+    margin-right: 63px;
+}
+.header__base{
+    height: 83px;
+    justify-content: space-between;
+    align-items: center;
+}
+.header__search, .header__buttons {
+    width: 350px;
+    height: 28px;
+    display: inline-flex;
+}
+.search__field {
+    display: flex;
+    align-items: center;
+    width: 191px;
+    border-bottom: black 1px solid;
+
+}
+
+.search__input, .search__input:active{
+    border: none;
+    outline: 0;
+    padding: 0;
+}
+
+.search__icon {
+    width: 16px;
+    height: 16px;
+    margin: 0 14px 0.8px 0;
+}
+
+.search__input::placeholder {
+    color: #747474;
+    font-size: 16px;
+}
+
+.button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: black 1px solid;
+    border-radius: 0;
+    background: none;
+    outline: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+
+.search__button{
+    width: 100px;
+    height: 100%;
+    margin: 0 31px;
+    background: white;
+}
+
+.sell__button {
+    width: 100px;
+    height: 100%;
+    background: black;
+    color: white;
+    margin-left: 31px;
+}
+
+.sell__button:active {
+    background: black;
+    color: white;
+}
+
+.buttons__icon{
+    width: 18px;
+    height: 18px;
+}
+
+.header__buttons {
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.header__logo, .header__logo img{
+    width: 230px;
+    height: 31px;
+}
+
+.header-base__line {
+    border-bottom: 1px solid black;
+}
+
+.header__nav {
+    height: 66px;
+    width: 730px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0 auto;
+}
+
+.header__nav a{
+    display: inline-block;
+    font-size: 14px;
+    padding-bottom: 22px;
+}
+
+.header__nav a:hover {
+    border-bottom: 3px solid black;
+    margin-bottom: -2px;
+    padding-bottom: 21px;
+}
+
+.header-nav__line{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+
+.footer {
+    background-color: black;
+    height: 363px;
+}
+
+.footer__container{
+    height: 100%;
+}
+
+.footer__column{
+    width: 255px;
+    margin-right: 30px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 34px 0 126px 0;
+    line-height: 1.3;
+    color: white;
+    font-size: 18px;
+}
+
+.footer__column a{
+    color: white;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.footer__column_first {
+    padding-bottom: 59px;
+}
+
+.footer__column_fourth {
+    margin: 0;
+    justify-content: flex-start;
+}
+
+.footer__link_46 {
+    height: 46px;
+}
+
+.footer__media-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 23px 0 47.4px 0;
+}
+
+
+.media-links__icon{
+    height: 23px;
+}
+
+.subscribe {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.subscribe__text {
+    font-size: 14px;
+    display: inline-block;
+    height: 55px;
+    margin: 19px 0 11px 0;
+}
+
+.subscribe__field {
+    height: 40px;
+    width: 215px;
+    outline: #9E9E9C 1px solid;
+    outline-offset: -1px;
+    border: none;
+    display: inline-block;
+}
+
+.subscribe__button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background-color: #7B7B7B;
+    background-image: url(assets/subscribe.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+}

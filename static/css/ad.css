@@ -1,0 +1,89 @@
+.ad {
+    width: 255px;
+    user-select: none;
+}
+
+.ad__img-container{
+    width: 255px;
+    height: 276px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ad__img {
+    width: 255px;
+    height: 276px;
+    z-index: 1;
+    display: block;
+}
+
+.ad__arrow {
+    position: absolute;
+    height: 100%;
+    width: 39px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    top: 0;
+}
+
+.ad__arrow img {
+    display: block;
+    height: 14px;
+    width: 7px;
+}
+
+.ad__arrow_right {
+    right: 0;
+}
+
+.ad__favourite-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+}
+
+.ad__favourite-icon img {
+    width: 14px;
+    height: 17.5px;
+}
+
+.ad__name-and-size {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 10px 0 2px 0;
+}
+
+.ad__name {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.ad__size {
+    font-size: 14px;
+}
+
+.ad__category {
+    font-size: 14px;
+    color: #797979;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    margin-bottom: 8px;
+}
+
+.ad__price {
+    font-size: 24px;
+}
+
+.ad__all-images {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: 2550px;
+}

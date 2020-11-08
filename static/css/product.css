@@ -1,0 +1,306 @@
+.main {
+    flex-direction: column;
+}
+.breadcrumbs {
+    display: flex;
+    margin: 26px 0 20px;
+}
+.breadcrumbs a, .product__date {
+    font-size: 12px;
+    color: #747474;
+    display: block;
+}
+
+.product__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.product__name, .product__price, .author__name {
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.product__price {
+    margin-bottom: 5px;
+}
+.product__name {
+    margin: 0 0 7px;
+}
+
+.product__price-and-size {
+    display: flex;
+    flex-direction: column;
+    width: 445px;
+}
+
+.product__size {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.product__photo-border {
+    width: 635px;
+    height: 568px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 5px;
+    user-select: none;
+}
+
+.product__arrow-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+    width: 37px;
+    height: 100%;
+    top: 0;
+}
+
+.product__arrow-div img {
+    width: 7px;
+    height: 14px;
+    display: block;
+}
+
+.product__arrow-div_left {
+    left: 0;
+}
+
+.product__arrow-div_right {
+    right: 0;
+}
+
+.product__all-photos {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 6350px; /* Блядский Firefox. Найдешь другой метод решения проблемы - дай знать. Пожму руку */
+    transition: transform 0.5s ease;
+}
+
+.product__all-photos img {
+    width: 635px;
+    display: block;
+    height: 568px;
+}
+
+.product__main {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.product__info {
+    display: flex;
+    flex-direction: column;
+    width: 445px;
+    flex-wrap: wrap;
+    min-height: 573px;
+}
+
+.product__author {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.author__name-and-reg-date {
+    display: flex;
+    flex-direction: column;
+    width: 345px;
+}
+
+.author__reg-date {
+    font-size: 14px;
+    margin-top: 9px;
+}
+
+.author__profile-photo {
+    display: block;
+    width: 58px;
+    height: 58px;
+    border-radius: 29px;
+    border: 1px solid gray;
+}
+
+.author__stat {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 17px;
+}
+
+.author__stat-item {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    font-size: 14px;
+}
+
+.author__rating {
+    width: 65px;
+}
+
+.product__rating-and-share {
+    height: 44px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    border-bottom: 0.5px solid black;
+    margin-top: 24px;
+}
+
+.product__share {
+    display: flex;
+    align-items: center;
+    width: 160px;
+    font-size: 14px;
+}
+.product__rating {
+    display: flex;
+    height: 21px;
+    width: 137px;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.product__rating input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.product__rating label{
+    display: block;
+    background-image: url(assets/star-empty.svg);
+    width: 21px;
+    height: 21px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.product__rating label:hover ~ label, label:hover, .product__rating input:checked + label ~ label, input:checked + label {
+    background-image: url(assets/star-filled.svg);
+}
+
+.product__share img {
+    margin-left: 32px;
+    height: 19px;
+}
+
+.stat__value {
+    font-size: 18px;
+}
+
+.description__intro {
+    font-size: 18px;
+    margin: 20px 0 12px;
+    display: block;
+}
+
+.description__text {
+    font-size: 15px;
+    line-height: 1.35;
+    margin-bottom: 20px;
+}
+
+.product__bottom-info-and-buttons {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin-top: auto;
+}
+
+.product__bottom-info {
+    font-size: 12px;
+    background-color: #f0f0f0;
+    padding: 7px 4px;
+    display: flex;
+    margin-bottom: 14px;
+}
+.bottom-info__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 35px;
+}
+.bottom-info__column_first {
+    width: 95px;
+}
+
+.bottom-info__column_second {
+    width: 345px;
+}
+
+.product__button {
+    height: 39px;
+    font-size: 16px;
+}
+
+.product__button_color_white{
+    margin-bottom: 16px;
+}
+
+.product__button_color_black {
+    background-color: black;
+    color: white;
+}
+
+.show-all {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.show-all__header {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.show-all__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 165px;
+}
+
+.show-all__text {
+    font-size: 18px;
+    color: #747474;
+}
+
+.show-all__arrow {
+    width: 25px;
+}
+
+.ads {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.ads .ad {
+    margin-bottom: 30px;
+}
+
+.product__add-to-fav {
+    width: 17px;
+    height: 20px;
+    position: absolute;
+    top: 4px;
+    right: 0;
+}

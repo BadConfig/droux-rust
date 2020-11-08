@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="ad.css">
+    <link rel="stylesheet" href="search.css">
+<!--    <link rel="stylesheet" href="filters.css">-->
+</head>
+<body>
+    <header class="header">
+        <div class="services">
+            <div class="container services__container">
+                <div class="services__item">
+                    <img src="assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
+                    <span>Безопасная сделка</span>
+                </div>
+                <div class="services__item">
+                    <img src="assets/delivery.svg" alt="Иконка доставки" class="services__icon">
+                    <span>Бесплатная доставка</span>
+                </div>
+                <div class="services__item">
+                    <img src="assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
+                    <span>Экспертиза на подлинность</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-base__line">
+            <div class="container header__base">
+                <form class="header__search">
+                    <div class="search__field">
+                        <label for="header-search">
+                            <img src="assets/search.svg" alt="Иконка поиска" class="search__icon">
+                        </label>
+                        <input class="search__input" type="search" id="header-search" placeholder="Поиск по товарам">
+                    </div>
+                    <input class="search__button button" type="submit" value="Найти">
+                </form>
+                <div class="header__logo">
+                    <img src="assets/droux-logo.svg" alt="Логотип Droux">
+                </div>
+                <div class="header__buttons">
+                    <a href="" class="button sell__button">Продать</a>
+                    <img src="assets/chat.svg" alt="Иконка чата" class="buttons__icon">
+                    <img src="assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
+                    <span>Войти</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav__line">
+            <nav class="header__nav">
+                <a href="">ВЫБОР DROUX</a>
+                <a href="">НОВИНКИ</a>
+                <a href="">БРЕНДЫ</a>
+                <a href="">ОДЕЖДА</a>
+                <a href="">ОБУВЬ</a>
+                <a href="">СУМКИ</a>
+                <a href="">АКСЕССУАРЫ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main">
+        <div class="sort-by">
+            <span>Сортировать:</span>
+            <input type="radio" class="sort-by__variant" name="sort-by" id="date" checked>
+            <label for="date">по дате</label>
+            <input type="radio" class="sort-by__variant" name="sort-by" id="price-up">
+            <label for="price-up">по возрастанию цены</label>
+            <input type="radio" class="sort-by__variant" name="sort-by" id="price-down">
+            <label for="price-down">по убыванию цены</label>
+            <input type="radio" class="sort-by__variant" name="sort-by" id="popularity">
+            <label for="popularity">по популярности</label>
+            <label for="date" class="sort-by__discard">Сбросить</label>
+        </div>
+        <aside class="filters">
+
+            <div class="filters__sector filters__sector_sex">
+                <div class="filters__sector-header">
+                    <span>Категории</span>
+                    <img src="assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <form class="filters__sector-options">
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="men" id="men">
+                            <label for="men">Мужчины</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="women" id="women">
+                            <label for="women">Женщины</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="filters__sector filters__sector_category">
+                <div class="filters__sector-header">
+                    <span>Категория</span>
+                    <img src="assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <form class="filters__sector-options">
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="clothing" id="clothing">
+                            <label for="clothing">Одежда</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="footwear" id="footwear">
+                            <label for="footwear">Обувь</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="outwear" id="outwear">
+                            <label for="outwear">Верхняя одежда</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="accessories" id="accessories">
+                            <label for="accessories">Аксессуары</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="filters__sector filters__sector_type">
+                <div class="filters__sector-header">
+                    <span>Вид</span>
+                    <img src="assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <form class="filters__sector-options">
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="bodies" id="bodies">
+                            <label for="bodies">Боди</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="trousers" id="trousers">
+                            <label for="trousers">Брюки</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="type_outwear" id="type_outwear">
+                            <label for="type_outwear">Верхняя одежда</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="turtlenecks" id="turtlenecks">
+                            <label for="turtlenecks">Водолазки</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="filters__sector filters__sector_brand">
+                <div class="filters__sector-header">
+                    <span>Бренды</span>
+                    <img src="assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <input type="text" placeholder="Искать" class="filters__search-field">
+                    <form class="filters__sector-options">
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="adidas" id="adidas">
+                            <label for="adidas">ADIDAS</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="asicks" id="asicks">
+                            <label for="asicks">ASICKS</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="armani" id="armani">
+                            <label for="armani">ARMANI</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="bordur" id="bordur">
+                            <label for="bordur">BORDUR</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="chingchong" id="chingchong">
+                            <label for="chingchong">CHINGCHONG</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="dandy" id="dandy">
+                            <label for="dandy">DANDY</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="ernie-ball" id="ernie-ball">
+                            <label for="ernie-ball">ERNIE BALL</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="fuck-this" id="fuck-this">
+                            <label for="fuck-this">FUCK THIS</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="gender-2" id="gender-2">
+                            <label for="gender-2">GENDER 2</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="howdy-hu" id="howdy-hu">
+                            <label for="howdy-hu">HOWDY HU</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="iiiiiiiii" id="iiiiiiiii">
+                            <label for="iiiiiiiii">IIIIIIIII</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="jojo" id="jojo">
+                            <label for="jojo">JOJO</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="kkk" id="kkk">
+                            <label for="kkk">KKK</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="louis-vuitton" id="louis-vuitton">
+                            <label for="louis-vuitton">LOUIS VUITTON</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="mother-of-yours" id="mother-of-yours">
+                            <label for="mother-of-yours">MOTHER OF YOURS</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="n*gger" id="n*gger">
+                            <label for="n*gger">N*GGER</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="filters__sector filters__sector_size">
+                <div class="filters__sector-header">
+                    <span>Размер</span>
+                    <img src="assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <input type="text" placeholder="Искать" class="filters__search-field">
+                    <form class="filters__sector-options">
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="1" id="1">
+                            <label for="1">1</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="2" id="2">
+                            <label for="2">2</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="3" id="3">
+                            <label for="3">3</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="4" id="4">
+                            <label for="4">4</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="5" id="5">
+                            <label for="5">5</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="6" id="6">
+                            <label for="6">6</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="7" id="7">
+                            <label for="7">7</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="8" id="8">
+                            <label for="8">8</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="10" id="10">
+                            <label for="10">10</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="11" id="11">
+                            <label for="11">11</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="12" id="12">
+                            <label for="12">12</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="13" id="13">
+                            <label for="13">13</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="14" id="14">
+                            <label for="14">14</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="15" id="15">
+                            <label for="15">15</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="16" id="16">
+                            <label for="16">16</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="17" id="17">
+                            <label for="17">17</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="filters__sector filters__sector_condition">
+                <div class="filters__sector-header">
+                    <span>Состояние</span>
+                    <img src="assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <form class="filters__sector-options">
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="new-with-tag" id="new-with-tag">
+                            <label for="new-with-tag">Новое с биркой</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="new-no-tag" id="new-no-tag">
+                            <label for="new-no-tag">Новое без бирки</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="wore-once" id="wore-once">
+                            <label for="wore-once">Надевалось один раз</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="wore" id="wore">
+                            <label for="wore">Надевалось несколько раз</label>
+                        </div>
+                        <div class="filters__checkbox-div">
+                            <input type="checkbox" value="has-defects" id="has-defects">
+                            <label for="has-defects">Есть дефекты</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </aside>
+        <div class="search-results">
+
+            <div class="ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/male.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Мужчина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Человеки</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="part__ad ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/female.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Женщина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Людыны</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/male.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Мужчина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Человеки</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="part__ad ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/female.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Женщина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Людыны</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/male.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Мужчина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Человеки</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="part__ad ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/female.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Женщина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Людыны</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/male.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Мужчина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Человеки</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="part__ad ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/female.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Женщина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Людыны</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/male.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Мужчина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Человеки</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="part__ad ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/female.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Женщина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Людыны</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/male.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Мужчина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Человеки</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="part__ad ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/female.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Женщина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Людыны</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/male.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Мужчина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Человеки</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+
+            <div class="part__ad ad"> <!--Объявление целиком-->
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                    <div class="ad__arrow ad__arrow_left">
+                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                    </div>
+                    <div class="ad__all-images"> <!--Все фото в линию-->
+                        <img src="assets/female.jpg" alt="" class="ad__img">
+                        <img src="assets/female.jpg" alt="" class="ad__img">
+                        <img src="assets/female.jpg" alt="" class="ad__img">
+                    </div>
+                    <div class="ad__arrow ad__arrow_right">
+                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                    </div>
+                    <div class="ad__favourite-icon">
+                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                    </div>
+                </div>
+                <div class="ad__name-and-size">
+                    <h3 class="ad__name">Женщина</h3>
+                    <span class="ad__size">49.5 EUR</span>
+                </div>
+                <div class="ad__category">Людыны</div>
+                <div class="ad__price">69 000 руб.</div>
+            </div>
+
+        </div>
+
+    </main>
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__column footer__column_first">
+                <a href="" class="footer__link footer__link_46">Пользовательское соглашение</a>
+                <a href="" class="footer__link footer__link_46">Безопасная сделка</a>
+                <a href="">Помощь и поддержка</a>
+                <a href="">Критерии отбора публикаций</a>
+            </div>
+            <div class="footer__column footer__column_second">
+                <a href="" class="footer__link footer__link_46">Политика конфиденциальности</a>
+                <a href="" class="footer__link footer__link_46">Правила безопасной сделки</a>
+                <a href="">FAQ</a>
+            </div>
+            <div class="footer__column footer__column_third">
+                <a href="" class="footer__link footer__link_46">Правила оказания услуг</a>
+                <a href="" class="footer__link footer__link_46">Контакты</a>
+                <a href="">Новости</a>
+            </div>
+            <div class="footer__column footer__column_fourth">
+                <span>Мы в соц. сетях</span>
+                <div class="footer__media-links">
+                    <a href=""><img src="assets/youtube.svg" alt="Иконка YouTube" class="media-links__icon"></a>
+                    <a href=""><img src="assets/vk.svg" alt="Иконка VK" class="media-links__icon"></a>
+                    <a href=""><img src="assets/facebook.svg" alt="Иконка Facebook" class="media-links__icon"></a>
+                    <a href=""><img src="assets/instagram.svg" alt="Иконка Instagram" class="media-links__icon"></a>
+                    <a href=""><img src="assets/telegram.svg" alt="Иконка Telegram" class="media-links__icon"></a>
+                </div>
+                <span>Подписка на новости</span>
+                <label class="subscribe__text" for="footer-subscribe">Получайте все самые последние новости о мероприятиях.</label>
+                <form class="subscribe">
+                    <input type="text" class="subscribe__field" id="footer-subscribe">
+                    <input type="submit" value="" class="button subscribe__button">
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script src="ad-carousel.js"></script>
+    <script src="hide-sector.js"></script>
+    <script src="search-filter.js"></script>
+</body>
+</html>

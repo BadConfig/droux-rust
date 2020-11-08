@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+.main {
+    flex-wrap: wrap;
+}
+
+.sort-by {
+    font-family: Montserrat, Helvetica, Roboto, Arial, sans-serif;
+    color: #747474;
+    width: 100%;
+    margin: 29px 0 33px 0;
+    font-size: 14px;
+
+}
+
+.sort-by label {
+    cursor: pointer;
+}
+
+.sort-by__discard, .sort-by span {
+    font-weight: 500;
+    color: black;
+}
+
+.sort-by span {
+    margin-right: 31px;
+}
+
+.sort-by label:not(.sort-by__discard):not(:nth-last-child(2)) {
+    margin-right: 25px;
+}
+
+.sort-by input:checked + label {
+    color: black;
+    text-decoration: underline;
+}
+
+.sort-by input {
+    position: absolute;
+    visibility: hidden;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    cursor: none;
+}
+
+.sort-by__discard {
+    float: right;
+}
+
+.search-results {
+    width: 855px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-results .ad{
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
