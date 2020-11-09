@@ -90,8 +90,8 @@ pub struct ProductCard {
     pub id: i32,
     #[sql_type="Text"]
     pub title: String,
-    #[sql_type="Text"]
-    pub price: String,
+    #[sql_type="Integer"]
+    pub price: i32,
     #[sql_type="Bool"]
     pub is_in_favourites: bool,
     #[sql_type="Text"]

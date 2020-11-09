@@ -1,5 +1,7 @@
 {% extends "main" %}
-{% block body %}
+
+
+{% block main %}
 
 <form method='POST' url='/product/create' enctype='multipart/form-data'>
 
@@ -59,4 +61,4 @@
 
 </form>
  
-{% endblock body %}
+{% endblock main %}

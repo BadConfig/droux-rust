@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-        #image: badconfig/site
+    image: badconfig/droux:0.1
     container_name: app
     tty: true
     working_dir: /app

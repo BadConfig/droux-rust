@@ -66,10 +66,18 @@ a {
 
 }
 
+.plaintext-only {
+    height: 40px;
+}
+
 .search__input, .search__input:active{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     border: none;
     outline: 0;
     padding: 0;
+    line-height: 20px;
 }
 
 .search__icon {
@@ -213,6 +221,11 @@ a {
     display: flex;
     justify-content: space-between;
     margin: 23px 0 47.4px 0;
+    height: 23px;
+}
+
+.footer__media-links a {
+    height: 23px;
 }
 
 
@@ -249,7 +262,7 @@ a {
     height: 40px;
     border: 0;
     background-color: #7B7B7B;
-    background-image: url(assets/subscribe.svg);
+    background-image: url(../assets/subscribe.svg);
     background-repeat: no-repeat;
     background-position: center;
 }

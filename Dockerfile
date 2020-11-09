@@ -45,6 +45,7 @@ RUN apt-get update && \
 
 RUN cargo install diesel_cli --no-default-features --features postgres
 RUN cargo install cargo-watch
+#RUN diesel migration run
 EXPOSE 5555
 COPY . /app/
 WORKDIR /app/
@@ -53,4 +54,4 @@ RUN rustup default nightly
 
 RUN cargo clean
 RUN cargo build
-RUN cargo run --bin webapp
+CMD diesel migration run && cargo run

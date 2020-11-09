@@ -49,7 +49,7 @@
     margin-top: 10px;
     align-items: start;
     align-content: start;
-    background-image: url(assets/buttons-bg.jpg);
+    background-image: url(../assets/buttons-bg.jpg);
     background-size: 115%;
     background-position: -70px -100px;
     flex-wrap: wrap;
