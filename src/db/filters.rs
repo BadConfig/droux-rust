@@ -8,7 +8,6 @@ use serde::{
     Serialize,
     Deserialize,
 };
-
 use crate::models::product::*;
 
 pub fn get_filter_context(ctx: &mut Context, conn: &PgConnection) {
@@ -22,11 +21,6 @@ pub fn get_filter_context(ctx: &mut Context, conn: &PgConnection) {
     ctx.insert("ProductCategories", &get_category_list(conn));
 
 }
-
-
-
-
-
 
 pub fn get_brands(conn: &PgConnection) ->  Vec<Brand> {
 
