@@ -1,51 +1,87 @@
-    <header class="header">
-        <div class="services">
-            <div class="container services__container">
-                <div class="services__item">
-                    <img src="/static/assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
-                    <span>Безопасная сделка</span>
-                </div>
-                <div class="services__item">
-                    <img src="/static/assets/delivery.svg" alt="Иконка доставки" class="services__icon">
-                    <span>Бесплатная доставка</span>
-                </div>
-                <div class="services__item">
-                    <img src="/static/assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
-                    <span>Экспертиза на подлинность</span>
-                </div>
+<header class="header">
+    <div class="services">
+        <div class="container services__container">
+            <div class="services__item">
+                <img src="/static/assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
+                <span>Безопасная сделка</span>
+            </div>
+            <div class="services__item">
+                <img src="/static/assets/delivery.svg" alt="Иконка доставки" class="services__icon">
+                <span>Бесплатная доставка</span>
+            </div>
+            <div class="services__item">
+                <img src="/static/assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
+                <span>Экспертиза на подлинность</span>
             </div>
         </div>
-        <div class="header-base__line">
-            <div class="container header__base">
-                <form class="header__search">
-                    <div class="search__field">
-                        <label for="header-search">
-                            <img src="/static/assets/search.svg" alt="Иконка поиска" class="search__icon">
-                        </label>
-                        <input class="search__input" type="search" id="header-search" placeholder="Поиск по товарам">
-                    </div>
-                    <input class="search__button button" type="submit" value="Найти">
-                </form>
-                <div class="header__logo">
-                    <img src="/static/assets/droux-logo.svg" alt="Логотип Droux">
+    </div>
+    <div class="header-base__line">
+        <div class="container header__base">
+            <form class="header__search">
+                <div class="search__field">
+                    <label for="header-search">
+                        <img src="/static/assets/search.svg" alt="Иконка поиска" class="search__icon">
+                    </label>
+                    <input class="search__input" type="search" id="header-search" placeholder="Поиск по товарам">
                 </div>
-                <div class="header__buttons">
-                    <a href="product/create" class="button sell__button">Продать</a>
-                    <img src="/static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
-                    <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
-                    <span>Войти</span>
-                </div>
+                <input class="search__button button" type="submit" value="Найти">
+            </form>
+            <div class="header__logo">
+                <img src="/static/assets/droux-logo.svg" alt="Логотип Droux">
+            </div>
+            <div class="header__buttons">
+                <a href="product/create" class="button sell__button">Продать</a>
+                <img src="/static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
+                <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
+                <span>Войти</span>
             </div>
         </div>
-        <div class="header-nav__line">
-            <nav class="header__nav">
-                <a href="">ВЫБОР DROUX</a>
-                <a href="">НОВИНКИ</a>
-                <a href="">БРЕНДЫ</a>
-                <a href="">ОДЕЖДА</a>
-                <a href="">ОБУВЬ</a>
-                <a href="">СУМКИ</a>
-                <a href="">АКСЕССУАРЫ</a>
-            </nav>
+    </div>
+    <div class="header-nav__line">
+        <nav class="header__nav">
+            <a href="">ВЫБОР DROUX</a>
+            <a href="">НОВИНКИ</a>
+            <a href="">БРЕНДЫ</a>
+            <a href="">ОДЕЖДА</a>
+            <a href="">ОБУВЬ</a>
+            <a href="">СУМКИ</a>
+            <a href="">АКСЕССУАРЫ</a>
+        </nav>
+    </div>
+    <div class="authorizer authorizer__background">
+        <div class="authorizer__window">
+            <div class="authorizer__choice">
+                <input type="radio" name="auth" id="sign-in" checked>
+                <label for="sign-in">Войти</label>
+                <input type="radio" name="auth" id="sign-up">
+                <label for="sign-up">Создать аккаунт</label>
+            </div>
+            <form class="authorizer__form_sign-in authorizer__form authorizer__form_visible">
+                <label for="sign-in__login">Логин</label>
+                <input type="text" id="sign-in__login">
+                <label for="sign-in__password">Пароль</label>
+                <input type="password" id="sign-in__password">
+                <div class="sign-in__remember-and-forget">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me" class="authorizer__checkbox-label">Запомнить меня</label>
+                    <a href="">Забыли пароль?</a>
+                </div>
+                <input type="submit" class="button sign-in__button" value="Войти">
+                <label for="sign-up" class="sign-in__not-a-label">Не зарегистрированы на Droux? Создайте аккаунт</label>
+            </form>
+            <form class="authorizer__form_sign-up authorizer__form">
+                <label for="sign-up__login">Логин</label>
+                <input type="text" id="sign-up__login">
+                <label for="sign-up__email">Адрес электронной почты</label>
+                <input type="text" id="sign-up__email">
+                <label for="sign-up__password">Пароль</label>
+                <input type="password" id="sign-up__password">
+                <label for="sign-up__repeat-password">Повторите пароль</label>
+                <input type="password" id="sign-up__repeat-password">
+                <input type="checkbox" id="accept-rules">
+                <label for="accept-rules" class="authorizer__checkbox-label" id="sign-up__checkbox"><span>Я принимаю условия <a href="">Пользовательского соглашения</a></span></label>
+                <input type="submit" class="button sign-up__button" value="Зарегистрироваться">
+            </form>
         </div>
-    </header>
+    </div>
+</header>
