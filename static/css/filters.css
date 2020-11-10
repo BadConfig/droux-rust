@@ -116,6 +116,6 @@
     cursor: pointer;
 }
 
-.filters__checkbox-div input[type=checkbox]:checked + label::before, .filters__checkbox-div input[type=radio]:checked + label::before {
+.filters__checkbox-div input[type=radio]:checked + label::before {
     background-image: url('assets/check.svg');
 }

@@ -20,6 +20,33 @@ a {
     color: black;
 }
 
+input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+input[type=checkbox] + label::before {
+    display: block;
+    border: 1px solid black;
+    width: 14px;
+    height: 14px;
+    content: "";
+    align-self: center;
+    background-size: 90% 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+input[type=checkbox]:checked + label::before {
+    background-image: url('assets/check.svg');
+}
+
+input[type=checkbox] + label {
+    display: flex;
+    align-items: center;
+}
+
 .container {
     display: flex;
     width: 1140px;
@@ -253,3 +280,124 @@ a {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.authorizer {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    z-index: 15;
+    display: none;
+}
+
+.authorizer_visible {
+    display: block;
+}
+
+.authorizer__window {
+    width: 410px;
+    margin: 122px auto 0;
+    background-color: #fff;
+    padding: 34px 29px 37px;
+}
+
+.authorizer__choice {
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #747474;
+}
+
+.authorizer__choice input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.authorizer__choice input + label {
+    border-bottom: 3px solid white;
+    padding-bottom: 5px;
+    font-size: 18px;
+    color: #747474;
+    cursor: pointer;
+}
+
+.authorizer__choice input:checked + label {
+    color: black;
+    border-color: black;
+}
+
+.authorizer__form {
+    display: none;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.authorizer__form_visible {
+    display: flex;
+}
+
+.authorizer__form input:not([type=checkbox]) {
+    width: 100%;
+    min-height: 40px;
+    border: 1px solid black;
+}
+
+.authorizer__form input[type=submit] {
+    background-color: black;
+    color: white;
+    font-size: 18px;
+}
+
+.authorizer__form label {
+    margin: 20px 0 10px;
+}
+
+.sign-in__remember-and-forget {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 35px;
+}
+
+.authorizer__form .authorizer__checkbox-label {
+    margin: 0;
+    cursor: pointer;
+}
+
+.authorizer__checkbox-label::before {
+    margin-right: 10px;
+}
+
+.sign-in__remember-and-forget a {
+    color: #747474;
+}
+
+.authorizer__form .sign-in__not-a-label {
+    text-decoration: underline;
+    margin: 17px 0 0;
+    cursor: pointer;
+}
+
+#sign-up__checkbox {
+    font-size: 13px;
+    margin: 19px 0 40px;
+}
+
+#sign-up__checkbox::before {
+    margin-right: 7px;
+}
+
+#sign-up__checkbox a {
+    text-decoration: underline;
+}
+
+.sign-up__button {
+    margin-bottom: 11px;
+}
+
+#auth-button {
+    cursor: pointer;
+}
+
