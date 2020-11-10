@@ -20,11 +20,11 @@
         <div class="footer__column footer__column_fourth">
             <span>Мы в соц. сетях</span>
             <div class="footer__media-links">
-                <a href=""><img src="static/assets/youtube.svg" alt="Иконка YouTube" class="media-links__icon"></a>
-                <a href=""><img src="static/assets/vk.svg" alt="Иконка VK" class="media-links__icon"></a>
-                <a href=""><img src="static/assets/facebook.svg" alt="Иконка Facebook" class="media-links__icon"></a>
-                <a href=""><img src="static/assets/instagram.svg" alt="Иконка Instagram" class="media-links__icon"></a>
-                <a href=""><img src="static/assets/telegram.svg" alt="Иконка Telegram" class="media-links__icon"></a>
+                <a href=""><img src="/static/assets/youtube.svg" alt="Иконка YouTube" class="media-links__icon"></a>
+                <a href=""><img src="/static/assets/vk.svg" alt="Иконка VK" class="media-links__icon"></a>
+                <a href=""><img src="/static/assets/facebook.svg" alt="Иконка Facebook" class="media-links__icon"></a>
+                <a href=""><img src="/static/assets/instagram.svg" alt="Иконка Instagram" class="media-links__icon"></a>
+                <a href=""><img src="/static/assets/telegram.svg" alt="Иконка Telegram" class="media-links__icon"></a>
             </div>
             <span>Подписка на новости</span>
             <label class="subscribe__text" for="footer-subscribe">Получайте все самые последние новости о мероприятиях.</label>

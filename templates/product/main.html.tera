@@ -1,19 +1,164 @@
 {% extends "main" %}
-{# {% import "product/instance.html" as gen_product %} #}
-{% block body %}
-  {{ product }}
-  <p>title - {{ product.title }}</p>
-    <p>price - {{ product.price }}</p>
-    <p>cat - {{ product.category_name }}</p>
-    <p>created at - {{ product.create_datetime }}</p>
-    {% for url in product.pictures %}
-        <img src="/{{ url }}">
-    {% endfor %}
+{% block head %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/ad.css">
+    <link rel="stylesheet" href="/static/css/product.css">
+    <title>Title</title>
+{% endblock head %}
+{% block main %}  
+    <main class="container main">
+        <div class="breadcrumbs">
+            <a href="">{{ product.type_name }}/</a>
+            <a href="">{{ product.category_name }}/</a>
+            <a href="">{{ product.sub_category_name }}</a>
+        </div>
+        <div class="product">
+            <div class="product__top">
+                <div class="product__name-and-date">
+                    <h1 class="product__name">Мужчина</h1>
+                    <span class="product__date">Опубликовано {{ product.create_datetime | date }}</span>
+                </div>
+                <div class="product__price-and-size">
+                    <span class="product__price">
+                        {{ product.price }}
+                    </span>
+                    <span class="product__size">
+                        {{ product.size_name }}
+                    </span>
+                </div>
+                <img src="/static/assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav">
+            </div>
+            <div class="product__main">
+                <div class="product__photo-border">
+                    <div class="product__arrow-div product__arrow-div_left">
+                        <img src="/static/assets/arrow-left.svg" alt="Иконка перелистывания фото товара влево">
+                    </div>
+                    <div class="product__all-photos">
+                    {% for img_url in product.pictures %}
+                        <img src="/{{ img_url }}" alt="">
+                    {% endfor %}
 
-<form action="/chat/create" method="POST" >
-<input type="hidden" name="other_id" value="{{ product.seller_id }}">
-<input type="hidden" name="product_id" value="{{ product.id }}">
-  <p> чат с продавцом <input type="submit"></p>
-</form>
- 
-{% endblock body %}
+                    </div>
+                    <div class="product__arrow-div product__arrow-div_right">
+                        <img src="/static/assets/arrow-right.svg" alt="Иконка перелистывания фото товара вправо">
+                    </div>
+                </div>
+                <div class="product__info">
+                    <div class="product__author">
+                        <div class="author__name-and-reg-date">
+                            <span class="author__name">Продавец {{ seller.username }}</span>
+                            <span class="author__reg-date">На Droux с {{ seller.register_data | date }}</span>
+                        </div>
+                        <img src="/static/profile_pictures/{{seller.picture_path}}" alt="" class="author__profile-photo">
+                        <div class="author__stat">
+                            <div class="author__rating author__stat-item">
+                                <span class="stat__value">
+                                {% if seller.rate_count == 0 %}
+                                {{ seller.rate_summ }}
+                                {% else %}
+                                {{ seller.rate_summ / seller.rate_count }}
+                                {% endif %}
+                                </span>
+                                <span>рейтинг</span>
+                            </div>
+                            <div class="author__deals author__stat-item">
+                                <span class="stat__value">0</span>
+                                <span>безопасные продажи</span>
+                            </div>
+                            <div class="author__active-ads author__stat-item">
+                                <span class="stat__value">1</span>
+                                <span>активные объявления</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product__rating-and-share">
+                        <div class="product__rating">
+                            <input type="radio" name="product-rating" value="5" id="product-rating_5">
+                            <label for="product-rating_5"></label>
+
+                            <input type="radio" name="product-rating" value="4" id="product-rating_4">
+                            <label for="product-rating_4"></label>
+
+                            <input type="radio" name="product-rating" value="3" id="product-rating_3">
+                            <label for="product-rating_3"></label>
+
+                            <input type="radio" name="product-rating" value="2" id="product-rating_2">
+                            <label for="product-rating_2"></label>
+
+                            <input type="radio" name="product-rating" value="1" id="product-rating_1">
+                            <label for="product-rating_1"></label>
+                        </div>
+                        <div class="product__share">
+                            <span>Поделиться:</span>
+                            <img src="/static/assets/vk-filled.svg" alt="Иконка поделиться ВК">
+                        </div>
+                    </div>
+                    <div class="product__description">
+                        <span class="description__intro">Описание вещи от продавца:</span>
+                        <div class="description__text">
+                            {{ product.descr }}
+                        </div>
+                    </div>
+                    <div class="product__bottom-info-and-buttons">
+                        <div class="product__bottom-info">
+                            <div class="bottom-info__column bottom-info__column_first">
+                                <span>Откуда:</span>
+                                <span>Состояние:</span>
+                            </div>
+                            <div class="bottom-info__column bottom-info__column_second">
+                                <span>{{ product.location }}</span>
+                                <span>{{ product.state_name }}</span>
+                            </div>
+                        </div>
+                        <a href="/chat/" class="button product__button product__button_color_white">
+                            Чат с продавцом
+                        </a>
+                        <a href="" class="button product__button product__button_color_black">
+                            Купить с доставкой
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="show-all show-all_new-ads">
+            <h2 class="show-all__header">Новые объявления</h2>
+            <a href=""><div class="show-all__button">
+                <span class="show-all__text">Показать все</span>
+                <img src="/static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
+            </div></a>
+        </div>
+        <div class="ads">
+            {% for ad in most_viewed_products %}
+                <div class="part__ad ad"> <!--Объявление целиком-->
+                    <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                        <div class="ad__arrow ad__arrow_left">
+                            <img src="/static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        </div>
+                        <div class="ad__all-images"> <!--Все фото в линию-->
+                        {% for pic_url in ad.pictures %}
+                            <img src="/{{pic_url}}" alt="" class="ad__img">
+                        {% endfor %}
+                        </div>
+                        <div class="ad__arrow ad__arrow_right">
+                            <img src="/static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        </div>
+                        <div class="ad__favourite-icon">
+                            <img src="/static/assets/favourite.svg" alt="Иконка избранного">
+                        </div>
+                    </div>
+                    <div class="ad__name-and-size">
+                        <h3 class="ad__name">{{ ad.title }}</h3>
+                        <span class="ad__size">{{ ad.size_name }}</span>
+                    </div>
+                    <div class="ad__category">{{ ad.category_name }}</div>
+                    <div class="ad__price">{{ ad.price }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock main %}
+{% block scripts %}
+    <script src="ad-carousel.js"></script>
+    <script src="product-carousel.js"></script>
+{% endblock scripts %}

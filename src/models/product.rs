@@ -127,7 +127,7 @@ pub struct SearchForm {
 
 impl ProductCard {
 
-    pub fn get_most_viewed(user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
+    pub fn get_most_viewed(limit: i32, user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
         
         use diesel::sql_types::{
             Nullable,
@@ -136,6 +136,7 @@ impl ProductCard {
 
         diesel::sql_query(include_str!("../../SQL/select_top_views.sql"))
             .bind::<Nullable<Integer>, _>(user_id)
+            .bind::<Nullable<Integer>, _>(limit)
             .load::<ProductCard>(conn)
             .expect("diesel database error ProductCard::get_most_viewed(conn: &PgConnection)")
 

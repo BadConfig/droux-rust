@@ -15,15 +15,15 @@
         <div class="services">
             <div class="container services__container">
                 <div class="services__item">
-                    <img src="static/assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
+                    <img src="/static/assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
                     <span>Безопасная сделка</span>
                 </div>
                 <div class="services__item">
-                    <img src="static/assets/delivery.svg" alt="Иконка доставки" class="services__icon">
+                    <img src="/static/assets/delivery.svg" alt="Иконка доставки" class="services__icon">
                     <span>Бесплатная доставка</span>
                 </div>
                 <div class="services__item">
-                    <img src="static/assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
+                    <img src="/static/assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
                     <span>Экспертиза на подлинность</span>
                 </div>
             </div>
@@ -33,19 +33,19 @@
                 <form class="header__search">
                     <div class="search__field">
                         <label for="header-search">
-                            <img src="static/assets/search.svg" alt="Иконка поиска" class="search__icon">
+                            <img src="/static/assets/search.svg" alt="Иконка поиска" class="search__icon">
                         </label>
                         <input class="search__input" type="search" id="header-search" placeholder="Поиск по товарам">
                     </div>
                     <input class="search__button button" type="submit" value="Найти">
                 </form>
                 <div class="header__logo">
-                    <img src="static/assets/droux-logo.svg" alt="Логотип Droux">
+                    <img src="/static/assets/droux-logo.svg" alt="Логотип Droux">
                 </div>
                 <div class="header__buttons">
                     <a href="product/create" class="button sell__button">Продать</a>
-                    <img src="static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
-                    <img src="static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
+                    <img src="/static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
+                    <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
                     <span>Войти</span>
                 </div>
             </div>

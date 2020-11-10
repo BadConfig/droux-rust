@@ -22,17 +22,15 @@ FROM products AS pr
 	JOIN categories AS c2 
 		ON c2.id = sc.category_id
 	LEFT JOIN favourites AS fv 
-		ON fv.product_id = pr.id AND fv.user_id IS NOT NULL AND fv.user_id = $1
+		ON fv.product_id = pr.id AND fv.user_id = $1
 	JOIN sizes AS sz 
 		ON sz.id = pr.size_id
-    LEFT JOIN views AS vws 
-        ON vws.product_id = pr.id
     LEFT JOIN deleted_posts AS delp
         ON delp.post_id = pr.id
     JOIN users AS u2 
-    	ON u2.id = pr.seller_id 
+    	ON u2.id = pr.seller_id
 WHERE
 	delp.post_id IS NULL
 ORDER BY 
-    vws.count
-LIMIT $2;
+    pr.create_datetime
+LIMIT 8;
