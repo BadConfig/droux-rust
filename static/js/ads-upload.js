@@ -7,8 +7,10 @@ function checkAndAdd() {
     if (currentBottom < document.documentElement.clientHeight + 450) {
         portions+=1;
         let request = new XMLHttpRequest();
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         let body ='limit=12&offset=' + String(portions * 12);
         request.open("POST", '/filters/lots', true);
         request.send(body)
+        console.log('her');
     }
 }
