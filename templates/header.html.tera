@@ -1,16 +1,3 @@
-<ul>
-<h1> droux </h1>
-{% if is_logged %}
-<a href="/logout">выйти</a>
-<p>{{ user.username }}</p>
-<img src="/static/profile_pictures/{{ user.picture_path }}">
-<a href="/chat">чат</a>
-<a href="/product/create">create new product</a>
-{% else %}
-<a href="/login">войти</a>
-<a href="/register">зарегистрироваться</a>
-{% endif %}
-</ul>
     <header class="header">
         <div class="services">
             <div class="container services__container">
