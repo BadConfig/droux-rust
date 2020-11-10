@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="ad__all-images"> <!--Все фото в линию-->
                                 {% for pic_url in ad.pictures %}
-                                    <img src="{{pic_url}}" alt="" class="ad__img">
+                                    <img src="/{{pic_url}}" alt="" class="ad__img">
                                 {% endfor %}
                                 </div>
                                 <div class="ad__arrow ad__arrow_right">
