@@ -45,6 +45,7 @@ table! {
     deleted_posts (id) {
         id -> Int4,
         post_id -> Int4,
+        delete_type -> Varchar,
     }
 }
 
@@ -127,6 +128,7 @@ table! {
         seller_id -> Int4,
         stars -> Int2,
         comment -> Varchar,
+        feedback_type -> Varchar,
     }
 }
 

@@ -1,0 +1,11 @@
+{% extends "users/me_main" %}
+{% block page_content %}
+<h1>all chat content</h1>
+<ul>
+{% for person in people_list %}
+<li style="{% if not person.is_read %}
+        font-color: red;
+    {% endif %}"> <a href="/chat/{{ person.product_id }}/{{ person.id }}">{{ person.username }} </a> </li>
+{% endfor %}
+</ul>
+{% endblock page_content%}

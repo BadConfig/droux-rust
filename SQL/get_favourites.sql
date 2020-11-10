@@ -25,12 +25,13 @@ FROM products AS pr
 		ON fv.product_id = pr.id AND $1 IS NOT NULL AND fv.user_id = $1
 	JOIN sizes AS sz 
 		ON sz.id = pr.size_id
+    LEFT JOIN views AS vws 
+        ON vws.product_id = pr.id
     LEFT JOIN deleted_posts AS delp
         ON delp.post_id = pr.id
     JOIN users AS u2 
-    	ON u2.id = pr.seller_id
+    	ON u2.id = pr.seller_id 
 WHERE
-	delp.post_id IS NULL
+	delp.post_id IS NULL AND fv.id IS NOT NULL
 ORDER BY 
-    pr.create_datetime
-LIMIT 20;
+    pr.title

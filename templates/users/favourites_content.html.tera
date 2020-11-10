@@ -1,0 +1,9 @@
+{% extends "users/me_main" %}
+{% block page_content %}
+<h1>my favourites</h1>
+{% for ad in favourite_products %}
+ {{ ad.title }}
+    ad
+{% endfor %}
+       
+{% endblock page_content%}

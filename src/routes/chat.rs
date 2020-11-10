@@ -24,7 +24,7 @@ pub fn get_chat_messages(user: CommonUser, user_id: i32, prod_id: i32, conn: cra
         ctx.insert("messages",&get_messages(chat, user.id, &conn));
         ctx.insert("from_user",&Users::get_by_id(user_id, &conn));
         ctx.insert("prod_id",&prod_id);
-        Either::Template(Template::render("my_page/chat", &ctx))
+        Either::Template(Template::render("users/chat_dialogue", &ctx))
     } else {
         Either::Redirect(Redirect::to("/"))
     }
@@ -35,7 +35,7 @@ pub fn get_chats(user: CommonUser, conn: crate::db::Conn) -> Either {
     let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(user) = user {
         ctx.insert("people_list",&get_dialoge_list(user.id, &conn));
-        Either::Template(Template::render("my_page/main", &ctx))
+        Either::Template(Template::render("users/chat_content", &ctx))
     } else {
         Either::Redirect(Redirect::to("/"))
     }

@@ -16,6 +16,7 @@ use crate::models::users::Users;
 use crate::db::filters::{
     get_filter_context,
 };
+use rocket::response::content;
 
 use crate::models::product::{
     ProductCard,
@@ -31,11 +32,8 @@ pub fn filter_get(user: CommonUser, conn: crate::db::Conn) -> Template {
 }
 
 #[post("/filters/lots",data="<form>")]
-pub fn filter_post(form: Form<SearchForm>, user: CommonUser, conn: crate::db::Conn) -> Template {
-    let mut ctx = get_base_context(user, &conn);
-    get_filter_context(&mut ctx, &conn);
+pub fn filter_post(form: Form<SearchForm>, user: CommonUser, conn: crate::db::Conn) -> content::Json<&'static str> {
     let f = ProductCard::filter_search(form.into_inner(), &conn);
     print!("\n{:?}\n",&f);
-    ctx.insert("FoundProducts",&f);
-    Template::render("filters", &ctx)
+    content::Json(json!(&f))
 }

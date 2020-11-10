@@ -127,6 +127,16 @@ pub struct SearchForm {
 
 impl ProductCard {
 
+    pub fn get_favourites(user_id: i32, conn: &PgConnection) -> Vec<ProductCard> {
+        
+        diesel::sql_query(include_str!("../../SQL/get_favourites.sql"))
+        .bind::<Nullable<Integer>, _>(user_id)
+        .load::<ProductCard>(conn)
+        .expect("diesel database error ProductCard::get_most_viewed(conn: &PgConnection)")
+
+    }
+
+
     pub fn get_most_viewed(limit: i32, user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
         
         use diesel::sql_types::{
