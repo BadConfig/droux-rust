@@ -42,8 +42,8 @@ pub fn app() -> rocket::Rocket {
             routes::chat::create_chat_messages,
             routes::chat::get_chat_messages,
             routes::chat::get_chats,
-            routes::filters::filter_get,
-            routes::filters::filter_post,
+            routes::filters::get_filter_data,
+            routes::filters::get_filter_page,
             routes::users::get_users_me_main,
             routes::users::get_users_favourites,
             ])
