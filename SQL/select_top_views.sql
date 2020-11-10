@@ -22,7 +22,7 @@ FROM products AS pr
 	JOIN categories AS c2 
 		ON c2.id = sc.category_id
 	LEFT JOIN favourites AS fv 
-		ON fv.product_id = pr.id AND fv.user_id IS NOT NULL AND fv.user_id = $1
+		ON fv.product_id = pr.id AND $1 IS NOT NULL AND fv.user_id = $1
 	JOIN sizes AS sz 
 		ON sz.id = pr.size_id
     LEFT JOIN views AS vws 
@@ -35,4 +35,4 @@ WHERE
 	delp.post_id IS NULL
 ORDER BY 
     vws.count
-LIMIT 20;
+LIMIT $2;

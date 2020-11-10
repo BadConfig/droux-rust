@@ -17,6 +17,7 @@ use rocket_multipart_form_data::{
 use crate::users::CommonUser;
 use crate::routes::Either;
 use crate::routes::get_base_context;
+use crate::models::product::ProductCard;
 
 
 #[get("/product/<id>")]
@@ -26,10 +27,16 @@ pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Te
     use crate::models::product::ProductContext;
     use crate::db::product::{get_brand_list,get_brand_name,get_product_data};
 
+    let opt_id = match user.clone() {
+        CommonUser::Logged(u) => Some(u.id),
+        CommonUser::NotLogged() => None,
+    };
     let mut ctx = get_base_context(user.clone(), &conn);
     ctx.insert("brands", &get_brand_list(&conn));
+    ctx.insert("most_viewed_products", &ProductCard::get_most_viewed(8, opt_id.clone(), &conn));
 
     let product = get_product_data(id, &conn);
+
     let user_id = match user {
         CommonUser::Logged(u) => Some(u.id),
         CommonUser::NotLogged() => None,

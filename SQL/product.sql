@@ -1,25 +1,25 @@
 SELECT 
-	p.id,
-	p.title,
-    p.descr,
-    sc.id,
-	sc.name,
-    c.id,
-	c.name,
-    ps.id,
-    ps.name,
-    p.seller_id,
-    f.id != NULL,
-	p.price,
-    p.location,
-    b2.id,
-	b2.name,
-    s2.id,
-    s2.name,
-    pt.id,
-	pt.name,
-    p.pictures,
-    p.create_datetime
+	p.id AS id,
+	p.title AS title,
+    p.descr AS descr,
+    sc.id AS sub_category_id,
+	sc.name AS sub_category_name,
+    c.id AS category_id,
+	c.name AS category_name,
+    ps.id AS state_id,
+    ps.name AS state_name,
+    p.seller_id AS seller_id,
+    f.id IS NOT NULL AS in_favourites,
+	p.price AS price,
+    p.location AS location,
+    b2.id AS brand_id,
+	b2.name AS brand_name,
+    s2.id AS size_id,
+    s2.name AS size_name,
+    pt.id AS type_id,
+	pt.name AS type_name,
+    p.pictures AS pictures,
+    p.create_datetime AS create_datetime
 FROM 
 	products AS p 
 	LEFT JOIN promotions AS p2 
@@ -39,8 +39,8 @@ FROM
 	JOIN users AS u 
 		ON u.id = p.seller_id
 	LEFT JOIN favourites AS f 
-		ON f.user_id = $2 AND f.product_id = p.id
+		ON f.product_id = p.id AND $2 IS NOT NULL AND f.user_id = $2 
 	LEFT JOIN deleted_posts AS dp 
 		ON dp.post_id = p.id
 WHERE
-	p.id = $1 AND dp.id = NULL
+	p.id = $1 AND dp.id IS NULL

@@ -90,8 +90,8 @@ pub struct ProductCard {
     pub id: i32,
     #[sql_type="Text"]
     pub title: String,
-    #[sql_type="Text"]
-    pub price: String,
+    #[sql_type="Integer"]
+    pub price: i32,
     #[sql_type="Bool"]
     pub is_in_favourites: bool,
     #[sql_type="Text"]
@@ -127,7 +127,17 @@ pub struct SearchForm {
 
 impl ProductCard {
 
-    pub fn get_most_viewed(user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
+    pub fn get_favourites(user_id: i32, conn: &PgConnection) -> Vec<ProductCard> {
+        
+        diesel::sql_query(include_str!("../../SQL/get_favourites.sql"))
+        .bind::<Nullable<Integer>, _>(user_id)
+        .load::<ProductCard>(conn)
+        .expect("diesel database error ProductCard::get_most_viewed(conn: &PgConnection)")
+
+    }
+
+
+    pub fn get_most_viewed(limit: i32, user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
         
         use diesel::sql_types::{
             Nullable,
@@ -136,6 +146,7 @@ impl ProductCard {
 
         diesel::sql_query(include_str!("../../SQL/select_top_views.sql"))
             .bind::<Nullable<Integer>, _>(user_id)
+            .bind::<Nullable<Integer>, _>(limit)
             .load::<ProductCard>(conn)
             .expect("diesel database error ProductCard::get_most_viewed(conn: &PgConnection)")
 

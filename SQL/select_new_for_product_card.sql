@@ -33,4 +33,4 @@ WHERE
 	delp.post_id IS NULL
 ORDER BY 
     pr.create_datetime
-LIMIT 20;
+LIMIT 8;

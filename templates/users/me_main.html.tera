@@ -1,0 +1,10 @@
+{% extends "main" %}
+{% block main %}
+
+<a href="/chat"> chat </a>
+<a href="/users/favourites"> favourites </a>
+
+{% block page_content %}
+NONE
+{% endblock page_content %}
+{% endblock main %}

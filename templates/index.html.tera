@@ -1,4 +1,191 @@
 {% extends "main" %}
-{% block body %}
-{{ __tera_context }}
-{% endblock body %}
+{% block  head %}
+<meta charset="utf-8">
+<title>Title</title>
+<link rel="stylesheet" href="static/css/common.css">
+<link rel="stylesheet" href="static/css/ad.css">
+<link rel="stylesheet" href="static/css/main-page.css">
+{% endblock head %}
+{% block main %}
+   <main class="main">
+        <div class="photos container">
+            <a href=""><div class="photos__male">
+                <img src="static/assets/male.jpg" alt="Мужчина с поясной сумкой Gucci">
+                <span>ДЛЯ МУЖЧИН</span>
+            </div></a>
+            <a href=""><div class="photos__female">
+                <img src="static/assets/female.jpg" alt="Две девушки с аксессуарами Louis Vuitton">
+                <span>ДЛЯ ЖЕНЩИН</span>
+            </div></a>
+            <div class="photos__buttons">
+                <h1>Первый сервис для покупки<br>и перепродажи брендовых вещей в России</h1>
+                <a href="" class="button photos-buttons__button photos-buttons__button_seller">Для покупателей</a>
+                <a href="" class="button photos-buttons__button photos-buttons__button_buyer">Для продавцов</a>
+            </div>
+        </div>
+
+        <div class="show-all container show-all_new-ads">
+            <h2 class="show-all__header">Новые объявления</h2>
+            <a href=""><div class="show-all__button">
+                <span class="show-all__text">Показать все</span>
+                <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
+            </div></a>
+        </div>
+
+        <div class="part new-ads">
+            <div class="part__arrow part__arrow_left">
+                <img src="static/assets/arrow-left.svg" alt="Стрелка пролистывания влево">
+            </div>
+            <div class="container part__border"> <!--видимые объявления-->
+                <div class="part__ads"> <!--все объявления-->
+                    {% for ad in new_products %}
+                        <div class="part__ad ad"> <!--Объявление целиком-->
+                            <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                                <div class="ad__arrow ad__arrow_left">
+                                    <img src="static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                                </div>
+                                <div class="ad__all-images"> <!--Все фото в линию-->
+                                {% for pic_url in ad.pictures %}
+                                    <img src="{{pic_url}}" alt="" class="ad__img">
+                                {% endfor %}
+                                </div>
+                                <div class="ad__arrow ad__arrow_right">
+                                    <img src="static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                                </div>
+                                <div class="ad__favourite-icon">
+                                    <img src="static/assets/favourite.svg" alt="Иконка избранного">
+                                </div>
+                            </div>
+                            <div class="ad__name-and-size">
+                                <h3 class="ad__name">{{ ad.title }}</h3>
+                                <span class="ad__size">{{ ad.size_name }}</span>
+                            </div>
+                            <div class="ad__category">{{ ad.category_name }}</div>
+                            <div class="ad__price">{{ ad.price }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="part__arrow part__arrow_right">
+                <img src="static/assets/arrow-right.svg" alt="Стрелка пролистывания вправо">
+            </div>
+        </div>
+
+        <div class="show-all container show-all_most-viewed">
+            <h2 class="show-all__header">Самые просматриваемые объявления</h2>
+            <a href=""><div class="show-all__button">
+                <span class="show-all__text">Показать все</span>
+                <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
+            </div></a>
+        </div>
+
+        <div class="part most-viewed">
+            <div class="part__arrow part__arrow_left">
+                <img src="static/assets/arrow-left.svg" alt="Стрелка пролистывания влево">
+            </div>
+            <div class="container part__border"> <!--видимые объявления-->
+                <div class="part__ads"> <!--все объявления-->
+                    {% for ad in most_viewed_products %}
+                        <div class="part__ad ad"> <!--Объявление целиком-->
+                            <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                                <div class="ad__arrow ad__arrow_left">
+                                    <img src="static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                                </div>
+                                <div class="ad__all-images"> <!--Все фото в линию-->
+                                    {% for pic_url in ad.pictures %}
+                                        <img src="{{pic_url}}" alt="" class="ad__img">
+                                    {% endfor %}
+                                </div>
+                                <div class="ad__arrow ad__arrow_right">
+                                    <img src="static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                                </div>
+                                <div class="ad__favourite-icon">
+                                    <img src="static/assets/favourite.svg" alt="Иконка избранного">
+                                </div>
+                            </div>
+                            <div class="ad__name-and-size">
+                                <h3 class="ad__name">{{ ad.title }}</h3>
+                                <span class="ad__size">{{ ad.size_name }}</span>
+                            </div>
+                            <div class="ad__category">{{ ad.category_name }}</div>
+                            <div class="ad__price">{{ ad.price }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="part__arrow part__arrow_right">
+                <img src="static/assets/arrow-right.svg" alt="Стрелка пролистывания вправо">
+            </div>
+        </div>
+
+        <div class="show-all container show-all_popular-today">
+            <h2 class="show-all__header">Самые популярные объявления за сегодня</h2>
+            <a href=""><div class="show-all__button">
+                <span class="show-all__text">Показать все</span>
+                <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
+            </div></a>
+        </div>
+
+        <div class="part popular-today">
+            <div class="part__arrow part__arrow_left part__arrow_popular-today">
+                <img src="static/assets/arrow-left.svg" alt="Стрелка пролистывания влево">
+            </div>
+            <div class="container part__border"> <!--видимые объявления-->
+                <div class="part__ads"> <!--все объявления-->
+                    {% for ad in popular_seller_products %}
+                        <div class="part__ad ad"> <!--Объявление целиком-->
+
+                            <div class="ad__author">
+                                <div class="ad__author-photo">
+                                    <img src="static/profile_pictures/{{ad.profile_picture}}" alt="">
+                                </div>
+                                <div class="ad__author-info">
+                                    <span class="ad__author-name">{{ ad.seller_uname }}</span>
+                                    <div class="ad__author-rating">
+                                        {% for star in range(end=ad.seller_rating) %}
+                                            <img src="static/assets/star-filled.svg" alt="">
+                                        {% endfor %}
+                                        {% for star in range(end=(5-ad.seller_rating)) %}
+                                            <img src="static/assets/star-empty.svg" alt="">
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                                <div class="ad__arrow ad__arrow_left">
+                                    <img src="static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                                </div>
+                                <div class="ad__all-images"> <!--Все фото в линию-->
+                                    {% for pic_url in ad.pictures %}
+                                        <img src="{{pic_url}}" alt="" class="ad__img">
+                                    {% endfor %}
+                                </div>
+                                <div class="ad__arrow ad__arrow_right">
+                                    <img src="static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                                </div>
+                                <div class="ad__favourite-icon">
+                                    <img src="static/assets/favourite.svg" alt="Иконка избранного">
+                                </div>
+                            </div>
+                           <div class="ad__name-and-size">
+                                <h3 class="ad__name">{{ ad.title }}</h3>
+                                <span class="ad__size">{{ ad.size_name }}</span>
+                            </div>
+                            <div class="ad__category">{{ ad.category_name }}</div>
+                            <div class="ad__price">{{ ad.price }}</div>
+                        </div>           
+                    {% endfor %} 
+                </div>
+            </div>
+            <div class="part__arrow part__arrow_right part__arrow_popular-today">
+                <img src="static/assets/arrow-right.svg" alt="Стрелка пролистывания вправо">
+            </div>
+        </div>
+    </main>
+{% endblock main %}
+
+{% block scripts %}
+    <script src="static/js/ad-carousel.js"></script>
+    <script src="static/js/part-carousel.js"></script>
+{% endblock scripts %}

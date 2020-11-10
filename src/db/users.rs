@@ -140,10 +140,5 @@ pub fn get_user_by_email(u_email: String, conn: &PgConnection) -> Users {
         panic!("no user foun with email in cookies in get_user_by_email");
     }
 }
-pub fn get_user_by_id(u_id: i32, conn: &PgConnection) -> Users {
-    users
-        .filter(id.eq(u_id))
-        .get_result::<Users>(conn)
-        .expect("Error getting user by id in get_user_by_id")
-}
+
 

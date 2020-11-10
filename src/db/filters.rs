@@ -24,44 +24,9 @@ pub fn get_filter_context(ctx: &mut Context, conn: &PgConnection) {
 }
 
 
-#[derive(FromForm,Clone,Serialize,Deserialize,Queryable,Debug)]
-pub struct SearchForm {
-    search_string: Option<String>,
-    prod_size_id: Option<i32>,
-    product_state_id: Option<i32>,
-    limit: i32,
-    offset: i32,
-    subcategory_id: Option<i32>,
-    category_id: Option<i32>,
-    prod_brand_id: Option<i32>,
-    prod_type_id: Option<i32>,
-    order_by: String,
-    user_id: Option<i32>,
-}
 
-pub fn filter_search(form: SearchForm, conn: &PgConnection) -> Vec<ProductCard> {
 
-    use diesel::sql_types::{
-        Integer,
-        Text,
-        Nullable,
-    };
 
-    diesel::sql_query(include_str!("../../SQL/filter.sql"))
-        .bind::<Nullable<Text>,_>(form.search_string)
-        .bind::<Nullable<Integer>,_>(form.prod_size_id)
-        .bind::<Nullable<Integer>,_>(form.product_state_id)
-        .bind::<Integer,_>(form.limit)
-        .bind::<Integer,_>(form.offset)
-        .bind::<Nullable<Integer>,_>(form.subcategory_id)
-        .bind::<Nullable<Integer>,_>(form.category_id)
-        .bind::<Nullable<Integer>,_>(form.prod_brand_id)
-        .bind::<Nullable<Integer>,_>(form.prod_type_id)
-        .bind::<Text,_>(form.order_by)
-        .bind::<Nullable<Integer>,_>(form.user_id)
-        .load::<ProductCard>(conn)
-        .expect("Error executing filter method\n")
-}
 
 pub fn get_brands(conn: &PgConnection) ->  Vec<Brand> {
 
