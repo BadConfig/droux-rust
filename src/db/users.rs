@@ -41,8 +41,12 @@ pub fn create_user(u_login: String, u_email: String, u_password: String, conn: &
     print!("Users: {:?}",new_user);
     let user = diesel::insert_into(users)
         .values(&new_user)
-        .get_result::<Users>(conn)
-        .expect("Error creating user in create_user");
+        .get_result::<Users>(conn);
+    print!("error in creating user insert into db\n");
+    let user = match user {
+        Ok(u) => u,
+        Err(e) => return Err("can't insert".to_string()),
+    };
 
 
     let link = crate::auth::generate_auth_link(conn);

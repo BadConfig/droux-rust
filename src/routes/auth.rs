@@ -8,6 +8,7 @@ use crate::auth::IsLogged;
 use std::sync::atomic::{Ordering,AtomicUsize};
 use super::get_base_context;
 use crate::users::CommonUser;
+use crate::models::product::ProductCard;
 
 use crate::auth::make_jwt_for_user;
 use crate::routes::Either;
@@ -43,9 +44,17 @@ pub fn authorize(form: Form<LoginForm>, user: CommonUser, mut cookies: Cookies, 
         Either::Redirect(Redirect::to("/"))
     } else {
         print!("wrong user data");
-        let mut ctx = get_base_context(user, &conn);
-        ctx.insert("auth_fail",&true);
-        Either::Template(Template::render("auth/login", &ctx))
+        let mut ctx = get_base_context(user.clone(), &conn);
+        ctx.insert("login_fail",&true);
+        ctx.insert("register_fail",&false);
+        let opt_id = match user.clone() {
+            CommonUser::Logged(u) => Some(u.id),
+            CommonUser::NotLogged() => None,
+        };
+        ctx.insert("most_viewed_products",&ProductCard::get_most_viewed(20,opt_id.clone(), &conn));
+        ctx.insert("new_products", &ProductCard::get_recently_added(opt_id.clone(), &conn));
+        ctx.insert("popular_seller_products", &ProductCard::get_by_seller_popular_products(opt_id.clone(), &conn));
+        Either::Template(Template::render("index", &ctx))
     }
 
 }
@@ -69,16 +78,23 @@ pub struct RegisterForm {
 pub fn register(form: Form<RegisterForm>, user: CommonUser, conn: crate::db::Conn) -> Template {
    
     use crate::db::users::create_user;
-
+    let opt_id = match user.clone() {
+        CommonUser::Logged(u) => Some(u.id),
+        CommonUser::NotLogged() => None,
+    };
+    let mut ctx = get_base_context(user.clone(), &conn);
+    ctx.insert("most_viewed_products",&ProductCard::get_most_viewed(20,opt_id.clone(), &conn));
+    ctx.insert("new_products", &ProductCard::get_recently_added(opt_id.clone(), &conn));
+    ctx.insert("popular_seller_products", &ProductCard::get_by_seller_popular_products(opt_id.clone(), &conn));
     let link = create_user(form.username.clone(), form.email.clone(), form.pass.clone(), &conn);
     let link = match link {
         Ok(s) => s,
         Err(e) => {
             print!("error getting link in register POST func");
-            let mut ctx = get_base_context(user, &conn);
-            ctx.insert("reg_sucsess",&false);
+            ctx.insert("login_fail",&false);
+            ctx.insert("register_fail",&true);
             ctx.insert("err_field", &e[..]);
-            return Template::render("auth/register", &ctx)
+            return Template::render("index", &ctx)
         },
     };
     let reference = "localhost:8000".to_string() + "/verify/" + &link[..];

@@ -35,5 +35,5 @@ pub fn filter_get(user: CommonUser, conn: crate::db::Conn) -> Template {
 pub fn filter_post(form: Form<SearchForm>, user: CommonUser, conn: crate::db::Conn) -> content::Json<&'static str> {
     let f = ProductCard::filter_search(form.into_inner(), &conn);
     print!("\n{:?}\n",&f);
-    content::Json(json!(&f))
+    content::Json("json!(&f)")
 }

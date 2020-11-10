@@ -33,7 +33,7 @@
                 <a href="product/create" class="button sell__button">Продать</a>
                 <img src="/static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
                 <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
-                <span>Войти</span>
+                <span id="auth-button">Войти</span>
             </div>
         </div>
     </div>
@@ -48,19 +48,32 @@
             <a href="">АКСЕССУАРЫ</a>
         </nav>
     </div>
-    <div class="authorizer authorizer__background">
+    <div class="authorizer authorizer__background 
+        {% if login_fail or register_fail %}
+        authorizer_visible
+        {% endif %}
+        ">
         <div class="authorizer__window">
             <div class="authorizer__choice">
-                <input type="radio" name="auth" id="sign-in" checked>
+                <input type="radio" name="auth" id="sign-in" 
+                    {% if register_fail == false %}
+                    checked
+                    {% endif %}>
                 <label for="sign-in">Войти</label>
-                <input type="radio" name="auth" id="sign-up">
+                <input type="radio" name="auth" id="sign-up" 
+                    {% if register_fail %}
+                    checked
+                    {% endif %}>
                 <label for="sign-up">Создать аккаунт</label>
             </div>
-            <form class="authorizer__form_sign-in authorizer__form authorizer__form_visible">
+            <form class="authorizer__form_sign-in authorizer__form 
+                {% if register_fail == false %}
+                    authorizer__form_visible 
+                {% endif %}" action="/login" method="POST">
                 <label for="sign-in__login">Логин</label>
-                <input type="text" id="sign-in__login">
+                <input type="text" id="sign-in__login" name="login" >
                 <label for="sign-in__password">Пароль</label>
-                <input type="password" id="sign-in__password">
+                <input type="password" id="sign-in__password" name="pass">
                 <div class="sign-in__remember-and-forget">
                     <input type="checkbox" id="remember-me">
                     <label for="remember-me" class="authorizer__checkbox-label">Запомнить меня</label>
@@ -69,13 +82,16 @@
                 <input type="submit" class="button sign-in__button" value="Войти">
                 <label for="sign-up" class="sign-in__not-a-label">Не зарегистрированы на Droux? Создайте аккаунт</label>
             </form>
-            <form class="authorizer__form_sign-up authorizer__form">
+            <form class="authorizer__form_sign-up authorizer__form 
+                {% if register_fail %}
+                    authorizer__form_visible 
+                {% endif %}" action="/register" method="POST">
                 <label for="sign-up__login">Логин</label>
-                <input type="text" id="sign-up__login">
+                <input type="text" id="sign-up__login" name="username">
                 <label for="sign-up__email">Адрес электронной почты</label>
-                <input type="text" id="sign-up__email">
+                <input type="text" id="sign-up__email" name="email">
                 <label for="sign-up__password">Пароль</label>
-                <input type="password" id="sign-up__password">
+                <input type="password" id="sign-up__password" name="pass">
                 <label for="sign-up__repeat-password">Повторите пароль</label>
                 <input type="password" id="sign-up__repeat-password">
                 <input type="checkbox" id="accept-rules">

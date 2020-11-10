@@ -39,6 +39,8 @@ pub enum UserGuard {
 pub fn get_required_context(data: UserGuard, _conn: &PgConnection) -> Context {
     let mut ctx = Context::new();
     use UserGuard::*;
+    ctx.insert("login_fail",&false);
+    ctx.insert("register_fail",&false);
     match data {
         Logged(usr) => {
             ctx.insert("is_logged", &true);

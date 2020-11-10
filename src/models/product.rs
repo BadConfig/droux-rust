@@ -121,7 +121,7 @@ pub struct SearchForm {
     category_id: Option<i32>,
     prod_brand_id: Option<i32>,
     prod_type_id: Option<i32>,
-    order_by: String,
+    order_by: Option<String>,
     user_id: Option<i32>,
 }
 
@@ -199,7 +199,7 @@ impl ProductCard {
             .bind::<Nullable<Integer>,_>(form.category_id)
             .bind::<Nullable<Integer>,_>(form.prod_brand_id)
             .bind::<Nullable<Integer>,_>(form.prod_type_id)
-            .bind::<Text,_>(form.order_by)
+            .bind::<Nullable<Text>,_>(form.order_by)
             .bind::<Nullable<Integer>,_>(form.user_id)
             .load::<ProductCard>(conn)
             .expect("Error executing filter method\n")
