@@ -1,0 +1,64 @@
+{% extends "main" %}
+
+
+{% block main %}
+
+<form method='POST' url='/product/create' enctype='multipart/form-data'>
+
+    <p>
+        <select name="sub_category_id">
+            {% for category in ProductCategories %}
+                <optgroup label="{{ category.category_name }}">
+                {% for sub_category in category.sub_categories %}
+                    <option value="{{ sub_category.id }}">
+                        {{ sub_category.name }}
+                    </option>
+                {% endfor %}
+                </optgroup>
+            {% endfor %}
+        </select>
+    </p>
+
+    </p>
+     <select name="type_id">
+     {% for type in ProductTypes %}
+         <option value="{{ type.id }}">{{ type.name }}</option>
+     {% endfor %}
+     </select>
+    <p>
+
+
+    <p><select name="brand_id" >
+    {% for brand in ProductBrands %}
+        <option value="{{ brand.id }}">{{ brand.name }}</option>
+    {% endfor %}
+   </select>
+
+    <p><input type="text" name="title" value="text default">
+  
+    <p><select name="size_id">
+    {% for size in ProductSizes %}
+        <option value="{{ size.id }}">{{ size.name }}</option>
+    {% endfor %}
+   </select>
+
+    <p><select name="state_id">
+    {% for state in ProductStates %}
+        <option value="{{ state.id }}">{{ state.name }}</option>
+    {% endfor %}
+   </select>
+
+    <p>цена: <input type="text" name="price">
+    <p>местонахождение товара: <input type="text" name="location">
+    <p>Описание<input type="text" name="descr">
+    
+    {% for i in [0,1,2,3,4,5,6,7,8,9,10] %}
+        <p><input type="file" name="photo{{i+1}}"></p> 
+    {% endfor %}
+
+    <input type="hidden" name="seller_id" value="{{ user.id }}">
+    <p><button type="submit">Submit</button>
+
+</form>
+ 
+{% endblock main %}

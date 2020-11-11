@@ -1,74 +1,145 @@
-{%extends "main" %}
-{%import "product/instance" as macro %}
-{% block body %}
-<form method='POST' action='/filters/lots'>
+{% extends "main" %}
+{% import "product/instance" as prod_inst %}
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/ad.css">
+    <link rel="stylesheet" href="../../static/css/search.css">
+    <link rel="stylesheet" href="../../static/css/filters.css">
+{% endblock head %}
+{% block main %}
+    <main class="container main">
+        <div class="sort-by">
+            <span>Сортировать:</span>
+            <input type="radio" class="sort-by__variant" name="order_by" value="Date" id="date" checked>
+            <label for="date">по дате</label>
+            <input type="radio" class="sort-by__variant" name="order_by" value="PriceASC" id="price-up">
+            <label for="price-up">по возрастанию цены</label>
+            <input type="radio" class="sort-by__variant" name="order_by" value="PriceDESC" id="price-down">
+            <label for="price-down">по убыванию цены</label>
+            <input type="radio" class="sort-by__variant" name="order_by" value="Views" id="popularity">
+            <label for="popularity">по популярности</label>
+            <label for="date" class="sort-by__discard">Сбросить</label>
+        </div>
+        <aside class="filters">
 
-  <!--  <p>
-        <select name="subcategory_id">
-            {% for category in ProductCategories %}
-                <optgroup label="{{ category.category_name }}">
-                {% for sub_category in category.sub_categories %}
-                    <option value="{{ sub_category.id }}">
-                        {{ sub_category.name }}
-                    </option>
-                {% endfor %}
-                </optgroup>
-            {% endfor %}
-        </select>
-    </p>
-     <p>
-        <select name="category_id">
-            {% for category in ProductCategories %}
-                <option value="{{ category.category_id }}">
-                    {{ category.category_name }}
-                </option>
-            {% endfor %}
-        </select>
-    </p>
-    </p>
-     <select name="prod_type_id">
-        <option >not set</option>
-        {% for type in ProductTypes %}
-        <option value="{{ type.id }}">{{ type.name }}</option>
-        {% endfor %}
-     </select>
-    <p>
-    <p><select name="prod_brand_id" >
-        <option >not set</option>
-        {% for brand in ProductBrands %}
-        <option value="{{ brand.id }}">{{ brand.name }}</option>
-        {% endfor %}
-   </select>
-  
-    <p><select name="prod_size_id">
-        <option >not set</option>
-    {% for size in ProductSizes %}
-        <option value="{{ size.id }}">{{ size.name }}</option>
-    {% endfor %}
-   </select>
-    <p><select name="product_state_id">
-        <option >not set</option>
-        {% for state in ProductStates %}
-        <option value="{{ state.id }}">{{ state.name }}</option>
-        {% endfor %}
-   </select>  -->
+            <div class="filters__sector filters__sector_sex">
+                <div class="filters__sector-header">
+                    <span>Категории</span>
+                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <form class="filters__sector-options">
+                        {% for types in ProductTypes %}
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" name="prod_type_id" value="{{ types.id }}" id="ad_types{{ types.id }}">
+                                <label for="ad_types{{ types.id }}">{{ types.name }}</label>
+                            </div>                             
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
 
-    <input type="hidden" value="20" name="limit">
-    <input type="hidden" name="search_string">
-    <input type="hidden" value="0" name="offset">
-    <input type="hidden" value=" " name="order_by">
+            <div class="filters__sector filters__sector_category">
+                <div class="filters__sector-header">
+                    <span>Категория</span>
+                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <form class="filters__sector-options">
+                        {% for categories in ProductCategories %}
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" name="category_id" value="{{ categories.category_id }}" id="ad_cat{{ categories.category_id }}">
+                                <label for="ad_cat{{ categories.category_id }}">{{ categories.category_name }}</label>
+                            </div>                             
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
 
-    <p><button type="submit">Submit</button>
-</form>
-    <hr/>
-    result
-    <hr/>
-   {# {{ __tera_context }} #}
-    {% if FoundProducts %}
-  {% for product_i in FoundProducts %}
-        {{ macro::instance(product=product_i,seller=false) }}
-    {% endfor %}  
-    {% else %}
-not yet
-    {% endif %}
-{% endblock body %}
+            <div class="filters__sector filters__sector_type">
+                <div class="filters__sector-header">
+                    <span>Вид</span>
+                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <form class="filters__sector-options">
+                        {% for categories in ProductCategories %}
+                            {% for sub_cat in categories.sub_categories %}
+                                <div class="filters__checkbox-div">
+                                    <input type="checkbox" name="sub_category_id" value="{{ sub_cat.id }}" id="ad_sub_cat{{ sub_cat.id }}">
+                                    <label for="ad_sub_cat{{ sub_cat.id }}">{{ sub_cat.name }}</label>
+                                </div>           
+                            {% endfor %}   
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+
+            <div class="filters__sector filters__sector_brand">
+                <div class="filters__sector-header">
+                    <span>Бренды</span>
+                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <input type="text" placeholder="Искать" class="filters__search-field">
+                    <form class="filters__sector-options">
+                        {% for brand in ProductBrands %}
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" name="prod_brand_id" value="{{ brand.id }}" id="ad_brand{{ brand.id }}">
+                                <label for="ad_brand{{ brand.id }}">{{ brand.name }}</label>
+                            </div>                             
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+
+            <div class="filters__sector filters__sector_size">
+                <div class="filters__sector-header">
+                    <span>Размер</span>
+                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <input type="text" placeholder="Искать" class="filters__search-field">
+                    <form class="filters__sector-options">
+                        {% for size in ProductSizes %}
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" name="prod_size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
+                                <label for="ad_size{{ size.id }}">{{ size.name }}</label>
+                            </div>                             
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+
+            <div class="filters__sector filters__sector_condition">
+                <div class="filters__sector-header">
+                    <span>Состояние</span>
+                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                </div>
+                <div class="filters__must-be-hidden">
+                    <form class="filters__sector-options">
+                        {% for state in ProductStates %}
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" name="prod_state_id" value="{{ state.id }}" id="ad_state{{ state.id }}">
+                                <label for="ad_state{{ state.id }}">{{ state.name }}</label>
+                            </div>                             
+                        {% endfor %}
+                    </form>
+                </div>
+            </div>
+        </aside>
+        <div class="search-results">
+        {% for ad in FoundProducts %}
+            {{prod_inst::instance(ad=ad,seller=false)}}           
+        {% endfor %}
+        </div>
+    </main>
+{% endblock main %}
+{% block scripts %}
+    <script src="../../static/js/ad-carousel.js"></script>
+    <script src="../../static/js/hide-sector.js"></script>
+    <script src="../../static/js/search-filter.js"></script>
+    <script src="../../static/js/ads-upload.js"></script>
+{% endblock scripts %}

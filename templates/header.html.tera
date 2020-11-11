@@ -17,12 +17,14 @@
     </div>
     <div class="header-base__line">
         <div class="container header__base">
-            <form class="header__search">
+            <form class="header__search" method="POST" action="/filters">
                 <div class="search__field">
                     <label for="header-search">
                         <img src="/static/assets/search.svg" alt="Иконка поиска" class="search__icon">
                     </label>
-                    <input class="search__input" type="search" id="header-search" placeholder="Поиск по товарам">
+                    <input class="search__input" type="search" id="header-search" name="search_string" placeholder="Поиск по товарам">
+                    <input type="hidden" name="limit" value="12">
+                    <input type="hidden" name="offset" value="0">
                 </div>
                 <input class="search__button button" type="submit" value="Найти">
             </form>

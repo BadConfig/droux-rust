@@ -35,6 +35,6 @@ pub fn get_filter_data(form: Form<SearchForm>, user: CommonUser, conn: crate::db
 pub fn get_filter_page(form: Form<SearchForm>, user: CommonUser, conn: crate::db::Conn) -> Template {
     let mut ctx = get_base_context(user, &conn);
     crate::db::filters::get_filter_context(&mut ctx, &conn);
-    ctx.insert("FoundProducts",&false);
+    ctx.insert("FoundProducts",&ProductCard::filter_search(form.into_inner(), &conn));
     Template::render("filters", &ctx)
 }

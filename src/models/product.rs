@@ -331,6 +331,7 @@ pub struct Product {
     pub size_id: i32,
     pub total_views: i64,
     pub create_datetime: NaiveDateTime,
+    pub phone_number: String,
 }
 
 impl Product {
@@ -356,6 +357,7 @@ pub struct NewProduct {
     pub pictures: Vec<String>,
     pub type_id: i32,
     pub size_id: i32,
+    pub phone_number: String,
 }
 
 #[derive(Serialize, Deserialize, Queryable, Clone)]

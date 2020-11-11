@@ -92,6 +92,7 @@ table! {
         size_id -> Int4,
         total_views -> Int8,
         create_datetime -> Timestamp,
+        phone_number -> Varchar,
     }
 }
 
