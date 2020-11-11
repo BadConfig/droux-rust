@@ -1,3 +1,4 @@
+{% extends "main" %}
 {% block head %}
     <link rel="stylesheet" href="../../static/css/croppie.css">
     <link rel="stylesheet" href="../../static/css/common.css">
@@ -96,7 +97,7 @@
                         <div class="filters__sector-options">
                             {% for size in ProductSizes %}
                                 <div class="filters__checkbox-div">
-                                    <input type="checkbox" name="size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
+                                    <input type="radio" name="size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
                                     <label for="ad_size{{ size.id }}">{{ size.name }}</label>
                                 </div>                             
                             {% endfor %}
@@ -174,7 +175,7 @@
                     <div class="ad-form__label">E-mail</div>
                     <input type="text">
                 </div>
-                <input type="submit" value="Продолжить" class="button ad-form__submit-button">
+                <input type="button" value="Продолжить" class="button ad-form__submit-button">
             </div>
             <input type="hidden" name="seller_id" value="{{ user.id }}">
         </form>

@@ -36,11 +36,12 @@ pub enum UserGuard {
     Logged(Users),
     NotLogged,
 }
-pub fn get_required_context(data: UserGuard, _conn: &PgConnection) -> Context {
+pub fn get_required_context(data: UserGuard, conn: &PgConnection) -> Context {
     let mut ctx = Context::new();
     use UserGuard::*;
     ctx.insert("login_fail",&false);
     ctx.insert("register_fail",&false);
+    ctx.insert("links", &crate::models::admin::Links::get_social_media_links(conn));
     match data {
         Logged(usr) => {
             ctx.insert("is_logged", &true);
