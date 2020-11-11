@@ -7,8 +7,8 @@
 -- $7 - category id
 -- $8 - brand id
 -- $9 - type id
--- $10 - order by: one of 'date' 'priceDESC'
--- 'priceASC' 'views' 'none'
+-- $10 - order by: one of 'Date' 'PriceDESC'
+-- 'PriceASC' 'Views' 'none'
 -- $12 user_id 
 --
 SELECT 	pr.id, 
