@@ -233,7 +233,7 @@ textarea {
     height: 100%;
     display: block;
     cursor: pointer;
-    background-image: url(assets/plus.svg);
+    background-image: url(../assets/plus.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 40%;
@@ -334,4 +334,73 @@ textarea {
 
 .uploader__input:disabled + label {
     opacity: 0.3;
+}
+
+.ad-form__state {
+    display: flex;
+}
+
+.ad-form__state label {
+    margin-right: 45px;
+}
+
+.state__options {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 57px;
+    align-content: space-between;
+    width: 855px;
+}
+
+.state__options input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.state__options label::before {
+    margin-right: 15px;
+}
+
+#price {
+    width: 125px;
+}
+
+.ad-form__price {
+    display: flex;
+    margin-top: 40px;
+}
+
+.price__input {
+    font-size: 18px;
+    align-items: center;
+    display: flex;
+}
+.price__input input {
+    margin-right: 8px;
+}
+
+.ad-form__header_params {
+    margin: 58px 0 20px;
+}
+
+.ad-form__num, .ad-form__email {
+    display: flex;
+}
+
+.ad-form__num input[type=text], .ad-form__email input[type=text] {
+    width: 220px;
+}
+
+.ad-form__num {
+    margin-bottom: 20px;
+}
+
+.ad-form__submit-button {
+    height: 36px;
+    width: 350px;
+    margin: 62px 0 42px 255px;
+    color: white;
+    background-color: black;
+    font-size: 18px;
 }

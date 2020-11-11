@@ -96,13 +96,13 @@
     align-items: center;
     margin-bottom: 9px;
 }
-.filters__checkbox-div label {
+.filters__checkbox-div label, .state__options label {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
 
-.filters__checkbox-div label::before {
+.filters__checkbox-div label::before, .state__options label::before{
     display: block;
     width: 14px;
     height: 14px;
@@ -116,6 +116,6 @@
     cursor: pointer;
 }
 
-.filters__checkbox-div input[type=radio]:checked + label::before {
-    background-image: url('assets/check.svg');
+.filters__checkbox-div input[type=radio]:checked + label::before, .state__options input[type=radio]:checked + label::before {
+    background-image: url('../assets/check.svg');
 }

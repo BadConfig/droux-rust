@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="croppie.css">
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="filters.css">
-    <link rel="stylesheet" href="new-product.css">
+    <link rel="stylesheet" href="../../static/css/croppie.css">
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/filters.css">
+    <link rel="stylesheet" href="../../static/css/new-product.css">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -13,15 +13,15 @@
     <div class="services">
         <div class="container services__container">
             <div class="services__item">
-                <img src="assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
+                <img src="../../static/assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
                 <span>Безопасная сделка</span>
             </div>
             <div class="services__item">
-                <img src="assets/delivery.svg" alt="Иконка доставки" class="services__icon">
+                <img src="../../static/assets/delivery.svg" alt="Иконка доставки" class="services__icon">
                 <span>Бесплатная доставка</span>
             </div>
             <div class="services__item">
-                <img src="assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
+                <img src="../../static/assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
                 <span>Экспертиза на подлинность</span>
             </div>
         </div>
@@ -31,19 +31,19 @@
             <form class="header__search">
                 <div class="search__field">
                     <label for="header-search">
-                        <img src="assets/search.svg" alt="Иконка поиска" class="search__icon">
+                        <img src="../../static/assets/search.svg" alt="Иконка поиска" class="search__icon">
                     </label>
                     <input class="search__input" type="search" id="header-search" placeholder="Поиск по товарам">
                 </div>
                 <input class="search__button button" type="submit" value="Найти">
             </form>
             <div class="header__logo">
-                <img src="assets/droux-logo.svg" alt="Логотип Droux">
+                <img src="../../static/assets/droux-logo.svg" alt="Логотип Droux">
             </div>
             <div class="header__buttons">
                 <a href="" class="button sell__button">Продать</a>
-                <img src="assets/chat.svg" alt="Иконка чата" class="buttons__icon">
-                <img src="assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
+                <img src="../../static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
+                <img src="../../static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
                 <span>Войти</span>
             </div>
         </div>
@@ -326,7 +326,7 @@
                             <input type="file" id="photo-upload-input" class="uploader__input">
                                 <div id="upload-photo-button" class="uploader__main-label">
                                     <label for="photo-upload-input"></label>
-                                    <img src="assets/plus.svg" alt="">
+                                    <img src="../../static/assets/plus.svg" alt="">
                                 </div>
 
 
@@ -336,15 +336,44 @@
                                 </div>
                             </div>
                             <div class="uploader__arrow uploader__arrow_left">
-                                <img src="assets/arrow-left.svg" alt="">
+                                <img src="../../static/assets/arrow-left.svg" alt="">
                             </div>
 
                             <div class="uploader__arrow uploader__arrow_right">
-                                <img src="assets/arrow-right.svg" alt="">
+                                <img src="../../static/assets/arrow-right.svg" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="ad-form__state">
+                    <div class="ad-form__label">Состояние</div>
+                        <div class="state__options">
+                        <input type="radio" name="state" id="new-with-tag">
+                        <label for="new-with-tag">Новая с биркой</label>
+                        <input type="radio" name="state" id="new-without-tag">
+                        <label for="new-without-tag">Новая без бирки</label>
+                        <input type="radio" name="state" id="worn-once">
+                        <label for="worn-once">Надевалась один раз</label>
+                        <input type="radio" name="state" id="worn">
+                        <label for="worn">Надевалась несколько раз</label>
+                        <input type="radio" name="state" id="has-defects">
+                        <label for="has-defects">Есть дефекты</label>
+                    </div>
+                </div>
+                <div class="ad-form__price">
+                    <div class="ad-form__label">Цена</div>
+                    <div class="price__input"><input type="text" id="price"><span>₽</span></div>
+                </div>
+                <h2 class="ad-form__header ad-form__header_params">Параметры</h2>
+                <div class="ad-form__num">
+                    <div class="ad-form__label">Телефон</div>
+                    <input type="text">
+                </div>
+                <div class="ad-form__email">
+                    <div class="ad-form__label">E-mail</div>
+                    <input type="text">
+                </div>
+                <input type="submit" value="Продолжить" class="button ad-form__submit-button">
             </div>
         </form>
         <div class="uploader__pop-up pop-up pop-up__background">
@@ -354,7 +383,7 @@
                     <button class="button pop-up__button pop-up__button_ok">OK</button>
                     <button class="button pop-up__button pop-up__button_cancel">Отмена</button>
                 </div>
-                <img src="assets/close.svg" alt="" class="pop-up__close">
+                <img src="../../static/assets/close.svg" alt="" class="pop-up__close">
             </div>
         </div>
     </main>
@@ -379,11 +408,11 @@
         <div class="footer__column footer__column_fourth">
             <span>Мы в соц. сетях</span>
             <div class="footer__media-links">
-                <a href=""><img src="assets/youtube.svg" alt="Иконка YouTube" class="media-links__icon"></a>
-                <a href=""><img src="assets/vk.svg" alt="Иконка VK" class="media-links__icon"></a>
-                <a href=""><img src="assets/facebook.svg" alt="Иконка Facebook" class="media-links__icon"></a>
-                <a href=""><img src="assets/instagram.svg" alt="Иконка Instagram" class="media-links__icon"></a>
-                <a href=""><img src="assets/telegram.svg" alt="Иконка Telegram" class="media-links__icon"></a>
+                <a href=""><img src="../../static/assets/youtube.svg" alt="Иконка YouTube" class="media-links__icon"></a>
+                <a href=""><img src="../../static/assets/vk.svg" alt="Иконка VK" class="media-links__icon"></a>
+                <a href=""><img src="../../static/assets/facebook.svg" alt="Иконка Facebook" class="media-links__icon"></a>
+                <a href=""><img src="../../static/assets/instagram.svg" alt="Иконка Instagram" class="media-links__icon"></a>
+                <a href=""><img src="../../static/assets/telegram.svg" alt="Иконка Telegram" class="media-links__icon"></a>
             </div>
             <span>Подписка на новости</span>
             <label class="subscribe__text" for="footer-subscribe">Получайте все самые последние новости о мероприятиях.</label>
@@ -394,8 +423,8 @@
         </div>
     </div>
 </footer>
-    <script src="search-filter.js"></script>
-    <script src="croppie.js"></script>
-    <script src="new-product-uploader.js"></script>
+    <script src="../../static/js/search-filter.js"></script>
+    <script src="../../static/js/croppie.min.js"></script>
+    <script src="../../static/js/new-product-uploader.js"></script>
 </body>
 </html>
