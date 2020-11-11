@@ -16,7 +16,7 @@
         <div class="product">
             <div class="product__top">
                 <div class="product__name-and-date">
-                    <h1 class="product__name">Мужчина</h1>
+                    <h1 class="product__name">{{ product.title }}</h1>
                     <span class="product__date">Опубликовано {{ product.create_datetime | date }}</span>
                 </div>
                 <div class="product__price-and-size">

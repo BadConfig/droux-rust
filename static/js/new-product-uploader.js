@@ -153,7 +153,7 @@ function MakeMini(){
 }
 
 document.getElementsByClassName('ad-form__submit-button')[0].addEventListener('click', Continue);
-function Continue() {
+async function Continue() {
     let sex = document.getElementsByClassName('filters__sector_sex')[0];
     let category = document.getElementsByClassName('filters__sector_type')[0];
     let subcategory = document.getElementsByClassName('filters__sector_sex')[0];
@@ -187,7 +187,7 @@ function Continue() {
     for (let i = 0; i < 10; i++) {
         let id = 'photo' + String(i + 1);
         if (photos[i] !=null) {
-            let blob = fetch(photos[i].src).then(r => r.blob())
+            let blob = await fetch(photos[i].src).then(r => r.blob())
             body.append(id, blob);
         }
     }

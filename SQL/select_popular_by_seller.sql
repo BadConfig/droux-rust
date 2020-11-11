@@ -18,7 +18,7 @@ FROM products AS pr
 	LEFT JOIN promotions AS prom 
 		ON prom.product_id = pr.id 
 	JOIN sub_categories AS sc 
-		ON sc.id = pr.id
+		ON sc.id = pr.sub_category_id 
 	JOIN categories AS c2 
 		ON c2.id = sc.category_id
 	LEFT JOIN favourites AS fv 
