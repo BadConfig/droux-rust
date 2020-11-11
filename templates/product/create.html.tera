@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 {% block head %}
     <link rel="stylesheet" href="../../static/css/croppie.css">
     <link rel="stylesheet" href="../../static/css/common.css">

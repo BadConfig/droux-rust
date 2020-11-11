@@ -105,6 +105,7 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
             MultipartFormDataField::text("seller_id"),
             MultipartFormDataField::text("brand_id"),
             MultipartFormDataField::text("type_id"),
+            MultipartFormDataField::text("phone_number"),
         ]
     );
 
@@ -131,6 +132,7 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
     let seller_id = multipart_form_data.texts.remove("seller_id");
     let brand_id = multipart_form_data.texts.remove("brand_id");
     let type_id = multipart_form_data.texts.remove("type_id");
+    let phone_number = multipart_form_data.texts.remove("phone_number");
 
 
     fn unpack(data: Option<std::vec::Vec<routes::product::rocket_multipart_form_data::TextField>>) -> String {
@@ -155,6 +157,8 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
     let title   = unpack(title);
     let descr   = unpack(descr);
     let location= unpack(location);
+    let phone_number= unpack(phone_number);
+
 
     let price       : i32 = unpack(price).trim().parse().expect("error parsing price");
     let seller_id   : i32 = unpack(seller_id).trim().parse().expect("error parsing seller_id");
@@ -194,6 +198,7 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
         pictures: photos_array,
         type_id: type_id,
         size_id: size_id,
+        phone_number: phone_number,
     };
     create_product(new_product, &conn);
     Redirect::to("/")
