@@ -399,8 +399,12 @@ textarea {
 .ad-form__submit-button {
     height: 36px;
     width: 350px;
-    margin: 62px 0 42px 255px;
+    margin: 62px 0 0 255px;
     color: white;
     background-color: black;
     font-size: 18px;
+}
+
+.bottom-text_submit {
+    margin: 10px 0 16px 255px;
 }
