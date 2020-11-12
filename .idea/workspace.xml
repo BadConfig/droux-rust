@@ -37,6 +37,7 @@
       <change beforePath="$PROJECT_DIR$/static/assets/instagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/instagram.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/male.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/male.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/plus.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/plus.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/red-circle.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/red-circle.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/safety.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/safety.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/scan.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/scan.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/search.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/search.svg" afterDir="false" />
@@ -106,6 +107,7 @@
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/profile-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/profile-notemp.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,7 +149,7 @@
       <option name="presentableId" value="Default" />
       <updated>1605044335703</updated>
       <workItem from="1605044338034" duration="15450000" />
-      <workItem from="1605061809768" duration="19923000" />
+      <workItem from="1605061809768" duration="20436000" />
     </task>
     <servers />
   </component>
