@@ -89,7 +89,20 @@
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-08 19:04:06.046342-text default-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-08 22:48:19.535848-text default-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-08 22:48:19.536224-text default-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293301-staff-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293620-staff-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293732-staff-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293859-staff-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293974-staff-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.294119-staff-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.294278-staff-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.294800-staff-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.294984-staff-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.295092-staff-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:24:28.598666-Nazvanie-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index-notemp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
@@ -103,6 +116,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -116,8 +131,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -129,7 +146,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1605044335703</updated>
-      <workItem from="1605044338034" duration="13575000" />
+      <workItem from="1605044338034" duration="15450000" />
+      <workItem from="1605061809768" duration="19923000" />
     </task>
     <servers />
   </component>
@@ -146,6 +164,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605054805655">

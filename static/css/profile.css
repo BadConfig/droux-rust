@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+.profile {
+    min-height: 823px;
+    padding: 20px 0 26px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.profile__card {
+    width: 350px;
+    min-height: 323px;
+    border: 1px solid black;
+}
+
+.card__top {
+    display: flex;
+    min-height: 109px;
+}
+
+.card__info {
+    width: 255px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0 14px;
+    justify-content: space-between;
+}
+
+.card__profile-name {
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.card__reg-date {
+    font-size: 14px;
+    color: #747474;
+}
+
+.card__rating-div {
+    display: flex;
+    align-items: center;
+}
+
+.rating__num {
+    font-size: 18px;
+}
+
+.rating__stars {
+    display: flex;
+    justify-content: space-between;
+    width: 95px;
+    margin-left: 9px;
+}
+.rating__stars img {
+    width: 15px;
+    display: block;
+}
+.card__photo {
+    width: 95px;
+    height: 100%;
+}
+
+.card__photo img {
+    width: 65px;
+    height: 65px;
+    border-radius: 32.5px;
+    margin: 14px auto 0;
+    display: block;
+}
+
+.card__change-photo {
+    width: 100%;
+    min-height: 48px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.card__nav {
+    display: flex;
+    flex-direction: column;
+    min-height: 166px;
+    justify-content: space-evenly;
+    padding-left: 16px;
+    font-size: 18px;
+}
+
+.card__radio {
+    display: none;
+}
+
+.card__label {
+    color: #747474;
+    cursor: pointer;
+    user-select: none;
+}
+
+.card__radio:checked + .card__label {
+    color: black;
+}
+
+.new-message {
+    display: flex;
+    align-items: center;
+}
+
+.new-message::after {
+    content: "";
+    display: block;
+    color: red;
+    width: 6px;
+    height: 6px;
+    background-size: 100%;
+    background-image: url(../assets/red-circle.svg);
+    margin: 0  0 -5px 16px;
+}
+
+.card__change-photo {
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.content {
+    width: 730px;
+    min-height: 777px;
+    border: 1px solid black;
+}
+
+.content__top {
+    padding: 19px;
+    border-bottom: 1px solid black;
+}
+
+.content__header {
+    margin: 0 0 15px;
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.content__label {
+    height: 31px;
+    width: 190px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.content__label {
+    margin-right: 30px;
+}
+
+.content__radio {
+    display: none;
+}
+
+.content__radio:checked + .content__label {
+    background-color: black;
+    color: white;
+}
+
+.ad {
+    width: 100%;
+    height: 269px;
+    padding: 29px 19px 34px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ad__img-container {
+    width: 190px;
+    height: 206px;
+}
+
+.ad__arrow {
+    width: 29px;
+}
+
+.ad__arrow img {
+    width: 5px;
+    height: 10px;
+}
+
+.ad__img {
+    width: 190px;
+    height: 206px;
+}
+
+.ad__title {
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0 0 15px;
+}
+
+.ad__price {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.ad__options a {
+    font-size: 12px;
+}
+
+.ad__info {
+    width: 479px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ad__top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ad__title-and-price:not(.ad__title-and-price_fav) {
+    max-width: 350px;
+}
+
+.ad__options {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+.ad__stat {
+    display: flex;
+    font-family: Montserrat, Helvetica, Roboto, Arial, sans-serif;
+    font-size: 9px;
+    width: 149px;
+    min-height: 35px;
+    background-color: #f0f0f0;
+    justify-content: space-between;
+    padding: 4px 7px;
+}
+
+.stat__keys, .stat__values {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+.ad__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.ad__button {
+    width: 165px;
+    min-height: 31px;
+    background-color: black;
+    color: white;
+    font-family: Montserrat, Helvetica, Roboto, Arial, sans-serif;
+}
+
+.ad:not(:last-child) {
+    border-bottom: 1px solid black;
+}
+
+.content__ads {
+    display: none;
+}
+
+.content__ads_visible {
+    display: block;
+}
+
+
+/*-------------------------------------------------------------------------------*/
+.review {
+    padding: 23px 18px 15px;
+}
+
+.review:not(:last-child) {
+    border-bottom: 1px solid black;
+}
+
+.review__top {
+    display: flex;
+    width: 100%;
+}
+
+.my-reviews__header {
+    margin: 0;
+}
+
+.review__author-photo img {
+    height: 39px;
+    width: 39px;
+    border-radius: 19.5px;
+    display: block;
+}
+
+.review__author-photo {
+    margin-right: 14px;
+}
+
+.review__author-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.review__date {
+    font-size: 12px;
+    color: #747474;
+}
+
+.review__author-name-and-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.review__info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review__rating-and-product {
+    display: flex;
+    align-items: center;
+}
+
+.review__product {
+    font-size: 14px;
+    color: #747474;
+}
+
+.review__stars img {
+    width: 13px;
+}
+
+.review__stars {
+    width: 84px;
+    margin-right: 20px;
+}
+
+.review__text {
+    padding-left: 55px;
+    padding-top: 15px;
+}
+
+/*--------------------------------------------------*/
+
+.my-favourites__header {
+    margin: 0;
+}
+
+.ad__title-and-price_fav {
+    width: 499px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ad_fav {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.ad__img-container_fav {
+    margin-right: 25px;
+}
+
+.ad__img-container_fav {
+    width: 171px;
+    height: 185px;
+}
+
+.ad__img_fav {
+    width: 171px;
+    height: 185px;
+}
+
+.ad_fav {
+    height: 245px;
+}
