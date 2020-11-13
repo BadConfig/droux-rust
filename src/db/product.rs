@@ -20,6 +20,18 @@ pub fn get_brand_list(conn: &PgConnection) -> Vec<Brand> {
         .expect("error loading brands table")
 }
 
+pub fn reviewed_by_user(user_id: i32, seller: i32, conn: &PgConnection) -> bool {
+    
+    use crate::schema::rating::dsl::*;
+
+    rating 
+        .filter(voter_id.eq(user_id))
+        .filter(seller_id.eq(seller))
+        .count()
+        .execute(conn)
+        .expect("Err getting rate reviewed_by_user") > 0
+}
+
 pub fn get_product_data(pr_id: i32, conn: &PgConnection) -> Product {
     products
         .filter(id.eq(pr_id))

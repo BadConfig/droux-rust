@@ -18,6 +18,7 @@ use crate::users::CommonUser;
 use crate::routes::Either;
 use crate::routes::get_base_context;
 use crate::models::product::ProductCard;
+use crate::db::product::reviewed_by_user;
 
 
 #[get("/product/<id>")]
@@ -43,6 +44,7 @@ pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Te
     };
     let (product,seller) = ProductContext::get_by_id(id, user_id, &conn);
     ctx.insert("product", &product);
+    ctx.insert("rating_floored", &(seller.rate_summ / seller.rate_count));
     ctx.insert("seller", &seller);
     Template::render("product/main", &ctx)
 }

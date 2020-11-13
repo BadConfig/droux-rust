@@ -1,4 +1,5 @@
 {% extends "main" %}
+{% import "product/instance" as prod_inst %}
 {% block head %}
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/css/common.css">
@@ -73,21 +74,13 @@
                         </div>
                     </div>
                     <div class="product__rating-and-share">
-                        <div class="product__rating">
-                            <input type="radio" name="product-rating" value="5" id="product-rating_5">
-                            <label for="product-rating_5"></label>
-
-                            <input type="radio" name="product-rating" value="4" id="product-rating_4">
-                            <label for="product-rating_4"></label>
-
-                            <input type="radio" name="product-rating" value="3" id="product-rating_3">
-                            <label for="product-rating_3"></label>
-
-                            <input type="radio" name="product-rating" value="2" id="product-rating_2">
-                            <label for="product-rating_2"></label>
-
-                            <input type="radio" name="product-rating" value="1" id="product-rating_1">
-                            <label for="product-rating_1"></label>
+                        <div class="product__rating" action="/users/rating"  method="POST">
+                            {% for i in range(end=5-rating_floored) %}
+                                <img src="/static/assets/star-empty.svg" alt="">
+                            {% endfor %}
+                            {% for i in range(end=rating_floored) %}
+                                <img src="/static/assets/star-filled.svg" alt="">
+                            {% endfor %}
                         </div>
                         <div class="product__share">
                             <span>Поделиться:</span>
@@ -130,30 +123,7 @@
         </div>
         <div class="ads">
             {% for ad in most_viewed_products %}
-                <div class="part__ad ad"> <!--Объявление целиком-->
-                    <div class="ad__img-container"> <!--Рамка для одной фотографии-->
-                        <div class="ad__arrow ad__arrow_left">
-                            <img src="/static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
-                        </div>
-                        <div class="ad__all-images"> <!--Все фото в линию-->
-                        {% for pic_url in ad.pictures %}
-                            <img src="/{{pic_url}}" alt="" class="ad__img">
-                        {% endfor %}
-                        </div>
-                        <div class="ad__arrow ad__arrow_right">
-                            <img src="/static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
-                        </div>
-                        <div class="ad__favourite-icon">
-                            <img src="/static/assets/favourite.svg" alt="Иконка избранного">
-                        </div>
-                    </div>
-                    <div class="ad__name-and-size">
-                        <h3 class="ad__name">{{ ad.title }}</h3>
-                        <span class="ad__size">{{ ad.size_name }}</span>
-                    </div>
-                    <div class="ad__category">{{ ad.category_name }}</div>
-                    <div class="ad__price">{{ ad.price }}</div>
-                </div>
+                {{prod_inst::instance(ad=ad,seller=false)}} 
             {% endfor %}
         </div>
     </main>

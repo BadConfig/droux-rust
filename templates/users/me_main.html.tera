@@ -1,17 +1,63 @@
 {% extends "main" %}
-{% block  head %}
-<meta charset="utf-8">
-<title>Title</title>
-<link rel="stylesheet" href="/static/css/common.css">
-<link rel="stylesheet" href="/static/css/ad.css">
-<link rel="stylesheet" href="/static/css/main-page.css">
+{% block head %}
+    <link rel="stylesheet" href="../static/css/ad.css">
+    <link rel="stylesheet" href="../static/css/common.css">
+    <link rel="stylesheet" href="../static/css/ad.css">
+    <link rel="stylesheet" href="../static/css/profile.css">
+    <meta charset="UTF-8">
+    <title>Личный кабинет</title>
 {% endblock head %}
 {% block main %}
-
-<a href="/chat"> chat </a>
-<a href="/users/favourites"> favourites </a>
-
-{% block page_content %}
-NONE
-{% endblock page_content %}
+{% if my_user.rate_count != 0 %}
+    {% set rating = my_user.rate_summ / my_user.rate_count %}
+{% else %}
+    {% set rating = 0 %}
+{% endif %}
+    <main class="container profile">
+        <div class="profile__card card">
+            <div class="card__top">
+                <div class="card__photo">
+                    <img src="/static/profile_pictures/{{ my_user.picture_path }}" alt="Фото профиля">
+                </div>
+                <div class="card__info">
+                    <span class="card__profile-name">
+                        {{ my_user.username }}
+                    </span>
+                    <span class="card__reg-date">
+                        На Droux с {{ my_user.register_data | date }}
+                    </span>
+                    <div class="card__rating-div">
+                        <span class="rating__num">
+                            {{ rating }}
+                        </span>
+                        <div class ="rating__stars">
+                        {% for i in range(end=rating_floored) %}
+                            <img src="../../static/assets/star-filled.svg" alt="">
+                        {% endfor %}
+                        {% for i in range(end=5-rating_floored) %}
+                             <img src="../../static/assets/star-empty.svg" alt="">
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card__change-photo">
+                Скоро здесь будут подписки или настройки профиля
+            </div>
+            <div class="card__nav">
+                <a href="/users/products"><span class="card__label">Мои объявления</span></a>
+                <a href="/users/reviews"><span class="card__label">Мои отзывы</span></a>
+                <a href="/users/favourites"><span class="card__label">Избранное</span></a>
+                <a href="/chat_content"><span class="card__label card__label_messages new-message">Сообщения</span></a>
+            </div>
+        </div>
+        <div class="profile__content content">
+    {% block page_content %}
+    {% endblock page_content %}
+        </div>
+</main>
 {% endblock main %}
+{% block scripts %}
+    <script src="/static/js/ad-carousel.js"></script>
+    <script src="/static/js/profile-ads-category.js"></script>
+{% endblock scripts %}

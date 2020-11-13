@@ -29,12 +29,18 @@
                 <input class="search__button button" type="submit" value="Найти">
             </form>
             <div class="header__logo">
-                <img src="/static/assets/droux-logo.svg" alt="Логотип Droux">
+                <a href="/">
+                    <img src="/static/assets/droux-logo.svg" alt="Логотип Droux">
+                </a>
             </div>
             <div class="header__buttons">
                 <a href="/product/create" class="button sell__button">Продать</a>
-                <img src="/static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
-                <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
+                <a>
+                    <img src="/static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
+                </a>
+                <a href="/users/favourites">
+                    <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
+                </a>
                 <span id="auth-button">Войти</span>
             </div>
         </div>
