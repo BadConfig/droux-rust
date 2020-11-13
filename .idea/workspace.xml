@@ -46,6 +46,8 @@
       <change beforePath="$PROJECT_DIR$/static/assets/star-filled.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/star-filled.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/subscribe.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/subscribe.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/telegram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/telegram.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/tick-delivered.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/tick-delivered.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/tick-read.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/tick-read.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/vk-filled.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk-filled.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/vk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/youtube.svg" afterDir="false" />
@@ -171,7 +173,7 @@
       <updated>1605044335703</updated>
       <workItem from="1605044338034" duration="15450000" />
       <workItem from="1605061809768" duration="20685000" />
-      <workItem from="1605216184212" duration="11389000" />
+      <workItem from="1605216184212" duration="11819000" />
     </task>
     <servers />
   </component>

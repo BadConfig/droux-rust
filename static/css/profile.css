@@ -85,17 +85,13 @@
     font-size: 18px;
 }
 
-.card__radio {
-    display: none;
-}
-
 .card__label {
     color: #747474;
     cursor: pointer;
     user-select: none;
 }
 
-.card__radio:checked + .card__label {
+.card__label_active, .card__label:hover {
     color: black;
 }
 
