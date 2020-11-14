@@ -89,6 +89,14 @@ pub fn get_messages(my_chat: Chat, my_id: i32, conn: &PgConnection) -> Vec<ChatM
 
 }
 
+pub fn having_unread(user_id: i32, conn: &PgConnection) -> bool {
+    chat_messages
+        .filter(from_user_id.eq(user_id).or(to_user_id.eq(user_id)).and(is_read.eq(false)))
+        .count()
+        .execute(conn)
+        .expect("err reading chat msg") > 0
+}
+
 pub fn write_message(my_chat: Chat, my_id: i32, other_id: i32, message: String, conn: &PgConnection) {
     
     diesel::insert_into(chat_messages)

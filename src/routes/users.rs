@@ -24,6 +24,9 @@ use crate::models::users::Users;
 pub fn get_users_favourites(user: CommonUser, conn: crate::db::Conn) -> Either {
     let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(user) = user {
+        ctx.insert("my_user", &user.clone());
+        ctx.insert("rating_floored", &(user.rate_summ/user.rate_count));
+        ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
         ctx.insert("favourite_products", &ProductCard::get_favourites(user.id.clone(), &conn));
         Either::Template(Template::render("users/favourites_content", &ctx))
     } else {
@@ -31,12 +34,28 @@ pub fn get_users_favourites(user: CommonUser, conn: crate::db::Conn) -> Either {
     }
 }
 
-#[get("/users/me")]
-pub fn get_users_me_main(user: CommonUser, conn: crate::db::Conn) -> Either {
+#[get("/users/products")]
+pub fn get_users_products(user: CommonUser, conn: crate::db::Conn) -> Either {
     let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(user) = user {
-        Either::Template(Template::render("users/me_main", &ctx))
+        ctx.insert("my_user", &user.clone());
+        ctx.insert("rating_floored", &(user.rate_summ/user.rate_count));
+        ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
+        Either::Template(Template::render("users/products_content", &ctx))
     } else {
         Either::Redirect(Redirect::to("/"))
     }
 } 
+
+#[get("/users/reviews")]
+pub fn get_users_reviews(user: CommonUser, conn: crate::db::Conn) -> Either {
+    let mut ctx = get_base_context(user.clone(), &conn);
+    if let CommonUser::Logged(user) = user {
+        ctx.insert("my_user", &user.clone());
+        ctx.insert("rating_floored", &(user.rate_summ/user.rate_count));
+        ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
+        Either::Template(Template::render("users/reviews_content", &ctx))
+    } else {
+        Either::Redirect(Redirect::to("/"))
+    }
+}

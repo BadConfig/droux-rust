@@ -1,9 +1,40 @@
 {% extends "users/me_main" %}
 {% block page_content %}
-<h1>my favourites</h1>
-{% for ad in favourite_products %}
+{# <h1>my favourites</h1> #}
+{# {% for ad in favourite_products %}
  {{ ad.title }}
     ad
-{% endfor %}
-       
+{% endfor %} #}
+    <div class="my-favourites content__border">
+        <div class="content__top">
+            <h2 class="content__header my-favourites__header">Мои избранные</h2>
+        </div>
+        <div class="profile-ads content__ads content__ads_active content__ads_visible">
+            {% if favourite_products | length == 0 %}
+            У вас нет товаров в избранном
+            {% else %}
+                {% for ad in favourite_products %}
+                <div class="ad ad_fav">
+                    <div class="ad__img-container ad__img-container_fav"> <!--Рамка для одной фотографии-->
+                        <div class="ad__arrow ad__arrow_left">
+                            <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        </div>
+                        <div class="ad__all-images"> <!--Все фото в линию-->
+                         {% for pic_url in ad.pictures %}
+                                <img src="/{{ pic_url }}" alt="" class="ad__img ad__img_fav">
+                         {% endfor %}
+                        </div>
+                        <div class="ad__arrow ad__arrow_right">
+                            <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        </div>
+                    </div>
+                    <div class="ad__title-and-price ad__title-and-price_fav">
+                        <a href="/product/{{ ad.id }}" class="ad__title">{{ ad.title }}</a>
+                        <span class="ad__price">{{ ad.price }} руб</span>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 {% endblock page_content%}

@@ -44,7 +44,8 @@ pub fn app() -> rocket::Rocket {
             routes::chat::get_chats,
             routes::filters::get_filter_data,
             routes::filters::get_filter_page,
-            routes::users::get_users_me_main,
+            routes::users::get_users_products,
+            routes::users::get_users_reviews,
             routes::users::get_users_favourites,
             ])
         .attach(Template::fairing())

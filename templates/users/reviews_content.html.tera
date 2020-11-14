@@ -1,0 +1,82 @@
+{% extends "users/me_main" %}
+{% block page_content %}
+    <div class="my-reviews content__border">
+        <div class="content__top">
+            <h2 class="content__header my-reviews__header">Мои отзывы</h2>
+        </div>
+        <div class="content__reviews">
+            <div class="content__review review">
+                <div class="review__top">
+                    <div class="review__author-photo">
+                        <img src="../../static/assets/female.jpg" alt="">
+                    </div>
+                    <div class="review__info">
+                        <div class="review__author-name-and-date">
+                            <span class="review__author-name">Продавец говна</span>
+                            <span class="review__date">08.08.2020</span>
+                        </div>
+                        <div class="review__rating-and-product">
+                            <div class="review__stars">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                            </div>
+                            <span class="review__product">Сделка состоялась по "Говно"</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis cupiditate ea fugiat magnam provident quam quasi quo rerum voluptates. Esse ipsum itaque laudantium maxime non nulla velit vero voluptas.</div>
+            </div>
+            <div class="content__review review">
+                <div class="review__top">
+                    <div class="review__author-photo">
+                        <img src="../../static/assets/female.jpg" alt="">
+                    </div>
+                    <div class="review__info">
+                        <div class="review__author-name-and-date">
+                            <span class="review__author-name">Продавец говна</span>
+                            <span class="review__date">08.08.2020</span>
+                        </div>
+                        <div class="review__rating-and-product">
+                            <div class="review__stars">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                            </div>
+                            <span class="review__product">Сделка состоялась по "Говно"</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis cupiditate ea fugiat magnam provident quam quasi quo rerum voluptates. Esse ipsum itaque laudantium maxime non nulla velit vero voluptas.</div>
+            </div>
+            <div class="content__review review">
+                <div class="review__top">
+                    <div class="review__author-photo">
+                        <img src="../../static/assets/female.jpg" alt="">
+                    </div>
+                    <div class="review__info">
+                        <div class="review__author-name-and-date">
+                            <span class="review__author-name">Продавец говна</span>
+                            <span class="review__date">08.08.2020</span>
+                        </div>
+                        <div class="review__rating-and-product">
+                            <div class="review__stars">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                                <img src="../../static/assets/star-filled.svg" alt="">
+                            </div>
+                            <span class="review__product">Сделка состоялась по "Говно"</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis cupiditate ea fugiat magnam provident quam quasi quo rerum voluptates. Esse ipsum itaque laudantium maxime non nulla velit vero voluptas.</div>
+            </div>
+        </div>
+    </div>
+{% endblock page_content %}
