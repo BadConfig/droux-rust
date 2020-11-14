@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+.admin {
+    padding: 20px 15px;
+}
+
+.profile__card {
+    width: 350px;
+    height: 350px;
+    border: 1px solid black;
+}
+
+.card__top {
+    display: flex;
+    min-height: 93px;
+}
+
+.card__info {
+    width: 255px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 0 22px;
+    justify-content: space-between;
+}
+
+.card__profile-name {
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.card__reg-date {
+    font-size: 14px;
+    color: #747474;
+}
+
+.card__photo {
+    width: 95px;
+    height: 100%;
+}
+
+.card__photo img {
+    width: 65px;
+    height: 65px;
+    border-radius: 32.5px;
+    margin: 14px auto 0;
+    display: block;
+}
+
+.card__change-photo {
+    width: 100%;
+    min-height: 48px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.card__nav {
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    justify-content: space-evenly;
+    padding-left: 16px;
+    font-size: 18px;
+}
+
+.card__label {
+    color: #747474;
+    cursor: pointer;
+    user-select: none;
+}
+
+.card__label_active, .card__label:hover {
+    color: black;
+}
+
+.card__change-photo {
+    text-align: center;
+    padding: 10px;
+}
+
+.admin__content {
+    width: 100%;
+    min-height: 100px;
+    margin-left: 30px;
+}
+
+.admin__table {
+    max-height: 900px;
+    border: 1px solid black;
+}
+
+.user {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 36px;
+    justify-content: space-between;
+}
+
+.user:not(:nth-child(18)) {
+    border-bottom: 1px solid black;
+}
+
+.user__img img {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    display: block;
+    margin-right: 30px;
+}
+
+.user__button {
+    width: 150px;
+    height: 31px;
+    font-size: 16px;
+}
+
+.user__info {
+    display: flex;
+    align-items: center;
+}
+
+.user__button_ban {
+    color: white;
+    background-color: black;
+}
+
+.admin__page-links a {
+    display: block;
+    width: 30px;
+    border-right: 1px solid black;
+    text-align: center;
+    font-family: Montserrat, Helvetica, Roboto, Arial, sans-serif;
+    text-decoration: underline;
+}
+
+.admin__page-links a:last-child {
+    border: 0;
+}
+
+.admin__page-links {
+    display: flex;
+    width: 400px;
+    justify-content: center;
+    margin: 15px auto;
+}
+
+.admin__page-links a:first-child, .admin__page-links a:last-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin__page-links:first-child img, .admin__page-links:last-child img {
+    display: block;
+    height: 15px;
+}
+
+.admin__header{
+    margin: -5px 0 15px;
+}
+
+.ads {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.ad {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 200px;
+}
+.ad__product-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.ad__product-photo img {
+    height: 180px;
+    width: 180px;
+}
+
+.ad__product-title {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 18px;
+}
+
+.ad__author-photo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    margin-right: 10px;
+}
+
+.ad__author-section {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.ad__buttons__section {
+    width: 100%;
+    padding-top: 7px;
+}
+
+.ad__button {
+    text-align: center;
+    font-size: 16px;
+    width: 100%;
+    height: 40px;
+}
+
+.ad__button_depublish {
+    color: white;
+    background-color: black;
+}
+
+.ads {
+    max-height: 1280px;
+}
+
+.moders__knighthood {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.moders__knighthood * {
+    height: 40px;
+    font-size: 18px;
+}
+
+.moders__name-input, .moders__select-status{
+    border: 1px solid black;
+    margin-right: 10px;
+    display: block;
+}
+
+.moders__name-input {
+    width: 40%;
+}
+
+.moders__join-knighthood {
+    color: white;
+    background-color: black;
+    width: 150px;
+}
+
+.moders{
+    margin-top: 10px;
+}
+
+.moders__button_decapitate {
+    margin-left: 15px;
+}
