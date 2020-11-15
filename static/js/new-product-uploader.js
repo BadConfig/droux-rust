@@ -9,9 +9,9 @@ let popUpCross = popUp.getElementsByClassName('pop-up__close')[0];
 let place = popUp.getElementsByClassName('pop-up__croppie-place')[0];
 let cancel = popUp.getElementsByClassName('pop-up__button_cancel')[0];
 
-let framesCount = 1;
+let framesCount = frame.length;
 let currentFirstFrame = 0;
-let currentLastPhoto = -1;
+let currentLastPhoto = frames.getElementsByClassName('uploader__frame-img').length - 1;
 
 let label = document.createElement('label');
 label.htmlFor = 'photo-upload-input';
