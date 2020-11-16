@@ -10,6 +10,7 @@
 <!--    <link rel="stylesheet" href="filters.css">-->
 </head>
 <body>
+<div class="header__user-actions-layout"></div>
     <header class="header">
         <div class="services">
             <div class="container services__container">
@@ -45,7 +46,15 @@
                     <a href="" class="button sell__button">Продать</a>
                     <img src="../../static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
                     <img src="../../static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
-                    <span>Войти</span>
+                    <span style="display: none;">Войти</span><img src="../../static/assets/male.jpg" alt="" class="header__user-photo">
+                    <div class="header__user-actions">
+                        <a href="">Мои объявления</a>
+                        <a href="">Избранное</a>
+                        <a href="">Мои покупки</a>
+                        <a href="">Мои продажи</a>
+                        <a href="">Настройки</a>
+                        <a href="">Выйти</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -540,6 +549,7 @@
                     </div>
                     <div class="ad__favourite-icon">
                         <img src="../../static/assets/favourite.svg" alt="Иконка избранного">
+                        <img src="../../static/assets/favourite-filled.svg"
                     </div>
                 </div>
                 <div class="ad__name-and-size">
@@ -715,5 +725,6 @@
     <script src="../../static/js/hide-sector.js"></script>
     <script src="../../static/js/search-filter.js"></script>
     <script src="../../static/js/ads-upload.js"></script>
+    <script src="../../static/js/auth.js"></script>
 </body>
 </html>
