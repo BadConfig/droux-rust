@@ -52,7 +52,7 @@
                     <a href="">Мои покупки</a>
                     <a href="">Мои продажи</a>
                     <a href="">Настройки</a>
-                    <a href="">Выйти</a>
+                    <a href="/logout">Выйти</a>
                 </div>
                 {% endif %}
             </div>
