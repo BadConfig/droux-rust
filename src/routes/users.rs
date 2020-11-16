@@ -52,8 +52,10 @@ pub fn get_users_products(user: CommonUser, conn: crate::db::Conn) -> Result<Eit
             0
         };
         ctx.insert("rating_floored", &rate_int);
-        ctx.insert("active_products",&Product::get_active_products(user.id, &conn)?);
-        ctx.insert("deleted_products",&Product::get_deleted_products(user.id, &conn)?);
+        
+        ctx.insert("active_products",&Product::get_products_by_status_and_user("published".into(),user.id, &conn)?);
+        ctx.insert("sold_products",&Product::get_products_by_status_and_user("selled".into(),user.id, &conn)?);
+        ctx.insert("deleted_products",&Product::get_products_by_status_and_user("deleted".into(),user.id, &conn)?);
         ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
         Ok(Either::Template(Template::render("users/products_content", &ctx)))
     } else {
