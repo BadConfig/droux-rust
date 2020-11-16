@@ -7,7 +7,7 @@ fn main() {
 
     match run_pending_migrations(&establish_connection()) {
         Ok(_) => print!("migration success\n"),
-        Err(_)=> print!("migration error\n"),
+        Err(e)=> print!("migration error: {}\n",&e),
     };
     
     droux::app().launch();
