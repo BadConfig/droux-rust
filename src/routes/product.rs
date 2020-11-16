@@ -47,7 +47,11 @@ pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Te
     };
     let (product,seller) = ProductContext::get_by_id(id, user_id, &conn);
     ctx.insert("product", &product);
-    ctx.insert("rating_floored", &(seller.rate_summ / seller.rate_count));
+    if seller.rate_count == 0 {
+        ctx.insert("rating_floored", &0);
+    } else {
+        ctx.insert("rating_floored", &(seller.rate_summ / seller.rate_count)); 
+    }
     ctx.insert("seller", &seller);
     Template::render("product/main", &ctx)
 }
