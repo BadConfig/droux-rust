@@ -266,3 +266,34 @@
 .moders__button_decapitate {
     margin-left: 15px;
 }
+
+.links {
+    padding: 15px;
+    display: flex;
+}
+
+.links label {
+    font-size: 20px;
+    margin-right: 10px;
+    width: 150px;
+}
+
+.links__label-div {
+    display: flex;
+    align-items: center;
+}
+.links__label-div:not(:last-child){
+    margin-bottom: 15px;
+}
+.links__label-div input[type=text] {
+    border: 1px solid black;
+    width: 300px;
+    height: 30px;
+}
+
+.links__button{
+    color: white;
+    background-color: black;
+    width: 150px;
+    height: 30px;
+}
