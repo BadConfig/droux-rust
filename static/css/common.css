@@ -165,6 +165,7 @@ input[type=checkbox] + label {
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
+    position: relative;
 }
 
 .header__logo, .header__logo img{
@@ -414,3 +415,37 @@ input[type=checkbox] + label {
     cursor: pointer;
 }
 
+.header__user-actions {
+    width: 195px;
+    min-height: 266px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 20px;
+    position: absolute;
+    bottom: -294px;
+    z-index: 20;
+    background-color: white;
+    border: 1px solid black;
+    right: 0;
+    font-size: 14px;
+    display: none;
+}
+
+.header__user-photo {
+    width: 29px;
+    height: 29px;
+    border-radius: 14.5px;
+    cursor: pointer;
+}
+
+.header__user-actions-layout {
+    width: 97vw;
+    height: 120vh;
+    position: absolute;
+    z-index: 10;
+    display: none;
+}
+
+.header__user-actions_visible, .header__user-actions-layout_visible {
+    display: flex;
+}

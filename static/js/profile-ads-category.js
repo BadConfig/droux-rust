@@ -4,6 +4,10 @@ let deletedButton = document.getElementById('deleted');
 
 let buttons = [activeButton, soldButton, deletedButton];
 
+if (deletedButton === null) {
+    buttons.splice(2,1);
+}
+
 let display = document.getElementsByClassName('content__ads');
 
 for (let i = 0; i < buttons.length; i++) {

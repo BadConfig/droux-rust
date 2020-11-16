@@ -591,3 +591,24 @@
     visibility: visible;
     z-index: unset;
 }
+
+.card__button {
+    width: 315px;
+    height: 32px;
+    color: white;
+    background-color: black;
+    font-size: 16px;
+}
+
+.card__button-div {
+    min-height: 52px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-my-card__nav {
+    min-height: 99px;
+}
