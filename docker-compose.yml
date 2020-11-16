@@ -2,42 +2,47 @@ version: '3'
 services:
   #rocket.rs app
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: badconfig/droux:0.1
-    container_name: app
+    #build:
+    #  context: .
+    #  dockerfile: Dockerfile
+    image: badconfig/droux
+    container_name: rocket-server
     tty: true
-    working_dir: /app
+   # working_dir: /droux
     ports:
       - "8000:8000"
-    volumes:
-      - ./:/app
+   # volumes:
+   #   - ./:/app
     environment:
-      DATABASE_URL: postgres://docker:docker@postgres:5432/diesel_db
+      DATABASE_URL: postgres://docker:docker@postgres1:5432/diesel_db
+    volumes:
+        #  - ./:/app
+          - ./Rocket.toml:/droux/Rocket.toml
+          - ./static/:/droux/static/
+          - ./templates/:/droux/templates/
     networks:
       - app-network
   #Nginx
   webserver:
     image: nginx:alpine
-    container_name: webserver
+    container_name: webserver1
     restart: unless-stopped
     tty: true
     ports:
       - "80:8080"
     volumes:
-      - ./:/app
+    #  - ./:/app
       - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
   postgres:
     image: "postgres:9.6"
-    container_name: postgres
+    container_name: postgres1
     restart: unless-stopped
     ports:
       - "5432:5432"
-    volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+   # volumes:
+     # - ./postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: diesel_db
       POSTGRES_PASSWORD: docker

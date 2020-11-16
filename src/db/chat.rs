@@ -42,9 +42,9 @@ pub fn chat_exists(my_id: i32, other_id: i32, prod_id: i32, conn: &PgConnection)
                 .and(to_user_id.eq(my_id))
             )
         ).and(product_id.eq(prod_id)))
-        .count()
-        .get_result::<i64>(conn) != Err(diesel::NotFound)
-        
+        .load::<Chat>(conn)
+        .expect("error getting chat")
+        .len() > 0
 }
 
 pub fn get_chat(my_id: i32, other_id: i32, prod_id: i32, conn: &PgConnection) -> Chat {
@@ -84,17 +84,17 @@ pub fn get_messages(my_chat: Chat, my_id: i32, conn: &PgConnection) -> Vec<ChatM
         .set(is_read.eq(true))
         .execute(conn)
         .expect("error while setting is read flags db::chat::get_messages");
-
+    print!("\n{:?}\n",&result);
     result
 
 }
 
 pub fn having_unread(user_id: i32, conn: &PgConnection) -> bool {
     chat_messages
-        .filter(from_user_id.eq(user_id).or(to_user_id.eq(user_id)).and(is_read.eq(false)))
-        .count()
-        .execute(conn)
-        .expect("err reading chat msg") > 0
+        .filter(to_user_id.eq(user_id).and(is_read.eq(false)))
+        .get_results::<ChatMessage>(conn)
+        .expect("err reading chat msg")
+        .len() > 0
 }
 
 pub fn write_message(my_chat: Chat, my_id: i32, other_id: i32, message: String, conn: &PgConnection) {
@@ -117,16 +117,7 @@ pub fn get_dialoge_list(my_id: i32, conn: &PgConnection) -> Vec<ChatPerson> {
     use diesel::sql_query;
     use diesel::sql_types::Integer;
 
-    sql_query("
-    SELECT DISTINCT ON (users1.username) users1.username, users1.id, chat_messages.is_read, chat.product_id as product_id
-    FROM chat_messages AS chat_messages INNER JOIN users AS users1
-    ON chat_messages.from_user_id = users1.id 
-    inner join chat on chat_messages.chat_id = chat.id WHERE (chat_messages.to_user_id = $1) 
-    UNION   
-    SELECT DISTINCT ON (users1.username) users1.username, users1.id, true, chat.product_id as product_id
-    FROM chat_messages AS chat_messages INNER JOIN users AS users1
-    ON chat_messages.to_user_id = users1.id  
-    inner join chat on chat_messages.chat_id = chat.id WHERE (chat_messages.from_user_id = $1)")
+    sql_query(include_str!("../../SQL/get_dialogues.sql"))
     .bind::<Integer,_>(my_id)
     .get_results::<ChatPerson>(conn)
     .expect("Something went wrong while executing sql")

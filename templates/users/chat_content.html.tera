@@ -1,11 +1,47 @@
 {% extends "users/me_main" %}
 {% block page_content %}
-<h1>all chat content</h1>
+{# <h1>all chat content</h1>
 <ul>
-{% for person in people_list %}
+
 <li style="{% if not person.is_read %}
         font-color: red;
     {% endif %}"> <a href="/chat/{{ person.product_id }}/{{ person.id }}">{{ person.username }} </a> </li>
 {% endfor %}
-</ul>
+</ul> #}
+    <div class="my-dialogues content__border">
+        <div class="content__top">
+            <h2 class="content__header my-dialogues__header">Мои сообщения</h2>
+        </div>
+        <div class="content__dialogues">
+            {% for person in people_list %}
+                <div class="content__dialogue dialogue">
+                    <img src="{{ person.pr_pictures.0 }}" alt="" class="dialogue__photo">
+                    <div class="dialogue__info">
+                        <div class="dialogue__string dialogue__info_top">
+                            <div class="dialogue__author">
+                                <img src="/static/profile_pictures/{{ person.talker_picture }}" alt="">
+                                    <a href="/chat/{{ person.pr_id }}/{{ person.talker_id }}">
+                                        <span>{{ person.talker_username }}</span>
+                                    </a>
+                            </div>
+                            <div class="dialogue__date">
+                            {% if person.last_msg_time %}
+                                {{ person.last_msg_time | date(format="%H:%M") }}
+                            {% endif %}
+                            </div>
+                        </div>
+                        <div class="dialogue__string dialogue__info_middle">
+                            <span class="dialogue__product">{{ person.pr_title }}</span>
+                            <span class="dialogue__price">{{ person.pr_price }} руб.</span>
+                        </div>
+                        <span class="dialogue__string dialogue__last-message">
+                            {% if person.last_msg %}
+                                {{ person.last_msg }}
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock page_content%}

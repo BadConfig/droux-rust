@@ -47,6 +47,38 @@ pub fn get_brand_name(cid: i32, conn: &PgConnection) -> Brand {
         .expect("no such brand found by id")
 }
 
+pub fn increment_product_views(pr_id: i32, conn: &PgConnection) {
+    diesel::update(products)
+        .filter(id.eq(pr_id))
+        .set(total_views.eq(total_views+1))
+        .execute(conn)
+        .expect("error incr views");
+}
+
+pub fn increment_product_today_views(pr_id: i32, conn: &PgConnection) {
+
+    use crate::schema::views::dsl::*;
+    use crate::models::product::ProductTodayViews;
+
+    let r = views
+        .filter(product_id.eq(pr_id))
+        .get_results::<ProductTodayViews>(conn)
+        .expect("err incrementing today product");
+    
+    if r.len() > 0 {
+        diesel::update(views)
+            .filter(product_id.eq(pr_id))
+            .set(count.eq(count+1))
+            .execute(conn)
+            .expect("error incr views");
+    } else {
+        diesel::insert_into(views)
+            .values(&(product_id.eq(pr_id),count.eq(1)))
+            .execute(conn)
+            .expect("error incr views");
+    }
+}
+
 pub fn get_category_list(conn: &PgConnection) -> Vec<AllSubCategories> {
 
     use diesel::sql_query;

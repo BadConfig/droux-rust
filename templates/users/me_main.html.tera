@@ -1,9 +1,9 @@
 {% extends "main" %}
 {% block head %}
-    <link rel="stylesheet" href="../static/css/ad.css">
-    <link rel="stylesheet" href="../static/css/common.css">
-    <link rel="stylesheet" href="../static/css/ad.css">
-    <link rel="stylesheet" href="../static/css/profile.css">
+    <link rel="stylesheet" href="/static/css/ad.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/ad.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
     <meta charset="UTF-8">
     <title>Личный кабинет</title>
 {% endblock head %}
@@ -48,7 +48,11 @@
                 <a href="/users/products"><span class="card__label">Мои объявления</span></a>
                 <a href="/users/reviews"><span class="card__label">Мои отзывы</span></a>
                 <a href="/users/favourites"><span class="card__label">Избранное</span></a>
-                <a href="/chat_content"><span class="card__label card__label_messages new-message">Сообщения</span></a>
+                <a href="/chat"><span class="card__label card__label_messages 
+                    {% if unread_messages %}
+                        new-message
+                    {% endif %}
+                ">Сообщения</span></a>
             </div>
         </div>
         <div class="profile__content content">
@@ -60,4 +64,5 @@
 {% block scripts %}
     <script src="/static/js/ad-carousel.js"></script>
     <script src="/static/js/profile-ads-category.js"></script>
+    <script src="/static/js/chat.js"></script>
 {% endblock scripts %}

@@ -42,14 +42,6 @@ table! {
 }
 
 table! {
-    deleted_posts (id) {
-        id -> Int4,
-        post_id -> Int4,
-        delete_type -> Varchar,
-    }
-}
-
-table! {
     favourites (id) {
         id -> Int4,
         user_id -> Int4,
@@ -87,12 +79,12 @@ table! {
         brand_id -> Int4,
         seller_id -> Int4,
         pictures -> Array<Text>,
-        is_published -> Bool,
         type_id -> Int4,
         size_id -> Int4,
         total_views -> Int8,
         create_datetime -> Timestamp,
         phone_number -> Varchar,
+        status -> Varchar,
     }
 }
 
@@ -130,6 +122,15 @@ table! {
         stars -> Int2,
         comment -> Varchar,
         feedback_type -> Varchar,
+        create_datetime -> Timestamp,
+    }
+}
+
+table! {
+    selled_posts (id) {
+        id -> Int4,
+        product_id -> Int4,
+        selled_datetime -> Timestamp,
     }
 }
 
@@ -189,7 +190,6 @@ table! {
 
 joinable!(activation_links -> users (user_id));
 joinable!(chat_messages -> chat (chat_id));
-joinable!(deleted_posts -> products (post_id));
 joinable!(favourites -> products (product_id));
 joinable!(favourites -> users (user_id));
 joinable!(priveleges -> users (user_id));
@@ -200,6 +200,7 @@ joinable!(products -> sizes (size_id));
 joinable!(products -> sub_categories (sub_category_id));
 joinable!(products -> users (seller_id));
 joinable!(promotions -> products (product_id));
+joinable!(selled_posts -> products (product_id));
 joinable!(sub_categories -> categories (category_id));
 joinable!(views -> products (product_id));
 
@@ -209,7 +210,6 @@ allow_tables_to_appear_in_same_query!(
     categories,
     chat,
     chat_messages,
-    deleted_posts,
     favourites,
     news,
     priveleges,
@@ -218,6 +218,7 @@ allow_tables_to_appear_in_same_query!(
     product_type,
     promotions,
     rating,
+    selled_posts,
     sizes,
     social_links,
     sub_categories,

@@ -52,7 +52,7 @@ pub fn authorize(form: Form<LoginForm>, user: CommonUser, mut cookies: Cookies, 
             CommonUser::NotLogged() => None,
         };
         ctx.insert("most_viewed_products",&ProductCard::get_most_viewed(20,opt_id.clone(), &conn));
-        ctx.insert("new_products", &ProductCard::get_recently_added(opt_id.clone(), &conn));
+        ctx.insert("new_products", &ProductCard::get_recently_added(20,opt_id.clone(), &conn));
         ctx.insert("popular_seller_products", &ProductCard::get_by_seller_popular_products(opt_id.clone(), &conn));
         Either::Template(Template::render("index", &ctx))
     }
@@ -84,7 +84,7 @@ pub fn register(form: Form<RegisterForm>, user: CommonUser, conn: crate::db::Con
     };
     let mut ctx = get_base_context(user.clone(), &conn);
     ctx.insert("most_viewed_products",&ProductCard::get_most_viewed(20,opt_id.clone(), &conn));
-    ctx.insert("new_products", &ProductCard::get_recently_added(opt_id.clone(), &conn));
+    ctx.insert("new_products", &ProductCard::get_recently_added(20,opt_id.clone(), &conn));
     ctx.insert("popular_seller_products", &ProductCard::get_by_seller_popular_products(opt_id.clone(), &conn));
     let link = create_user(form.username.clone(), form.email.clone(), form.pass.clone(), &conn);
     let link = match link {

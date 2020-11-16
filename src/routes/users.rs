@@ -1,5 +1,5 @@
 use crate::db::users;
-use rocket_contrib::templates::{Template,tera::*};
+use rocket_contrib::templates::{Template,tera::Context};
 use rocket::request::Form;
 use rocket::response::Redirect;
 use rocket::http::{Cookie, Cookies};
@@ -14,6 +14,8 @@ use crate::models::product::ProductCard;
 
 use crate::routes::Either;
 use crate::models::users::Users;
+use crate::models::product::Product;
+use crate::Error;
 
 //#[get("/users/<id>")]
 //pub fn get_product_by_id(user_id: i32, user: CommonUser, conn: crate::db::Conn) -> Template {
@@ -25,7 +27,12 @@ pub fn get_users_favourites(user: CommonUser, conn: crate::db::Conn) -> Either {
     let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(user) = user {
         ctx.insert("my_user", &user.clone());
-        ctx.insert("rating_floored", &(user.rate_summ/user.rate_count));
+        let rate_int = if user.rate_count != 0 {
+            (user.rate_summ/user.rate_count)
+        } else {
+            0
+        };
+        ctx.insert("rating_floored", &rate_int);
         ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
         ctx.insert("favourite_products", &ProductCard::get_favourites(user.id.clone(), &conn));
         Either::Template(Template::render("users/favourites_content", &ctx))
@@ -35,24 +42,40 @@ pub fn get_users_favourites(user: CommonUser, conn: crate::db::Conn) -> Either {
 }
 
 #[get("/users/products")]
-pub fn get_users_products(user: CommonUser, conn: crate::db::Conn) -> Either {
+pub fn get_users_products(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
     let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(user) = user {
         ctx.insert("my_user", &user.clone());
-        ctx.insert("rating_floored", &(user.rate_summ/user.rate_count));
+        let rate_int = if user.rate_count != 0 {
+            (user.rate_summ/user.rate_count)
+        } else {
+            0
+        };
+        ctx.insert("rating_floored", &rate_int);
+        ctx.insert("active_products",&Product::get_active_products(user.id, &conn)?);
+        ctx.insert("deleted_products",&Product::get_deleted_products(user.id, &conn)?);
         ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
-        Either::Template(Template::render("users/products_content", &ctx))
+        Ok(Either::Template(Template::render("users/products_content", &ctx)))
     } else {
-        Either::Redirect(Redirect::to("/"))
+        Ok(Either::Redirect(Redirect::to("/")))
     }
 } 
 
 #[get("/users/reviews")]
 pub fn get_users_reviews(user: CommonUser, conn: crate::db::Conn) -> Either {
+    
+    use crate::models::product::ProductRating;
+    
     let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(user) = user {
         ctx.insert("my_user", &user.clone());
-        ctx.insert("rating_floored", &(user.rate_summ/user.rate_count));
+        let rate_int = if user.rate_count != 0 {
+            (user.rate_summ/user.rate_count)
+        } else {
+            0
+        };
+        ctx.insert("reviews",&ProductRating::get_by_user(user.id,&conn));
+        ctx.insert("rating_floored", &rate_int);
         ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
         Either::Template(Template::render("users/reviews_content", &ctx))
     } else {

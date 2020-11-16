@@ -1,0 +1,51 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/admin.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% endblock head %}
+{% block main %}
+    <main class="container admin">
+        <div class="profile__card card">
+            <div class="card__top">
+                <div class="card__photo">
+                    <img src="../../static/assets/male.jpg" alt="Фото профиля">
+                </div>
+                <div class="card__info">
+                    <span class="card__profile-name">
+                        admin
+                    </span>
+                    <span class="card__reg-date">
+                        На Droux с начала времён
+                    </span>
+                </div>
+            </div>
+            <div class="card__change-photo">
+                Скоро здесь будут подписки или настройки профиля
+            </div>
+            <div class="card__nav">
+                {% if admin.is_admin or admin.is_moderator %}
+                    <a href=""><span class="card__label ">Пользователи</span></a>
+                    <a href="/admin/product/1">
+                        <span class="card__label {% block active_products %}{% endblock active_products %}">
+                            Объявления</span>
+                    </a>
+                    <a href=""><span class="card__label">Отзывы</span></a>
+                {% endif %}
+                {% if admin.is_admin or admin.is_editor %}
+                    <a href=""><span class="card__label">Новости</span></a>
+                {% endif %}
+                {% if admin.is_admin %}
+                    <a href=""><span class="card__label">Модераторы и редакторы</span></a>
+                    <a href=""><span class="card__label">Управление ссылками</span></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="admin__content">
+        {% block page_content%}
+            NONE
+        {% endblock page_content%}
+        </div>
+    </main>
+{% endblock main %}

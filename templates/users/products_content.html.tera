@@ -13,96 +13,51 @@
             </div>
         </div>
         <div class="profile-ads content__ads content__ads_active content__ads_visible">
-            <div class="ad">
-                <div class="ad__img-container"> <!--Рамка для одной фотографии -->
-                    <div class="ad__arrow ad__arrow_left">
-                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
-                    </div>
-                    <div class="ad__all-images"> <!--Все фото в линию -->
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                    </div>
-                    <div class="ad__arrow ad__arrow_right">
-                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
-                    </div>
-                </div>
-                <div class="ad__info">
-                    <div class="ad__top">
-                        <div class="ad__title-and-price">
-                            <h2 class="ad__title">Жвачка по рублю</h2>
-                            <span class="ad__price">5 руб.</span>
+            {% for ad in active_products %}
+                <div class="ad">
+                    <div class="ad__img-container"> <!--Рамка для одной фотографии -->
+                        <div class="ad__arrow ad__arrow_left">
+                            <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
                         </div>
-                        <div class="ad__options">
-                            <a href="">Поднять просмотры</a>
-                            <a href="">Редактировать</a>
-                            <a href="">Снять с публикации</a>
+                        <div class="ad__all-images"> <!--Все фото в линию -->
+                            {% for url in ad.pictures %}
+                                <img src="/{{ url }}" alt="" class="ad__img">
+                            {% endfor %} 
+                        </div>
+                        <div class="ad__arrow ad__arrow_right">
+                            <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
                         </div>
                     </div>
-                    <div class="ad__bottom">
-                        <div class="ad__stat">
-                            <div class="stat__keys">
-                                <span>Осталось дней</span>
-                                <span>Просмотров</span>
-                                <span>В избранном</span>
+                    <div class="ad__info">
+                        <div class="ad__top">
+                            <div class="ad__title-and-price">
+                                <h2 class="ad__title">{{ ad.title }}</h2>
+                                <span class="ad__price">{{ ad.price }} руб.</span>
                             </div>
-                            <div class="stat__values">
-                                <span>7 дней</span>
-                                <span>1337+15</span>
-                                <span>69</span>
+                            <div class="ad__options">
+                                <a href="">Поднять просмотры</a>
+                                <a href="">Редактировать</a>
+                                <a href="">Снять с публикации</a>
                             </div>
                         </div>
-                        <a href="" class="button ad__button">Поднять просмотры</a>
-                    </div>
-                </div>
-            </div>
-            <div class="ad">
-                <div class="ad__img-container"><!--Рамка для одной фотографии -->
-                    <div class="ad__arrow ad__arrow_left">
-                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
-                    </div>
-                    <div class="ad__all-images"> <!--Все фото в линию -->
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
-                    </div>
-                    <div class="ad__arrow ad__arrow_right">
-                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
-                    </div>
-                </div>
-                <div class="ad__info">
-                    <div class="ad__top">
-                        <div class="ad__title-and-price">
-                            <h2 class="ad__title">Жвачка по рублю</h2>
-                            <span class="ad__price">5 руб.</span>
-                        </div>
-                        <div class="ad__options">
-                            <a href="">Поднять просмотры</a>
-                            <a href="">Редактировать</a>
-                            <a href="">Снять с публикации</a>
-                        </div>
-                    </div>
-                    <div class="ad__bottom">
-                        <div class="ad__stat">
-                            <div class="stat__keys">
-                                <span>Осталось дней</span>
-                                <span>Просмотров</span>
-                                <span>В избранном</span>
+                        <div class="ad__bottom">
+                            <div class="ad__stat">
+                                <div class="stat__keys">
+                                    <span>Осталось дней</span>
+                                    <span>Просмотров</span>
+                                    <span>В избранном</span>
+                                </div>
+                                <div class="stat__values">
+                                    <span>7 дней</span>
+                                    <span>{{ ad.total_views }}</span>
+                                    <span>69</span>
+                                </div>
                             </div>
-                            <div class="stat__values">
-                                <span>7 дней</span>
-                                <span>1337+15</span>
-                                <span>69</span>
-                            </div>
+                            <a href="" class="button ad__button">Поднять просмотры</a>
                         </div>
-                        <a href="" class="button ad__button">Поднять просмотры</a>
                     </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="profile-ads content__ads content__ads_sold">
             <div class="ad">

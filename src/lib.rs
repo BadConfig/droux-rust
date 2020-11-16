@@ -16,18 +16,55 @@ extern crate rocket_contrib;
 extern crate diesel;
 extern crate dotenv;
 
+extern crate rocket_slog;
+use rocket_slog::SlogFairing;
+
+use diesel::result::Error as DieselError;
+use rocket::request::Request;
+use rocket::http::Status;
+use rocket::response;
+use rocket::response::{Response, Responder};
+//use std::error::Error;
+
+#[derive(Debug)]
+pub struct Error {
+    status: Status,
+    message: String,
+}
+
+impl<'r> Responder<'r> for Error {
+    fn respond_to(self, _: &Request) -> response::Result<'r> {
+        print!("ERROR| {}\n",self.message);
+        Err(self.status)
+    }
+
+}
+
+impl From<DieselError> for Error {
+    fn from(error: DieselError) -> Error {
+        Error {
+            status: Status::InternalServerError,
+            message: error.to_string(),
+        }
+    }
+}
+
 use rocket_contrib::templates::{Template,tera::*};
 use serde::Serialize;
 use rocket::http::{Cookie, Cookies};
 use rocket_contrib::serve::{StaticFiles,Options};
-
-use std::sync::atomic::AtomicUsize;
+use rocket::config::{Config, Environment, LoggingLevel};
 
 pub fn app() -> rocket::Rocket {
+
     rocket::ignite()
         .mount("/",routes![
             routes::auth::login,
             routes::admin::admin_main,
+            routes::admin::admin_product,
+            routes::admin::product_change,
+            routes::admin::admin_product_edit,
+            routes::admin::admin_product_unpub,
             routes::auth::authorize,
             routes::auth::logout,
             routes::index,

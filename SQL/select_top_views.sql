@@ -27,12 +27,10 @@ FROM products AS pr
 		ON sz.id = pr.size_id
     LEFT JOIN views AS vws 
         ON vws.product_id = pr.id
-    LEFT JOIN deleted_posts AS delp
-        ON delp.post_id = pr.id
     JOIN users AS u2 
     	ON u2.id = pr.seller_id 
 WHERE
-	delp.post_id IS NULL
+	pr.status = 'published'
 ORDER BY 
-    vws.count
+    vws.count DESC NULLS LAST
 LIMIT $2;

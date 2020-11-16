@@ -1,5 +1,6 @@
 use chrono::NaiveDateTime;
 extern crate serde;
+use crate::Error;
 use diesel;
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
@@ -13,9 +14,8 @@ use crate::schema::{
     rating,
 };
 use diesel::sql_types::{
-    Integer, Text, Bool, BigInt, Array, Timestamp, Nullable
+    Integer, Text, Bool, BigInt, Array, Timestamp, Nullable, SmallInt,
 };
-use rocket_contrib::templates::tera::*;
 use crate::models::users::Users;
 
 #[derive(Serialize, Deserialize,QueryableByName)]
@@ -152,15 +152,16 @@ impl ProductCard {
 
     }
 
-    pub fn get_recently_added(user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
+    pub fn get_recently_added(limit: i32, user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
        
         use diesel::sql_types::{
             Nullable,
             Integer,
         };
 
-        diesel::sql_query(include_str!("../../SQL/select_popular_by_seller.sql"))
+        diesel::sql_query(include_str!("../../SQL/select_recently_added.sql"))
             .bind::<Nullable<Integer>, _>(user_id)
+            .bind::<Integer, _>(limit)
             .load::<ProductCard>(conn)
             .expect("diesel database error ProductCard:::get_recently_added(user_id: Option<i32>, conn: &PgConnection))")
 
@@ -280,26 +281,56 @@ pub struct NewPromotion {
     is_pre_prder: bool,
 }
 
-#[derive(Serialize, Deserialize, Queryable, Clone)]
+#[derive(Serialize, Deserialize, QueryableByName, Clone)]
 pub struct ProductRating {
+    #[sql_type="Integer"]
     id: i32,
+    #[sql_type="Integer"]
     voter_id: i32,
+    #[sql_type="Text"]
+    voter_photo: String,
+    #[sql_type="Text"]
+    voter_username: String,
+    #[sql_type="Integer"]
     seller_id: i32,
+    #[sql_type="SmallInt"]
     stars: i16,
+    #[sql_type="Text"]
     comment: String,
+    #[sql_type="Text"]
+    feedback_type: String,
+    #[sql_type="Timestamp"]
+    create_datetime: chrono::NaiveDateTime,
 }
 
 impl ProductRating {
-    pub fn set_rating(fid: i32, tid: i32, stars_count: i16, conn: &PgConnection) {
+    pub fn set_rating(fid: i32, tid: i32, stars_count: i16, com: String, feedb: String, conn: &PgConnection) {
 
         use crate::schema::rating::dsl::*;
 
         diesel::insert_into(rating)
-            .values((voter_id.eq(fid),seller_id.eq(tid),stars.eq(stars_count)))
+            .values((
+                voter_id.eq(fid),
+                seller_id.eq(tid),
+                stars.eq(stars_count),
+                comment.eq(com),
+                feedback_type.eq(feedb)))
             .execute(conn)
             .expect("Error adding rating to database");
 
     }
+
+    pub fn get_by_user(u_id: i32, conn: &PgConnection) -> Vec<ProductRating> {
+        
+        use crate::schema::rating::dsl::*;
+
+        diesel::sql_query(include_str!("../../SQL/rating.sql"))
+            .bind::<Integer, _>(u_id)
+            .load::<ProductRating>(conn)
+            .expect("Error getting rating")
+
+    }
+
 }
 
 
@@ -314,7 +345,7 @@ pub struct NewroductRating {
 
 
 
-#[derive(Serialize, Deserialize, Queryable, Clone)]
+#[derive(Serialize, Deserialize, Queryable, Clone, Debug)]
 pub struct Product {
     pub id: i32,
     pub sub_category_id: i32,
@@ -326,19 +357,54 @@ pub struct Product {
     pub brand_id: i32,
     pub seller_id: i32,
     pub pictures: Vec<String>,
-    pub is_published: bool,
     pub type_id: i32,
     pub size_id: i32,
     pub total_views: i64,
     pub create_datetime: NaiveDateTime,
     pub phone_number: String,
+    pub status: String,
 }
+
+use rocket_contrib::templates::tera::Context;
 
 impl Product {
     pub fn get_context(&self) -> Context {
         let mut context = Context::new();
         context.insert("id", &self);
         context
+    }
+    pub fn get_by_id(pr_id: i32, conn: &PgConnection) -> Product {
+        
+        use crate::schema::products::dsl::*;
+
+        products
+            .filter(id.eq(pr_id))
+            .get_result::<Product>(conn)
+            .expect("error loading product")
+    }
+
+    pub fn get_active_products(u_id: i32, conn: &PgConnection) -> Result<Vec<Product>,Error> {
+
+        use crate::schema::products::dsl::*;
+
+        let r = products
+            .filter(seller_id.eq(u_id))
+            .filter(status.eq("published"))
+            .get_results::<Product>(conn)?;
+        Ok(r)
+
+    }
+
+    pub fn get_deleted_products(u_id: i32, conn: &PgConnection) -> Result<Vec<Product>,Error> {
+
+        use crate::schema::products::dsl::*;
+
+        let r = products
+            .filter(seller_id.eq(u_id))
+            .filter(status.eq("deleted"))
+            .get_results::<Product>(conn)?;
+        Ok(r)
+
     }
 }
 
@@ -402,4 +468,85 @@ pub struct JoinedCategory {
     pub category_id: i32,
     #[sql_type = "Integer"]
     pub sub_category_id: i32,
+}
+
+#[derive(Serialize, Deserialize,QueryableByName)]
+pub struct ProductAdmin {
+    #[sql_type="Integer"]
+    pub id: i32,
+    #[sql_type="Text"]
+    pub title: String,
+    #[sql_type="Array<Text>"]
+    pub pictures: Vec<String>,
+    #[sql_type="Integer"]
+    pub seller_id: i32,
+    #[sql_type="Text"]
+    pub seller_username: String,
+    #[sql_type="Text"]
+    pub seller_picture: String,
+    #[sql_type="Bool"]
+    pub is_published: bool,
+}
+
+use rocket::Data;
+use rocket::http::ContentType;
+
+impl ProductAdmin {
+    pub fn get_products(page: i32, conn: &PgConnection) -> Vec<ProductAdmin> {
+        diesel::sql_query(include_str!("../../SQL/get_products_admin.sql"))
+            .bind::<Integer, _>((page-1)*12)
+            .bind::<Integer, _>(12)
+            .get_results::<ProductAdmin>(conn)
+            .expect("error getting products")
+
+    }
+
+    pub fn publish(pr_id: i32, conn: &PgConnection) {
+        use crate::schema::products::dsl::*;
+
+        diesel::update(products)
+            .filter(id.eq(pr_id))
+            .set(status.eq("published"))
+            .execute(conn)
+            .expect("error setting published");
+
+    }
+
+    pub fn unpublish(pr_id: i32, conn: &PgConnection) {
+        use crate::schema::products::dsl::*;
+
+        diesel::update(products)
+            .filter(id.eq(pr_id))
+            .set(status.eq("refused"))
+            .execute(conn)
+            .expect("error setting published");
+
+    }
+
+    pub fn change_product(pr_id: i32, content_type: &ContentType, form: Data, conn: &PgConnection) {
+        
+        use crate::routes::product::parse_multiform_product;
+        use crate::schema::products::dsl::*;
+        use std::fs::remove_file;
+
+        let p = parse_multiform_product(content_type, form);
+
+        let prod = products
+            .filter(id.eq(pr_id))
+            .get_result::<Product>(conn)
+            .expect("error getting product by id");
+        
+        prod.pictures.into_iter().map(
+            | path | {
+                remove_file(path);
+            }
+        );
+       
+        diesel::update(products)
+            .filter(id.eq(pr_id))
+            .set(&p)
+            .execute(conn)
+            .expect("error setting published");
+            
+    }
 }

@@ -1,6 +1,6 @@
 {% extends "users/me_main" %}
 {% block page_content %}
-<h1>chat content dialogue</h1>
+{# <h1>chat content dialogue</h1>
     {% for msg in messages %}
         <p> {{ from_user.username }} </p>
         <span> {{ msg.msg_data }} </span>
@@ -12,6 +12,60 @@
 <input type="hidden" name="product_id" value="{{ prod_id }}">
    <p>type here<input name="message" type="text"></p>
    <p><input type="submit"></p>
-</form>
-       
+</form> #}
+
+    <div class="chat content__border">
+        <div class="chat__top">
+            <div class="chat__author-block">
+                <a href="/chat" class="chat__back">
+                    <img src="../../static/assets/arrow-left.svg" alt="Кнопка возвращения назад">
+                </a>
+                <a href="" class="chat__author-photo">
+                    <img src="/static/profile_pictures/{{ other_user.picture_path}}" alt="">
+                </a>
+                <a href="" class="chat__author-name">
+                    <span>{{ other_user.username }}</span>
+                </a>
+            </div>
+            <div class="chat__product-block">
+                <a href="" class="chat__product-name">{{ product.title }}</a>
+                <span class="chat__product-price">{{ product.price }} руб.</span>
+            </div>
+        </div>
+        <div class="chat__field">
+            <div class="chat__messages">
+
+            {% for msg in messages %}
+                {% if msg.from_user_id == user.id %}
+                    <div class="chat__message-div chat__message-div_author_user 
+                        {% if msg.is_read %}
+                            chat__message-div_status_read
+                        {% else %}
+                            chat__message-div_status_delivered
+                        {% endif %}
+                    ">
+                        <div class="chat__message chat__message_author_user">
+                            {{ msg.msg_data }}
+                        </div>
+                        <span class="chat__message-time">{{ msg.send_datetime | date(format="%H:%M") }}</span>
+                    </div>
+                {% else %}
+                    <div class="chat__message-div chat__message-div_author_companion chat__message-div">
+                        <a href=""><img src="/static/profile_pictures/{{ other_user.picture_path}}" alt="" class="chat__companion-photo"></a>
+                        <div class="chat__message chat__message_author_companion">
+                            {{ msg.msg_data }}
+                        </div>
+                        <span class="chat__message-time">{{ msg.send_datetime | date(format="%H:%M") }}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        </div>
+        <form class="chat__send-message" action="/chat/send" method="POST">
+            <input type="text" name="message" placeholder="Написать сообщение" class="chat__input">
+            <input type="hidden" value="{{ product.id }}" name="product_id">
+            <input type="hidden" value="{{ other_user.id }}" name="other_id">
+            <input type="submit" class="button chat__send-button" value="Отправить">
+        </form>
+    </div>
 {% endblock page_content%}

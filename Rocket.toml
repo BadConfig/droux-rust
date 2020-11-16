@@ -1,23 +1,23 @@
+[global.databases]
+diesel_db= { url = "postgres://docker:docker@postgres1:5432/diesel_db" }
+
 [development]
 address = "0.0.0.0"
 port = 8000
 keep_alive = 5
 log = "normal"
 limits = { forms = 32768 }
-DATABASE_URL="postgres://docker:docker@localhost:5432/diesel_db"
-[global.databases]
-diesel_db= { url = "postgres://docker:docker@localhost:5432/diesel_db" }
 
 [staging]
 address = "localhost"
-port = 5555
+port = 8000
 keep_alive = 5
 log = "normal"
 limits = { forms = 32768 }
 
 [production]
-address = "localhost"
-port = 5555
+address = "0.0.0.0"
+port = 8000
 keep_alive = 5
 log = "critical"
 limits = { forms = 32768 }

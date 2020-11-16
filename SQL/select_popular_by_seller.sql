@@ -1,4 +1,6 @@
-SELECT 	pr.id AS id, 
+SELECT * FROM (
+	SELECT DISTINCT ON (u2.id)
+ 		pr.id AS id, 
 		pr.title AS title,
 		pr.price AS price, 
 		fv.id IS NOT NULL AS is_in_favourites,
@@ -25,16 +27,13 @@ FROM products AS pr
 		ON fv.product_id = pr.id AND $1 IS NOT NULL AND fv.user_id = $1
 	JOIN sizes AS sz 
 		ON sz.id = pr.size_id
-    LEFT JOIN deleted_posts AS delp
-        ON delp.post_id = pr.id
     JOIN users AS u2
         ON u2.id = pr.seller_id
 WHERE
-	delp.post_id IS NULL
+	pr.status = 'published'
 ORDER BY 
-    u2.rate_summ / 
-		CASE 
-			WHEN (u2.rate_count = 0) THEN 1
-			ELSE u2.rate_count 
-		END
+	u2.id
+) t
+ORDER BY 
+    t.seller_rating DESC
 LIMIT 20;

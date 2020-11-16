@@ -40,7 +40,5 @@ FROM
 		ON u.id = p.seller_id
 	LEFT JOIN favourites AS f 
 		ON f.product_id = p.id AND $2 IS NOT NULL AND f.user_id = $2 
-	LEFT JOIN deleted_posts AS dp 
-		ON dp.post_id = p.id
 WHERE
-	p.id = $1 AND dp.id IS NULL
+	p.id = $1 AND p.status != 'deleted'

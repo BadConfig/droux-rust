@@ -104,7 +104,7 @@
                                 <span>{{ product.state_name }}</span>
                             </div>
                         </div>
-                        <a href="/chat/" class="button product__button product__button_color_white">
+                        <a href="/chat/create/?other_id={{ seller.id }}&product_id={{ product.id }}" class="button product__button product__button_color_white">
                             Чат с продавцом
                         </a>
                         <a href="" class="button product__button product__button_color_black">

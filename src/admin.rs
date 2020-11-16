@@ -1,3 +1,6 @@
+
+use serde::Serialize;
+
 pub enum UserPriveleges {
     Admin,
     Moderator,
@@ -56,6 +59,7 @@ fn get_priveleges_from_cookies(request: &Request) -> Option<UserPriveleges> {
     Some(get_priveleges(user_data.id, conn))
 }
 
+#[derive(Serialize)]
 pub struct AdminUser {
     pub is_admin: bool,
     pub is_moderator: bool,

@@ -1,0 +1,41 @@
+{% extends "admin/main" %}
+{% block page_content %}
+    <h2 class="admin__header">Управление объявлениями</h2>
+    <div class="admin__ads ads admin__table">
+        {% for product in products %}
+            <div class="ad ads__ad">
+            <div class="ad__author-section">
+                <a href="" class="ad__author-photo"><img src="/static/profile_pictures/{{ product.seller_picture }}" alt=""></a>
+                <a href="">{{ product.seller_username }}</a>
+            </div>
+            <div class="ad__product-section">
+                <a href="" class="ad__product-photo"><img src="/{{ product.pictures.0 }}" alt=""></a>
+                <a href="" class="ad__product-title">{{ product.title }}</a>
+            </div>
+            <div class="ad__buttons__section">
+                {% if product.is_published %}
+                    <form method="POST" action="/admin/product/refuse/{{ current_page }}/{{ product.id }}"><input type="submit" class="ad__button button ad__button_depublish" value="Снять с публикации"></form>
+                {% else %}
+                    <a href="/admin/product/edit/{{ product.id }}" class="ad__button button ad__button_edit-and-publish">Редактировать и опубликовать</a>
+                {% endif %}   
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="admin__page-links">
+    {% if current_page-1 > 0 %}
+        <a href="/admin/product/{{ current_page-1 }}">
+            <img src="../../static/assets/arrow-left.svg" alt="">
+            <img src="../../static/assets/arrow-left.svg" alt="">
+        </a>
+    {% endif %}
+         <a href="/admin/product/{{ current_page }}">{{ current_page }}</a>
+    <a href="/admin/product/{{ current_page+1 }}">
+        <img src="../../static/assets/arrow-right.svg" alt="">
+        <img src="../../static/assets/arrow-right.svg" alt="">
+    </a>
+</div>
+{% endblock page_content %}
+{% block active_products %}
+    card__label_active
+{% endblock active_products %}
