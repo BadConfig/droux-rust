@@ -5,12 +5,13 @@ for (let i=0; i < favButtons.length; i++) {
 function addDelToFav(evt) {
     let wasInFav = 0;
     let icons = evt.currentTarget.querySelectorAll('img');
-    console.log(icons);
     let adId = icons[0].parentNode.parentNode.parentNode.getElementsByClassName('prod_id')[0].value;
-    console.log(adId);
-    let same = document.querySelectorAll('input[value=' + adId+ ']');
+    let selector = 'input[value=' + CSS.escape(adId) + ']'; 
+    let same = document.querySelectorAll('input[value=' + CSS.escape(adId) + ']');
+    console.log(same);
     for (let i = 0; i < same.length; i++) {
-        let sameIcons = same[i].querySelectorAll('img');
+        let sameIcons = same[i].parentNode.getElementsByClassName('ad__favourite-icon')[0].querySelectorAll('img');
+        console.log(sameIcons);
         sameIcons[0].classList.toggle('fav-icon_active');
         sameIcons[1].classList.toggle('fav-icon_active');
     }
@@ -24,7 +25,6 @@ function addDelToFav(evt) {
         addToFav.open('POST', '/product/favourites/delete', true);
     }
     let body = 'prod_id=' + adId;
-    console.log(body);
     addToFav.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     addToFav.send(body);
 }

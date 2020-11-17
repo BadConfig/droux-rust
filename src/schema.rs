@@ -177,6 +177,7 @@ table! {
         rate_summ -> Int8,
         rate_count -> Int8,
         register_data -> Timestamp,
+        is_banned -> Bool,
     }
 }
 
