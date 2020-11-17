@@ -36,7 +36,7 @@
             </div>
             <div class="header__buttons">
                 <a href="/product/create" class="button sell__button">Продать</a>
-                <a>
+                <a href="/chat">
                     <img src="/static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
                 </a>
                 <a href="/users/favourites">
@@ -47,10 +47,10 @@
                 {% else %}
                 <img src="../../static/assets/male.jpg" alt="" class="header__user-photo">
                 <div class="header__user-actions">
-                    <a href="">Мои объявления</a>
-                    <a href="">Избранное</a>
+                    <a href="/users/products">Мои объявления</a>
+                    <a href="/users/favourites">Избранное</a>
                     <a href="">Мои покупки</a>
-                    <a href="">Мои продажи</a>
+                    <a href="/users/products">Мои продажи</a>
                     <a href="">Настройки</a>
                     <a href="/logout">Выйти</a>
                 </div>

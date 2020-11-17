@@ -1,10 +1,11 @@
 use rocket::http::{Cookie, Cookies};
-use rocket_contrib::templates::{Template,tera::*};
+use rocket_contrib::templates::{Template};
 use rocket::request::Form;
 use rocket::response::Redirect;
 use std::fs::File;
 use std::io::prelude::*;
 use crate::db::filters::get_filter_context;
+use crate::Error;
 
 extern crate rocket_multipart_form_data;
 use rocket::Data;
@@ -19,6 +20,7 @@ use crate::routes::Either;
 use crate::routes::get_base_context;
 use crate::models::product::ProductCard;
 use crate::db::product::reviewed_by_user;
+use rocket::http::Status;
 use crate::models::product::NewProduct;
 
 
@@ -234,4 +236,33 @@ pub fn rating_add(form: Form<StarsForm>, user: CommonUser, conn: crate::db::Conn
         ProductRating::set_rating(user.id,form.toid,form.strs, form.comm.clone(), form.feedb.clone(), &conn);
     }
     Redirect::to("/")
+}
+
+#[derive(FromForm,Clone)]
+pub struct FavouritesForm {
+    prod_id: i32,
+}
+
+#[post("/product/favourites/add",data="<form>")]
+pub fn favourites_add(form: Form<FavouritesForm>, user: CommonUser, conn: crate::db::Conn) -> Result<Status,Error> {
+    
+    use crate::models::product::FavouriteProducts;
+
+    if let CommonUser::Logged(user) = user {
+        FavouriteProducts::add_favourite(user.id, form.prod_id, &conn)?;
+        return Ok(Status::Ok);
+    }
+    Ok(Status::Unauthorized)
+}
+
+#[post("/product/favourites/delete",data="<form>")]
+pub fn favourites_delete(form: Form<FavouritesForm>, user: CommonUser, conn: crate::db::Conn) -> Result<Status,Error> {
+    
+    use crate::models::product::FavouriteProducts;
+    
+    if let CommonUser::Logged(user) = user {
+        FavouriteProducts::delete_favourite(user.id, form.prod_id, &conn)?;
+        return Ok(Status::Ok);
+    }
+    Ok(Status::Unauthorized)
 }

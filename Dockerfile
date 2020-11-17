@@ -15,8 +15,6 @@ RUN apt-get update && \
         --no-install-recommends
 
 COPY --from=builder /code/target/release/droux /droux/droux
-COPY --from=builder /code/static /droux/static/
-COPY --from=builder /code/templates /droux/templates/
 WORKDIR /droux/
 EXPOSE 8000
 

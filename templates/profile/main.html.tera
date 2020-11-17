@@ -1,0 +1,66 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/ad.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% endblock head %}
+{% block main %}
+    <main class="container profile">
+        <div class="profile__card card">
+            <div class="card__top">
+                <div class="card__photo">
+                    <img src="/static/profile_pictures/{{ viewed_user.picture_path }}" alt="Фото профиля">
+                </div>
+                <div class="card__info">
+                        <span class="card__profile-name">
+                            {{ viewed_user.username }}
+                        </span>
+                    <span class="card__reg-date">
+                            На Droux с {{ viewed_user.register_data | date }}
+                        </span>
+                    <div class="card__rating-div">
+                            <span class="rating__num">
+                                {% if viewed_user.rate_count == 0 %}
+                                    0
+                                {% else %}
+                                    {{ viewed_user.rate_summ / viewed_user.rate_count }}
+                                {% endif %}
+                            </span>
+                        <div class ="rating__stars">
+                            {% for i in range(end=rating_floored) %}
+                                 <img src="/static/assets/star-filled.svg" alt="">
+                            {% endfor %}
+                            {% for i in range(end=5-rating_floored) %}
+                                 <img src="/static/assets/star-empty.svg" alt="">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card__change-photo">
+                Скоро здесь будут подписки или настройки профиля
+            </div>
+            <div class="card__review-button-div card__button-div">
+                <a href="" class="card__review-button button card__button">Оставить отзыв</a>
+            </div>
+            <div class="card__subscribe-button-div card__button-div">
+                <a href="" class="card__subscribe-button button card__button">Подписаться</a>
+            </div>
+            <div class="card__nav not-my-card__nav">
+                <a href="/profile/users/{{ viewed_user.id }}/product"><span class="card__label card__label_active">Объявления</span></a>
+                <a href="/profile/users/{{ viewed_user.id }}/reviews"><span class="card__label">Отзывы</span></a>
+            </div>
+        </div>
+        <div class="profile__content content">
+            {% block page_content %}
+            {% endblock page_content %}
+        </div>
+    </main>
+{% endblock main %}
+{% block scripts %}
+    <script src="/static/js/ad-carousel.js"></script>
+    <script src="/static/js/profile-ads-category.js"></script>
+    <script src="/static/js/chat.js"></script>
+{% endblock scripts %}

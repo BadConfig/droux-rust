@@ -12,6 +12,7 @@
         {% include "footer" %}
         {% block scripts %}
         {% endblock scripts %}
-        <script src="static/js/auth.js"></script>
+        <script src="/static/js/auth.js"></script>
+        <script src="/static/js/favourite.js"></script>
     </body>
 </html>

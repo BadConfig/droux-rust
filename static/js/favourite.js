@@ -12,14 +12,16 @@ function addDelToFav(evt) {
         if (icons[0].classList.contains('fav-icon_active')) {
         wasInFav = 1;
     }
-    let adId = String(icons[0].parentNode.parentNode.getElementsByClassName('prod_id').value);
+    let adId = icons[0].parentNode.parentNode.parentNode.getElementsByClassName('prod_id')[0].value;
+    console.log(adId);
     let addToFav = new XMLHttpRequest();
     if (wasInFav === 0) {
         addToFav.open('POST', '/product/favourites/add', true);
     } else {
-        addToFav.open('POST', '/product/favourites/add/delete', true);
+        addToFav.open('POST', '/product/favourites/delete', true);
     }
-    let body = 'prod_id=' + encodeURIComponent(adId);
+    let body = 'prod_id=' + adId;
+    console.log(body);
     addToFav.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     addToFav.send(body);
 }

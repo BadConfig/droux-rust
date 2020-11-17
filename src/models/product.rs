@@ -235,6 +235,53 @@ pub struct FavouriteProducts {
     product_id: i32,
 }
 
+impl FavouriteProducts {
+    pub fn add_favourite(u_id: i32, p_id: i32, conn: &PgConnection) -> Result<(),Error> {
+        
+        use rocket::http::Status;
+        use crate::schema::favourites::dsl::*;
+        if favourites
+            .filter(user_id.eq(u_id))
+            .filter(product_id.eq(p_id))
+            .get_results::<FavouriteProducts>(conn)?
+            .len() > 0 {
+            return Err(Error {
+                status: Status::InternalServerError,
+                message: "product already exists in favourites".into(),
+
+            });
+        }
+        diesel::insert_into(favourites)
+        .values(&(user_id.eq(u_id),product_id.eq(p_id)))
+        .execute(conn)?;
+        Ok(())
+    }
+
+    pub fn delete_favourite(u_id: i32, p_id: i32, conn: &PgConnection) -> Result<(),Error> {
+        
+        use rocket::http::Status;
+        use crate::schema::favourites::dsl::*;
+
+        if favourites
+            .filter(user_id.eq(u_id))
+            .filter(product_id.eq(p_id))
+            .get_results::<FavouriteProducts>(conn)?
+            .len() == 0 {
+            return Err(Error {
+                status: Status::InternalServerError,
+                message: "there is on such product in favourites to delete".into(),
+            });
+        }
+        diesel::delete(favourites
+            .filter(user_id.eq(u_id))
+            .filter(product_id.eq(p_id)))
+        .execute(conn)?;
+        Ok(())
+
+    }
+
+}
+
 #[derive(Insertable,AsChangeset,Debug,Clone)]
 #[table_name="favourites"]
 pub struct NewFavourites {

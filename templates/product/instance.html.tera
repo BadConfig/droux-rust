@@ -6,7 +6,9 @@
                 <img src="/static/profile_pictures/{{ad.profile_picture}}" alt="">
             </div>
             <div class="ad__author-info">
-                <span class="ad__author-name">{{ ad.seller_uname }}</span>
+                <a href="/profile/users/{{ ad.seller_id }}/product">
+                    <span class="ad__author-name">{{ ad.seller_uname }}</span>
+                </a>
                 <div class="ad__author-rating">
                     {% for star in range(end=ad.seller_rating) %}
                         <img src="/static/assets/star-filled.svg" alt="">
@@ -32,7 +34,14 @@
                 <img src="/static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
             </div>
             <div class="ad__favourite-icon">
-                <img src="/static/assets/favourite.svg" alt="Иконка избранного">
+                <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="ad__favourite-icon-img_empty                     
+                    {% if ad.is_in_favourites == false %}
+                        fav-icon_active
+                    {% endif %}">
+                <img src="/static/assets/favourite-filled.svg" class="ad__favourite-icon-img_filled 
+                    {% if ad.is_in_favourites %}
+                        fav-icon_active
+                    {% endif %}">
             </div>
         </div>
         <div class="ad__name-and-size">
