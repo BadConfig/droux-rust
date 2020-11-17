@@ -11,7 +11,6 @@
         </div>
         <div class="profile-ads content__ads content__ads_active content__ads_visible">
             {% if favourite_products | length == 0 %}
-            У вас нет товаров в избранном
             {% else %}
                 {% for ad in favourite_products %}
                 <div class="ad ad_fav">

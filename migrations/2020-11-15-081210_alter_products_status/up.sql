@@ -9,6 +9,6 @@ ALTER TABLE products
 
 -- on_watch
 -- published
--- unpublished
 -- deleted
 -- refused
+-- sold

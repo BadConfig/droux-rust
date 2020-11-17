@@ -1,3 +1,4 @@
+<div class="header__user-actions-layout"></div>
 <header class="header">
     <div class="services">
         <div class="container services__container">
@@ -41,7 +42,19 @@
                 <a href="/users/favourites">
                     <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
                 </a>
-                <span id="auth-button">Войти</span>
+                {% if is_logged == false%}
+                    <span id="auth-button">Войти</span>
+                {% else %}
+                <img src="../../static/assets/male.jpg" alt="" class="header__user-photo">
+                <div class="header__user-actions">
+                    <a href="">Мои объявления</a>
+                    <a href="">Избранное</a>
+                    <a href="">Мои покупки</a>
+                    <a href="">Мои продажи</a>
+                    <a href="">Настройки</a>
+                    <a href="/logout">Выйти</a>
+                </div>
+                {% endif %}
             </div>
         </div>
     </div>

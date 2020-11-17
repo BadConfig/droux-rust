@@ -18,7 +18,7 @@
             </div>
         </div>
     {% endif %}
-
+        <input type="hidden" value="{{ ad.id }}" class="prod_id">
         <div class="ad__img-container"> <!--Рамка для одной фотографии-->
             <div class="ad__arrow ad__arrow_left">
                 <img src="/static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
