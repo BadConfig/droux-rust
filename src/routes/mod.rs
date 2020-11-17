@@ -39,6 +39,12 @@ pub enum UserGuard {
 pub fn get_required_context(data: UserGuard, conn: &PgConnection) -> Context {
     let mut ctx = Context::new();
     use UserGuard::*;
+    use crate::db::filters::{
+        get_brands_for_header,
+        get_categories_for_header,
+    };
+    ctx.insert("header_brands", &get_brands_for_header(&conn));
+    ctx.insert("header_categories", &get_categories_for_header(&conn));
     ctx.insert("login_fail",&false);
     ctx.insert("register_fail",&false);
     ctx.insert("links", &crate::models::admin::Links::get_social_media_links(conn));
