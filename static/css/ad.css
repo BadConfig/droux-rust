@@ -50,6 +50,14 @@
 .ad__favourite-icon img {
     width: 14px;
     height: 17.5px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    position: absolute;
+    right: 0;
+}
+
+.ad .fav-icon_active {
+    opacity: 1;
 }
 
 .ad__name-and-size {
@@ -87,5 +95,7 @@
     transition: transform 0.3s ease;
     width: 2550px;
 }
+
+
 
 
