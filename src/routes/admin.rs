@@ -11,6 +11,7 @@ use super::get_base_context;
 use crate::users::CommonUser;
 use crate::models::users::Users;
 use crate::Error;
+use crate::models::admin::Priveleges;
 use crate::models::product::Links;
 
 
@@ -97,27 +98,34 @@ pub fn admin_priveleges(user: CommonUser, admin: crate::admin::AdminUser, conn: 
     }
     let mut ctx = get_base_context(user, &conn);
     ctx.insert("admin",&admin);
+    ctx.insert("priveleged",&Priveleges::get(&conn)?);
     Ok(Either::Template(Template::render("admin/priveleges", &ctx)))
 }
  
-#[post("/admin/priveleges/change")]
-pub fn admin_priveleges_change(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
-    if !admin.is_admin {
-        return Ok(Either::Redirect(Redirect::to("/admin")))
-    }
-    let mut ctx = get_base_context(user, &conn);
-    ctx.insert("admin",&admin);
-    Ok(Either::Template(Template::render("admin/priveleges", &ctx)))
+
+
+#[derive(FromForm,Clone)]
+pub struct PrivForm {
+    user_id: i32,
+    pr_type: String,
 }
 
-#[post("/admin/priveleges/add")]
-pub fn admin_priveleges_add(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+#[post("/admin/priveleges/change",data="<form>")]
+pub fn admin_priveleges_change(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if !admin.is_admin {
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }
-    let mut ctx = get_base_context(user, &conn);
-    ctx.insert("admin",&admin);
-    Ok(Either::Template(Template::render("admin/priveleges", &ctx)))
+    Priveleges::change(form.user_id, form.pr_type.clone(), &conn)?;
+    Ok(Either::Redirect(Redirect::to("/admin/priveleges")))
+}
+
+#[post("/admin/priveleges/add",data="<form>")]
+pub fn admin_priveleges_add(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if !admin.is_admin {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    Priveleges::insert(form.user_id, form.pr_type.clone(), &conn)?;
+    Ok(Either::Redirect(Redirect::to("/admin/priveleges")))
 }
 
 

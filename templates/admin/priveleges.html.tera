@@ -15,87 +15,19 @@
     </div>
 
     <div class="admin__moders moders admin__table">
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Модератор
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Редактор
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Главный по тарелочкам
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Администратор_ка
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Модератор
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Модератор
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
+        {% for u in priveleged %}
+            <div class="users__item user">
+                <div class="user__info">
+                    <a href="" class="user__img"><img src="/static/prorile_pictures/{{ u.image }}" alt=""></a>
+                    <a href="" class="user__name">{{ u.username }}</a>
+                </div>
+                <form class="user__button-form_deban user__button-form">
+                    {{ u.privelege }}
+                    <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
+                </form>
+            </div>        
+        {% endfor %}
     </div>
-            <div class="admin__page-links">
-            <a href="">
-                <img src="../../static/assets/arrow-left.svg" alt="">
-                <img src="../../static/assets/arrow-left.svg" alt="">
-            </a>
-            <a href="">1</a>
-            <a href="">2</a>
-            <a href="">3</a>
-            <a href="">4</a>
-            <a href="">5</a>
-            <a href="">6</a>
-            <a href="">7</a>
-            <a href="">8</a>
-            <a href="">9</a>
-            <a href="">...</a>
-            <a href="">
-                <img src="../../static/assets/arrow-right.svg" alt="">
-                <img src="../../static/assets/arrow-right.svg" alt="">
-            </a>
-        </div>
 {% endblock page_content %}
 {% block priveleges %}
 {% endblock priveleges %}
