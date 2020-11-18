@@ -112,17 +112,17 @@ pub struct ProductCard {
 
 #[derive(FromForm,Clone,Serialize,Deserialize,Queryable,Debug)]
 pub struct SearchForm {
-    search_string: Option<String>,
-    prod_size_id: Option<i32>,
-    product_state_id: Option<i32>,
-    limit: i32,
-    offset: i32,
-    subcategory_id: Option<i32>,
-    category_id: Option<i32>,
-    prod_brand_id: Option<i32>,
-    prod_type_id: Option<i32>,
-    order_by: Option<String>,
-    user_id: Option<i32>,
+    pub search_string: Option<String>,
+    pub prod_size_id: Option<i32>,
+    pub product_state_id: Option<i32>,
+    pub limit: i32,
+    pub offset: i32,
+    pub subcategory_id: Option<i32>,
+    pub category_id: Option<i32>,
+    pub prod_brand_id: Option<i32>,
+    pub prod_type_id: Option<i32>,
+    pub order_by: Option<String>,
+    pub user_id: Option<i32>,
 }
 
 impl ProductCard {

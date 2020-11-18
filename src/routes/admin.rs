@@ -1,5 +1,4 @@
-use rocket::http::{Cookie, Cookies};
-use rocket_contrib::templates::{Template,tera::*};
+use rocket_contrib::templates::{Template};
 use rocket::request::Form;
 use rocket::response::Redirect;
 use crate::routes::Either;
@@ -10,7 +9,8 @@ use crate::models::product::{
 };
 use super::get_base_context;
 use crate::users::CommonUser;
-
+use crate::models::users::Users;
+use crate::Error;
 
 
 //routes for admin
@@ -22,8 +22,21 @@ pub fn admin_main(user: CommonUser, admin: crate::admin::AdminUser, conn: crate:
 }
 
 #[get("/admin/users/<page>")]
+pub fn admin_users(page: i64, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if admin.is_editor {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    let mut ctx = get_base_context(user, &conn);
+    ctx.insert("admin",&admin);
+    ctx.insert("current_page",&page);
+    ctx.insert("users", &Users::get_with_page(page, &conn)?);
+    Ok(Either::Template(Template::render("admin/users", &ctx)))
+}
+
+#[get("/admin/product/<page>")]
 pub fn admin_product(page: i32, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
     if admin.is_editor {
+        print!("true\n");
         return Either::Redirect(Redirect::to("/admin"))
     }
     let mut ctx = get_base_context(user, &conn);
@@ -33,23 +46,23 @@ pub fn admin_product(page: i32, user: CommonUser, admin: crate::admin::AdminUser
     Either::Template(Template::render("admin/products", &ctx))
 }
 
-// #[get("/admin/product/<page>")]
-// pub fn admin_product(page: i32, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
-//     if admin.is_editor {
-//         print!("true\n");
-//         return Either::Redirect(Redirect::to("/admin"))
-//     }
-//     let mut ctx = get_base_context(user, &conn);
-//     ctx.insert("admin",&admin);
-//     ctx.insert("current_page",&page);
-//     ctx.insert("products", &ProductAdmin::get_products(page, &conn));
-//     Either::Template(Template::render("admin/products", &ctx))
-// }
+#[derive(FromForm,Clone)]
+pub struct BanForm {
+    user_id: i32,
+    page: i32,
+    change_flag: bool,
+}
 
-// #[post("/admin/user/ban")]
-// pub fn admin_main(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
-    
-// }
+#[post("/admin/users/ban",data="<form>")]
+pub fn admin_users_ban(form: Form<BanForm>, _user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if admin.is_editor {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    Users::change_banned(form.change_flag, form.user_id, &conn)?;
+    Ok(Either::Redirect(Redirect::to(format!("/admin/users/{}",&form.page))))
+}
+
+
 
 #[get("/admin/product/edit/<id>")]
 pub fn admin_product_edit(id: i32, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
@@ -64,7 +77,7 @@ pub fn admin_product_edit(id: i32, user: CommonUser, admin: crate::admin::AdminU
 }
 
 #[post("/admin/product/refuse/<page>/<id>")]
-pub fn admin_product_unpub(page: i32, id: i32, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
+pub fn admin_product_unpub(page: i32, id: i32, _user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
     if admin.is_editor {
         return Either::Redirect(Redirect::to("/admin"))
     }
@@ -73,7 +86,7 @@ pub fn admin_product_unpub(page: i32, id: i32, user: CommonUser, admin: crate::a
 }
 
 #[post("/admin/product/refuse/<page>/<id>")]
-pub fn admin_product_change(page: i32, id: i32, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
+pub fn admin_product_change(page: i32, id: i32, _user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
     if admin.is_editor {
         return Either::Redirect(Redirect::to("/admin"))
     }
@@ -84,7 +97,7 @@ use rocket::Data;
 use rocket::http::ContentType;
 
 #[post("/admin/product/change/<id>",data="<form>")]
-pub fn product_change(id: i32, content_type: &ContentType, form: Data, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Redirect {
+pub fn product_change(id: i32, content_type: &ContentType, form: Data, _user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Redirect {
     if admin.is_editor {
         return Redirect::to("/admin")
     }

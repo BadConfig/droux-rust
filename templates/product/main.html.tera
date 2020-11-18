@@ -48,7 +48,9 @@
                 <div class="product__info">
                     <div class="product__author">
                         <div class="author__name-and-reg-date">
-                            <span class="author__name">Продавец {{ seller.username }}</span>
+                            <a href="/profile/users/{{ seller.id }}/reviews">
+                                <span class="author__name">Продавец {{ seller.username }}</span>
+                            </a>
                             <span class="author__reg-date">На Droux с {{ seller.register_data | date }}</span>
                         </div>
                         <img src="/static/profile_pictures/{{seller.picture_path}}" alt="" class="author__profile-photo">

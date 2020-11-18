@@ -1,0 +1,18 @@
+{% extends "admin/main" %}
+{% block page_content %}
+    {% for link in links %}
+        <h2 class="admin__header">Управление модерацией</h2>
+        <div class="admin__links links admin__table">
+            <form class="links__form">
+                <div class="links__label-div">
+                    <label for="vk">ВК</label>
+                    <input type="text" value="https://vk.com" id="vk">
+                    <input type="submit" value="Поменять" class="button links__button">
+                </div>
+            </form>
+        </div>   
+    {% endfor %}
+{% endblock page_content %}
+{% block links %}
+    card__label_active
+{% endblock links %}

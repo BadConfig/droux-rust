@@ -41,7 +41,7 @@ FROM products AS pr
 	JOIN users AS u2 
     	ON u2.id = pr.seller_id 
 WHERE
-	pr.status = 'published' AND
+	pr.status = 'published' AND TRUE OR
 	CASE WHEN ($1 IS NOT NULL) THEN POSITION($1 IN pr.title) != 0 		END OR
 	CASE WHEN ($7 IS NOT NULL) THEN sc.category_id 		= $7 			END OR
 	CASE WHEN ($6 IS NOT NULL) THEN pr.sub_category_id 	= $6			END OR

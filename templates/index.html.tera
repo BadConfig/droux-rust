@@ -27,7 +27,7 @@
 
         <div class="show-all container show-all_new-ads">
             <h2 class="show-all__header">Новые объявления</h2>
-            <a href=""><div class="show-all__button">
+            <a href="/filters?limit=12&offset=0&order_by='Date'"><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
                 <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>
@@ -51,7 +51,7 @@
 
         <div class="show-all container show-all_most-viewed">
             <h2 class="show-all__header">Самые просматриваемые объявления</h2>
-            <a href=""><div class="show-all__button">
+            <a href="/filters?limit=12&offset=0&order_by='PriceDesc'"><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
                 <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>
@@ -75,7 +75,7 @@
 
         <div class="show-all container show-all_popular-today">
             <h2 class="show-all__header">Самые популярные объявления за сегодня</h2>
-            <a href=""><div class="show-all__button">
+            <a href="/filters?limit=12&offset=0"><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
                 <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>

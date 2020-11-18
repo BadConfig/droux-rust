@@ -97,3 +97,5 @@
             </a>
         </div>
 {% endblock page_content %}
+{% block priveleges %}
+{% endblock priveleges %}
