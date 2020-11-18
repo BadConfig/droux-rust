@@ -58,6 +58,8 @@ input[type=checkbox] + label {
     height: 40px;
     padding: 13px 0 9px;
     background-color: #E0E0E0;
+    position: relative;
+    z-index: 7;
 }
 
 .services__icon{
@@ -75,10 +77,18 @@ input[type=checkbox] + label {
     color: #303030;
     margin-right: 63px;
 }
+
+.header {
+    z-index: 8;
+    position: relative;
+    background-color: white;
+}
 .header__base{
     height: 83px;
     justify-content: space-between;
     align-items: center;
+    z-index: 7;
+    position: relative;
 }
 .header__search, .header__buttons {
     width: 350px;
@@ -449,3 +459,84 @@ input[type=checkbox] + label {
 .header__user-actions_visible, .header__user-actions-layout_visible {
     display: flex;
 }
+
+.dropdown__layout {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    display: none;
+}
+
+.dropdown {
+    width: 100%;
+    height: 400px;
+    background-color: white;
+    position: absolute;
+    z-index: 9;
+    display: none;
+}
+
+.dropdown__content {
+    height: 100%;
+    padding: 19px 15px;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.dropdown__link {
+    font-size: 14px;
+    width: 160px;
+    margin: 0 30px 40px 0;
+}
+
+.dropdown__content_brands .dropdown__link {
+    margin-bottom: 3px;
+}
+
+.dropdown__header {
+    margin: 17px 0 22px 15px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.dropdown__content_brands {
+    height: 327px;
+    padding-top: 0;
+}
+
+.dropdown__letter {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown__letter:not(.dropdown__letter_last) {
+    margin-bottom: 27px;
+}
+
+.dropdown__border-for-brands {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+.dropdown__all-brands {
+    position: absolute;
+    bottom: 19px;
+    left: 395px;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.dropdown__border {
+    display: none;
+    height: 400px;
+}
+
+.dropdown__border_visible, .dropdown__layout_visible, .dropdown_visible {
+    display: block;
+}
+
+

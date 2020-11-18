@@ -9,6 +9,7 @@ function addDelToFav(evt) {
     let adId = icons[0].parentNode.parentNode.parentNode.getElementsByClassName('prod_id')[0].value;
     console.log(adId);
     let same = document.querySelectorAll('input[value=' + adId+ ']');
+    console.log(same);
     for (let i = 0; i < same.length; i++) {
         let sameIcons = same[i].querySelectorAll('img');
         sameIcons[0].classList.toggle('fav-icon_active');
