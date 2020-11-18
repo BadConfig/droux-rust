@@ -1,0 +1,120 @@
+.new-order {
+    flex-direction: column;
+}
+.new-order__header {
+    margin: 20px 0 22px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.form__header {
+    font-size: 21px;
+    font-weight: bold;
+    width: 100%;
+    margin: 10px 0 30px;
+}
+
+.new-order__form {
+    width: 540px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.new-order__form * {
+    display: block;
+}
+
+.new-order__label {
+    width: 160px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.new-order__input {
+    appearance: none;
+    width: 380px;
+    height: 45px;
+    border: 1px solid black;
+    margin-bottom: 30px;
+}
+
+.new-order__form input[type=submit] {
+    width: 350px;
+    height: 36px;
+    color: white;
+    background-color: black;
+    margin-top: 21px;
+}
+
+.new-order__form input[type=checkbox] + label {
+    width: 160px;
+    margin-left: 30px;
+    font-size: 10px;
+    margin-top: 21px;
+    display: flex;
+}
+
+.new-order__form input[type=checkbox] + label::before {
+    margin-right: 12px;
+    display: block;
+    min-width: 14px;
+}
+
+.new-order__bottom-text {
+    font-size: 10px;
+    width: 350px;
+    margin-top: 22px;
+    display: inline;
+}
+
+.new-order__bottom-text a {
+    text-decoration: underline;
+    display: inline;
+}
+
+.new-order__content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.new-order__card {
+    background-color: #f0f0f0;
+    font-size: 14px;
+    padding: 9px 13px 35px 12px;
+    width: 350px;
+    height: 265px;
+}
+
+.card__header {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card__product, .card__price, .card__sum, .card__say-thanks-to-aisha  {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__product {
+    margin: 20px 0 21px;
+    font-weight: bold;
+}
+
+.card__product img {
+    width: 70px;
+    height: 51px;
+}
+
+.card__sum {
+    margin-top: 37px;
+    font-weight: bold;
+}
+
+.card__price {
+    margin-bottom: 10px;
+}
