@@ -14,5 +14,6 @@
         {% endblock scripts %}
         <script src="/static/js/auth.js"></script>
         <script src="/static/js/favourite.js"></script>
+        <script src="/static/js/dropdown.js"></script>
     </body>
 </html>

@@ -1,4 +1,18 @@
-<div class="header__user-actions-layout"></div>
+{% if is_logged == true %}
+    <div class="header__user-actions-layout">
+        <div class="container">
+            <div class="header__user-actions">
+                <a href="/users/products">Мои объявления</a>
+                <a href="/users/favourites">Избранное</a>
+                <a href="">Мои покупки</a>
+                <a href="/users/products">Мои продажи</a>
+                <a href="">Настройки</a>
+                <a href="/logout">Выйти</a>
+            </div>
+        </div>
+    </div>
+{% endif %}
+<div class="dropdown__layout"></div>
 <header class="header">
     <div class="services">
         <div class="container services__container">
@@ -46,27 +60,19 @@
                     <span id="auth-button">Войти</span>
                 {% else %}
                 <img src="/static/profile_pictures/{{ user.picture_path }}" alt="" class="header__user-photo">
-                <div class="header__user-actions">
-                    <a href="/users/products">Мои объявления</a>
-                    <a href="/users/favourites">Избранное</a>
-                    <a href="">Мои покупки</a>
-                    <a href="/users/products">Мои продажи</a>
-                    <a href="">Настройки</a>
-                    <a href="/logout">Выйти</a>
-                </div>
                 {% endif %}
             </div>
         </div>
     </div>
     <div class="header-nav__line">
         <nav class="header__nav">
-            <a href="">ВЫБОР DROUX</a>
-            <a href="">НОВИНКИ</a>
-            <a href="">БРЕНДЫ</a>
-            <a href="">ОДЕЖДА</a>
-            <a href="">ОБУВЬ</a>
-            <a href="">СУМКИ</a>
-            <a href="">АКСЕССУАРЫ</a>
+            <a href="" class="dropdown__button_to-hide">ВЫБОР DROUX</a>
+            <a href="" class="dropdown__button_to-hide">НОВИНКИ</a>
+            <a href="" class="dropdown__button">БРЕНДЫ</a>
+            <a href="" class="dropdown__button">ОДЕЖДА</a>
+            <a href="" class="dropdown__button">ОБУВЬ</a>
+            <a href="" class="dropdown__button">СУМКИ</a>
+            <a href="" class="dropdown__button">АКСЕССУАРЫ</a>
         </nav>
     </div>
     <div class="authorizer authorizer__background 
@@ -120,5 +126,73 @@
                 <input type="submit" class="button sign-up__button" value="Зарегистрироваться">
             </form>
         </div>
+    </div>
+    <div class="header__dropdown dropdown">
+        <div class="dropdown__border-for-brands dropdown__border">
+            <h2 class="dropdown__header">Наш выбор</h2>
+            <div class="dropdown__content container dropdown__content_brands">
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Adidas</a>
+                    <a href="" class="dropdown__link">Alexander McQueen</a>
+                    <a href="" class="dropdown__link">Alexander Wang</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Balenciaga</a>
+                    <a href="" class="dropdown__link">Bape</a>
+                    <a href="" class="dropdown__link">Burberry</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Cartier</a>
+                    <a href="" class="dropdown__link">Comme De Garçons</a>
+                </div>
+                <div class="dropdown__letter dropdown__letter_last">
+                    <a href="" class="dropdown__link">Dior</a>
+                    <a href="" class="dropdown__link">Dolce & Gabbana</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Fear of God</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Givenci</a>
+                    <a href="" class="dropdown__link">Gucci</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Lanvin</a>
+                    <a href="" class="dropdown__link">Louis Vuitton</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Max Mara</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Nike</a>
+                </div>
+                <div class="dropdown__letter dropdown__letter_last">
+                    <a href="" class="dropdown__link">Off-white</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">RAF Simons</a>
+                    <a href="" class="dropdown__link">Rolex</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Saint Laurent</a>
+                    <a href="" class="dropdown__link">Stone Island</a>
+                    <a href="" class="dropdown__link">Supreme</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="" class="dropdown__link">Valentino</a>
+                    <a href="" class="dropdown__link">Versache</a>
+                </div>
+                <a href="" class="dropdown__all-brands">Все бренды</a>
+            </div>
+        </div>
+        {% for cat in header_categories %}
+            <div class="dropdown__border">
+                <div class="dropdown__content container">
+                    {% for subcat in cat.sub_categories %}
+                        <a href="" class="dropdown__link">{{ subcat.name }}</a>
+                    {% endfor %}
+                </div>             
+            </div>
+        {% endfor %}
     </div>
 </header>
