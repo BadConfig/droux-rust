@@ -21,12 +21,9 @@ pub fn admin_main(user: CommonUser, admin: crate::admin::AdminUser, conn: crate:
     Template::render("admin/main", &ctx)
 }
 
-// #[get("/admin/user")]
-
-#[get("/admin/product/<page>")]
+#[get("/admin/users/<page>")]
 pub fn admin_product(page: i32, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
     if admin.is_editor {
-        print!("true\n");
         return Either::Redirect(Redirect::to("/admin"))
     }
     let mut ctx = get_base_context(user, &conn);
@@ -35,6 +32,19 @@ pub fn admin_product(page: i32, user: CommonUser, admin: crate::admin::AdminUser
     ctx.insert("products", &ProductAdmin::get_products(page, &conn));
     Either::Template(Template::render("admin/products", &ctx))
 }
+
+// #[get("/admin/product/<page>")]
+// pub fn admin_product(page: i32, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
+//     if admin.is_editor {
+//         print!("true\n");
+//         return Either::Redirect(Redirect::to("/admin"))
+//     }
+//     let mut ctx = get_base_context(user, &conn);
+//     ctx.insert("admin",&admin);
+//     ctx.insert("current_page",&page);
+//     ctx.insert("products", &ProductAdmin::get_products(page, &conn));
+//     Either::Template(Template::render("admin/products", &ctx))
+// }
 
 // #[post("/admin/user/ban")]
 // pub fn admin_main(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {

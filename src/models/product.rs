@@ -490,7 +490,7 @@ pub struct NewProduct {
     pub phone_number: String,
 }
 
-#[derive(Serialize, Deserialize, Queryable, Clone)]
+#[derive(Serialize, Deserialize, Queryable, Clone, Debug)]
 pub struct Brand {
     pub id: i32,
     pub name: String,

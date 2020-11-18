@@ -33,16 +33,18 @@
             <div class="ad__arrow ad__arrow_right">
                 <img src="/static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
             </div>
-            <div class="ad__favourite-icon">
-                <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="ad__favourite-icon-img_empty                     
-                    {% if ad.is_in_favourites == false %}
-                        fav-icon_active
-                    {% endif %}">
-                <img src="/static/assets/favourite-filled.svg" class="ad__favourite-icon-img_filled 
-                    {% if ad.is_in_favourites %}
-                        fav-icon_active
-                    {% endif %}">
-            </div>
+            {% if is_logged %}
+                <div class="ad__favourite-icon">
+                    <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="ad__favourite-icon-img_empty                     
+                        {% if ad.is_in_favourites == false %}
+                            fav-icon_active
+                        {% endif %}">
+                    <img src="/static/assets/favourite-filled.svg" class="ad__favourite-icon-img_filled 
+                        {% if ad.is_in_favourites %}
+                            fav-icon_active
+                        {% endif %}">
+                </div>
+            {% endif %}
         </div>
         <div class="ad__name-and-size">
             <a href="/product/{{ ad.id }}" class="ad__name">{{ ad.title }}</a>

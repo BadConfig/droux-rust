@@ -20,8 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1982821-1f2e-4e5c-a3e3-cbaa6c3bf3ee" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile_?" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/2020-11-16-211059_ban_insert_social/up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2020-11-16-211059_ban_insert_social/up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/filters.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/filters.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/product.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/product.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/users.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/users.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/admin.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/schema.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/schema.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-hide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-hide.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-left.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-left.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-right.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-right.svg" afterDir="false" />
@@ -53,7 +59,6 @@
       <change beforePath="$PROJECT_DIR$/static/assets/vk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/youtube.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/ad.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ad.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
@@ -162,6 +167,7 @@
       <change beforePath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/instance.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/instance.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
@@ -216,7 +222,7 @@
       <workItem from="1605216184212" duration="13545000" />
       <workItem from="1605288006606" duration="10744000" />
       <workItem from="1605390349621" duration="24536000" />
-      <workItem from="1605576069090" duration="12414000" />
+      <workItem from="1605576069090" duration="12840000" />
     </task>
     <servers />
   </component>

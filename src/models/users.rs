@@ -15,6 +15,7 @@ pub struct Users {
     pub rate_summ: i64,
     pub rate_count: i64,
     pub register_data: chrono::NaiveDateTime,
+    pub is_banned: bool,
 }
 
 impl Users {
