@@ -88,10 +88,6 @@ pub fn app() -> rocket::Rocket {
             routes::users::get_user_reviews_profile,
             routes::product::favourites_add,
             routes::product::favourites_delete,
-            routes::admin::admin_users,
-            routes::admin::admin_users_ban,
-            routes::admin::admin_links,
-            routes::admin::admin_links_change,
             ])
         .attach(Template::fairing())
         .attach(db::Conn::fairing())

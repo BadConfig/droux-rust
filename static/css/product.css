@@ -191,7 +191,7 @@
     cursor: pointer;
 }
 
-.product__rating label:hover ~ label, label:hover, .product__rating input:checked + label ~ label, input:checked + label {
+.product__rating label:hover ~ label, .product__rating label:hover, .product__rating input:checked + label ~ label, .product__rating input:checked + label {
     background-image: url(../assets/star-filled.svg);
 }
 

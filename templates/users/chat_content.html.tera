@@ -45,6 +45,3 @@
         </div>
     </div>
 {% endblock page_content%}
-{% block messages %}
-    card__label_active
-{% endblock mseeages %}

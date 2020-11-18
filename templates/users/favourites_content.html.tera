@@ -37,6 +37,3 @@
         </div>
     </div>
 {% endblock page_content%}
-{% block favourites %}
-    card__label_active
-{% endblock favourites %}

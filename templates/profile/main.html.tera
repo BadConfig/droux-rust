@@ -49,13 +49,8 @@
                 <a href="" class="card__subscribe-button button card__button">Подписаться</a>
             </div>
             <div class="card__nav not-my-card__nav">
-                <a href="/profile/users/{{ viewed_user.id }}/product"><span class="card__label 
-                    {% block products %}
-                    {% endblock products %}">Объявления</span></a>
-                <a href="/profile/users/{{ viewed_user.id }}/reviews"><span class="card__label
-                    {% block reviews %}
-                    {% endblock reviews %}
-                ">Отзывы</span></a>
+                <a href="/profile/users/{{ viewed_user.id }}/product"><span class="card__label card__label_active">Объявления</span></a>
+                <a href="/profile/users/{{ viewed_user.id }}/reviews"><span class="card__label">Отзывы</span></a>
             </div>
         </div>
         <div class="profile__content content">

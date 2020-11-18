@@ -432,11 +432,11 @@ input[type=checkbox] + label {
     justify-content: space-between;
     padding: 30px 20px;
     position: absolute;
-    bottom: -294px;
+    right: 0;
+    top: 123px;
     z-index: 20;
     background-color: white;
     border: 1px solid black;
-    right: 0;
     font-size: 14px;
     display: none;
 }
@@ -537,6 +537,11 @@ input[type=checkbox] + label {
 
 .dropdown__border_visible, .dropdown__layout_visible, .dropdown_visible {
     display: block;
+}
+
+.header__user-actions-layout .container {
+    position: relative;
+    height: 1px;
 }
 
 

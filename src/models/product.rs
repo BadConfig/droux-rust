@@ -112,17 +112,17 @@ pub struct ProductCard {
 
 #[derive(FromForm,Clone,Serialize,Deserialize,Queryable,Debug)]
 pub struct SearchForm {
-    pub search_string: Option<String>,
-    pub prod_size_id: Option<i32>,
-    pub product_state_id: Option<i32>,
-    pub limit: i32,
-    pub offset: i32,
-    pub subcategory_id: Option<i32>,
-    pub category_id: Option<i32>,
-    pub prod_brand_id: Option<i32>,
-    pub prod_type_id: Option<i32>,
-    pub order_by: Option<String>,
-    pub user_id: Option<i32>,
+    search_string: Option<String>,
+    prod_size_id: Option<i32>,
+    product_state_id: Option<i32>,
+    limit: i32,
+    offset: i32,
+    subcategory_id: Option<i32>,
+    category_id: Option<i32>,
+    prod_brand_id: Option<i32>,
+    prod_type_id: Option<i32>,
+    order_by: Option<String>,
+    user_id: Option<i32>,
 }
 
 impl ProductCard {
@@ -223,6 +223,12 @@ pub struct ProductCategories {
 }
 
 #[derive(Serialize, Deserialize, Queryable, Clone)]
+pub struct DeletedProducts {
+    id: i32,
+    post_id: i32,
+}
+
+#[derive(Serialize, Deserialize, Queryable, Clone)]
 pub struct FavouriteProducts {
     id: i32,
     user_id: i32,
@@ -293,37 +299,6 @@ pub struct ProductState {
 pub struct ProductType {
     id: i32,
     name: String,
-}
-
-#[derive(Serialize, Deserialize, Queryable, Clone)]
-pub struct Links {
-    id: i32,
-    name: String,
-    link: String,
-    icon: String,
-}
-
-impl Links {
-    pub fn get_links(conn: &PgConnection) -> Result<Vec<Links>,Error> {
-
-        use crate::schema::social_links::dsl::*;
-
-        Ok(social_links
-            .get_results::<Links>(conn)?)
-
-    }
-    pub fn change_link_by_id(l_id: i32, new_link: String, conn: &PgConnection) -> Result<(),Error> {
-
-        use crate::schema::social_links::dsl::*;
-
-        diesel::update(social_links)
-            .filter(id.eq(l_id))
-            .set(link.eq(new_link))
-            .execute(conn)?;
-
-        Ok(())
-
-    }
 }
 
 #[derive(Serialize, Deserialize, Queryable, Clone)]

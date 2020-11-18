@@ -20,14 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1982821-1f2e-4e5c-a3e3-cbaa6c3bf3ee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile_?" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/2020-11-16-211059_ban_insert_social/up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/2020-11-16-211059_ban_insert_social/up.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db/filters.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/filters.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/product.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/product.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/users.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/users.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/admin.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/admin.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/schema.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/schema.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-hide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-hide.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-left.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-left.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-right.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-right.svg" afterDir="false" />
@@ -59,14 +53,16 @@
       <change beforePath="$PROJECT_DIR$/static/assets/vk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/youtube.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/ad.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ad.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/favourite.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/favourite.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/hide-sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hide-sector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/new-product-uploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/new-product-uploader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/part-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/part-carousel.js" afterDir="false" />
@@ -167,9 +163,9 @@
       <change beforePath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product/instance.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/instance.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/not-my-profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/not-my-profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
     </list>
@@ -205,6 +201,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-rust\static\css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-rust\static\assets" />
     </key>
@@ -222,7 +221,7 @@
       <workItem from="1605216184212" duration="13545000" />
       <workItem from="1605288006606" duration="10744000" />
       <workItem from="1605390349621" duration="24536000" />
-      <workItem from="1605576069090" duration="12840000" />
+      <workItem from="1605576069090" duration="23971000" />
     </task>
     <servers />
   </component>
@@ -242,6 +241,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605658384598">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605658384598" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1605671664646">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1605671664646" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605054805655">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
