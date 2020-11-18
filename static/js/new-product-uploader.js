@@ -202,6 +202,7 @@ async function PostProduct() {
     let postAd = new XMLHttpRequest();
     postAd.open('POST', '/product/create', true);
     postAd.send(body);
+    window.location.replace("");
     return false;
 }
 
@@ -251,6 +252,7 @@ async function EditProduct() {
     let postAd = new XMLHttpRequest();
     postAd.open('POST', route, true);
     postAd.send(body);
+    window.location.replace("");
     return false;
 }
 
