@@ -612,3 +612,79 @@
 .not-my-card__nav {
     min-height: 99px;
 }
+
+.review__layout {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.review__body {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    min-height: 627px;
+    padding: 20px 30px 15px;
+    align-items: flex-start;
+}
+
+.review h2 {
+    border-bottom: 1px solid black;
+    padding-bottom: 3px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    font-size: 24px;
+}
+
+.review label {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.review select {
+    width: 350px;
+    height: 40px;
+}
+
+.review .product__rating label {
+    width: 23px;
+    height: 23px;
+    margin: 0;
+}
+
+.review .product__rating {
+    width: 148px;
+    margin: 8px 0 5px;
+    min-height: 23px;
+}
+
+.review__body span {
+    margin-top: 15px;
+}
+
+.review textarea {
+    width: 100%;
+    min-height: 247px;
+    resize: none;
+}
+
+.review input[type=submit] {
+    width: 190px;
+    height: 32px;
+    color: white;
+    background-color: black;
+    align-self: flex-end;
+    margin-top: 13px;
+}
+
+.review_visible {
+    display: flex;
+}
