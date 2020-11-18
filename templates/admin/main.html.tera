@@ -37,7 +37,7 @@
                     <a href=""><span class="card__label">Новости</span></a>
                 {% endif %}
                 {% if admin.is_admin %}
-                    <a href=""><span class="card__label {% block priveleges %}{% endblock priveleges %}">Модераторы и редакторы</span></a>
+                    <a href="/admin/priveleges"><span class="card__label {% block priveleges %}{% endblock priveleges %}">Модераторы и редакторы</span></a>
                     <a href="/admin/links"><span class="card__label {% block links%}{% endblock links%}">Управление ссылками</span></a>
                 {% endif %}
             </div>

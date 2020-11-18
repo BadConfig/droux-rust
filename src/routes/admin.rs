@@ -110,6 +110,15 @@ pub struct PrivForm {
     pr_type: String,
 }
 
+#[post("/admin/priveleges/delete",data="<form>")]
+pub fn admin_priveleges_delete(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if !admin.is_admin {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    Priveleges::delete(form.user_id, &conn)?;
+    Ok(Either::Redirect(Redirect::to("/admin/priveleges")))
+}
+
 #[post("/admin/priveleges/change",data="<form>")]
 pub fn admin_priveleges_change(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if !admin.is_admin {
@@ -119,12 +128,18 @@ pub fn admin_priveleges_change(form: Form<PrivForm>, user: CommonUser, admin: cr
     Ok(Either::Redirect(Redirect::to("/admin/priveleges")))
 }
 
+#[derive(FromForm,Clone)]
+pub struct NewPrivForm {
+    username: String,
+    pr_type: String,
+}
+
 #[post("/admin/priveleges/add",data="<form>")]
-pub fn admin_priveleges_add(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn admin_priveleges_add(form: Form<NewPrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if !admin.is_admin {
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }
-    Priveleges::insert(form.user_id, form.pr_type.clone(), &conn)?;
+    Priveleges::insert(form.username.clone(), form.pr_type.clone(), &conn)?;
     Ok(Either::Redirect(Redirect::to("/admin/priveleges")))
 }
 

@@ -49,8 +49,15 @@ impl Priveleges {
         Ok(())
     }
 
-    pub fn insert(u_id: i32, pr_type: String, conn: &PgConnection) -> Result<(),Error> {
+    pub fn insert(u_name: String, pr_type: String, conn: &PgConnection) -> Result<(),Error> {
 
+        use crate::schema::users;
+
+        let u_id = users::table
+            .filter(users::username.eq(u_name))
+            .select(users::id)
+            .get_result::<i32>(conn)?;
+        
         diesel::insert_into(priveleges::table)
             .values(
                 &(priveleges::user_id.eq(u_id),
@@ -60,6 +67,16 @@ impl Priveleges {
 
         Ok(())
     }
+
+    pub fn delete(u_id: i32, conn: &PgConnection) -> Result<(),Error> {
+
+        diesel::delete(priveleges::table
+            .filter(priveleges::user_id.eq(u_id)))
+            .execute(conn)?;
+
+        Ok(())
+    }
+
 }
 
 #[derive(Insertable,AsChangeset)]
