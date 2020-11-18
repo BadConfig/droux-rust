@@ -410,6 +410,7 @@ pub struct Product {
     pub create_datetime: NaiveDateTime,
     pub phone_number: String,
     pub status: String,
+    pub bought_with: Option<i32>,
 }
 
 use rocket_contrib::templates::tera::Context;

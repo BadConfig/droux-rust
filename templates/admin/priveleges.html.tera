@@ -2,79 +2,33 @@
 {% block page_content %}
     <h2 class="admin__header">Управление модерацией</h2>
     <div class="admin__moders knighthood admin__table">
-        <form class="moders__knighthood">
-            <input type="text" placeholder="Введите ник пользователя" class="moders__name-input">
-            <select name="status" class="moders__select-status">
+        <form class="moders__knighthood" method="POST" action="/admin/priveleges/add">
+            <input type="text" name="username" placeholder="Введите ник пользователя" class="moders__name-input">
+            <select name="pr_type" class="moders__select-status">
                 <option value="choose" disabled selected>Выберите статус</option>
                 <option value="admin">Администратор</option>
-                <option value="admin">Модератор</option>
-                <option value="admin">Редактор</option>
+                <option value="moderator">Модератор</option>
+                <option value="editor">Редактор</option>
             </select>
             <input type="submit" value="Назначить" class="button moders__join-knighthood">
         </form>
     </div>
 
     <div class="admin__moders moders admin__table">
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Модератор
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Редактор
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Главный по тарелочкам
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Администратор_ка
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Модератор
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                Модератор
-                <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
-            </form>
-        </div>
+        {% for u in priveleged %}
+            <div class="users__item user">
+                <div class="user__info">
+                    <a href="" class="user__img"><img src="/static/profile_pictures/{{ u.image }}" alt=""></a>
+                    <a href="" class="user__name">{{ u.username }}</a>
+                </div>
+                <form class="user__button-form_deban user__button-form" method="POST" action="/admin/priveleges/delete">
+                    {{ u.privelege }}
+                    <input type="hidden" value="{{ u.id }}" name="user_id">
+                    <input type="hidden" value="{{ u.privelege }}" name="pr_type">
+                    <input type="submit" value="Разжаловать" class="button user__button user__button_deban moders__button_decapitate">
+                </form>
+            </div>        
+        {% endfor %}
     </div>
             <div class="admin__page-links">
             <a href="">

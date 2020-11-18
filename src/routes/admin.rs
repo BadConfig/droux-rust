@@ -51,6 +51,60 @@ pub fn admin_product(page: i32, user: CommonUser, admin: crate::admin::AdminUser
     
 // }
 
+#[get("/admin/priveleges")]
+pub fn admin_priveleges(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if !admin.is_admin {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    let mut ctx = get_base_context(user, &conn);
+    ctx.insert("admin",&admin);
+    ctx.insert("priveleged",&Priveleges::get(&conn)?);
+    Ok(Either::Template(Template::render("admin/priveleges", &ctx)))
+}
+ 
+
+
+#[derive(FromForm,Clone)]
+pub struct PrivForm {
+    user_id: i32,
+    pr_type: String,
+}
+
+#[post("/admin/priveleges/delete",data="<form>")]
+pub fn admin_priveleges_delete(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if !admin.is_admin {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    Priveleges::delete(form.user_id, &conn)?;
+    Ok(Either::Redirect(Redirect::to("/admin/priveleges")))
+}
+
+#[post("/admin/priveleges/change",data="<form>")]
+pub fn admin_priveleges_change(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if !admin.is_admin {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    Priveleges::change(form.user_id, form.pr_type.clone(), &conn)?;
+    Ok(Either::Redirect(Redirect::to("/admin/priveleges")))
+}
+
+#[derive(FromForm,Clone)]
+pub struct NewPrivForm {
+    username: String,
+    pr_type: String,
+}
+
+#[post("/admin/priveleges/add",data="<form>")]
+pub fn admin_priveleges_add(form: Form<NewPrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if !admin.is_admin {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    Priveleges::insert(form.username.clone(), form.pr_type.clone(), &conn)?;
+    Ok(Either::Redirect(Redirect::to("/admin/priveleges")))
+}
+
+
+
 #[get("/admin/product/edit/<id>")]
 pub fn admin_product_edit(id: i32, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
     if admin.is_editor {

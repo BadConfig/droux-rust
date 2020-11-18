@@ -85,6 +85,7 @@ table! {
         create_datetime -> Timestamp,
         phone_number -> Varchar,
         status -> Varchar,
+        bought_with -> Nullable<Int4>,
     }
 }
 
@@ -123,6 +124,7 @@ table! {
         comment -> Varchar,
         feedback_type -> Varchar,
         create_datetime -> Timestamp,
+        product_id -> Int4,
     }
 }
 
