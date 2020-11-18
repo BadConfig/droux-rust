@@ -1,12 +1,13 @@
 {% extends "admin/main" %}
 {% block page_content %}
+    <h2 class="admin__header">Управление модерацией</h2>
     {% for link in links %}
-        <h2 class="admin__header">Управление модерацией</h2>
         <div class="admin__links links admin__table">
-            <form class="links__form">
+            <form class="links__form" method="Post" action="/admin/links/change">
                 <div class="links__label-div">
-                    <label for="vk">ВК</label>
-                    <input type="text" value="https://vk.com" id="vk">
+                    <label for="vk">{{ link.name }}</label>
+                    <input type="hidden" name="link_id" value="{{ link.id }}" id="vk">
+                    <input type="text" name="new_link" value="{{ link.link }}" id="vk">
                     <input type="submit" value="Поменять" class="button links__button">
                 </div>
             </form>

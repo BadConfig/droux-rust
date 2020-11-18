@@ -223,12 +223,6 @@ pub struct ProductCategories {
 }
 
 #[derive(Serialize, Deserialize, Queryable, Clone)]
-pub struct DeletedProducts {
-    id: i32,
-    post_id: i32,
-}
-
-#[derive(Serialize, Deserialize, Queryable, Clone)]
 pub struct FavouriteProducts {
     id: i32,
     user_id: i32,
@@ -299,6 +293,37 @@ pub struct ProductState {
 pub struct ProductType {
     id: i32,
     name: String,
+}
+
+#[derive(Serialize, Deserialize, Queryable, Clone)]
+pub struct Links {
+    id: i32,
+    name: String,
+    link: String,
+    icon: String,
+}
+
+impl Links {
+    pub fn get_links(conn: &PgConnection) -> Result<Vec<Links>,Error> {
+
+        use crate::schema::social_links::dsl::*;
+
+        Ok(social_links
+            .get_results::<Links>(conn)?)
+
+    }
+    pub fn change_link_by_id(l_id: i32, new_link: String, conn: &PgConnection) -> Result<(),Error> {
+
+        use crate::schema::social_links::dsl::*;
+
+        diesel::update(social_links)
+            .filter(id.eq(l_id))
+            .set(link.eq(new_link))
+            .execute(conn)?;
+
+        Ok(())
+
+    }
 }
 
 #[derive(Serialize, Deserialize, Queryable, Clone)]

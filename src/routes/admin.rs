@@ -11,6 +11,7 @@ use super::get_base_context;
 use crate::users::CommonUser;
 use crate::models::users::Users;
 use crate::Error;
+use crate::models::product::Links;
 
 
 //routes for admin
@@ -32,6 +33,33 @@ pub fn admin_users(page: i64, user: CommonUser, admin: crate::admin::AdminUser, 
     ctx.insert("users", &Users::get_with_page(page, &conn)?);
     Ok(Either::Template(Template::render("admin/users", &ctx)))
 }
+
+#[get("/admin/links")]
+pub fn admin_links(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if admin.is_editor {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    let mut ctx = get_base_context(user, &conn);
+    ctx.insert("admin",&admin);
+    ctx.insert("social_links", &Links::get_links(&conn)?);
+    Ok(Either::Template(Template::render("admin/links", &ctx)))
+}
+
+#[derive(FromForm,Clone)]
+pub struct LinkForm {
+    link_id: i32,
+    new_link: String,
+}
+
+#[post("/admin/links/change",data="<form>")]
+pub fn admin_links_change(form: Form<LinkForm>, _user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if admin.is_editor {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    Links::change_link_by_id(form.link_id, form.new_link.clone(), &conn)?;
+    Ok(Either::Redirect(Redirect::to("/admin/links")))
+}
+
 
 #[get("/admin/product/<page>")]
 pub fn admin_product(page: i32, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
@@ -60,6 +88,36 @@ pub fn admin_users_ban(form: Form<BanForm>, _user: CommonUser, admin: crate::adm
     }
     Users::change_banned(form.change_flag, form.user_id, &conn)?;
     Ok(Either::Redirect(Redirect::to(format!("/admin/users/{}",&form.page))))
+}
+
+#[get("/admin/priveleges")]
+pub fn admin_priveleges(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if !admin.is_admin {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    let mut ctx = get_base_context(user, &conn);
+    ctx.insert("admin",&admin);
+    Ok(Either::Template(Template::render("admin/priveleges", &ctx)))
+}
+ 
+#[post("/admin/priveleges/change")]
+pub fn admin_priveleges_change(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if !admin.is_admin {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    let mut ctx = get_base_context(user, &conn);
+    ctx.insert("admin",&admin);
+    Ok(Either::Template(Template::render("admin/priveleges", &ctx)))
+}
+
+#[post("/admin/priveleges/add")]
+pub fn admin_priveleges_add(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if !admin.is_admin {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    let mut ctx = get_base_context(user, &conn);
+    ctx.insert("admin",&admin);
+    Ok(Either::Template(Template::render("admin/priveleges", &ctx)))
 }
 
 
