@@ -200,9 +200,12 @@ async function PostProduct() {
 
     let postAd = new XMLHttpRequest();
     postAd.open('POST', '/product/create', true);
-    await postAd.send(body);
-    let redirectRoute = "/product/promotion/create/" + String(postAd.response);
-    console.log(redirectRoute);
+    postAd.send(body);
+    postAd.onreadystatechange = function() {
+        let redirectRoute = "/product/promotion/create/" + String(postAd.response);
+        console.log(redirectRoute);
+    }
+
     // window.location.replace(redirectRoute);
     return false;
 }
