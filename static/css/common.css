@@ -557,7 +557,7 @@ input[type=checkbox] + label {
     height: 1px;
 }
 
-@media (max-height: 576px) {
+@media (max-width: 576px) {
     .container {
         width: 100%;
     }
@@ -572,6 +572,18 @@ input[type=checkbox] + label {
     }
     .services {
         width: 100%;
+        min-height: 40px;
+        justify-content: space-between;
+    }
+    .services__item {
+        font-size: 12px;
+        width: 33%;
+        margin: 0;
+    }
+    .services__item img {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
     }
 
 }
