@@ -199,10 +199,9 @@ async function PostProduct() {
     }
 
     let postAd = new XMLHttpRequest();
-    let page = document.getElementById('page_num');
     postAd.open('POST', '/product/create', true);
-    postAd.send(body);
-    window.location.replace("/admin/product/" + page.value);
+    await postAd.send(body);
+    window.location.replace("/product/promotion/create/" + postAd.response);
     return false;
 }
 
@@ -249,10 +248,11 @@ async function EditProduct() {
     let route = "/admin/product/change/" + prodId
     console.log(route);
     let postAd = new XMLHttpRequest();
+    let page = document.getElementById('page_num');
     postAd.open('POST', route, true);
     postAd.responseType = 'text';
     await postAd.send(body);
-    window.location.replace("/product/promotion/create/" + postAd.response);
+    window.location.replace("/admin/product/" + page.value);
     return false;
 }
 
