@@ -29,21 +29,23 @@ let layout = document.getElementsByClassName('header__user-actions-layout')[0];
 let actions = document.getElementsByClassName('header__user-actions')[0];
 let userPhoto = document.getElementsByClassName('header__user-photo')[0];
 
-// userPhoto.addEventListener('click', actionsShowHide);
-// layout.addEventListener('click', actionsShowHide);
-//
-//
-// function actionsShowHide(evt) {
-//     console.log(evt.target);
-//     if (evt.target === userPhoto) {
-//         layout.classList.add('header__user-actions-layout_visible');
-//         actions.classList.add('header__user-actions_visible');
-//     }
-//     if (evt.target === layout) {
-//         layout.classList.remove('header__user-actions-layout_visible');
-//         actions.classList.remove('header__user-actions_visible');
-//     }
-// }
+if (userPhoto != null) {
+    userPhoto.addEventListener('click', actionsShowHide);
+    layout.addEventListener('click', actionsShowHide);
+}
+
+
+function actionsShowHide(evt) {
+    console.log(evt.target);
+    if (evt.target === userPhoto) {
+        layout.classList.add('header__user-actions-layout_visible');
+        actions.classList.add('header__user-actions_visible');
+    }
+    if (evt.target === layout) {
+        layout.classList.remove('header__user-actions-layout_visible');
+        actions.classList.remove('header__user-actions_visible');
+    }
+}
 
 let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 let alphabetHigh = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
