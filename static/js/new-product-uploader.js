@@ -203,7 +203,7 @@ async function PostProduct() {
     await postAd.send(body);
     let redirectRoute = "/product/promotion/create/" + String(postAd.response);
     console.log(redirectRoute);
-    window.location.replace(redirectRoute);
+    // window.location.replace(redirectRoute);
     return false;
 }
 
@@ -256,7 +256,7 @@ async function EditProduct() {
     await postAd.send(body);
     let redirectRoute = "/admin/product/" + page.value
     console.log(redirectRoute);
-    window.location.replace(redirectRoute);
+    // window.location.replace(redirectRoute);
     return false;
 }
 
