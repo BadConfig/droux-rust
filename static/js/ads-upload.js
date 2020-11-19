@@ -11,6 +11,8 @@ function checkAndAdd() {
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         let body ='limit=12&offset=' + String(portions * 12);
         request.send(body)
-        console.log('her');
+        request.onreadystatechange = function() {
+            console.log(request.response);
+        }
     }
 }
