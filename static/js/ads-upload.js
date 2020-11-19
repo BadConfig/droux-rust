@@ -9,7 +9,11 @@ function checkAndAdd() {
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        let body ='search_string=\'\'&limit=12&offset=' + String(portions * 12);
+        let body = new FormData();
+        body.append('search_string', '');
+        body.append('limit', 12);
+        let offset = portions * 12;
+        body.append('offset', offset);
         request.send(body)
         request.onreadystatechange = function() {
             console.log(request.response);
