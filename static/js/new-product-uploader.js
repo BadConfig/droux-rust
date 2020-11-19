@@ -250,7 +250,8 @@ async function EditProduct() {
     let postAd = new XMLHttpRequest();
     postAd.open('POST', route, true);
     postAd.responseType = 'text';
-    await postAd.send(body).then(window.location.replace("/product/promotion/create/" + postAd.response));
+    await postAd.send(body);
+    window.location.replace("/product/promotion/create/" + postAd.response);
     return false;
 }
 
