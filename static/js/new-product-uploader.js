@@ -204,9 +204,8 @@ async function PostProduct() {
     postAd.onreadystatechange = function() {
         let redirectRoute = "/product/promotion/create/" + String(postAd.response);
         console.log(redirectRoute);
+        window.location.replace(redirectRoute);
     }
-
-    // window.location.replace(redirectRoute);
     return false;
 }
 
@@ -256,10 +255,12 @@ async function EditProduct() {
     let page = document.getElementById('page_num');
     postAd.open('POST', route, true);
     postAd.responseType = 'text';
-    await postAd.send(body);
-    let redirectRoute = "/admin/product/" + page.value
-    console.log(redirectRoute);
-    // window.location.replace(redirectRoute);
+    postAd.send(body);
+    postAd.onreadystatechange = function() {
+        let redirectRoute = "/admin/product/" + page.value
+        console.log(redirectRoute);
+        window.location.replace(redirectRoute);
+    }
     return false;
 }
 
