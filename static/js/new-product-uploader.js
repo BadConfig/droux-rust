@@ -248,7 +248,7 @@ async function EditProduct() {
         }
     }
     
-    prodId = document.getElementById('product_id').value;
+    let prodId = document.getElementById('product_id').value;
     let route = "/admin/product/change/" + prodId
     console.log(route);
     let postAd = new XMLHttpRequest();
@@ -257,7 +257,7 @@ async function EditProduct() {
     postAd.responseType = 'text';
     postAd.send(body);
     postAd.onreadystatechange = function() {
-        let redirectRoute = "/admin/product/" + page.value
+        let redirectRoute = "/admin/product";
         console.log(redirectRoute);
         window.location.replace(redirectRoute);
     }
