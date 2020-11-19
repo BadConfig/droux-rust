@@ -221,7 +221,9 @@ pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, 
     use crate::db::product::create_product;
 
     let p = parse_multiform_product(content_type, form);
-    create_product(p, &conn)
+    let id = create_product(p, &conn);
+    print!("{}",&id);
+    id
 }
 
 #[derive(FromForm,Clone)]
