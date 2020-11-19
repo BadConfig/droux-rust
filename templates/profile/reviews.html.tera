@@ -1,5 +1,41 @@
 {% extends "profile/main" %}
 {% block page_content %}
+   <div class="my-reviews content__border">
+        <div class="content__top">
+            <h2 class="content__header my-reviews__header">Мои отзывы</h2>
+        </div>
+        <div class="content__reviews">
+            {% for review in reviews %}
+                <div class="content__review review">
+                    <div class="review__top">
+                        <div class="review__author-photo">
+                            <img src="/static/profile_pictures/{{ review.voter_photo }}" alt="">
+                        </div>
+                        <div class="review__info">
+                            <div class="review__author-name-and-date">
+                                <span class="review__author-name">{{ review.voter_username }}</span>
+                                <span class="review__date">{{ review.create_datetime | date }}</span>
+                            </div>
+                            <div class="review__rating-and-product">
+                                <div class="review__stars">
+                                    {% for i in range(end=review.stars) %}
+                                        <img src="/static/assets/star-filled.svg" alt="">
+                                    {% endfor %}
+                                    {% for i in range(end=5-review.stars) %}
+                                        <img src="/static/assets/star-empty.svg" alt="">
+                                    {% endfor %}
+                                </div>
+                                <span class="review__product">{{ review.feedback_type }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review__text">
+                        {{ review.comment }}
+                    </div>
+                </div>           
+            {% endfor %}
+        </div>
+    </div>
 {% endblock page_content %}
 {% block reviews %}
     card__label_active

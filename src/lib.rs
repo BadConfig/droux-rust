@@ -6,6 +6,7 @@ pub mod db;
 pub mod auth;
 pub mod routes;
 pub mod users;
+pub mod crm;
 
 #[macro_use]
 extern crate rocket;
@@ -42,6 +43,33 @@ impl<'r> Responder<'r> for Error {
 
 impl From<DieselError> for Error {
     fn from(error: DieselError) -> Error {
+        Error {
+            status: Status::InternalServerError,
+            message: error.to_string(),
+        }
+    }
+}
+
+impl From<serde_json::Error> for Error {
+    fn from(error: serde_json::Error) -> Error {
+        Error {
+            status: Status::InternalServerError,
+            message: error.to_string(),
+        }
+    }
+}
+
+impl From<reqwest::Error> for Error {
+    fn from(error: reqwest::Error) -> Error {
+        Error {
+            status: Status::InternalServerError,
+            message: error.to_string(),
+        }
+    }
+}
+
+impl From<std::str::Utf8Error> for Error {
+    fn from(error: std::str::Utf8Error) -> Error {
         Error {
             status: Status::InternalServerError,
             message: error.to_string(),
@@ -95,6 +123,14 @@ pub fn app() -> rocket::Rocket {
             routes::admin::admin_priveleges,
             routes::admin::admin_priveleges_add, 
             routes::admin::admin_priveleges_delete,
+            routes::users::post_user_reviews_add,
+            routes::product::get_promotions,
+            routes::product::get_promotions_final,
+            routes::product::post_promotions,
+            routes::product::check_pay,
+            routes::product::get_order_final,
+            routes::product::get_order,
+            routes::product::post_order,
             ])
         .attach(Template::fairing())
         .attach(db::Conn::fairing())

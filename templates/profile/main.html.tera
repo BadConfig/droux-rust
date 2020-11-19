@@ -9,18 +9,17 @@
 {% endblock head %}
 {% block main %}
 <div class="review__layout review">
-    <form class="review__body">
+    <form class="review__body" method="POST" action="/profile/users/reviews/add">
         <h2>Отзыв о продавце</h2>
         <label for="chooseprod">Объявление</label>
-        <select name="product" id="chooseprod">
+        <select name="pr_id" id="chooseprod">
+        {% for p in prods %}
             <option selected disabled></option>
-            <option value="prodID">Пиписьки</option>
-            <option value="prodID">Огромные черные тщлены</option>
-            <option value="prodID">Игральные карты "Эротика"</option>
-            <option value="prodID">Девственность</option>
+            <option value="{{ p.0 }}">{{ p.1 }}</option>       
+        {% endfor %}
         </select>
         <label for="result">Объявление</label>
-        <select name="product" id="result">
+        <select name="status" id="result">
             <option selected disabled></option>
             <option value="failed">Не удалось договориться с продавцом</option>
             <option value="pidor">Сделка сорвалась (Товар не был получен или не соответствовал описанию)</option>
@@ -28,23 +27,24 @@
         </select>
         <span class="review__rate">Поставьте оценку</span>
         <div class="product__rating">
-            <input type="radio" name="product-rating" value="5" id="product-rating_5">
+            <input type="radio" name="rate" value="5" id="product-rating_5">
             <label for="product-rating_5"></label>
 
-            <input type="radio" name="product-rating" value="4" id="product-rating_4">
+            <input type="radio" name="rate" value="4" id="product-rating_4">
             <label for="product-rating_4"></label>
 
-            <input type="radio" name="product-rating" value="3" id="product-rating_3">
+            <input type="radio" name="rate" value="3" id="product-rating_3">
             <label for="product-rating_3"></label>
 
-            <input type="radio" name="product-rating" value="2" id="product-rating_2">
+            <input type="radio" name="rate" value="2" id="product-rating_2">
             <label for="product-rating_2"></label>
 
-            <input type="radio" name="product-rating" value="1" id="product-rating_1">
+            <input type="radio" name="rate" value="1" id="product-rating_1">
             <label for="product-rating_1"></label>
         </div>
         <label for="review-text">Напишите свои впечатления от сделки</label>
-        <textarea id="review-text"></textarea>
+        <textarea name="descr" id="review-text"></textarea>
+        <input type="hidden" value="{{ viewed_user.id }}" name="u_id">
         <input type="submit" value="Отправить" class="button">
     </form>
 </div>

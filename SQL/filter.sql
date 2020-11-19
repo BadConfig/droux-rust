@@ -41,14 +41,14 @@ FROM products AS pr
 	JOIN users AS u2 
     	ON u2.id = pr.seller_id 
 WHERE
-	pr.status = 'published' AND TRUE OR
-	CASE WHEN ($1 IS NOT NULL) THEN POSITION($1 IN pr.title) != 0 		END OR
+	pr.status = 'published' AND
+	(CASE WHEN ($1 IS NOT NULL) THEN POSITION($1 IN pr.title) != 0 		END OR
 	CASE WHEN ($7 IS NOT NULL) THEN sc.category_id 		= $7 			END OR
 	CASE WHEN ($6 IS NOT NULL) THEN pr.sub_category_id 	= $6			END OR
 	CASE WHEN ($2 IS NOT NULL) THEN pr.size_id 			= $2 			END OR
 	CASE WHEN ($3 IS NOT NULL) THEN pr.product_state 	= $6 			END OR
 	CASE WHEN ($8 IS NOT NULL) THEN pr.brand_id 		= $8 			END OR
-	CASE WHEN ($9 IS NOT NULL) THEN pr.type_id 			= $9 			END
+	CASE WHEN ($9 IS NOT NULL) THEN pr.type_id 			= $9 			END)
 ORDER BY 
 	CASE WHEN ($10 = 'Date')		THEN CAST(EXTRACT(epoch FROM pr.create_datetime) AS INTEGER) END ASC,
 	CASE WHEN ($10 = 'PriceDESC') 	THEN pr.price END DESC,

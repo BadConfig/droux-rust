@@ -11,4 +11,4 @@
  FROM 
  	rating JOIN users AS u
  		ON u.id = rating.seller_id
-WHERE rating.voter_id = $1;
+WHERE rating.seller_id = $1;

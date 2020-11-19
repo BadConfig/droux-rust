@@ -1,0 +1,10 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/common.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% endblock head %}
+{% block main %}
+Order created
+<a href="/"> go bak</a>
+{% endblock main %}

@@ -69,10 +69,9 @@
             <a href="" class="dropdown__button_to-hide">ВЫБОР DROUX</a>
             <a href="" class="dropdown__button_to-hide">НОВИНКИ</a>
             <a href="" class="dropdown__button">БРЕНДЫ</a>
-            <a href="" class="dropdown__button">ОДЕЖДА</a>
-            <a href="" class="dropdown__button">ОБУВЬ</a>
-            <a href="" class="dropdown__button">СУМКИ</a>
-            <a href="" class="dropdown__button">АКСЕССУАРЫ</a>
+            {% for cat in header_categories %}
+                <a href="/filters?limit=12&offset=0&category_id={{ cat.category_id }}" class="dropdown__button">{{ cat.category_name | upper }}</a>
+            {% endfor %}
         </nav>
     </div>
     <div class="authorizer authorizer__background 
@@ -98,13 +97,13 @@
                     authorizer__form_visible 
                 {% endif %}" action="/login" method="POST">
                 <label for="sign-in__login">Логин</label>
-                <input type="text" id="sign-in__login" name="login" >
+                <input type="text" id="sign-in__login" name="login" {% if login_fail %}class="authorizer__input_failed"{% endif %}>
                 <label for="sign-in__password">Пароль</label>
-                <input type="password" id="sign-in__password" name="pass">
+                <input type="password" id="sign-in__password" name="pass" {% if login_fail %}class="authorizer__input_failed"{% endif %}>
                 <div class="sign-in__remember-and-forget">
                     <input type="checkbox" id="remember-me">
                     <label for="remember-me" class="authorizer__checkbox-label">Запомнить меня</label>
-                    <a href="">Забыли пароль?</a>
+                    <a>Забыли пароль?</a>
                 </div>
                 <input type="submit" class="button sign-in__button" value="Войти">
                 <label for="sign-up" class="sign-in__not-a-label">Не зарегистрированы на Droux? Создайте аккаунт</label>
@@ -123,7 +122,7 @@
                 <input type="password" id="sign-up__repeat-password">
                 <input type="checkbox" id="accept-rules">
                 <label for="accept-rules" class="authorizer__checkbox-label" id="sign-up__checkbox"><span>Я принимаю условия <a href="">Пользовательского соглашения</a></span></label>
-                <input type="submit" class="button sign-up__button" value="Зарегистрироваться">
+                <input type="submit" class="button sign-up__button" value="Зарегистрироваться" disabled>
             </form>
         </div>
     </div>
@@ -189,7 +188,7 @@
             <div class="dropdown__border">
                 <div class="dropdown__content container">
                     {% for subcat in cat.sub_categories %}
-                        <a href="" class="dropdown__link">{{ subcat.name }}</a>
+                        <a href="/filters?limit=12&offset=0&subcategory_id={{ subcat.id }}" class="dropdown__link">{{ subcat.name }}</a>
                     {% endfor %}
                 </div>             
             </div>

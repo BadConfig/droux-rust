@@ -109,9 +109,9 @@
                         <a href="/chat/create/?other_id={{ seller.id }}&product_id={{ product.id }}" class="button product__button product__button_color_white">
                             Чат с продавцом
                         </a>
-                        <a href="" class="button product__button product__button_color_black">
-                            Купить с доставкой
-                        </a>
+                        <form action="/product/order/create/{{ product.id }}">
+                            <input type="submit" class="button product__button product__button_color_black" value="Купить с доставкой">
+                        </form>
                     </div>
                 </div>
             </div>
