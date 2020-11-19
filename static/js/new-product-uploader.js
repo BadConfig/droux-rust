@@ -201,7 +201,8 @@ async function PostProduct() {
     let postAd = new XMLHttpRequest();
     let page = document.getElementById('page_num');
     postAd.open('POST', '/product/create', true);
-    postAd.send(body).then(window.location.replace("/admin/product/" + page.value));
+    postAd.send(body);
+    window.location.replace("/admin/product/" + page.value);
     return false;
 }
 
