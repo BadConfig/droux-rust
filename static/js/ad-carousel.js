@@ -1,16 +1,18 @@
 let ads = document.getElementsByClassName('ad');
 let photosCount = [];
 let currentPhoto = [];
-for (let i = 0; i < ads.length; i++) {
-    photosCount[i] = ads[i].getElementsByClassName('ad__img').length;
-    currentPhoto[i] = 0;
-    ads[i].id =  'carousel-id_' + String(i);
-    let arrowLeft = ads[i].getElementsByClassName('ad__arrow_left')[0];
-    arrowLeft.addEventListener('click', SwipePhotos);
-    let arrowRight = ads[i].getElementsByClassName('ad__arrow_right')[0];
-    arrowRight.addEventListener('click', SwipePhotos);
+function checkAds() {
+    for (let i = 0; i < ads.length; i++) {
+        photosCount[i] = ads[i].getElementsByClassName('ad__img').length;
+        currentPhoto[i] = 0;
+        ads[i].id = 'carousel-id_' + String(i);
+        let arrowLeft = ads[i].getElementsByClassName('ad__arrow_left')[0];
+        arrowLeft.addEventListener('click', SwipePhotos);
+        let arrowRight = ads[i].getElementsByClassName('ad__arrow_right')[0];
+        arrowRight.addEventListener('click', SwipePhotos);
+    }
 }
-
+checkAds();
 function SwipePhotos() {
     let arrow = event.currentTarget;
     let ad = arrow.parentNode.parentNode;
