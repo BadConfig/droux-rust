@@ -14,9 +14,10 @@ function checkAndAdd() {
         let body = 'search_string=&limit=12&offset=' + String(portions * 12);
         request.send(body)
         request.onreadystatechange = function() {
-            for (let i = 0; i < request.response.length; i++) {
+            let resp = JSON.parse(request.response);
+            for (let i = 0; i < resp.length; i++) {
                 let newAd = document.createElement('div');
-                let adLink = '/product/' + request.response[i].id
+                let adLink = '/product/' + resp[i].id
                 newAd.className = 'ad';
                 newAd.innerHTML = "<div class=\"ad__img-container\"> <!--Рамка для одной фотографии-->\n" +
                     "                    <div class=\"ad__arrow ad__arrow_left\">\n" +
@@ -32,21 +33,21 @@ function checkAndAdd() {
                     "                        <img src=\"../../static/assets/favourite-filled.svg\" class=\"ad__favourite-icon-img_filled\">\n" +
                     "                    </div>\n" +
                     "                </div>\n" +
-                    "                <input type=\"hidden\" class=\"prod_id\" value=\"" + request.response[i].id + "\">" +
+                    "                <input type=\"hidden\" class=\"prod_id\" value=\"" + resp[i].id + "\">" +
                     "                <div class=\"ad__name-and-size\">\n" +
-                    "                    <a href=\"" + adLink + "\"><h3 class=\"ad__name\">" + request.response[i].title + "</h3></a>\n" +
-                    "                    <span class=\"ad__size\">" + request.response[i].size_name + "</span>\n" +
+                    "                    <a href=\"" + adLink + "\"><h3 class=\"ad__name\">" + resp[i].title + "</h3></a>\n" +
+                    "                    <span class=\"ad__size\">" + resp[i].size_name + "</span>\n" +
                     "                </div>\n" +
-                    "                <div class=\"ad__category\">" + request.response[i].category_name + "</div>\n" +
-                    "                <div class=\"ad__price\">" + request.response[i].price + "</div>"
+                    "                <div class=\"ad__category\">" + resp[i].category_name + "</div>\n" +
+                    "                <div class=\"ad__price\">" + resp[i].price + "</div>"
                 let imageDiv = newAd.querySelector('.ad__all-images');
-                for (let j = 0; j < request.response[i].pictures.length; j++) {
+                for (let j = 0; j < resp[i].pictures.length; j++) {
                     let productPhoto = document.createElement('a');
                     productPhoto.href = adLink;
-                    productPhoto.innerHTML = "<img src=\"" + request.response[i].pictures[j] + "\" class=\"ad__img\" alt=\"\">";
+                    productPhoto.innerHTML = "<img src=\"" + resp[i].pictures[j] + "\" class=\"ad__img\" alt=\"\">";
                     imageDiv.append(productPhoto);
                 }
-                if (request.response[i].is_in_favourites) {
+                if (resp[i].is_in_favourites) {
                     newAd.querySelector('.ad__favourite-icon-img_filled').classList.add('fav-icon_active');
                 } else {
                     newAd.querySelector('.ad__favourite-icon-img_empty').classList.add('fav-icon_active');
