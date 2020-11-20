@@ -131,6 +131,6 @@
     </main>
 {% endblock main %}
 {% block scripts %}
-    <script src="ad-carousel.js"></script>
-    <script src="product-carousel.js"></script>
+    <script src="/static/js/ad-carousel.js"></script>
+    <script src="/static/js/product-carousel.js"></script>
 {% endblock scripts %}

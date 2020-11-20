@@ -1,9 +1,9 @@
 {% extends "main" %}
 {% block head %}
-    <link rel="stylesheet" href="../../static/css/croppie.css">
-    <link rel="stylesheet" href="../../static/css/common.css">
-    <link rel="stylesheet" href="../../static/css/filters.css">
-    <link rel="stylesheet" href="../../static/css/new-product.css">
+    <link rel="stylesheet" href="/static/css/croppie.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/filters.css">
+    <link rel="stylesheet" href="/static/css/new-product.css">
     <meta charset="UTF-8">
     <title>Title</title>
 {% endblock head %}
@@ -143,7 +143,7 @@
                             <input type="file" id="photo-upload-input" class="uploader__input">
                                 <div id="upload-photo-button" class="uploader__main-label">
                                     <label for="photo-upload-input"></label>
-                                    <img src="../../static/assets/plus.svg" alt="">
+                                    <img src="/static/assets/plus.svg" alt="">
                                 </div>
 
 
@@ -153,11 +153,11 @@
                                 </div>
                             </div>
                             <div class="uploader__arrow uploader__arrow_left">
-                                <img src="../../static/assets/arrow-left.svg" alt="">
+                                <img src="/static/assets/arrow-left.svg" alt="">
                             </div>
 
                             <div class="uploader__arrow uploader__arrow_right">
-                                <img src="../../static/assets/arrow-right.svg" alt="">
+                                <img src="/static/assets/arrow-right.svg" alt="">
                             </div>
                         </div>
                     </div>
@@ -196,13 +196,13 @@
                     <button class="button pop-up__button pop-up__button_ok">OK</button>
                     <button class="button pop-up__button pop-up__button_cancel">Отмена</button>
                 </div>
-                <img src="../../static/assets/close.svg" alt="" class="pop-up__close">
+                <img src="/static/assets/close.svg" alt="" class="pop-up__close">
             </div>
         </div>
     </main>
 {% endblock main %}
 {% block scripts %}
-    <script src="../../static/js/search-filter.js"></script>
-    <script src="../../static/js/croppie.min.js"></script>
-    <script src="../../static/js/new-product-uploader.js"></script>
+    <script src="/static/js/search-filter.js"></script>
+    <script src="/static/js/croppie.min.js"></script>
+    <script src="/static/js/new-product-uploader.js"></script>
 {% endblock scripts %}
