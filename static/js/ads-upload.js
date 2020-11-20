@@ -1,6 +1,6 @@
 let searchResults = document.querySelector('.search-results');
 
-setInterval(checkAndAdd,3000);
+let timer = setInterval(checkAndAdd,3000);
 
 let portions = 0;
 
@@ -15,6 +15,9 @@ function checkAndAdd() {
         request.send(body)
         request.onreadystatechange = function() {
             let resp = JSON.parse(request.response);
+            if (resp.length === 0) {
+                clearInterval(timer);
+            }
             for (let i = 0; i < resp.length; i++) {
                 let newAd = document.createElement('div');
                 let adLink = '/product/' + resp[i].id
