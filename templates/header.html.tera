@@ -41,7 +41,7 @@
                     <input type="hidden" name="limit" value="12">
                     <input type="hidden" name="offset" value="0">
                 </div>
-                <input class="search__button button" type="submit" value="Найти">
+                <button class="search__button button" value="Найти">
             </form>
             <div class="header__logo">
                 <a href="/">
