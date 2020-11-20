@@ -48,12 +48,14 @@
                 </div>
                 <div class="filters__must-be-hidden">
                     <form class="filters__sector-options">
+                        <div class="safari-sucks">
                         {% for categories in ProductCategories %}
                             <div class="filters__checkbox-div">
                                 <input type="checkbox" name="category_id" value="{{ categories.category_id }}" id="ad_cat{{ categories.category_id }}">
                                 <label for="ad_cat{{ categories.category_id }}">{{ categories.category_name }}</label>
                             </div>                             
                         {% endfor %}
+                        </div>
                     </form>
                 </div>
             </div>
@@ -65,6 +67,7 @@
                 </div>
                 <div class="filters__must-be-hidden">
                     <form class="filters__sector-options">
+                        <div class="safari-sucks">
                         {% for categories in ProductCategories %}
                             {% for sub_cat in categories.sub_categories %}
                                 <div class="filters__checkbox-div">
@@ -73,6 +76,7 @@
                                 </div>           
                             {% endfor %}   
                         {% endfor %}
+                        </div>
                     </form>
                 </div>
             </div>
@@ -85,12 +89,14 @@
                 <div class="filters__must-be-hidden">
                     <input type="text" placeholder="Искать" class="filters__search-field">
                     <form class="filters__sector-options">
+                        <div class="safari-sucks">
                         {% for brand in ProductBrands %}
                             <div class="filters__checkbox-div">
                                 <input type="checkbox" name="prod_brand_id" value="{{ brand.id }}" id="ad_brand{{ brand.id }}">
                                 <label for="ad_brand{{ brand.id }}">{{ brand.name }}</label>
                             </div>                             
                         {% endfor %}
+                        </div>
                     </form>
                 </div>
             </div>
@@ -103,12 +109,14 @@
                 <div class="filters__must-be-hidden">
                     <input type="text" placeholder="Искать" class="filters__search-field">
                     <form class="filters__sector-options">
+                        <div class="safari-sucks">
                         {% for size in ProductSizes %}
                             <div class="filters__checkbox-div">
                                 <input type="checkbox" name="prod_size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
                                 <label for="ad_size{{ size.id }}">{{ size.name }}</label>
                             </div>                             
                         {% endfor %}
+                        </div>
                     </form>
                 </div>
             </div>
