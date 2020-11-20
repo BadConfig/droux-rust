@@ -182,7 +182,7 @@
                     <input type="text">
                 </div>
                 <div class="ad-form__email">
-                    <div class="ad-form__label">E-mail</div>
+                    <div class="ad-form__label">Город</div>
                     <input type="text">
                 </div>
                 <input type="button" value="Продолжить" class="button ad-form__submit-button" onclick="PostProduct()">

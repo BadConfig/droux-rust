@@ -257,7 +257,7 @@ async function EditProduct() {
     postAd.responseType = 'text';
     postAd.send(body);
     postAd.onreadystatechange = function() {
-        let redirectRoute = "/admin/product";
+        let redirectRoute = "/admin/product/1";
         console.log(redirectRoute);
         window.location.replace(redirectRoute);
     }

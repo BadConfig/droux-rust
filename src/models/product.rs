@@ -341,6 +341,7 @@ pub struct ProductPromotions {
     top_by_name: bool,
     is_pre_order: bool,
     prod_bought_date: chrono::NaiveDateTime,
+    in_news: bool,
 }
 
 impl ProductPromotions {
@@ -709,6 +710,7 @@ impl PrivForm {
                         top_by_cat.eq(self.top_cat),
                         top_by_name.eq(self.top_name),
                         is_pre_prder.eq(self.pre_order),
+                        in_news.eq(self.take_in_news),
                     ))
                 .execute(conn)?;
         } else {
@@ -719,7 +721,8 @@ impl PrivForm {
                     is_marked.eq(true),
                     top_by_cat.eq(true),
                     top_by_name.eq(true),
-                    is_pre_prder.eq(true),
+                    is_pre_prder.eq(self.pre_order),
+                    in_news.eq(true),
                 ))
             .execute(conn)?;
         }

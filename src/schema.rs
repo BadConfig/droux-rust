@@ -112,6 +112,7 @@ table! {
         top_by_name -> Bool,
         is_pre_prder -> Bool,
         prod_bought_date -> Timestamp,
+        in_news -> Bool,
     }
 }
 

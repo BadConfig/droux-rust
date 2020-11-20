@@ -34,7 +34,6 @@
         <img src="../../static/assets/arrow-right.svg" alt="">
         <img src="../../static/assets/arrow-right.svg" alt="">
     </a>
-    <input type="hidden" value="{{ current_page }}" id="page_num">
 </div>
 {% endblock page_content %}
 {% block active_products %}
