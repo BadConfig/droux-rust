@@ -1,3 +1,5 @@
 FROM nginx:alpine
 
-COPY ./{droux.crt,droux.key,conf.d} /etc/nginx/
+COPY ./droux.crt /etc/nginx/
+COPY ./droux.key /etc/nginx/
+COPY ./conf.d/ /etc/nginx/conf.d/
