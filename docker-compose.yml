@@ -34,9 +34,7 @@ services:
       - "443:8080"
     volumes:
     #  - ./:/app
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-      - ./nginx/droux.crt:/etc/nginx/droux.crt
-      - ./nginx/droux.key:/etc/nginx/droux.key
+      - ./nginx/:/etc/nginx/
     networks:
       - app-network
   postgres:
