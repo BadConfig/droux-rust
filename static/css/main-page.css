@@ -226,6 +226,12 @@
         width: 100%;
     }
 
+    .photos a {
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+    }
+
     .photos__male span, .photos__female span {
         position: absolute;
         bottom: 45%;
@@ -241,10 +247,6 @@
 
     .ad:nth-child(2) ~ .ad  {
         display: none;
-    }
-
-    .search__button {
-
     }
 
     .show-all__header {

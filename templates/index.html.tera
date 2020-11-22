@@ -10,14 +10,18 @@
 {% block main %}
    <main class="main">
         <div class="photos container">
-            <a href=""><div class="photos__male">
-                <img src="static/assets/male.jpg" alt="Мужчина с поясной сумкой Gucci">
-                <span>ДЛЯ МУЖЧИН</span>
-            </div></a>
-            <a href=""><div class="photos__female">
-                <img src="static/assets/female.jpg" alt="Две девушки с аксессуарами Louis Vuitton">
-                <span>ДЛЯ ЖЕНЩИН</span>
-            </div></a>
+            <div class="photos__male">
+                <a href="/filters?limit=12&offset=0&prod_type_id=1">
+                    <img src="static/assets/male.jpg" alt="Мужчина с поясной сумкой Gucci">
+                    <span>ДЛЯ МУЖЧИН</span>
+                </a>
+            </div>
+            <div class="photos__female">
+                <a href="/filters?limit=12&offset=0&prod_type_id=2">
+                    <img src="static/assets/female.jpg" alt="Две девушки с аксессуарами Louis Vuitton">
+                    <span>ДЛЯ ЖЕНЩИН</span>
+                </a>
+            </div>
             <div class="photos__buttons">
                 <h1>Первый сервис для покупки<br>и перепродажи брендовых вещей в России</h1>
                 <a href="" class="button photos-buttons__button photos-buttons__button_seller">Для покупателей</a>

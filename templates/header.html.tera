@@ -49,11 +49,23 @@
                 </a>
             </div>
             <div class="header__buttons">
-                <a href="/product/create" class="button sell__button">Продать</a>
-                <a href="/chat">
+                <a {% if is_logged == true %}
+                        href="/product/create"
+                    {% else %}
+                        onclick="AuthToggle()"
+                    {% endif %} class="button sell__button">Продать</a>
+                <a {% if is_logged == true %}
+                        href="/chat"
+                    {% else %}
+                        onclick="AuthToggle()"
+                    {% endif %}>
                     <img src="/static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
                 </a>
-                <a href="/users/favourites">
+                <a {% if is_logged == true %}
+                        href="/users/favourites"
+                    {% else %}
+                        onclick="AuthToggle()"
+                    {% endif %}>
                     <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
                 </a>
                 {% if is_logged == false%}

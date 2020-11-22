@@ -17,8 +17,8 @@ if (authButton != null) {
     authLayout.addEventListener('click', AuthToggle);
 }
 
-function AuthToggle(evt) {
-    if (evt.target === authLayout) {
+function AuthToggle() {
+    if (event.target === authLayout) {
         authLayout.classList.remove('authorizer_visible');
     } else {
         authLayout.classList.add('authorizer_visible');

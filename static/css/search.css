@@ -60,7 +60,7 @@
 
 @media (max-width: 1200px) {
     .search-results .ad {
-        margin-right: 0;
+        margin: 0;
         width: 47%;
         margin-bottom: 30px;
     }
@@ -68,5 +68,8 @@
         width: 100%;
         justify-content: space-between;
         align-content: flex-start;
+    }
+    body {
+        max-height: fit-content;
     }
 }

@@ -9,6 +9,7 @@
 {% endblock head %}
 {% block main %}  
     <main class="container main">
+    <input type ='hidden' class='prod_id' value='{{ product.id }}'>
         <div class="breadcrumbs">
             <a href="">{{ product.type_name }}/</a>
             <a href="">{{ product.category_name }}/</a>
@@ -28,7 +29,10 @@
                         {{ product.size_name }}
                     </span>
                 </div>
-                <img src="/static/assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav">
+                <div class="ad__favourite-icon ">
+                    <img src="/static/assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav">
+                    <img src="/static/assets/favourite-filled.svg" alt="Добавить в избранное" class="product__add-to-fav fav-icon_active">
+                </div>
             </div>
             <div class="product__main">
                 <div class="product__photo-border">
