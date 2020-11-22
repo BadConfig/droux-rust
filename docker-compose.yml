@@ -26,19 +26,17 @@ services:
       - app-network
   #Nginx
   webserver:
-    build:
-      context: ./nginx
-      dockerfile: ./nginx/Dockerfile
-    #image: nginx:alpine
+    # build:
+    #   context: ./nginx
+    #   dockerfile: ./nginx/Dockerfile
+    image: nginx
     container_name: webserver1
     restart: unless-stopped
     tty: true
     ports:
       - "443:8080"
-        #   volumes:
-            # - ./nginx/:/etc/nginx/
-            #- ./nginx/droux.crt:/var/droux.crt
-        #- ./nginx/droux.key:/var/droux.key
+    volumes:
+        - ./nginx/:/etc/nginx/
     networks:
       - app-network
   postgres:
