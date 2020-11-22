@@ -20,10 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1982821-1f2e-4e5c-a3e3-cbaa6c3bf3ee" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/css/static-pages.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/raw__html/iscreated.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile_?" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/conf.d/droux.csr" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/conf.d/droux.csr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/conf.d/droux.key" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/conf.d/droux.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/droux.crt" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/droux.crt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-hide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-hide.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-left.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-left.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-right.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-right.svg" afterDir="false" />
@@ -60,6 +60,7 @@
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/static-pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/static-pages.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/hide-sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hide-sector.js" afterDir="false" />
@@ -173,6 +174,20 @@
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:37:39.622202-title-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:37:45.229792-title-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:37:51.092870-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:27.472716704-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:28.586442377-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:29.654854986-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:30.214826044-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:30.534251618-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:47.578363767-TItile1-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:03.454101238-TItile2-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:03.454486960-TItile2-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:19.288803478-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:19.289216253-TItile-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:33.039021919-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:33.039410778-TItile-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:45.309773291-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:45.310140030-TItile-2.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:57:28.107985-advert-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:20.778800-title-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:22.148576-title-1.jpg" beforeDir="false" />
@@ -247,11 +262,20 @@
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:57:45.021866-lkj-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:58:15.122135-sad-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:58:55.801772-lmnkl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:10:56.199234445-Adidas-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:12:27.126811718-title-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:14:28.574335-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:17:30.356755300-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:17:47.345654394-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:28:24.285903611-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:31:44.377519161-123-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:48:33.240955116-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 21:31:10.238519896-Тестовое объявление-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/iscreated.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/iscreated.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
@@ -311,7 +335,7 @@
       <workItem from="1605576069090" duration="12840000" />
       <workItem from="1605910887435" duration="8543000" />
       <workItem from="1605943561786" duration="2682000" />
-      <workItem from="1606024753070" duration="18476000" />
+      <workItem from="1606024753070" duration="22407000" />
     </task>
     <servers />
   </component>
