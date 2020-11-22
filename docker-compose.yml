@@ -35,6 +35,8 @@ services:
     volumes:
     #  - ./:/app
       - ./nginx/:/etc/nginx/
+      - ./nginx/droux.key:/etc/nginx/droux.key
+      - ./nginx/droux.crt:/etc/nginx/droux.ctr
     networks:
       - app-network
   postgres:
