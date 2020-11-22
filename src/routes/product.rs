@@ -316,9 +316,9 @@ pub fn check_pay(orderId: String, lang: String, user: CommonUser, conn: crate::d
             Ok(Either::Redirect(Redirect::to("/product/promotion/final")))
         },
         TrDescription::Order(o) => {
-            o.send_new_order_to_crm()?;
+            let (num, addr) = o.send_new_order_to_crm()?;
             Product::set_status(o.pr_id, "sold".to_string(), &conn)?;
-            Ok(Either::Redirect(Redirect::to("/product/order/final")))
+            Ok(Either::Redirect(Redirect::to(format!("/product/order/final/{}/{}",num,addr))))
         },
         TrDescription::Unpayed => Ok(Either::Redirect(Redirect::to("/")))
     }
@@ -389,12 +389,14 @@ pub fn post_promotions(form: Form<PrivForm>, user: CommonUser, conn: crate::db::
 
 #[get("/product/promotion/final")]
 pub fn get_promotions_final(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
-    let ctx = get_base_context(user.clone(), &conn);
+    let mut ctx = get_base_context(user.clone(), &conn);
     Ok(Either::Template(Template::render("product/promotion_final", &ctx)))
 }
 
-#[get("/product/order/final")]
-pub fn get_order_final(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
-    let ctx = get_base_context(user.clone(), &conn);
+#[get("/product/order/final/<num>/<addr>")]
+pub fn get_order_final(num: String, addr: String, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    let mut ctx = get_base_context(user.clone(), &conn);
+    ctx.insert("order_number", &num);
+    ctx.insert("order_adress", &addr);
     Ok(Either::Template(Template::render("product/order_final", &ctx)))
 }

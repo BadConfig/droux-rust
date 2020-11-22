@@ -1,10 +1,26 @@
 {% extends "main" %}
 {% block head %}
     <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/static-pages.css">
     <meta charset="UTF-8">
     <title>Title</title>
 {% endblock head %}
 {% block main %}
-Order created
-<a href="/"> go bak</a>
+    <main class="static container static__order-is-created">
+        <h1 class="static__header">Ваш заказ №{{ order_number }} оформлен!</h1>
+        <span class="static__order-address">Вы оформии заказ на адрес: {{ order_adress }}</span>
+        <p class="static__text">
+            Для того, чтобы убедиться в подлинности товара, продавец вышлет его к нам в офис для проверки.<br>
+            В случае успешной проверки, товар будет отправлен Вам.<br>
+            Вы сможете получить заказ в течение 14 дней.<br>
+            <br>
+            <br>
+            Если товар не будет соответствовать заявленым параметрам, мы вернем Вам деньги в полном
+            объеме.<br>
+            <br>
+            Продавец не получит оплату до тех пор, пока Вы не получите товар.<br>
+            Деньги будут заморожены на Вашем счету.
+        </p>
+        <a href="" class="button static__button">Вернуться в личный кабинет</a>
+    </main>
 {% endblock main %}
