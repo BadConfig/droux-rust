@@ -20,6 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1982821-1f2e-4e5c-a3e3-cbaa6c3bf3ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/css/static-pages.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/raw__html/iscreated.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile_?" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-hide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-hide.svg" afterDir="false" />
@@ -53,16 +55,12 @@
       <change beforePath="$PROJECT_DIR$/static/assets/vk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/youtube.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/ad.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ad.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/filters.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/filters.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/ads-upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ads-upload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/hide-sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hide-sector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/new-product-uploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/new-product-uploader.js" afterDir="false" />
@@ -241,14 +239,21 @@
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:22:17.984668-'''''-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:24:00.028678-staff-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:27:25.789005-kjnjkn-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:33:23.254101-lmnkl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:37:46.800659-lkj-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:46:55.728680-sad-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:48:56.720302-lkjk-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:50:11.705328-lkjk-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:57:45.021866-lkj-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:58:15.122135-sad-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:58:55.801772-lmnkl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:14:28.574335-title-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/raw__html/index-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/index-notemp.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/raw__html/profile-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/profile-notemp.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -259,9 +264,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -283,6 +288,9 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-merge-conflict\droux-rust\static\css" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-rust\static\assets" />
     </key>
@@ -303,7 +311,7 @@
       <workItem from="1605576069090" duration="12840000" />
       <workItem from="1605910887435" duration="8543000" />
       <workItem from="1605943561786" duration="2682000" />
-      <workItem from="1606024753070" duration="13524000" />
+      <workItem from="1606024753070" duration="18476000" />
     </task>
     <servers />
   </component>
