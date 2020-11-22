@@ -4,6 +4,7 @@ pub mod product;
 pub mod filters;
 pub mod users;
 pub mod chat;
+pub mod static_pages;
 
 use rocket::http::{Cookie, Cookies};
 use rocket_contrib::templates::{Template,tera::*};

@@ -11,7 +11,7 @@ use serde::{
 
 impl BuyForm {
 
-    pub fn send_new_order_to_crm(&self) -> Result<(), Error> {
+    pub fn send_new_order_to_crm(&self) -> Result<(String,String), Error> {
 
         let data = json!({
                 "firstName": self.name,
@@ -65,7 +65,15 @@ impl BuyForm {
             .send()?
             .text()?;
         print!("{:#?}\n",res);
-        Ok(())
+        let v: serde_json::Value = serde_json::from_str(&(res)[..])?;
+        print!("{:#?}\n",v);
+        let r1 = v["order"]["number"].to_string();
+        let r2 = v["order"]["delivery"]["address"]["text"].to_string();
+        let len1 = r1.len();
+        let len2 = r2.len();
+        let r1 = r1[1..len1-1].to_string();
+        let r2 = r2[1..len2-1].to_string();
+        Ok((r1,r2))
     }
 }
 
@@ -84,7 +92,7 @@ impl PrivForm {
             ("password", "T773007004660"),
             ("amount", &format!("{}",summ*100)[..]),
             ("currency", "643"),
-            ("returnUrl", "http://178.154.229.126/product/pay"),
+            ("returnUrl", "http://localhost:8000/product/pay"),
             ("orderNumber", &format!("{}{}pay",self.product_name,self.product_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Priveleges(self.clone()))?[..])];
 
