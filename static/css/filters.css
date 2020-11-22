@@ -125,3 +125,20 @@
     flex-direction: column;
     min-height: fit-content;
 }
+
+@media (max-width: 1200px) {
+    .filters__layout {
+        position: absolute;
+        z-index: 7;
+        width: 100%;
+        left: -15px;
+    }
+    .filters{
+        width: 47%;
+        float: right;
+        background-color: white;
+        border: 1px solid black;
+        padding-left: 17px;
+    }
+
+}

@@ -31,3 +31,17 @@ function SwipePhotos() {
     photos.style="transform: translateX(-" + String(photoWidth * currentPhoto[adID]) + "px);";
 
 }
+
+let photoWidth = String(document.querySelector('.ad__img-container').clientWidth) + 'px';
+let borderHeight = Number(window.getComputedStyle(document.querySelector('.ad__img-container')).height.slice(0, -2));
+let adPhotos = document.getElementsByClassName('ad__img');
+for (let i = 0; i < adPhotos.length; i++) {
+    adPhotos[i].style.width = photoWidth;
+    adPhotos[i].onload = function(){
+        let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
+        console.log(adPhotos[i].clientHeight);
+        console.log(borderHeight);
+        adPhotos[i].style.top = String(-(photoHeight - borderHeight)/2) + 'px';
+    }
+
+}

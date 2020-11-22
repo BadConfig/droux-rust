@@ -8,8 +8,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<body>
     <main class="container profile">
-        <div class="profile__card card">
+        <div class="profile__card card card_inactive">
             <div class="card__top">
                 <div class="card__photo">
                     <img src="../../static/assets/male.jpg" alt="Фото профиля">
@@ -38,14 +39,22 @@
             <div class="card__change-photo">
                 Скоро здесь будут подписки или настройки профиля
             </div>
-            <div class="card__nav">
-                <a href=""><span class="card__label card__label_active">Мои объявления</span></a>
-                <a href=""><span class="card__label">Мои отзывы</span></a>
-                <a href=""><span class="card__label">Избранное</span></a>
-                <a href=""><span class="card__label card__label_messages new-message">Сообщения</span></a>
+            <div class="card__nav_outer">
+                <div class="card__nav">
+                    <a href=""><span class="card__label card__label_active">Мои объявления</span></a>
+                    <a href=""><span class="card__label">Мои отзывы</span></a>
+                    <a href=""><span class="card__label">Избранное</span></a>
+                    <a href=""><span class="card__label card__label_messages new-message">Сообщения</span></a>
+                </div>
+                <div class="card__numbers">
+                    <span>2</span>
+                    <span>2</span>
+                    <span>2</span>
+                    <span>1 новое сообщение</span>
+                </div>
             </div>
         </div>
-        <div class="profile__content content">
+        <div class="profile__content content content_active">
             <div class="my-adss content__border">
                 <div class="content__top">
                     <h2 class="content__header my-ads__header">Мои объявления</h2>
@@ -59,7 +68,7 @@
                     </div>
                 </div>
                 <div class="profile-ads content__ads content__ads_active content__ads_visible">
-                    <div class="ad">
+                    <div class="ad-profile">
                         <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                             <div class="ad__arrow ad__arrow_left">
                                 <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
@@ -104,7 +113,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ad">
+                    <div class="ad-profile">
                         <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                             <div class="ad__arrow ad__arrow_left">
                                 <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
@@ -151,7 +160,7 @@
                     </div>
                 </div>
                 <div class="profile-ads content__ads content__ads_sold">
-                    <div class="ad">
+                    <div class="ad-profile">
                         <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                             <div class="ad__arrow ad__arrow_left">
                                 <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
@@ -188,7 +197,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ad">
+                    <div class="ad-profile">
                         <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                             <div class="ad__arrow ad__arrow_left">
                                 <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
@@ -225,7 +234,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ad">
+                    <div class="ad-profile">
                         <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                             <div class="ad__arrow ad__arrow_left">
                                 <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
@@ -397,7 +406,7 @@
 <!--                    <h2 class="content__header my-favourites__header">Мои избранные</h2>-->
 <!--                </div>-->
 <!--                <div class="profile-ads content__ads content__ads_active content__ads_visible">-->
-<!--                    <div class="ad ad_fav">-->
+<!--                    <div class="ad-profile ad_fav">-->
 <!--                        <div class="ad__img-container ad__img-container_fav"> &lt;!&ndash;Рамка для одной фотографии&ndash;&gt;-->
 <!--                            <div class="ad__arrow ad__arrow_left">-->
 <!--                                <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">-->
@@ -418,7 +427,7 @@
 <!--                            <span class="ad__price">5 руб.</span>-->
 <!--                        </div>-->
 <!--                    </div>-->
-<!--                    <div class="ad ad_fav">-->
+<!--                    <div class="ad-profile ad_fav">-->
 <!--                        <div class="ad__img-container ad__img-container_fav"> &lt;!&ndash;Рамка для одной фотографии&ndash;&gt;-->
 <!--                            <div class="ad__arrow ad__arrow_left">-->
 <!--                                <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">-->
@@ -439,7 +448,7 @@
 <!--                            <span class="ad__price">5 руб.</span>-->
 <!--                        </div>-->
 <!--                    </div>-->
-<!--                    <div class="ad ad_fav">-->
+<!--                    <div class="ad-profile ad_fav">-->
 <!--                        <div class="ad__img-container ad__img-container_fav"> &lt;!&ndash;Рамка для одной фотографии&ndash;&gt;-->
 <!--                            <div class="ad__arrow ad__arrow_left">-->
 <!--                                <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">-->
@@ -660,7 +669,6 @@
 <!--                        <span class="chat__message-time">15:56</span>-->
 <!--                    </div>-->
 
-<!--                </div>-->
 <!--                </div>-->
 <!--                <form class="chat__send-message">-->
 <!--                    <input type="text" placeholder="Написать сообщение" class="chat__input">-->

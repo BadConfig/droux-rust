@@ -154,7 +154,7 @@
     color: white;
 }
 
-.ad {
+.ad-profile {
     width: 100%;
     height: 269px;
     padding: 29px 19px 34px;
@@ -688,4 +688,63 @@
 
 .review_visible {
     display: flex;
+}
+
+@media (max-width: 1200px) {
+    .profile__content {
+        display: none;
+        width: 100%;
+        padding: 0 15px;
+    }
+    .card {
+        width: 100%;
+        border: none;
+    }
+    .profile {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .card__label {
+        color: black;
+    }
+    .card__nav_outer {
+        width: 100%;
+        display: flex;
+    }
+    .card__nav {
+        width: 50%;
+    }
+    .card__numbers {
+        display: flex;
+        flex-direction: column;
+        min-height: 166px;
+        justify-content: space-evenly;
+        font-size: 18px;
+        color: #747474;
+    }
+
+    .card_inactive {
+        display: none;
+    }
+
+    .content_active {
+        display: block;
+    }
+    .ad__img-container {
+        width: 29%;
+        height: unset;
+        padding-top: 27%;
+        border: 1px solid black;
+    }
+    .ad__img {
+        height: unset;
+    }
+    .ad__info {
+        width: 71%;
+        height: 100%;
+    }
+    .ad-profile {
+        height: fit-content;
+    }
+
 }

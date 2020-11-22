@@ -557,7 +557,7 @@ input[type=checkbox] + label {
     height: 1px;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 576px) {
     .container {
         width: 100%;
     }
@@ -585,18 +585,6 @@ input[type=checkbox] + label {
         height: 18px;
         margin-right: 5px;
     }
-    .header__base {
-        justify-content: space-between;
-    }
-
-    .header__nav a, .header__nav a:hover {
-        padding: 0;
-    }
-
-    .header__nav::-webkit-scrollbar {
-        width: 0;
-    }
-
 
 }
 
@@ -618,11 +606,10 @@ input[type=checkbox] + label {
 
 
 
-@media (max-width: 1200px) {
+@media only screen and (max-width: 600px) {
     
     .container {
-        padding: 0 17px;
-        width: 100%;
+        padding 0 17px;
     }
     
     .services {
@@ -639,12 +626,7 @@ input[type=checkbox] + label {
     }
     
     .header__search {
-        max-width: 16px;
-        overflow: hidden;
-    }
-
-    .search__field {
-        border-bottom: 0;
+        display: none;
     }
     
     .header__search__mobile__button {
@@ -656,6 +638,10 @@ input[type=checkbox] + label {
         height: 18px;
     }
     
+    input[type=checkbox] + label::before {
+        display: none;
+    }
+    
     .header__search__mobile__button__checkbox {
         position: absolute;
         display: none;
@@ -664,23 +650,9 @@ input[type=checkbox] + label {
     .header__login__button__mobile {
         font-size: 14px;
     }
-
-    .header__buttons {
-        width: unset;
-    }
     
-    .header__buttons > *:not(span){
-       display: none;
-    }
-
-    .header__buttons a {
-        position: fixed;
-        display: flex;
-        width: 170px;
-        margin: 0 auto;
-        bottom: 15px;
-        height: 30px;
-        right: calc(50% - 85px);
+    .header__buttons {
+        display: none;
     }
     
     .footer {
@@ -697,25 +669,22 @@ input[type=checkbox] + label {
     
     .header-nav__line {
         padding: 0 17px;
-        height: 66px;
     }
     
     .header__nav {
         overflow-x: scroll;
         overflow-y: hidden;
-        height: unset;
     }
     
     .header__nav a:hover {
         border-bottom: none;
         margin-bottom: 0;
-        padding-bottom: 7px;
+        padding-bottom: 22px;
     }
     
     .header__nav > a {
         margin-left: 20px;
         white-space: nowrap;
-        padding-bottom: 7px;
     }
     
     .header__nav a:first-child {
@@ -723,7 +692,7 @@ input[type=checkbox] + label {
     }
     
     .footer {
-        margin-top: 71px;
+        margin-top: 500px;
     }
     
     .footer__container {
@@ -750,31 +719,10 @@ input[type=checkbox] + label {
     .footer__link_46, .footer__column > a {
         margin-bottom: 50px;
     }
-
-    .footer__column:not(.footer__column__fourth){
-        width: 33%;
-    }
-    .services__item div {
-        white-space: pre-wrap;
-        width: 70px;
-    }
 }
 
 @media only screen and (max-width: 510px) {
     .services__item {
         font-size: 10px;
-    }
-}
-
-@media (max-width: 430px) {
-    .show-all .show-all__header {
-        font-size: 14px;
-    }
-    .footer .footer__column > a{
-        font-size: 10px;
-    }
-    .show-all__button {
-        justify-content: flex-start;
-        width: unset;
     }
 }
