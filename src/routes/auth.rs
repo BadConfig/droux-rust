@@ -2,6 +2,7 @@ use rocket_contrib::templates::{Template,tera::*};
 use rocket::request::Form;
 use rocket::response::Redirect;
 use rocket::http::{Cookie, Cookies};
+use crate::routes::Either;
 
 use rocket::State;
 use crate::auth::IsLogged;
@@ -11,7 +12,6 @@ use crate::users::CommonUser;
 use crate::models::product::ProductCard;
 
 use crate::auth::make_jwt_for_user;
-use crate::routes::Either;
 
 #[get("/login")]
 pub fn login(user: CommonUser, conn: crate::db::Conn) -> Template {
@@ -75,7 +75,7 @@ pub struct RegisterForm {
     pass: String,
 }
 #[post("/register",data="<form>")]
-pub fn register(form: Form<RegisterForm>, user: CommonUser, conn: crate::db::Conn) -> Template {
+pub fn register(form: Form<RegisterForm>, user: CommonUser, conn: crate::db::Conn) -> Either {
    
     use crate::db::users::create_user;
     let opt_id = match user.clone() {
@@ -94,13 +94,15 @@ pub fn register(form: Form<RegisterForm>, user: CommonUser, conn: crate::db::Con
             ctx.insert("login_fail",&false);
             ctx.insert("register_fail",&true);
             ctx.insert("err_field", &e[..]);
-            return Template::render("index", &ctx)
+            return Either::Template(Template::render("index", &ctx));
         },
     };
-    let reference = "localhost:8000".to_string() + "/verify/" + &link[..];
-    print!("auth ref: {}",reference);
-    crate::auth::send_auth_link(reference, form.email.clone());
-    Template::render("auth/verify",get_base_context(user, &conn))
+    let url = "/verify/".to_string()+&link[..];
+    print!("url: {}\n",&url);
+    Either::Redirect(Redirect::to(url))
+    //print!("auth ref: {}",reference);
+    //crate::auth::send_auth_link(reference, form.email.clone());
+    //Template::render("auth/verify",get_base_context(user, &conn))
 
 }
 
@@ -115,7 +117,7 @@ pub fn verify_link(link: String, conn: crate::db::Conn) -> Redirect {
     use crate::db::auth::activate_user;
 
     match activate_user(link, &conn) {
-        Ok(()) => Redirect::to("/login"),
+        Ok(()) => Redirect::to("/"),
         Err(()) => Redirect::to("/"),
     }
 

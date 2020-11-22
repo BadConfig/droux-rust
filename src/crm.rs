@@ -23,35 +23,35 @@ impl BuyForm {
                         "index": self.post_index,
                         "text": self.ship_addr,
                     },
-                    "items": [
-                        {
-                            "initialPrice": self.pr_price,
-                            "productName": "Product",
-                            "properties" : [
-                                {
-                                    "name": "SellerUserName",
-                                    "value": self.seller_username,
-                                },
-                                {
-                                    "name": "Phone",
-                                    "value": self.seller_phone,
-                                },
-                                {
-                                    "name": "Email",
-                                    "value": self.seller_email,
-                                },
-                                {
-                                    "name": "Location",
-                                    "value": self.seller_location,
-                                },
-                                {
-                                    "name": "IsPreOrder",
-                                    "value": self.pr_is_pre_order,
-                                },
-                            ]
-                        }
-                    ]
-                }
+                },
+                "items": [
+                    {
+                        "initialPrice": self.pr_price.to_string(),
+                        "productName": self.pr_name,
+                        "properties" : [
+                            {
+                                "name": "SellerUserName",
+                                "value": self.seller_username,
+                            },
+                            {
+                                "name": "Phone",
+                                "value": self.seller_phone,
+                            },
+                            {
+                                "name": "Email",
+                                "value": self.seller_email,
+                            },
+                            {
+                                "name": "Location",
+                                "value": self.seller_location,
+                            },
+                            {
+                                "name": "IsPreOrder",
+                                "value": self.pr_is_pre_order.to_string(),
+                            },
+                        ],
+                    },
+                ]
         });
         print!("my_json:\n{:#?}\n",&data.to_string());
         let params = [
@@ -62,7 +62,8 @@ impl BuyForm {
         let client = reqwest::blocking::Client::new();
         let res = client.post("https://droux.retailcrm.ru/api/v5/orders/create")
             .form(&params)
-            .send()?;
+            .send()?
+            .text()?;
         print!("{:#?}\n",res);
         Ok(())
     }
@@ -84,7 +85,7 @@ impl PrivForm {
             ("amount", &format!("{}",summ*100)[..]),
             ("currency", "643"),
             ("returnUrl", "http://178.154.229.126/product/pay"),
-            ("orderNumber", &format!("{}{}",self.product_name,self.product_id)[..]),
+            ("orderNumber", &format!("{}{}pay",self.product_name,self.product_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Priveleges(self.clone()))?[..])];
 
         let client = reqwest::blocking::Client::new();
@@ -151,7 +152,7 @@ impl BuyForm {
             ("password", "T773007004660"),
             ("amount", &format!("{}",self.pr_price*100)),
             ("currency", &format!("{}",643)[..]),
-            ("returnUrl", "http://178.154.229.126/product/pay"),
+            ("returnUrl", "http://localhost:8000/product/pay"),
             ("orderNumber", &format!("{}{}order",self.pr_name,self.pr_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Order(self.clone()))?[..])];
 
