@@ -1,9 +1,0 @@
-FROM debian:buster-slim
-
-RUN apt-get update && \
-    apt-get --assume-yes install \
-        make \
-        libpq5 \
-        libpq-dev \
-        -qqy \
-        --no-install-recommends
