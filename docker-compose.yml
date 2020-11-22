@@ -31,10 +31,9 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "80:8080"
+      - "443:8080"
     volumes:
-    #  - ./:/app
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
+         - ./nginx/:/etc/nginx/
     networks:
       - app-network
   postgres:
