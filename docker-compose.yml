@@ -34,7 +34,7 @@ services:
       - "443:8080"
     volumes:
          - ./nginx/ssl/:/etc/nginx/ssl/
-         - ./nginx/conf.d:/etc/nginx/conf.d/
+         - ./nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
   postgres:
