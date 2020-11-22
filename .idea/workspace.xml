@@ -21,9 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="f1982821-1f2e-4e5c-a3e3-cbaa6c3bf3ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/conf.d/droux.csr" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/conf.d/droux.csr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/conf.d/droux.key" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/conf.d/droux.key" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/droux.crt" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/droux.crt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/ssl/droux.crt" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/ssl/droux.crt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/ssl/droux.csr" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/ssl/droux.csr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/ssl/droux.key" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/ssl/droux.key" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-hide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-hide.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-left.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-left.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/arrow-right.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-right.svg" afterDir="false" />
@@ -60,7 +60,6 @@
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/static-pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/static-pages.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/hide-sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hide-sector.js" afterDir="false" />
@@ -335,7 +334,7 @@
       <workItem from="1605576069090" duration="12840000" />
       <workItem from="1605910887435" duration="8543000" />
       <workItem from="1605943561786" duration="2682000" />
-      <workItem from="1606024753070" duration="22407000" />
+      <workItem from="1606024753070" duration="23739000" />
     </task>
     <servers />
   </component>
