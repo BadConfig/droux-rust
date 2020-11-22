@@ -29,7 +29,7 @@ services:
     build:
       context: ./nginx
       dockerfile: ./nginx/Dockerfile
-    # image: nginx
+    image: badconfig/nginx-droux
     container_name: webserver1
     restart: unless-stopped
     tty: true
