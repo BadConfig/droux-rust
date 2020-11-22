@@ -26,17 +26,17 @@ services:
       - app-network
   #Nginx
   webserver:
-    # build:
-    #   context: ./nginx
-    #   dockerfile: ./nginx/Dockerfile
-    image: nginx
+    build:
+      context: ./nginx
+      dockerfile: ./nginx/Dockerfile
+    # image: nginx
     container_name: webserver1
     restart: unless-stopped
     tty: true
     ports:
       - "443:8080"
-    volumes:
-        - ./nginx/:/etc/nginx/
+    # volumes:
+    #     - ./nginx/:/etc/nginx/
     networks:
       - app-network
   postgres:
