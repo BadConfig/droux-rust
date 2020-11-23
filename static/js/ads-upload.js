@@ -21,7 +21,7 @@ function checkAndAdd() {
 
 let filters = document.getElementsByClassName('filters__sector-options');
 for (let i = 0; i < filters.length; i++) {
-    let options = filters[i].querySelectorAll('input[type=checkbox]');
+    let options = filters[i].querySelectorAll('input[type=radio]');
     console.log(options);
     for (let j = 0; j < options.length; j++) {
         options[j].addEventListener('change', NewSearch);
