@@ -18,11 +18,13 @@
             <a href="/">Новости</a>
         </div>
         <div class="footer__column footer__column_fourth">
-            <span>Мы в соц. сетях</span>
-            <div class="footer__media-links">
-                {% for link in links %}
-                    <a href="{{ link.link }}"><img src="{{ link.icon }}" alt="{{ link.name }}" class="media-links__icon"></a>
-                {% endfor %}
+            <div class="footer__media-links-div">
+                <span>Мы в соц. сетях</span>
+                <div class="footer__media-links">
+                    {% for link in links %}
+                        <a href="{{ link.link }}"><img src="{{ link.icon }}" alt="{{ link.name }}" class="media-links__icon"></a>
+                    {% endfor %}
+                </div>
             </div>
             <span>Подписка на новости</span>
             <label class="subscribe__text" for="footer-subscribe">Получайте все самые последние новости о мероприятиях.</label>
