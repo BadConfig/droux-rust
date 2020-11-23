@@ -21,23 +21,51 @@ function checkAndAdd() {
 
 let filters = document.getElementsByClassName('filters__sector-options');
 for (let i = 0; i < filters.length; i++) {
-    let options = filters[i].querySelectorAll('input[type=radio]');
+    let options = filters[i].querySelectorAll('input[type=checkbox]');
+    console.log(options);
     for (let j = 0; j < options.length; j++) {
-        options[i].addEventListener('change', NewSearch);
+        options[j].addEventListener('change', NewSearch);
     }
 }
 
-let headerSearchField = document.querySelector('#header-search');
+let headerSearchField = document.getElementById('header-search');
+console.log(headerSearchField);
 let headerSearchButton = document.querySelector('.search__button');
 
-headerSearchField.addEventListener('input', NewSearch);
+headerSearchField.addEventListener('change', NewSearch);
 headerSearchButton.addEventListener('click', NewSearch);
 
 function NewSearch() {
-    clearTimeout(filterTimer);
-    let filterTimer = (function() {
-        let body = encodeURI('search_string=' + headerSearchField.value + '&limit=' + '')
-    })
+    let body = 'search_string=' + headerSearchField.value + '&limit=12' + '&offset=0' + '&type_id=';
+    if (filters[0].querySelector('input:checked') != null) {
+        body += filters[0].querySelector('input:checked').value;
+    }
+    if (filters[1].querySelector('input:checked') != null) {
+        body += '&category_id=' + filters[1].querySelector('input:checked').value;
+    } else {
+        body += '&category_id=';
+    }
+    if (filters[2].querySelector('input:checked') != null) {
+        body += '&sub_category_id=' + filters[2].querySelector('input:checked').value;
+    } else {
+        body += '&sub_category_id=';
+    }
+    if (filters[3].querySelector('input:checked') != null) {
+        body += '&prod_brand_id=' + filters[3].querySelector('input:checked').value;
+    } else {
+        body += '&prod_brand_id=';
+    }
+    if (filters[4].querySelector('input:checked') != null) {
+        body += '&prod_size_id=' + filters[4].querySelector('input:checked').value;
+    } else {
+        body += '&prod_size_id=';
+    }
+    if (filters[5].querySelector('input:checked') != null) {
+        body += '&product_state_id=' + filters[5].querySelector('input:checked').value;
+    } else {
+        body += '&product_state_id=';
+    }
+    console.log(body);
 }
 
 
