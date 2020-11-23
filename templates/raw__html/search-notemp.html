@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../static/css/ad.css">
     <link rel="stylesheet" href="../../static/css/search.css">
     <link rel="stylesheet" href="../../static/css/filters.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--    <link rel="stylesheet" href="filters.css">-->
 </head>
 <body>
@@ -58,7 +59,7 @@
                     <a href="" class="button sell__button">Продать</a>
                     <img src="../../static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
                     <img src="../../static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
-                    <span style="display: none;">Войти</span><img src="../../static/assets/male.jpg" alt="" class="header__user-photo">
+                    <span id="auth-button">Войти</span><!--<img src="../../static/assets/male.jpg" alt="" class="header__user-photo">-->
                 </div>
             </div>
         </div>
@@ -72,6 +73,44 @@
                 <a href="" class="dropdown__button">СУМКИ</a>
                 <a href="" class="dropdown__button">АКСЕССУАРЫ</a>
             </nav>
+        </div>
+        <div class="authorizer authorizer__background">
+            <div class="authorizer__window">
+                <div class="authorizer__choice">
+                    <input type="radio" name="auth" id="sign-in" checked>
+                    <label for="sign-in">Войти</label>
+                    <input type="radio" name="auth" id="sign-up">
+                    <label for="sign-up">Создать аккаунт</label>
+                </div>
+                <form class="authorizer__form_sign-in authorizer__form authorizer__form_visible">
+                    <label for="sign-in__login">Логин</label>
+                    <input type="text" id="sign-in__login">
+                    <label for="sign-in__password">Пароль</label>
+                    <input type="password" id="sign-in__password">
+                    <div class="sign-in__remember-and-forget">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me" class="authorizer__checkbox-label">Запомнить меня</label>
+                        <a href="">Забыли пароль?</a>
+                    </div>
+                    <input type="submit" class="button sign-in__button" value="Войти">
+                    <label for="sign-up" class="sign-in__not-a-label">Не зарегистрированы на Droux? Создайте аккаунт</label>
+                </form>
+                <form class="authorizer__form_sign-up authorizer__form">
+                    <label for="sign-up__login">Логин</label>
+                    <input type="text" id="sign-up__login">
+                    <span class="sign-up__bottom-text">*Необходимо ввести логин на английском языке и только прописными буквами</span>
+                    <label for="sign-up__email">Адрес электронной почты</label>
+                    <input type="text" id="sign-up__email">
+                    <label for="sign-up__password">Пароль</label>
+                    <input type="password" id="sign-up__password">
+                    <span class="sign-up__bottom-text">*Не менее 8 символов (латиница и цифры)</span>
+                    <label for="sign-up__repeat-password">Повторите пароль</label>
+                    <input type="password" id="sign-up__repeat-password">
+                    <input type="checkbox" id="accept-rules">
+                    <label for="accept-rules" class="authorizer__checkbox-label" id="sign-up__checkbox"><span>Я принимаю условия <a href="">Пользовательского соглашения</a></span></label>
+                    <input type="submit" class="button sign-up__button" value="Зарегистрироваться" disabled>
+                </form>
+            </div>
         </div>
         <div class="header__dropdown dropdown">
             <div class="dropdown__border-for-brands dropdown__border">

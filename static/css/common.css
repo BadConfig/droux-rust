@@ -29,8 +29,8 @@ input[type=checkbox] {
 input[type=checkbox] + label::before {
     display: block;
     border: 1px solid black;
-    width: 14px;
-    height: 14px;
+    min-width: 14px;
+    min-height: 14px;
     content: "";
     align-self: center;
     background-size: 90% 90%;
@@ -587,6 +587,8 @@ input[type=checkbox] + label {
     }
     .header__base {
         justify-content: space-between;
+        height: unset;
+        align-items: center;
     }
 
     .header__nav a, .header__nav a:hover {
@@ -615,6 +617,10 @@ input[type=checkbox] + label {
     color: red;
 }
 
+.footer__media-links-div {
+    display: flex;
+    flex-direction: column;
+}
 
 
 
@@ -624,13 +630,19 @@ input[type=checkbox] + label {
         padding: 0 17px;
         width: 100%;
     }
+
+    .header__base {
+        padding: 25px 15px;
+    }
     
     .services {
-        height: 40px;
+        min-height: 40px;
+        height: unset;
         background-color: #E0E0E0;
         position: relative;
         z-index: 7;
         display: flex;
+        align-items: center;
     }
     
     .services > * {
@@ -681,6 +693,7 @@ input[type=checkbox] + label {
         bottom: 15px;
         height: 30px;
         right: calc(50% - 85px);
+        border: 1px solid white;
     }
     
     .footer {
@@ -758,7 +771,41 @@ input[type=checkbox] + label {
         white-space: pre-wrap;
         width: 70px;
     }
+    .header__logo {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header__logo img {
+        width: 100%;
+        height: unset;
+    }
+
+    .authorizer__window {
+        width: 71%;
+        height: unset;
+        margin: 20px auto 0;
+    }
+
+    .footer__media-links-div {
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+        padding: 17px 0;
+        border-bottom: 1px solid white;
+        border-top: 1px solid white;
+        margin-bottom: 30px;
+    }
+
+    .footer__media-links {
+        margin: 0;
+        width: 60%;
+        justify-content: space-around;
+    }
+
 }
+
 
 @media only screen and (max-width: 510px) {
     .services__item {
@@ -777,4 +824,24 @@ input[type=checkbox] + label {
         justify-content: flex-start;
         width: unset;
     }
+    .services__item span {
+        white-space: normal;
+    }
+
+    .authorizer__choice input + label {
+        font-size: 14px;
+    }
+
+    .authorizer__form input[type=text],  .authorizer__form input[type=password] {
+        min-height: 20px;
+    }
+
+    .authorizer__checkbox-label, .authorizer__form a {
+        font-size: 12px;
+    }
+    .footer__media-links-div span {
+        font-size: 14px;
+    }
+
+
 }

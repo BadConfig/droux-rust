@@ -342,4 +342,22 @@
     .product__rating-and-share {
         display: none;
     }
+
+    .product__top {
+        justify-content: space-between;
+    }
+
+    .product__name-and-date .product__name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 65%;
+    }
+    .product__price {
+        width: unset;
+        white-space: nowrap;
+    }
+    .product__price-and-size {
+        width: unset;
+    }
 }
