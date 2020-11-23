@@ -46,9 +46,9 @@ function NewSearch() {
         body += '&category_id=';
     }
     if (filters[2].querySelector('input:checked') != null) {
-        body += '&sub_category_id=' + filters[2].querySelector('input:checked').value;
+        body += '&subcategory_id=' + filters[2].querySelector('input:checked').value;
     } else {
-        body += '&sub_category_id=';
+        body += '&subcategory_id=';
     }
     if (filters[3].querySelector('input:checked') != null) {
         body += '&prod_brand_id=' + filters[3].querySelector('input:checked').value;
