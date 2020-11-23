@@ -77,6 +77,7 @@ function NewSearch() {
     main.append(searchResults);
     request.send(encodeURI(body));
     request.onreadystatechange = function() {
+        console.log(request.response);
         jsonToAds(request.response);
     }
 }
