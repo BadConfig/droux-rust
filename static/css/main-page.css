@@ -34,6 +34,7 @@
 .photos__female img {
     top: -5px;
     width: 590px;
+    left: 0;
 }
 
 .photos__male span, .photos__female span {

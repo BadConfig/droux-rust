@@ -75,7 +75,7 @@ function NewSearch() {
     searchResults.className = 'search-results';
     let main = document.querySelector('main');
     main.append(searchResults);
-    request.send(body)
+    request.send(encodeURI(body));
     request.onreadystatechange = function() {
         jsonToAds(request.response);
     }
