@@ -20,12 +20,12 @@ function addDelToFav(evt) {
         wasInFav = 1;
     }
     let addToFav = new XMLHttpRequest();
-    // if (wasInFav === 0) {
-    //     addToFav.open('POST', '/product/favourites/add', true);
-    // } else {
-    //     addToFav.open('POST', '/product/favourites/delete', true);
-    // }
-    // let body = 'prod_id=' + adId;
-    // addToFav.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    // addToFav.send(body);
+    if (wasInFav === 0) {
+        addToFav.open('POST', '/product/favourites/add', true);
+    } else {
+        addToFav.open('POST', '/product/favourites/delete', true);
+    }
+    let body = 'prod_id=' + adId;
+    addToFav.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    addToFav.send(body);
 }
