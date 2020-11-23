@@ -15,7 +15,7 @@ pub fn for_customer(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Er
 #[get("/for_seller")]
 pub fn for_seller(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
     let ctx = get_base_context(user, &conn);
-    Ok(Either::Template(Template::render("static_pages/for_customer", &ctx)))
+    Ok(Either::Template(Template::render("static_pages/for_seller", &ctx)))
 }
 
 #[get("/user_terms")]
