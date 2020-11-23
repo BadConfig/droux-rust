@@ -10,7 +10,6 @@ pub mod crm;
 
 #[macro_use]
 extern crate rocket;
-#[macro_use]
 extern crate rocket_contrib;
 
 #[macro_use]
@@ -18,13 +17,12 @@ extern crate diesel;
 extern crate dotenv;
 
 extern crate rocket_slog;
-use rocket_slog::SlogFairing;
 
 use diesel::result::Error as DieselError;
 use rocket::request::Request;
 use rocket::http::Status;
 use rocket::response;
-use rocket::response::{Response, Responder};
+use rocket::response::Responder;
 //use std::error::Error;
 
 #[derive(Debug)]
@@ -78,10 +76,6 @@ impl From<std::str::Utf8Error> for Error {
 }
 
 use rocket_contrib::templates::{Template,tera::*};
-use serde::Serialize;
-use rocket::http::{Cookie, Cookies};
-use rocket_contrib::serve::{StaticFiles,Options};
-use rocket::config::{Config, Environment, LoggingLevel};
 
 pub fn app() -> rocket::Rocket {
 

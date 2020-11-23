@@ -23,7 +23,7 @@ pub enum CommonUser {
     NotLogged(),
 }
 
-use rocket::http::{Cookie, Cookies};
+use rocket::http::Cookie;
 
 impl<'a, 'r> FromRequest<'a, 'r> for CommonUser {
  
@@ -32,7 +32,6 @@ impl<'a, 'r> FromRequest<'a, 'r> for CommonUser {
     fn from_request(request: &'a Request<'r>) -> request::Outcome<CommonUser, ()> {
         
         use crate::auth::get_data_from_jwt;
-        use crate::auth::make_jwt_for_user;
         use crate::db::users::auth_user;
         let conn = &crate::db::establish_connection();
 
@@ -40,7 +39,7 @@ impl<'a, 'r> FromRequest<'a, 'r> for CommonUser {
             Some(s) => s,
             None => return Outcome::Success(CommonUser::NotLogged()),
         };
-        let (logged,pass,data) = match get_data_from_jwt(user_jwt) {
+        let (logged,pass,_) = match get_data_from_jwt(user_jwt) {
             Some(d) => d,
             None => return Outcome::Success(CommonUser::NotLogged()),
         };

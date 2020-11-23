@@ -62,10 +62,7 @@ pub fn make_jwt_for_user(email: String, nick: String, pass: String) -> String {
     nick,
     pass,
     chrono::Local::now().naive_local());
-    let mut jwt = base64::encode(json_str.clone());
-    //for i in 0..1023 {
-    //    jwt = base64::encode(jwt);
-   // };
+    let jwt = base64::encode(json_str.clone());
 
     use sha2::Sha256;
     use hmac::{Hmac, Mac, NewMac};
@@ -74,21 +71,13 @@ pub fn make_jwt_for_user(email: String, nick: String, pass: String) -> String {
     let mut mac = HmacSha256::new_varkey(b"1259340652:AAFbIZbaGqTRxmPutAZ9ml7-tOQfMQr-CPU")
         .expect("HMAC can take key of any size");
     mac.update(jwt.as_bytes());
-
-// `result` has type `Output` which is a thin wrapper around array of
-// bytes for providing constant time equality check
     let result = mac.finalize().into_bytes();
-// To get underlying array use `into_bytes` method, but be careful, since
-// incorrect use of the code value may permit timing attacks which defeat
-// the security provided by the `Output`
     let result = hex::encode(result);
-    //let code_bytes = String::from_utf8(&a.to_vec()).expect("error decoding");
     jwt+"."+&result[..]
 }
 
 pub fn get_data_from_jwt(jwt: String) -> Option<(Login,String,String)> {
 
-    use serde_json;
     use serde_json::Value;
     use sha2::Sha256;
     use hmac::{Hmac, Mac, NewMac};

@@ -7,8 +7,6 @@ use diesel::prelude::*;
 use serde::{Serialize, Deserialize};
 use crate::schema::{
     products,
-    categories,
-    sub_categories,
     favourites,
     promotions,
     rating,
@@ -66,8 +64,6 @@ pub struct ProductContext {
 
 impl ProductContext {
     pub fn get_by_id(pr_id: i32,my_id: Option<i32>, conn: &PgConnection)-> (ProductContext,Users) {
-
-        use crate::models::users::Users;
         
         let product = diesel::sql_query(include_str!("../../SQL/product.sql"))
             .bind::<Integer,_>(pr_id)
@@ -138,11 +134,6 @@ impl ProductCard {
 
 
     pub fn get_most_viewed(limit: i32, user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
-        
-        use diesel::sql_types::{
-            Nullable,
-            Integer,
-        };
 
         diesel::sql_query(include_str!("../../SQL/select_top_views.sql"))
             .bind::<Nullable<Integer>, _>(user_id)
@@ -153,11 +144,6 @@ impl ProductCard {
     }
 
     pub fn get_recently_added(limit: i32, user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
-       
-        use diesel::sql_types::{
-            Nullable,
-            Integer,
-        };
 
         diesel::sql_query(include_str!("../../SQL/select_recently_added.sql"))
             .bind::<Nullable<Integer>, _>(user_id)
@@ -170,11 +156,6 @@ impl ProductCard {
 
     pub fn get_by_seller_popular_products(user_id: Option<i32>, conn: &PgConnection) -> Vec<ProductCard> {
        
-        use diesel::sql_types::{
-            Nullable,
-            Integer,
-        };
-       
         diesel::sql_query(include_str!("../../SQL/select_popular_by_seller.sql"))
             .bind::<Nullable<Integer>, _>(user_id)
             .load::<ProductCard>(conn)
@@ -183,12 +164,6 @@ impl ProductCard {
     }
 
     pub fn filter_search(form: SearchForm, conn: &PgConnection) -> Vec<ProductCard> {
-
-        use diesel::sql_types::{
-            Integer,
-            Text,
-            Nullable,
-        };
     
         diesel::sql_query(include_str!("../../SQL/filter.sql"))
             .bind::<Nullable<Text>,_>(form.search_string)
@@ -421,8 +396,6 @@ impl ProductRating {
     }
 
     pub fn get_by_user(u_id: i32, conn: &PgConnection) -> Vec<ProductRating> {
-        
-        use crate::schema::rating::dsl::*;
 
         diesel::sql_query(include_str!("../../SQL/rating.sql"))
             .bind::<Integer, _>(u_id)
@@ -494,10 +467,7 @@ impl Product {
 
     pub fn get_for_profile(u_id: i32, conn: &PgConnection) -> Result<Vec<(i32,String)>,Error> {
 
-        use crate::schema::{
-            products,
-            users,
-        };
+        use crate::schema::users;
 
         Ok(products::table
             .filter(products::seller_id.eq(u_id))
@@ -523,9 +493,7 @@ impl Product {
         use crate::schema::products::dsl::*;
         use crate::schema::favourites::dsl::*;
 
-        use chrono::{NaiveDate, NaiveDateTime, Duration};
-
-        let dt: NaiveDateTime = NaiveDate::from_ymd(2016, 7, 8).and_hms(9, 10, 11);
+        use chrono::Duration;
 
         let r = products
             .filter(seller_id.eq(u_id))
@@ -680,9 +648,9 @@ impl ProductAdmin {
             .get_result::<Product>(conn)
             .expect("error getting product by id");
         
-        prod.pictures.into_iter().map(
+        prod.pictures.into_iter().for_each(
             | path | {
-                remove_file(path);
+                remove_file(path).unwrap();
             }
         );
        

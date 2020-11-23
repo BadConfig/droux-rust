@@ -60,7 +60,6 @@ pub fn increment_product_views(pr_id: i32, conn: &PgConnection) {
 pub fn increment_product_today_views(pr_id: i32, conn: &PgConnection) {
 
     use crate::schema::views::dsl::*;
-    use crate::models::product::ProductTodayViews;
 
     let r = views
         .filter(product_id.eq(pr_id))

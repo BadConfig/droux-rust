@@ -1,31 +1,10 @@
-use rocket::http::{Cookie, Cookies};
+
 use rocket_contrib::templates::{Template};
-use rocket::request::Form;
-use rocket::response::Redirect;
-use serde::{
-    Serialize,
-    Deserialize,
-};
-use std::fs::File;
-use std::io::prelude::*;
-use crate::db::filters::get_filter_context;
 use crate::Error;
 
-extern crate rocket_multipart_form_data;
-use rocket::Data;
-use rocket::http::ContentType;
-use std::sync::atomic::Ordering;
-use rocket_multipart_form_data::{
-    mime, MultipartFormData, MultipartFormDataField, 
-    MultipartFormDataOptions, RawField, TextField, Repetition
-};
 use crate::users::CommonUser;
 use crate::routes::Either;
 use crate::routes::get_base_context;
-use crate::models::product::ProductCard;
-use crate::db::product::reviewed_by_user;
-use rocket::http::Status;
-use crate::models::product::NewProduct;
 
 #[get("/for_customer")]
 pub fn for_customer(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {

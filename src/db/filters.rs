@@ -2,13 +2,7 @@ use diesel;
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
 
-use crate::schema::products::dsl::*;
 use rocket_contrib::templates::tera::Context;
-use serde::{
-    Serialize,
-    Deserialize,
-    
-};
 use crate::db::product::get_category_list;
 use crate::models::product::*;
 

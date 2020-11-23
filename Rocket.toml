@@ -1,5 +1,5 @@
 [global.databases]
-diesel_db= { url = "postgres://docker:docker@localhost:5432/diesel_db" }
+diesel_db= { url = "postgres://docker:docker@postgres1:5432/diesel_db" }
 
 [development]
 address = "0.0.0.0"

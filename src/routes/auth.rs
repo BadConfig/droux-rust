@@ -1,12 +1,9 @@
-use rocket_contrib::templates::{Template,tera::*};
+use rocket_contrib::templates::Template;
 use rocket::request::Form;
 use rocket::response::Redirect;
 use rocket::http::{Cookie, Cookies};
 use crate::routes::Either;
 
-use rocket::State;
-use crate::auth::IsLogged;
-use std::sync::atomic::{Ordering,AtomicUsize};
 use super::get_base_context;
 use crate::users::CommonUser;
 use crate::models::product::ProductCard;
@@ -60,7 +57,7 @@ pub fn authorize(form: Form<LoginForm>, user: CommonUser, mut cookies: Cookies, 
 }
 
 #[get("/logout")]
-pub fn logout(user: CommonUser, mut cookies: Cookies, conn: crate::db::Conn) -> Redirect {
+pub fn logout(user: CommonUser, mut cookies: Cookies) -> Redirect {
     if let CommonUser::NotLogged() = user {
         return Redirect::to("/");
     }

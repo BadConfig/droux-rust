@@ -83,7 +83,7 @@ pub struct BanForm {
 }
 
 #[post("/admin/users/ban",data="<form>")]
-pub fn admin_users_ban(form: Form<BanForm>, _user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn admin_users_ban(form: Form<BanForm>, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if admin.is_editor {
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }
@@ -111,7 +111,7 @@ pub struct PrivForm {
 }
 
 #[post("/admin/priveleges/delete",data="<form>")]
-pub fn admin_priveleges_delete(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn admin_priveleges_delete(form: Form<PrivForm>, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if !admin.is_admin {
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }
@@ -120,7 +120,7 @@ pub fn admin_priveleges_delete(form: Form<PrivForm>, user: CommonUser, admin: cr
 }
 
 #[post("/admin/priveleges/change",data="<form>")]
-pub fn admin_priveleges_change(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn admin_priveleges_change(form: Form<PrivForm>, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if !admin.is_admin {
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }
@@ -135,7 +135,7 @@ pub struct NewPrivForm {
 }
 
 #[post("/admin/priveleges/add",data="<form>")]
-pub fn admin_priveleges_add(form: Form<NewPrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn admin_priveleges_add(form: Form<NewPrivForm>, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if !admin.is_admin {
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }

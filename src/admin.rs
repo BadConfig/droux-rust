@@ -12,7 +12,7 @@ impl UserPriveleges  {
         match self {
             UserPriveleges::Admin => "admin".to_string(),
             UserPriveleges::Moderator => "moderator".to_string(),
-            Editor => "editor".to_string(),
+            UserPriveleges::Editor => "editor".to_string(),
         }
     }
 
@@ -36,7 +36,6 @@ use rocket::request::{self, Request, FromRequest};
 
 fn get_priveleges_from_cookies(request: &Request) -> Option<UserPriveleges> {
     use crate::auth::get_data_from_jwt;
-    use crate::auth::make_jwt_for_user;
     use crate::db::admin::get_priveleges;
     use crate::db::users::auth_user;
     let conn = &crate::db::establish_connection();
@@ -46,7 +45,7 @@ fn get_priveleges_from_cookies(request: &Request) -> Option<UserPriveleges> {
         None => return None,
     };
     
-    let (logged,pass,data) = match get_data_from_jwt(user_jwt) {
+    let (logged,pass,_) = match get_data_from_jwt(user_jwt) {
         Some(d) => d,
         None => return None,
     };

@@ -1,15 +1,9 @@
-use crate::db::users;
-use rocket_contrib::templates::{Template,tera::Context};
+use rocket_contrib::templates::Template;
 use rocket::request::Form;
 use rocket::response::Redirect;
-use rocket::http::{Cookie, Cookies};
 
-use rocket::State;
-use crate::auth::IsLogged;
-use std::sync::atomic::{Ordering,AtomicUsize};
 use super::get_base_context;
 use crate::users::CommonUser;
-use crate::db::chat::*;
 use crate::models::product::ProductCard;
 
 use crate::routes::Either;
