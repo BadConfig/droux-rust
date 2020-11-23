@@ -161,7 +161,7 @@
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1640" class="dropdown__link">Dolce & Gabbana</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="/filters?limit=12&offset=0&search_string='''" class="dropdown__link">Fear of God</a>
+                    <a href="/filters?limit=12&offset=0&search_string=''" class="dropdown__link">Fear of God</a>
                 </div>
                 <div class="dropdown__letter">
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1726" class="dropdown__link">Givenci</a>
