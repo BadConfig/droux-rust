@@ -132,13 +132,58 @@
         z-index: 7;
         width: 100%;
         left: -15px;
+        top: 230px;
+        display: none;
+        height: 200vh;
     }
     .filters{
-        width: 47%;
+        width: 46%;
         float: right;
         background-color: white;
         border: 1px solid black;
         padding-left: 17px;
+        display: none;
+        position: absolute;
+        right: 0;
     }
 
+    aside.sort-by {
+        width: 46%;
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        border: 1px solid black;
+        background-color: white;
+        left: 30px;
+        margin: 0;
+        padding: 17px;
+    }
+    .filters-sort-buttons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-family: Montserrat, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        margin: 15px 0;
+    }
+
+    .filters-sort-buttons div {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .filters-sort-buttons img {
+        transition: transform 0.2s ease;
+        width: 10px;
+        height: 5px;
+        margin: 0 11px;
+    }
+    main > .sort-by {
+        display: none;
+    }
+    .m_active {
+        display: flex!important;
+    }
 }

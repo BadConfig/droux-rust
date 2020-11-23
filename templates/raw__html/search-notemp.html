@@ -217,7 +217,11 @@
         </div>
     </header>
 
-    <main class="container main ">
+    <main class="container main">
+        <div class="filters-sort-buttons">
+            <div class="sort-buttons">Сортировать <img src="/static/assets/arrow-hide.svg" alt=""></div>
+            <div class="sort-buttons"><img src="/static/assets/arrow-hide.svg" alt=""> Фильтры</div>
+        </div>
         <div class="sort-by">
             <span>Сортировать:</span>
             <input type="radio" class="sort-by__variant" name="sort-by" id="date" checked>
@@ -231,8 +235,18 @@
             <label for="date" class="sort-by__discard">Сбросить</label>
         </div>
         <div class="filters__layout">
+            <aside class="sort-by">
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-date" checked>
+                <label for="-m-date">по дате</label>
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-price-up">
+                <label for="-m-price-up">по возрастанию цены</label>
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-price-down">
+                <label for="-m-price-down">по убыванию цены</label>
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-popularity">
+                <label for="-m-popularity">по популярности</label>
+                <label for="-m-date" class="sort-by__discard">Сбросить</label>
+            </aside>
             <aside class="filters">
-
                 <div class="filters__sector filters__sector_sex">
                     <div class="filters__sector-header">
                         <span>Категории</span>
@@ -884,5 +898,6 @@
     <script src="../../static/js/auth.js"></script>
     <script src="../../static/js/favourite.js"></script>
     <script src="../../static/js/dropdown.js"></script>
+    <script src="../../static/js/filters-hide.js"></script>
 </body>
 </html>
