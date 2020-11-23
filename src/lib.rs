@@ -131,6 +131,18 @@ pub fn app() -> rocket::Rocket {
             routes::product::get_order_final,
             routes::product::get_order,
             routes::product::post_order,
+            routes::static_pages::commission,
+            routes::static_pages::contacts,
+            routes::static_pages::criteria,
+            routes::static_pages::faq,
+            routes::static_pages::for_customer,
+            routes::static_pages::for_seller,
+            routes::static_pages::help,
+            routes::static_pages::privacy_terms,
+            routes::static_pages::save_deal,
+            routes::static_pages::save_deal_terms,
+            routes::static_pages::serve_terms,
+            routes::static_pages::user_terms,
             ])
         .attach(Template::fairing())
         .attach(db::Conn::fairing())

@@ -143,7 +143,7 @@
             <h2 class="dropdown__header">Наш выбор</h2>
             <div class="dropdown__content container dropdown__content_brands">
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Adidas</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=" class="dropdown__link">Adidas</a>
                     <a href="" class="dropdown__link">Alexander McQueen</a>
                     <a href="" class="dropdown__link">Alexander Wang</a>
                 </div>

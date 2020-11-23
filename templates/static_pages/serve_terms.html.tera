@@ -6,10 +6,10 @@
     <title>Title</title>
 {% endblock head %}
 {% block main %}
-    <main class="static container static__personal-info">
-        <h1 class="static__header">Политика конфиденциальности</h1>
+    <main class="static container static__info-rules">
+        <h1 class="static__header">Правила оказания информационных услуг</h1>
         <p class="static__text">
-            Настоящий документ «Политика конфиденциальности» представляет собой предложение заключить договор на изложенных ниже условиях.<br>
+            Настоящий документ «Правила оказания информационных услуг» представляет собой предложение заключить договор на изложенных ниже условиях.<br>
             <br>
             1. Общие положения<br>
             <br>
@@ -44,5 +44,4 @@
         </p>
         <a href="/" class="button static__button">Вернуться на главную</a>
     </main>
-
 {% endblock main %}

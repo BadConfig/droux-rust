@@ -6,10 +6,10 @@
     <title>Title</title>
 {% endblock head %}
 {% block main %}
-    <main class="static container static__payment-troubles">
-        <h1 class="static__header">Возникли проблемы с оплатой?</h1>
+    <main class="static container static__contacts">
+        <h1 class="static__header">Критерии отбора публикаций</h1>
         <p class="static__text">
-            Свяжитесь с нами любым удобным для Вас способом
+            Главное - чтобы редактору понравилось
         </p>
         <a href="/" class="button static__button">Вернуться на главную</a>
     </main>
