@@ -78,9 +78,9 @@
     </div>
     <div class="header-nav__line">
         <nav class="header__nav">
-            <a href="" class="dropdown__button_to-hide">ВЫБОР DROUX</a>
-            <a href="" class="dropdown__button_to-hide">НОВИНКИ</a>
-            <a href="" class="dropdown__button">БРЕНДЫ</a>
+            <a  class="dropdown__button_to-hide">ВЫБОР DROUX</a>
+            <a  class="dropdown__button_to-hide">НОВИНКИ</a>
+            <a href="/filters?limit=12&offset=0&search_string=''" class="dropdown__button">БРЕНДЫ</a>
             {% for cat in header_categories %}
                 <a href="/filters?limit=12&offset=0&category_id={{ cat.category_id }}" class="dropdown__button">{{ cat.category_name | upper }}</a>
             {% endfor %}
@@ -143,57 +143,57 @@
             <h2 class="dropdown__header">Наш выбор</h2>
             <div class="dropdown__content container dropdown__content_brands">
                 <div class="dropdown__letter">
-                    <a href="/filters?limit=12&offset=0&prod_brand_id=" class="dropdown__link">Adidas</a>
-                    <a href="" class="dropdown__link">Alexander McQueen</a>
-                    <a href="" class="dropdown__link">Alexander Wang</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1463" class="dropdown__link">Adidas</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1481" class="dropdown__link">Alexander McQueen</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1483" class="dropdown__link">Alexander Wang</a>
+                </div>
+                <div class="dropdown__letter">                    
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1529" class="dropdown__link">Baldinini</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1530" class="dropdown__link">Balenciaga</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1561" class="dropdown__link">Burberry</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Balenciaga</a>
-                    <a href="" class="dropdown__link">Bape</a>
-                    <a href="" class="dropdown__link">Burberry</a>
-                </div>
-                <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Cartier</a>
-                    <a href="" class="dropdown__link">Comme De Garçons</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1571" class="dropdown__link">Cartier</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1614" class="dropdown__link">Comme De Garçons</a>
                 </div>
                 <div class="dropdown__letter dropdown__letter_last">
-                    <a href="" class="dropdown__link">Dior</a>
-                    <a href="" class="dropdown__link">Dolce & Gabbana</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1636" class="dropdown__link">Dior</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1640" class="dropdown__link">Dolce & Gabbana</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Fear of God</a>
+                    <a href="/filters?limit=12&offset=0&search_string='''" class="dropdown__link">Fear of God</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Givenci</a>
-                    <a href="" class="dropdown__link">Gucci</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1726" class="dropdown__link">Givenci</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1734" class="dropdown__link">Gucci</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Lanvin</a>
-                    <a href="" class="dropdown__link">Louis Vuitton</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1808" class="dropdown__link">Lanvin</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1838" class="dropdown__link">Louis Vuitton</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Max Mara</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1884" class="dropdown__link">Max Mara</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Nike</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1932" class="dropdown__link">Nike</a>
                 </div>
                 <div class="dropdown__letter dropdown__letter_last">
-                    <a href="" class="dropdown__link">Off-white</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1941" class="dropdown__link">Off-white</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">RAF Simons</a>
-                    <a href="" class="dropdown__link">Rolex</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1997" class="dropdown__link">RAF Simons</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2031" class="dropdown__link">Rolex</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Saint Laurent</a>
-                    <a href="" class="dropdown__link">Stone Island</a>
-                    <a href="" class="dropdown__link">Supreme</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2039" class="dropdown__link">Saint Laurent</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2081" class="dropdown__link">Stone Island</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2085" class="dropdown__link">Supreme</a>
                 </div>
                 <div class="dropdown__letter">
-                    <a href="" class="dropdown__link">Valentino</a>
-                    <a href="" class="dropdown__link">Versache</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2126" class="dropdown__link">Valentino</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2139" class="dropdown__link">Versace</a>
                 </div>
-                <a href="" class="dropdown__all-brands">Все бренды</a>
+                <a href="/filters?limit=12&offset=0&search_string=''" class="dropdown__all-brands">Все бренды</a>
             </div>
         </div>
         {% for cat in header_categories %}
