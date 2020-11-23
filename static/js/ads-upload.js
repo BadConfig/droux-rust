@@ -38,7 +38,7 @@ headerSearchButton.addEventListener('click', NewSearch);
 function NewSearch() {
     let body = 'search_string=' + headerSearchField.value + '&limit=12' + '&offset=0';
     if (filters[0].querySelector('input:checked') != null) {
-        body += '&type_id=' + filters[0].querySelector('input:checked').value;
+        body += '&prod_type_id=' + filters[0].querySelector('input:checked').value;
     }
     if (filters[1].querySelector('input:checked') != null) {
         body += '&category_id=' + filters[1].querySelector('input:checked').value;

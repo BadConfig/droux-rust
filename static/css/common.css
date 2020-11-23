@@ -681,8 +681,12 @@ input[type=checkbox] + label {
         width: unset;
     }
     
-    .header__buttons > *:not(span){
+    .header__buttons > *{
        display: none;
+    }
+
+    .header__buttons > span, .header__buttons > .header__user-photo {
+        display: block;
     }
 
     .header__buttons a {
