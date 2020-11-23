@@ -61,7 +61,6 @@
       <change beforePath="$PROJECT_DIR$/static/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/youtube.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/ad.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ad.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/filters.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/filters.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
@@ -284,7 +283,6 @@
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/raw__html/profile-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/profile-notemp.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -342,7 +340,7 @@
       <workItem from="1605576069090" duration="12840000" />
       <workItem from="1605910887435" duration="8543000" />
       <workItem from="1605943561786" duration="2682000" />
-      <workItem from="1606024753070" duration="41535000" />
+      <workItem from="1606024753070" duration="42004000" />
     </task>
     <servers />
   </component>

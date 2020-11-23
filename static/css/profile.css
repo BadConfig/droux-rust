@@ -630,8 +630,8 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 600px;
-    min-height: 627px;
+    width: 100%;
+    min-height: 500px;
     padding: 20px 30px 15px;
     align-items: flex-start;
 }
@@ -641,7 +641,7 @@
     padding-bottom: 3px;
     font-weight: bold;
     margin: 0 0 5px 0;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .review label {
@@ -650,7 +650,7 @@
 }
 
 .review select {
-    width: 350px;
+    width: 80%;
     height: 40px;
     appearance: none;
 }
@@ -678,12 +678,12 @@
 }
 
 .review input[type=submit] {
-    width: 190px;
+    width: 80%;
     height: 32px;
     color: white;
     background-color: black;
     align-self: flex-end;
-    margin-top: 13px;
+    margin: 13px auto 0;
 }
 
 .review_visible {
