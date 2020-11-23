@@ -1,1 +1,5 @@
 /target
+/static/profile_pictures
+/static/product_pictures
+/.idea
+/.vscode
