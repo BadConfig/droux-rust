@@ -2,7 +2,7 @@
 {% import "product/instance" as prod_inst %}
 {% block  head %}
 <meta charset="utf-8">
-<title>Title</title>
+<title>Главная</title>
 <link rel="stylesheet" href="static/css/common.css">
 <link rel="stylesheet" href="static/css/ad.css">
 <link rel="stylesheet" href="static/css/main-page.css">
@@ -24,14 +24,14 @@
             </div>
             <div class="photos__buttons">
                 <h1>Первый сервис для покупки<br>и перепродажи брендовых вещей в России</h1>
-                <a href="" class="button photos-buttons__button photos-buttons__button_seller">Для покупателей</a>
-                <a href="" class="button photos-buttons__button photos-buttons__button_buyer">Для продавцов</a>
+                <a href="/for_customers" class="button photos-buttons__button photos-buttons__button_seller">Для покупателей</a>
+                <a href="/for_sellers" class="button photos-buttons__button photos-buttons__button_buyer">Для продавцов</a>
             </div>
         </div>
 
         <div class="show-all container show-all_new-ads">
             <h2 class="show-all__header">Новые объявления</h2>
-            <a href="/filters?limit=12&offset=0&order_by='Date'"><div class="show-all__button">
+            <a href="/filters?limit=12&offset=0&order_by=DateDESC&search_string="><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
                 <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>
@@ -55,7 +55,7 @@
 
         <div class="show-all container show-all_most-viewed">
             <h2 class="show-all__header">Самые просматриваемые объявления</h2>
-            <a href="/filters?limit=12&offset=0&"><div class="show-all__button">
+            <a href="/filters?limit=12&offset=0&order_by=Views&search_string="><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
                 <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>
@@ -79,7 +79,7 @@
 
         <div class="show-all container show-all_popular-today">
             <h2 class="show-all__header">Самые популярные объявления за сегодня</h2>
-            <a href="/filters?limit=12&offset=0"><div class="show-all__button">
+            <a href="/filters?limit=12&offset=0&search_string=&order_by=Views"><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
                 <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>

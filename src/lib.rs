@@ -87,7 +87,6 @@ pub fn app() -> rocket::Rocket {
 
     rocket::ignite()
         .mount("/",routes![
-            routes::auth::login,
             routes::admin::admin_main,
             routes::admin::admin_product,
             routes::admin::product_change,
@@ -97,8 +96,6 @@ pub fn app() -> rocket::Rocket {
             routes::auth::logout,
             routes::index,
             routes::auth::register,
-            routes::auth::register_get,
-            routes::auth::verify_link,
             routes::product::product_create,
             routes::product::product_create_get,
             routes::product::get_product_by_id,

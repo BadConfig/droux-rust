@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/static/css/filters.css">
     <link rel="stylesheet" href="/static/css/new-product.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Новый товар</title>
 {% endblock head %}
 {% block main %}
     <main class="main container">
