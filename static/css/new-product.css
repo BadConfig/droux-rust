@@ -18,8 +18,9 @@
     width: 185px;
 }
 
-.filters__sector_size_s {
-    width: 223px;
+.filters__sector_size_l {
+    max-width: 223px;
+    overflow-x: hidden;
 }
 
 .filters__sector-header {
