@@ -66,6 +66,19 @@ function NewSearch() {
         body += '&product_state_id=';
     }
     console.log(body);
+    let request = new XMLHttpRequest();
+    request.open("POST", '/filters/lots', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    let res = document.querySelector('.search-results');
+    res.parentNode.removeChild(res);
+    searchResults = document.createElement('div');
+    searchResults.className = 'search-results';
+    let main = document.querySelector('main');
+    main.append(searchResults);
+    request.send(body)
+    request.onreadystatechange = function() {
+        jsonToAds(request.response);
+    }
 }
 
 
