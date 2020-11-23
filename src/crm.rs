@@ -92,7 +92,7 @@ impl PrivForm {
             ("password", "T773007004660"),
             ("amount", &format!("{}",summ*100)[..]),
             ("currency", "643"),
-            ("returnUrl", "http://localhost:8000/product/pay"),
+            ("returnUrl", "https://droux.ru/product/pay"),
             ("orderNumber", &format!("{}{}pay",self.product_name,self.product_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Priveleges(self.clone()))?[..])];
 
@@ -160,7 +160,7 @@ impl BuyForm {
             ("password", "T773007004660"),
             ("amount", &format!("{}",self.pr_price*100)),
             ("currency", &format!("{}",643)[..]),
-            ("returnUrl", "http://localhost:8000/product/pay"),
+            ("returnUrl", "https://droux.ru/product/pay"),
             ("orderNumber", &format!("{}{}order",self.pr_name,self.pr_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Order(self.clone()))?[..])];
 

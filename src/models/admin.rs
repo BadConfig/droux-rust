@@ -5,11 +5,6 @@ use crate::schema::priveleges;
 use diesel::PgConnection;
 use diesel::prelude::*;
 use crate::Error;
-use diesel::sql_types::{
-    Integer,
-    Bool,
-    Varchar,
-};
 #[derive(Serialize, Deserialize, Queryable)]
 pub struct Priveleges {
     pub id: i32,

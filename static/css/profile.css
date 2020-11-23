@@ -630,8 +630,8 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 600px;
-    min-height: 627px;
+    width: 100%;
+    min-height: 500px;
     padding: 20px 30px 15px;
     align-items: flex-start;
 }
@@ -641,7 +641,7 @@
     padding-bottom: 3px;
     font-weight: bold;
     margin: 0 0 5px 0;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .review label {
@@ -650,7 +650,7 @@
 }
 
 .review select {
-    width: 350px;
+    width: 80%;
     height: 40px;
     appearance: none;
 }
@@ -678,12 +678,12 @@
 }
 
 .review input[type=submit] {
-    width: 190px;
+    width: 80%;
     height: 32px;
     color: white;
     background-color: black;
     align-self: flex-end;
-    margin-top: 13px;
+    margin: 13px auto 0;
 }
 
 .review_visible {
@@ -740,11 +740,67 @@
         height: unset;
     }
     .ad__info {
-        width: 71%;
+        width: 65%;
         height: 100%;
+        position: absolute;
+        padding: 29px 0 34px;
+        right: 0;
     }
     .ad-profile {
         height: fit-content;
+        position: relative;
+    }
+    .ad__button {
+        width: 45%;
+        font-size: 12px;
+        text-align: center;
     }
 
+    .ad__stat {
+        width: 45%;
+        font-size: 9px;
+    }
+    .ad__title {
+        font-size: 18px;
+        margin-bottom: 3px;
+    }
+    .ad__price {
+        font-size: 16px;
+    }
+    .ad__options {
+        display: none;
+    }
+    .content__label {
+        width: 30%;
+        margin: 0;
+    }
+    .ad_fav .ad__img-container {
+        width: 100%;
+    }
+
+    .dialogue__price, .dialogue__date {
+        display: none;
+    }
+
+    .my-dialogues {
+        transform: scale(0.8);
+    }
+
+    .chat__send-message {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+@media (max-width: 460px) {
+    .ad__stat {
+        display: none;
+    }
+    .content__label {
+       font-size: 12px;
+    }
+    .ad__button {
+        font-size: 10px;
+    }
 }

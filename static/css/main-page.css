@@ -161,6 +161,10 @@
     margin-bottom: 22px;
 }
 
+a .photos__female img {
+    left: 0;
+}
+
 .ad__author-photo {
     width: 54px;
     height: 54px;

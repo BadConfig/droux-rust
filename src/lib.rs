@@ -10,7 +10,6 @@ pub mod crm;
 
 #[macro_use]
 extern crate rocket;
-#[macro_use]
 extern crate rocket_contrib;
 
 #[macro_use]
@@ -18,13 +17,12 @@ extern crate diesel;
 extern crate dotenv;
 
 extern crate rocket_slog;
-use rocket_slog::SlogFairing;
 
 use diesel::result::Error as DieselError;
 use rocket::request::Request;
 use rocket::http::Status;
 use rocket::response;
-use rocket::response::{Response, Responder};
+use rocket::response::Responder;
 //use std::error::Error;
 
 #[derive(Debug)]
@@ -78,16 +76,11 @@ impl From<std::str::Utf8Error> for Error {
 }
 
 use rocket_contrib::templates::{Template,tera::*};
-use serde::Serialize;
-use rocket::http::{Cookie, Cookies};
-use rocket_contrib::serve::{StaticFiles,Options};
-use rocket::config::{Config, Environment, LoggingLevel};
 
 pub fn app() -> rocket::Rocket {
 
     rocket::ignite()
         .mount("/",routes![
-            routes::auth::login,
             routes::admin::admin_main,
             routes::admin::admin_product,
             routes::admin::product_change,
@@ -97,8 +90,6 @@ pub fn app() -> rocket::Rocket {
             routes::auth::logout,
             routes::index,
             routes::auth::register,
-            routes::auth::register_get,
-            routes::auth::verify_link,
             routes::product::product_create,
             routes::product::product_create_get,
             routes::product::get_product_by_id,

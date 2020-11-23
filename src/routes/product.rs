@@ -1,5 +1,4 @@
-use rocket::http::{Cookie, Cookies};
-use rocket_contrib::templates::{Template};
+use rocket_contrib::templates::Template;
 use rocket::request::Form;
 use rocket::response::Redirect;
 use serde::{
@@ -14,16 +13,15 @@ use crate::Error;
 extern crate rocket_multipart_form_data;
 use rocket::Data;
 use rocket::http::ContentType;
-use std::sync::atomic::Ordering;
 use rocket_multipart_form_data::{
-    mime, MultipartFormData, MultipartFormDataField, 
-    MultipartFormDataOptions, RawField, TextField, Repetition
+    MultipartFormData, 
+    MultipartFormDataField, 
+    MultipartFormDataOptions,
 };
 use crate::users::CommonUser;
 use crate::routes::Either;
 use crate::routes::get_base_context;
 use crate::models::product::ProductCard;
-use crate::db::product::reviewed_by_user;
 use rocket::http::Status;
 use crate::models::product::NewProduct;
 
@@ -31,9 +29,8 @@ use crate::models::product::NewProduct;
 #[get("/product/<id>")]
 pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Template {
     
-    use crate::db::users::get_user_by_email;
     use crate::models::product::ProductContext;
-    use crate::db::product::{get_brand_list,get_brand_name,get_product_data};
+    use crate::db::product::get_brand_list;
 
     crate::db::product::increment_product_views(id, &conn);
     crate::db::product::increment_product_today_views(id, &conn);
@@ -44,8 +41,6 @@ pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Te
     let mut ctx = get_base_context(user.clone(), &conn);
     ctx.insert("brands", &get_brand_list(&conn));
     ctx.insert("most_viewed_products", &ProductCard::get_recently_added(8, opt_id.clone(), &conn));
-
-    let product = get_product_data(id, &conn);
 
     let user_id = match user {
         CommonUser::Logged(u) => Some(u.id),
@@ -76,7 +71,7 @@ pub fn product_create_get(user: CommonUser, conn: crate::db::Conn) -> Either {
     let mut ctx = get_base_context(user.clone(), &conn);
     get_filter_context(&mut ctx, &conn);
 
-    if let CommonUser::Logged(user_data) = user {
+    if let CommonUser::Logged(_) = user {
             Either::Template(Template::render("product/create", &ctx))
     } else {
         Either::Redirect(Redirect::to("/"))
@@ -198,7 +193,6 @@ pub fn parse_multiform_product(content_type: &ContentType, form: Data) -> NewPro
     unpack_photo(&photo9, &mut photos_array, &title,9);
     unpack_photo(&photo10, &mut photos_array, &title,10);
     
-    use crate::models::product::NewProduct;
     NewProduct {
         sub_category_id: sub_category_id,
         title: title,
@@ -216,13 +210,12 @@ pub fn parse_multiform_product(content_type: &ContentType, form: Data) -> NewPro
 }
 
 #[post("/product/create",data="<form>")]
-pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, conn: crate::db::Conn) ->  String {
+pub fn product_create(content_type: &ContentType, form: Data, conn: crate::db::Conn) ->  String {
    
     use crate::db::product::create_product;
 
     let p = parse_multiform_product(content_type, form);
     let id = create_product(p, &conn);
-    print!("{}",&id);
     id
 }
 
@@ -307,8 +300,8 @@ use crate::crm::{
     TrDescription,
 };
 
-#[get("/product/pay?<orderId>&<lang>")]
-pub fn check_pay(orderId: String, lang: String, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+#[get("/product/pay?<orderId>&<_lang>")]
+pub fn check_pay(orderId: String, _lang: String, conn: crate::db::Conn) -> Result<Either,Error> {
     let transcation = TrDescription::get_sber_pay_status(orderId)?;
     match transcation {
         TrDescription::Priveleges(p) => {
@@ -341,8 +334,8 @@ pub fn get_order(prod_id: i32, user: CommonUser, conn: crate::db::Conn) -> Resul
 }
 
 #[post("/product/order/create",data="<form>")]
-pub fn post_order(form: Form<BuyForm>, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
-    if let CommonUser::Logged(user) = user {
+pub fn post_order(form: Form<BuyForm>, user: CommonUser) -> Result<Either,Error> {
+    if let CommonUser::Logged(_) = user {
         let url = form.send_sber_pre_pay_link()?;
         return Ok(Either::Redirect(Redirect::to(url)));
     }
@@ -350,8 +343,7 @@ pub fn post_order(form: Form<BuyForm>, user: CommonUser, conn: crate::db::Conn) 
 }
 
 #[post("/product/promotion/create",data="<form>")]
-pub fn post_promotions(form: Form<PrivForm>, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
-    let mut ctx = get_base_context(user.clone(), &conn);
+pub fn post_promotions(form: Form<PrivForm>, user: CommonUser) -> Result<Either,Error> {
     if let CommonUser::Logged(user) = user {
         if form.seller_id != user.id {
             return Ok(Either::Redirect(Redirect::to("/")));
@@ -389,7 +381,7 @@ pub fn post_promotions(form: Form<PrivForm>, user: CommonUser, conn: crate::db::
 
 #[get("/product/promotion/final")]
 pub fn get_promotions_final(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
-    let mut ctx = get_base_context(user.clone(), &conn);
+    let ctx = get_base_context(user.clone(), &conn);
     Ok(Either::Template(Template::render("product/promotion_final", &ctx)))
 }
 
