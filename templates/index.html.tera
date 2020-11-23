@@ -24,8 +24,8 @@
             </div>
             <div class="photos__buttons">
                 <h1>Первый сервис для покупки<br>и перепродажи брендовых вещей в России</h1>
-                <a href="/for_customers" class="button photos-buttons__button photos-buttons__button_seller">Для покупателей</a>
-                <a href="/for_sellers" class="button photos-buttons__button photos-buttons__button_buyer">Для продавцов</a>
+                <a href="/for_customer" class="button photos-buttons__button photos-buttons__button_seller">Для покупателей</a>
+                <a href="/for_seller" class="button photos-buttons__button photos-buttons__button_buyer">Для продавцов</a>
             </div>
         </div>
 
