@@ -63,7 +63,7 @@ impl BuyForm {
             ("order", &data.to_string())];
 
         let client = reqwest::blocking::Client::new();
-        let res = client.post("https://droux.retailcrm.ru/api/v5/orders/create")
+        let res = client.post("http://droux.retailcrm.ru/api/v5/orders/create")
             .form(&params)
             .send()?
             .text()?;
@@ -100,7 +100,7 @@ impl PrivForm {
             ("password", &sber_pass[..]),
             ("amount", &format!("{}",summ*100)[..]),
             ("currency", "643"),
-            ("returnUrl", &("https://".to_string() + &site_url + &("/product/pay".to_string()))[..]),
+            ("returnUrl", &("http://".to_string() + &site_url + &("/product/pay".to_string()))[..]),
             ("orderNumber", &format!("{}{}pay",self.product_name,self.product_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Priveleges(self.clone()))?[..])];
 
