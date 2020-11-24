@@ -1,0 +1,23 @@
+name: Command via SSH UPDATE TEST SERVER
+
+on: 
+
+    push:
+        branches: [develop]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ls -a via OPEN SSH Private Key
+        uses: garygrossgarten/github-action-ssh@release
+        with: 
+          command: cd droux-develop && sudo docker build -t badconfig/droux:dev --no-cache . && docker-compose -f ./docker-compose.develop.yml up -d
+          host: ${{ secrets.HOST }}
+          username: garygrossgarten
+          #password: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.SSH_KEY}}
+        env:
+          CI: true
