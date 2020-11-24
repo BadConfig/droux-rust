@@ -14,7 +14,7 @@ jobs:
       - name: ls -a via OPEN SSH Private Key
         uses: garygrossgarten/github-action-ssh@release
         with: 
-          command: ls -a
+          command: cd droux-develop && sudo docker build -t badconfig/droux:dev --no-cache . && docker-compose -f ./docker-compose.develop.yml up -d
           host: ${{ secrets.HOST }}
           username: garygrossgarten
           #password: ${{ secrets.PASSPHRASE }}
