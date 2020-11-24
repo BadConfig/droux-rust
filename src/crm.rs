@@ -55,7 +55,7 @@ impl BuyForm {
                 ]
         });
         let retail_api_key = env::var("RETAIL_CRM_API_KEY")
-        .expect("DATABASE_URL must be set");
+        .expect("RETAIL_CRM_API_KEY must be set");
         print!("my_json:\n{:#?}\n",&data.to_string());
         let params = [
             ("apiKey", &retail_api_key[..]),
