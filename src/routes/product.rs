@@ -1,7 +1,10 @@
-use rocket::http::{Cookie, Cookies};
-use rocket_contrib::templates::{Template};
+use rocket_contrib::templates::Template;
 use rocket::request::Form;
 use rocket::response::Redirect;
+use serde::{
+    Serialize,
+    Deserialize,
+};
 use std::fs::File;
 use std::io::prelude::*;
 use crate::db::filters::get_filter_context;
@@ -10,16 +13,15 @@ use crate::Error;
 extern crate rocket_multipart_form_data;
 use rocket::Data;
 use rocket::http::ContentType;
-use std::sync::atomic::Ordering;
 use rocket_multipart_form_data::{
-    mime, MultipartFormData, MultipartFormDataField, 
-    MultipartFormDataOptions, RawField, TextField, Repetition
+    MultipartFormData, 
+    MultipartFormDataField, 
+    MultipartFormDataOptions,
 };
 use crate::users::CommonUser;
 use crate::routes::Either;
 use crate::routes::get_base_context;
 use crate::models::product::ProductCard;
-use crate::db::product::reviewed_by_user;
 use rocket::http::Status;
 use crate::models::product::NewProduct;
 
@@ -27,9 +29,8 @@ use crate::models::product::NewProduct;
 #[get("/product/<id>")]
 pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Template {
     
-    use crate::db::users::get_user_by_email;
     use crate::models::product::ProductContext;
-    use crate::db::product::{get_brand_list,get_brand_name,get_product_data};
+    use crate::db::product::get_brand_list;
 
     crate::db::product::increment_product_views(id, &conn);
     crate::db::product::increment_product_today_views(id, &conn);
@@ -40,8 +41,6 @@ pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Te
     let mut ctx = get_base_context(user.clone(), &conn);
     ctx.insert("brands", &get_brand_list(&conn));
     ctx.insert("most_viewed_products", &ProductCard::get_recently_added(8, opt_id.clone(), &conn));
-
-    let product = get_product_data(id, &conn);
 
     let user_id = match user {
         CommonUser::Logged(u) => Some(u.id),
@@ -72,7 +71,7 @@ pub fn product_create_get(user: CommonUser, conn: crate::db::Conn) -> Either {
     let mut ctx = get_base_context(user.clone(), &conn);
     get_filter_context(&mut ctx, &conn);
 
-    if let CommonUser::Logged(user_data) = user {
+    if let CommonUser::Logged(_) = user {
             Either::Template(Template::render("product/create", &ctx))
     } else {
         Either::Redirect(Redirect::to("/"))
@@ -194,7 +193,6 @@ pub fn parse_multiform_product(content_type: &ContentType, form: Data) -> NewPro
     unpack_photo(&photo9, &mut photos_array, &title,9);
     unpack_photo(&photo10, &mut photos_array, &title,10);
     
-    use crate::models::product::NewProduct;
     NewProduct {
         sub_category_id: sub_category_id,
         title: title,
@@ -212,30 +210,13 @@ pub fn parse_multiform_product(content_type: &ContentType, form: Data) -> NewPro
 }
 
 #[post("/product/create",data="<form>")]
-pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, conn: crate::db::Conn) -> Redirect {
+pub fn product_create(content_type: &ContentType, form: Data, conn: crate::db::Conn) ->  String {
    
     use crate::db::product::create_product;
 
     let p = parse_multiform_product(content_type, form);
-    create_product(p, &conn);
-    Redirect::to("/")
-}
-
-
-#[derive(FromForm,Clone)]
-pub struct StarsForm {
-    toid: i32,
-    strs: i16,
-    comm: String,
-    feedb: String,
-}
-#[post("/users/rating",data="<form>")]
-pub fn rating_add(form: Form<StarsForm>, user: CommonUser, conn: crate::db::Conn) -> Redirect {
-    use crate::models::product::ProductRating;
-    if let CommonUser::Logged(user) = user {
-        ProductRating::set_rating(user.id,form.toid,form.strs, form.comm.clone(), form.feedb.clone(), &conn);
-    }
-    Redirect::to("/")
+    let id = create_product(p, &conn);
+    id
 }
 
 #[derive(FromForm,Clone)]
@@ -265,4 +246,151 @@ pub fn favourites_delete(form: Form<FavouritesForm>, user: CommonUser, conn: cra
         return Ok(Status::Ok);
     }
     Ok(Status::Unauthorized)
+}
+
+use crate::models::product::Product;
+#[get("/product/promotion/create/<id>")]
+pub fn get_promotions(id: i32, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    let mut ctx = get_base_context(user.clone(), &conn);
+    if let CommonUser::Logged(user) = user {
+        let pr = Product::get_by_id(id, &conn);
+        if pr.seller_id != user.id {
+            return Ok(Either::Redirect(Redirect::to("/")));
+        }
+        ctx.insert("product", &pr);
+        ctx.insert("seller_id", &user.id);
+        Ok(Either::Template(Template::render("product/promotion", &ctx)))
+    } else {
+        Ok(Either::Redirect(Redirect::to("/")))
+    }
+}
+
+#[derive(FromForm,Clone,Serialize,Deserialize)]
+pub struct BuyForm {
+    pub name: String,
+    pub username: String,
+    pub mail: String,
+    pub phone: String,
+    pub post_index: String,
+    pub ship_addr: String,
+    pub pr_price: i32,
+    pub seller_username: String,
+    pub seller_phone: String,
+    pub seller_email: String,
+    pub seller_location: String,
+    pub pr_is_pre_order: bool,
+    pub pr_id: i32,
+    pub pr_name: String,
+}
+
+#[derive(FromForm,Clone,Serialize,Deserialize)]
+pub struct PrivForm {
+    pub pre_order: bool,
+    pub top_name: bool,
+    pub top_cat: bool,
+    pub take_in_news: bool,
+    pub all: bool,
+    pub none: bool,
+    pub seller_id: i32,
+    pub product_id: i32,
+    pub product_name: String,
+}
+
+use crate::crm::{
+    TrDescription,
+};
+
+#[get("/product/pay?<orderId>&<_lang>")]
+pub fn check_pay(orderId: String, _lang: String, conn: crate::db::Conn) -> Result<Either,Error> {
+    let transcation = TrDescription::get_sber_pay_status(orderId)?;
+    match transcation {
+        TrDescription::Priveleges(p) => {
+            p.save(&conn)?;
+            Ok(Either::Redirect(Redirect::to("/product/promotion/final")))
+        },
+        TrDescription::Order(o) => {
+            let (num, addr) = o.send_new_order_to_crm()?;
+            Product::set_status(o.pr_id, "sold".to_string(), &conn)?;
+
+            // make it bought
+            Ok(Either::Redirect(Redirect::to(format!("/product/order/final/{}/{}",num,addr))))
+        },
+        TrDescription::Unpayed => Ok(Either::Redirect(Redirect::to("/")))
+    }
+}
+use crate::models::users::Users;
+use crate::models::product::ProductPromotions;
+#[get("/product/order/create/<prod_id>")]
+pub fn get_order(prod_id: i32, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    let mut ctx = get_base_context(user.clone(), &conn);
+    if let CommonUser::Logged(user) = user {
+        let pr = Product::get_by_id(prod_id, &conn);
+        ctx.insert("seller", &Users::get_by_id(pr.seller_id, &conn));
+        ctx.insert("is_pre_order", &ProductPromotions::get_pre_order(pr.id, &conn)?);
+        ctx.insert("product", &pr);
+        ctx.insert("my_user", &user);
+        Ok(Either::Template(Template::render("product/order", &ctx)))
+    } else {
+        Ok(Either::Redirect(Redirect::to("/")))
+    }
+}
+
+#[post("/product/order/create",data="<form>")]
+pub fn post_order(form: Form<BuyForm>, user: CommonUser) -> Result<Either,Error> {
+    if let CommonUser::Logged(_) = user {
+        let url = form.send_sber_pre_pay_link()?;
+        return Ok(Either::Redirect(Redirect::to(url)));
+    }
+    Ok(Either::Redirect(Redirect::to("/")))
+}
+
+#[post("/product/promotion/create",data="<form>")]
+pub fn post_promotions(form: Form<PrivForm>, user: CommonUser) -> Result<Either,Error> {
+    if let CommonUser::Logged(user) = user {
+        if form.seller_id != user.id {
+            return Ok(Either::Redirect(Redirect::to("/")));
+        }
+        if form.none {
+            return Ok(Either::Redirect(Redirect::to("/product/promotion/final")));
+        }
+        let mut summ: i64 = if form.all || (form.take_in_news && form.top_cat && form.top_name) {
+            599
+        } else if form.take_in_news && form.top_cat {
+            399 + 149
+        } else if form.take_in_news && form.top_name {
+            399 + 189
+        } else if form.top_name && form.top_cat {
+            189 + 149
+        } else if form.take_in_news {
+            399
+        } else if form.top_cat {
+            149
+        } else {
+            189
+        };
+        if form.pre_order {
+            summ += 499;
+        }
+        let url = form
+            .into_inner()
+            .send_sber_pay_link(summ)?;
+        print!("\n{}\n",url);
+        Ok(Either::Redirect(Redirect::to(url)))
+    } else {
+        Ok(Either::Redirect(Redirect::to("/")))
+    }
+}
+
+#[get("/product/promotion/final")]
+pub fn get_promotions_final(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    let ctx = get_base_context(user.clone(), &conn);
+    Ok(Either::Template(Template::render("product/promotion_final", &ctx)))
+}
+
+#[get("/product/order/final/<num>/<addr>")]
+pub fn get_order_final(num: String, addr: String, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    let mut ctx = get_base_context(user.clone(), &conn);
+    ctx.insert("order_number", &num);
+    ctx.insert("order_adress", &addr);
+    Ok(Either::Template(Template::render("product/order_final", &ctx)))
 }

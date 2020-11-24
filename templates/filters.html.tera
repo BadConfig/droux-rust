@@ -2,14 +2,18 @@
 {% import "product/instance" as prod_inst %}
 {% block head %}
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="../../static/css/common.css">
-    <link rel="stylesheet" href="../../static/css/ad.css">
-    <link rel="stylesheet" href="../../static/css/search.css">
-    <link rel="stylesheet" href="../../static/css/filters.css">
+    <title>Фильтры</title>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/ad.css">
+    <link rel="stylesheet" href="/static/css/search.css">
+    <link rel="stylesheet" href="/static/css/filters.css">
 {% endblock head %}
 {% block main %}
     <main class="container main">
+        <div class="filters-sort-buttons">
+            <div class="sort-buttons">Сортировать <img src="/static/assets/arrow-hide.svg" alt=""></div>
+            <div class="sort-buttons"><img src="/static/assets/arrow-hide.svg" alt=""> Фильтры</div>
+        </div>
         <div class="sort-by">
             <span>Сортировать:</span>
             <input type="radio" class="sort-by__variant" name="order_by" value="Date" id="date" checked>
@@ -22,114 +26,134 @@
             <label for="popularity">по популярности</label>
             <label for="date" class="sort-by__discard">Сбросить</label>
         </div>
-        <aside class="filters">
-
-            <div class="filters__sector filters__sector_sex">
-                <div class="filters__sector-header">
-                    <span>Категории</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
-                </div>
-                <div class="filters__must-be-hidden">
-                    <form class="filters__sector-options">
-                        {% for types in ProductTypes %}
-                            <div class="filters__checkbox-div">
-                                <input type="checkbox" name="prod_type_id" value="{{ types.id }}" id="ad_types{{ types.id }}">
-                                <label for="ad_types{{ types.id }}">{{ types.name }}</label>
-                            </div>                             
-                        {% endfor %}
-                    </form>
-                </div>
-            </div>
-
-            <div class="filters__sector filters__sector_category">
-                <div class="filters__sector-header">
-                    <span>Категория</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
-                </div>
-                <div class="filters__must-be-hidden">
-                    <form class="filters__sector-options">
-                        {% for categories in ProductCategories %}
-                            <div class="filters__checkbox-div">
-                                <input type="checkbox" name="category_id" value="{{ categories.category_id }}" id="ad_cat{{ categories.category_id }}">
-                                <label for="ad_cat{{ categories.category_id }}">{{ categories.category_name }}</label>
-                            </div>                             
-                        {% endfor %}
-                    </form>
-                </div>
-            </div>
-
-            <div class="filters__sector filters__sector_type">
-                <div class="filters__sector-header">
-                    <span>Вид</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
-                </div>
-                <div class="filters__must-be-hidden">
-                    <form class="filters__sector-options">
-                        {% for categories in ProductCategories %}
-                            {% for sub_cat in categories.sub_categories %}
+        <div class="filters__layout">
+            <aside class="sort-by">
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-date" checked>
+                <label for="-m-date">по дате</label>
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-price-up">
+                <label for="-m-price-up">по возрастанию цены</label>
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-price-down">
+                <label for="-m-price-down">по убыванию цены</label>
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-popularity">
+                <label for="-m-popularity">по популярности</label>
+                <label for="-m-date" class="sort-by__discard">Сбросить</label>
+            </aside>
+            <aside class="filters">
+                <div class="filters__sector filters__sector_sex">
+                    <div class="filters__sector-header">
+                        <span>Категории</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <form class="filters__sector-options">
+                            {% for types in ProductTypes %}
                                 <div class="filters__checkbox-div">
-                                    <input type="checkbox" name="sub_category_id" value="{{ sub_cat.id }}" id="ad_sub_cat{{ sub_cat.id }}">
-                                    <label for="ad_sub_cat{{ sub_cat.id }}">{{ sub_cat.name }}</label>
-                                </div>           
-                            {% endfor %}   
-                        {% endfor %}
-                    </form>
+                                    <input type="radio" name="prod_type_id" value="{{ types.id }}" id="ad_types{{ types.id }}">
+                                    <label for="ad_types{{ types.id }}">{{ types.name }}</label>
+                                </div>                             
+                            {% endfor %}
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="filters__sector filters__sector_brand">
-                <div class="filters__sector-header">
-                    <span>Бренды</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                <div class="filters__sector filters__sector_category">
+                    <div class="filters__sector-header">
+                        <span>Категория</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <form class="filters__sector-options">
+                            <div class="safari-sucks">
+                            {% for categories in ProductCategories %}
+                                <div class="filters__checkbox-div">
+                                    <input type="radio" name="category_id" value="{{ categories.category_id }}" id="ad_cat{{ categories.category_id }}">
+                                    <label for="ad_cat{{ categories.category_id }}">{{ categories.category_name }}</label>
+                                </div>                             
+                            {% endfor %}
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="filters__must-be-hidden">
-                    <input type="text" placeholder="Искать" class="filters__search-field">
-                    <form class="filters__sector-options">
-                        {% for brand in ProductBrands %}
-                            <div class="filters__checkbox-div">
-                                <input type="checkbox" name="prod_brand_id" value="{{ brand.id }}" id="ad_brand{{ brand.id }}">
-                                <label for="ad_brand{{ brand.id }}">{{ brand.name }}</label>
-                            </div>                             
-                        {% endfor %}
-                    </form>
-                </div>
-            </div>
 
-            <div class="filters__sector filters__sector_size">
-                <div class="filters__sector-header">
-                    <span>Размер</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                <div class="filters__sector filters__sector_type">
+                    <div class="filters__sector-header">
+                        <span>Вид</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <form class="filters__sector-options">
+                            <div class="safari-sucks">
+                            {% for categories in ProductCategories %}
+                                {% for sub_cat in categories.sub_categories %}
+                                    <div class="filters__checkbox-div">
+                                        <input type="radio" name="sub_category_id" value="{{ sub_cat.id }}" id="ad_sub_cat{{ sub_cat.id }}">
+                                        <label for="ad_sub_cat{{ sub_cat.id }}">{{ sub_cat.name }}</label>
+                                    </div>           
+                                {% endfor %}   
+                            {% endfor %}
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="filters__must-be-hidden">
-                    <input type="text" placeholder="Искать" class="filters__search-field">
-                    <form class="filters__sector-options">
-                        {% for size in ProductSizes %}
-                            <div class="filters__checkbox-div">
-                                <input type="checkbox" name="prod_size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
-                                <label for="ad_size{{ size.id }}">{{ size.name }}</label>
-                            </div>                             
-                        {% endfor %}
-                    </form>
-                </div>
-            </div>
 
-            <div class="filters__sector filters__sector_condition">
-                <div class="filters__sector-header">
-                    <span>Состояние</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                <div class="filters__sector filters__sector_brand">
+                    <div class="filters__sector-header">
+                        <span>Бренды</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <input type="text" placeholder="Искать" class="filters__search-field">
+                        <form class="filters__sector-options">
+                            <div class="safari-sucks">
+                            {% for brand in ProductBrands %}
+                                <div class="filters__checkbox-div">
+                                    <input type="radio" name="prod_brand_id" value="{{ brand.id }}" id="ad_brand{{ brand.id }}">
+                                    <label for="ad_brand{{ brand.id }}">{{ brand.name }}</label>
+                                </div>                             
+                            {% endfor %}
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="filters__must-be-hidden">
-                    <form class="filters__sector-options">
-                        {% for state in ProductStates %}
-                            <div class="filters__checkbox-div">
-                                <input type="checkbox" name="prod_state_id" value="{{ state.id }}" id="ad_state{{ state.id }}">
-                                <label for="ad_state{{ state.id }}">{{ state.name }}</label>
-                            </div>                             
-                        {% endfor %}
-                    </form>
+
+                <div class="filters__sector filters__sector_size">
+                    <div class="filters__sector-header">
+                        <span>Размер</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <input type="text" placeholder="Искать" class="filters__search-field">
+                        <form class="filters__sector-options">
+                            <div class="safari-sucks">
+                            {% for size in ProductSizes %}
+                                <div class="filters__checkbox-div">
+                                    <input type="radio" name="prod_size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
+                                    <label for="ad_size{{ size.id }}">{{ size.name }}</label>
+                                </div>                             
+                            {% endfor %}
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </aside>
+
+                <div class="filters__sector filters__sector_condition">
+                    <div class="filters__sector-header">
+                        <span>Состояние</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <form class="filters__sector-options">
+                            {% for state in ProductStates %}
+                                <div class="filters__checkbox-div">
+                                    <input type="radio" name="prod_state_id" value="{{ state.id }}" id="ad_state{{ state.id }}">
+                                    <label for="ad_state{{ state.id }}">{{ state.name }}</label>
+                                </div>                             
+                            {% endfor %}
+                        </form>
+                    </div>
+                </div>
+            </aside>
+        </div>
         <div class="search-results">
         {% for ad in FoundProducts %}
             {{prod_inst::instance(ad=ad,seller=false)}}           
@@ -138,8 +162,10 @@
     </main>
 {% endblock main %}
 {% block scripts %}
-    <script src="../../static/js/ad-carousel.js"></script>
-    <script src="../../static/js/hide-sector.js"></script>
-    <script src="../../static/js/search-filter.js"></script>
-    <script src="../../static/js/ads-upload.js"></script>
+    <script src="/static/js/ad-carousel.js"></script>
+    <script src="/static/js/hide-sector.js"></script>
+    <script src="/static/js/search-filter.js"></script>
+    <script src="/static/js/ads-upload.js"></script>
+    <script src="/static/js/favourite.js"></script>
+    <script src="/static/js/filters-hide.js"></script>
 {% endblock scripts %}

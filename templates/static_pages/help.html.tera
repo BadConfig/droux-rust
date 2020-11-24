@@ -1,0 +1,16 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/static-pages.css">
+    <meta charset="UTF-8">
+    <title>Проблемы с оплатой</title>
+{% endblock head %}
+{% block main %}
+    <main class="static container static__payment-troubles">
+        <h1 class="static__header">Возникли проблемы с оплатой?</h1>
+        <p class="static__text">
+            Свяжитесь с нами любым удобным для Вас способом
+        </p>
+        <a href="/" class="button static__button">Вернуться на главную</a>
+    </main>
+{% endblock main %}

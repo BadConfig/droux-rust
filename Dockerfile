@@ -13,6 +13,7 @@ RUN apt-get update && \
         libpq-dev \
         -qqy \
         --no-install-recommends
+RUN apt-get update && apt-get -y install ca-certificates libssl-dev && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /code/target/release/droux /droux/droux
 WORKDIR /droux/

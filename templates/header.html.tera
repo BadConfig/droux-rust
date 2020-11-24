@@ -1,4 +1,18 @@
-<div class="header__user-actions-layout"></div>
+{% if is_logged == true %}
+    <div class="header__user-actions-layout">
+        <div class="container">
+            <div class="header__user-actions">
+                <a href="/users/products">Мои объявления</a>
+                <a href="/users/favourites">Избранное</a>
+                <a href="">Мои покупки</a>
+                <a href="/users/products">Мои продажи</a>
+                <a href="">Настройки</a>
+                <a href="/logout">Выйти</a>
+            </div>
+        </div>
+    </div>
+{% endif %}
+<div class="dropdown__layout"></div>
 <header class="header">
     <div class="services">
         <div class="container services__container">
@@ -18,7 +32,7 @@
     </div>
     <div class="header-base__line">
         <div class="container header__base">
-            <form class="header__search" method="POST" action="/filters">
+            <form class="header__search" method="GET" action="/filters">
                 <div class="search__field">
                     <label for="header-search">
                         <img src="/static/assets/search.svg" alt="Иконка поиска" class="search__icon">
@@ -27,7 +41,7 @@
                     <input type="hidden" name="limit" value="12">
                     <input type="hidden" name="offset" value="0">
                 </div>
-                <input class="search__button button" type="submit" value="Найти">
+                <button class="search__button button" value="Найти">Найти</button>
             </form>
             <div class="header__logo">
                 <a href="/">
@@ -35,38 +49,41 @@
                 </a>
             </div>
             <div class="header__buttons">
-                <a href="/product/create" class="button sell__button">Продать</a>
-                <a href="/chat">
+                <a {% if is_logged == true %}
+                        href="/product/create"
+                    {% else %}
+                        onclick="AuthToggle()"
+                    {% endif %} class="button sell__button">Продать</a>
+                <a {% if is_logged == true %}
+                        href="/chat"
+                    {% else %}
+                        onclick="AuthToggle()"
+                    {% endif %}>
                     <img src="/static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
                 </a>
-                <a href="/users/favourites">
+                <a {% if is_logged == true %}
+                        href="/users/favourites"
+                    {% else %}
+                        onclick="AuthToggle()"
+                    {% endif %}>
                     <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
                 </a>
                 {% if is_logged == false%}
                     <span id="auth-button">Войти</span>
                 {% else %}
-                <img src="../../static/assets/male.jpg" alt="" class="header__user-photo">
-                <div class="header__user-actions">
-                    <a href="/users/products">Мои объявления</a>
-                    <a href="/users/favourites">Избранное</a>
-                    <a href="">Мои покупки</a>
-                    <a href="/users/products">Мои продажи</a>
-                    <a href="">Настройки</a>
-                    <a href="/logout">Выйти</a>
-                </div>
+                <img src="/static/profile_pictures/{{ user.picture_path }}" alt="" class="header__user-photo">
                 {% endif %}
             </div>
         </div>
     </div>
     <div class="header-nav__line">
         <nav class="header__nav">
-            <a href="">ВЫБОР DROUX</a>
-            <a href="">НОВИНКИ</a>
-            <a href="">БРЕНДЫ</a>
-            <a href="">ОДЕЖДА</a>
-            <a href="">ОБУВЬ</a>
-            <a href="">СУМКИ</a>
-            <a href="">АКСЕССУАРЫ</a>
+            <a  class="dropdown__button_to-hide">ВЫБОР DROUX</a>
+            <a  class="dropdown__button_to-hide">НОВИНКИ</a>
+            <a href="/filters?limit=12&offset=0&search_string=" class="dropdown__button">БРЕНДЫ</a>
+            {% for cat in header_categories %}
+                <a href="/filters?limit=12&offset=0&category_id={{ cat.category_id }}" class="dropdown__button">{{ cat.category_name | upper }}</a>
+            {% endfor %}
         </nav>
     </div>
     <div class="authorizer authorizer__background 
@@ -92,13 +109,13 @@
                     authorizer__form_visible 
                 {% endif %}" action="/login" method="POST">
                 <label for="sign-in__login">Логин</label>
-                <input type="text" id="sign-in__login" name="login" >
+                <input type="text" id="sign-in__login" name="login" {% if login_fail %}class="authorizer__input_failed"{% endif %}>
                 <label for="sign-in__password">Пароль</label>
-                <input type="password" id="sign-in__password" name="pass">
+                <input type="password" id="sign-in__password" name="pass" {% if login_fail %}class="authorizer__input_failed"{% endif %}>
                 <div class="sign-in__remember-and-forget">
                     <input type="checkbox" id="remember-me">
                     <label for="remember-me" class="authorizer__checkbox-label">Запомнить меня</label>
-                    <a href="">Забыли пароль?</a>
+                    <a>Забыли пароль?</a>
                 </div>
                 <input type="submit" class="button sign-in__button" value="Войти">
                 <label for="sign-up" class="sign-in__not-a-label">Не зарегистрированы на Droux? Создайте аккаунт</label>
@@ -117,8 +134,76 @@
                 <input type="password" id="sign-up__repeat-password">
                 <input type="checkbox" id="accept-rules">
                 <label for="accept-rules" class="authorizer__checkbox-label" id="sign-up__checkbox"><span>Я принимаю условия <a href="">Пользовательского соглашения</a></span></label>
-                <input type="submit" class="button sign-up__button" value="Зарегистрироваться">
+                <input type="submit" class="button sign-up__button" value="Зарегистрироваться" disabled>
             </form>
         </div>
+    </div>
+    <div class="header__dropdown dropdown">
+        <div class="dropdown__border-for-brands dropdown__border">
+            <h2 class="dropdown__header">Наш выбор</h2>
+            <div class="dropdown__content container dropdown__content_brands">
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1463" class="dropdown__link">Adidas</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1481" class="dropdown__link">Alexander McQueen</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1483" class="dropdown__link">Alexander Wang</a>
+                </div>
+                <div class="dropdown__letter">                    
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1529" class="dropdown__link">Baldinini</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1530" class="dropdown__link">Balenciaga</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1561" class="dropdown__link">Burberry</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1571" class="dropdown__link">Cartier</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1614" class="dropdown__link">Comme De Garçons</a>
+                </div>
+                <div class="dropdown__letter dropdown__letter_last">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1636" class="dropdown__link">Dior</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1640" class="dropdown__link">Dolce & Gabbana</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&search_string=''" class="dropdown__link">Fear of God</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1726" class="dropdown__link">Givenci</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1734" class="dropdown__link">Gucci</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1808" class="dropdown__link">Lanvin</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1838" class="dropdown__link">Louis Vuitton</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1884" class="dropdown__link">Max Mara</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1932" class="dropdown__link">Nike</a>
+                </div>
+                <div class="dropdown__letter dropdown__letter_last">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1941" class="dropdown__link">Off-white</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=1997" class="dropdown__link">RAF Simons</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2031" class="dropdown__link">Rolex</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2039" class="dropdown__link">Saint Laurent</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2081" class="dropdown__link">Stone Island</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2085" class="dropdown__link">Supreme</a>
+                </div>
+                <div class="dropdown__letter">
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2126" class="dropdown__link">Valentino</a>
+                    <a href="/filters?limit=12&offset=0&prod_brand_id=2139" class="dropdown__link">Versace</a>
+                </div>
+                <a href="/filters?limit=12&offset=0&search_string=''" class="dropdown__all-brands">Все бренды</a>
+            </div>
+        </div>
+        {% for cat in header_categories %}
+            <div class="dropdown__border">
+                <div class="dropdown__content container">
+                    {% for subcat in cat.sub_categories %}
+                        <a href="/filters?limit=12&offset=0&subcategory_id={{ subcat.id }}" class="dropdown__link">{{ subcat.name }}</a>
+                    {% endfor %}
+                </div>             
+            </div>
+        {% endfor %}
     </div>
 </header>

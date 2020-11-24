@@ -4,16 +4,12 @@ pub mod product;
 pub mod filters;
 pub mod users;
 pub mod chat;
+pub mod static_pages;
 
-use rocket::http::{Cookie, Cookies};
 use rocket_contrib::templates::{Template,tera::*};
-use rocket::request::Form;
 use rocket::response::Redirect;
 use diesel::PgConnection;
 
-use rocket::State;
-use crate::auth::IsLogged;
-use std::sync::atomic::{Ordering,AtomicUsize};
 use crate::models::product::ProductCard;
 
 use crate::users::CommonUser;
@@ -40,7 +36,6 @@ pub fn get_required_context(data: UserGuard, conn: &PgConnection) -> Context {
     let mut ctx = Context::new();
     use UserGuard::*;
     use crate::db::filters::{
-        get_brands_for_header,
         get_categories_for_header,
     };
     ctx.insert("header_brands", &get_brands_for_header(&conn));

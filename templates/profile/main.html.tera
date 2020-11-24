@@ -3,10 +3,51 @@
     <link rel="stylesheet" href="/static/css/ad.css">
     <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="stylesheet" href="/static/css/product.css">
     <meta charset="UTF-8">
     <title>Title</title>
 {% endblock head %}
 {% block main %}
+<div class="review__layout review">
+    <form class="review__body" method="POST" action="/profile/users/reviews/add">
+        <h2>Отзыв о продавце</h2>
+        <label for="chooseprod">Объявление</label>
+        <select name="pr_id" id="chooseprod">
+        {% for p in prods %}
+            <option selected disabled></option>
+            <option value="{{ p.0 }}">{{ p.1 }}</option>       
+        {% endfor %}
+        </select>
+        <label for="result">Объявление</label>
+        <select name="status" id="result">
+            <option selected disabled></option>
+            <option value="failed">Не удалось договориться с продавцом</option>
+            <option value="pidor">Сделка сорвалась (Товар не был получен или не соответствовал описанию)</option>
+            <option value="chetko">Сделка состоялась</option>
+        </select>
+        <span class="review__rate">Поставьте оценку</span>
+        <div class="product__rating">
+            <input type="radio" name="rate" value="5" id="product-rating_5">
+            <label for="product-rating_5"></label>
+
+            <input type="radio" name="rate" value="4" id="product-rating_4">
+            <label for="product-rating_4"></label>
+
+            <input type="radio" name="rate" value="3" id="product-rating_3">
+            <label for="product-rating_3"></label>
+
+            <input type="radio" name="rate" value="2" id="product-rating_2">
+            <label for="product-rating_2"></label>
+
+            <input type="radio" name="rate" value="1" id="product-rating_1">
+            <label for="product-rating_1"></label>
+        </div>
+        <label for="review-text">Напишите свои впечатления от сделки</label>
+        <textarea name="descr" id="review-text"></textarea>
+        <input type="hidden" value="{{ viewed_user.id }}" name="u_id">
+        <input type="submit" value="Отправить" class="button">
+    </form>
+</div>
     <main class="container profile">
         <div class="profile__card card">
             <div class="card__top">
@@ -43,7 +84,7 @@
                 Скоро здесь будут подписки или настройки профиля
             </div>
             <div class="card__review-button-div card__button-div">
-                <a href="" class="card__review-button button card__button">Оставить отзыв</a>
+                <button class="card__review-button button card__button">Оставить отзыв</button>
             </div>
             <div class="card__subscribe-button-div card__button-div">
                 <a href="" class="card__subscribe-button button card__button">Подписаться</a>
@@ -63,4 +104,5 @@
     <script src="/static/js/ad-carousel.js"></script>
     <script src="/static/js/profile-ads-category.js"></script>
     <script src="/static/js/chat.js"></script>
+    <script src="/static/js/review.js"></script>
 {% endblock scripts %}

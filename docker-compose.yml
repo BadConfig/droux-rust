@@ -1,22 +1,14 @@
 version: '3'
 services:
-  #rocket.rs app
   app:
-    #build:
-    #  context: .
-    #  dockerfile: Dockerfile
     image: badconfig/droux
     container_name: rocket-server
     tty: true
-   # working_dir: /droux
     ports:
       - "8000:8000"
-   # volumes:
-   #   - ./:/app
     environment:
       DATABASE_URL: postgres://docker:docker@postgres1:5432/diesel_db
     volumes:
-        #  - ./:/app
           - ./Rocket.toml:/droux/Rocket.toml
           - ./static/:/droux/static/
           - ./templates/:/droux/templates/
@@ -24,39 +16,44 @@ services:
           - ./migrations:/droux/migrations/
     networks:
       - app-network
-  #Nginx
-  webserver:
-    image: nginx:alpine
-    container_name: webserver1
+  nginx:
+    image: nginx:1.15-alpine
+    container_name: nginx
     restart: unless-stopped
-    tty: true
-    ports:
-      - "80:8080"
     volumes:
-    #  - ./:/app
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     networks:
       - app-network
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
+    container_name: cert-bot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - app-network
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
   postgres:
     image: "postgres:9.6"
     container_name: postgres1
     restart: unless-stopped
     ports:
       - "5432:5432"
-   # volumes:
-     # - ./postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: diesel_db
       POSTGRES_PASSWORD: docker
       POSTGRES_USER: docker
     networks:
       - app-network
-
-      
-#network
 networks:
   app-network:
     driver: bridge
-#volumes:
- # postgres_data: {}
 

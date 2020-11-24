@@ -1,0 +1,61 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/new-order.css">
+    <meta charset="UTF-8">
+    <title>Оформление заказа</title>
+{% endblock head %}
+{% block main %}
+    <main class="new-order container">
+        <h1 class="new-order__header">Оформление заказа</h1>
+        <div class="new-order__content">
+            <form class="new-order__form" method="POST" action="/product/order/create">
+                <h2 class="form__header">Куда доставить</h2>
+                <label for="address" class="new-order__label">Адрес</label>
+                <input type="text" id="address" class="new-order__input" name="ship_addr">
+                <label for="post-index" class="new-order__label">Индекс</label>
+                <input type="text" id="post-index" class="new-order__input" name="post_index">
+                <h2 class="form__header">Получатель</h2>
+                <label for="customer-name" class="new-order__label">ФИО</label>
+                <input type="text" id="customer-name" class="new-order__input" name="name">
+                <label for="customer-phone" class="new-order__label">Телефон</label>
+                <input type="text" id="customer-phone" class="new-order__input" name="phone">
+                <label for="customer-email" class="new-order__label">E-mail</label>
+                <input type="text" id="customer-email" class="new-order__input" name="mail">
+                <input type="submit" value="Продолжить" class="button">
+                <input type="hidden" name="username" value="{{ my_user.username }}">
+                <input type="hidden" name="pr_price" value="{{ product.price }}">
+                <input type="hidden" name="seller_username" value="{{ seller.username }}">
+                <input type="hidden" name="seller_phone" value="{{ product.phone_number }}">
+                <input type="hidden" name="seller_email" value="{{ seller.email }}">
+                <input type="hidden" name="seller_location" value="{{ product.location }}">
+                <input type="hidden" name="pr_is_pre_order" value="{{ is_pre_order }}">
+                <input type="hidden" name="pr_id" value="{{ product.id }}">
+                <input type="hidden" name="pr_name" value="{{ product.title }}">
+                <input type="checkbox" id="accept-agreement"><label for="accept-agreement">Я ознакомлен с правилами безопасной сделки</label>
+                <span class="new-order__bottom-text">*Правила использования услуги <a href="">безопасная сделка</a></span>
+            </form>
+            <div class="new-order__card">
+                <h2 class="card__header">Ваш заказ</h2>
+                <div class="card__product">
+                    <img src="/{{ product.pictures.0 }}" alt="">
+                    <span>{{ product.title }}</span>
+                </div>
+                <div class="card__price">
+                    <span>Товар</span>
+                    <span>{{ product.price }} руб.</span>
+                </div>
+                <div class="card__say-thanks-to-aisha">
+                    <span>Курьерская доставка</span>
+                    <span>0 руб.</span>
+                </div>
+                <div class="card__sum">
+                    <span>Итого</span>
+                    <span>{{ product.price }} руб.</span>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock main %}
+{% block scripts %}
+{% endblock scripts %}

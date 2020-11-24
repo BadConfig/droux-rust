@@ -46,10 +46,14 @@ pub fn admin_product(page: i32, user: CommonUser, admin: crate::admin::AdminUser
 //     Either::Template(Template::render("admin/products", &ctx))
 // }
 
-// #[post("/admin/user/ban")]
-// pub fn admin_main(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Either {
-    
-// }
+#[post("/admin/users/ban",data="<form>")]
+pub fn admin_users_ban(form: Form<BanForm>, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if admin.is_editor {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    Users::change_banned(form.change_flag, form.user_id, &conn)?;
+    Ok(Either::Redirect(Redirect::to(format!("/admin/users/{}",&form.page))))
+}
 
 #[get("/admin/priveleges")]
 pub fn admin_priveleges(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
@@ -71,7 +75,7 @@ pub struct PrivForm {
 }
 
 #[post("/admin/priveleges/delete",data="<form>")]
-pub fn admin_priveleges_delete(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn admin_priveleges_delete(form: Form<PrivForm>, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if !admin.is_admin {
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }
@@ -80,7 +84,7 @@ pub fn admin_priveleges_delete(form: Form<PrivForm>, user: CommonUser, admin: cr
 }
 
 #[post("/admin/priveleges/change",data="<form>")]
-pub fn admin_priveleges_change(form: Form<PrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn admin_priveleges_change(form: Form<PrivForm>, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if !admin.is_admin {
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }
@@ -95,7 +99,7 @@ pub struct NewPrivForm {
 }
 
 #[post("/admin/priveleges/add",data="<form>")]
-pub fn admin_priveleges_add(form: Form<NewPrivForm>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn admin_priveleges_add(form: Form<NewPrivForm>, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
     if !admin.is_admin {
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }

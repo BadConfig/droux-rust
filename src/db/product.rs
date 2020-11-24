@@ -6,11 +6,13 @@ use crate::schema::products::dsl::*;
 
 use crate::models::product::*;
 
-pub fn create_product(product: NewProduct, conn: &PgConnection) {
-    diesel::insert_into(products)
+pub fn create_product(product: NewProduct, conn: &PgConnection) -> String {
+    let res = diesel::insert_into(products)
         .values(&product)
-        .execute(conn)
+        .returning(id)
+        .get_results::<i32>(conn)
         .expect("error while adding product to database in create product");
+    format!("{}",res[0])
 }
 
 pub fn get_brand_list(conn: &PgConnection) -> Vec<Brand> {
@@ -58,7 +60,6 @@ pub fn increment_product_views(pr_id: i32, conn: &PgConnection) {
 pub fn increment_product_today_views(pr_id: i32, conn: &PgConnection) {
 
     use crate::schema::views::dsl::*;
-    use crate::models::product::ProductTodayViews;
 
     let r = views
         .filter(product_id.eq(pr_id))

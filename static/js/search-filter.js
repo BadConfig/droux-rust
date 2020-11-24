@@ -7,10 +7,11 @@ for (let i = 0; i < searchField.length; i++) {
 function Search() {
     let searchField = event.currentTarget;
     let container = searchField.parentNode;
-    let checkboxes = container.getElementsByClassName('filters__checkbox-div');
+    let checkboxes = container.querySelectorAll('.filters__checkbox-div');
+    let checkboxesLabels = container.querySelectorAll('.filters__checkbox-div label');
     let value = searchField.value.toLowerCase();
     for (let i = 0; i < checkboxes.length; i++) {
-        let checkboxValue = checkboxes[i].getElementsByTagName('label')[0].innerText.toLowerCase();
+        let checkboxValue = checkboxesLabels[i].innerText.toLowerCase();
         if (checkboxValue.includes(value)) {
             checkboxes[i].style="";
         } else {

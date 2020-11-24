@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../static/css/ad.css">
     <link rel="stylesheet" href="../../static/css/search.css">
     <link rel="stylesheet" href="../../static/css/filters.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <!--    <link rel="stylesheet" href="filters.css">-->
 </head>
 <body>
@@ -58,7 +59,7 @@
                     <a href="" class="button sell__button">Продать</a>
                     <img src="../../static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
                     <img src="../../static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
-                    <span style="display: none;">Войти</span><img src="../../static/assets/male.jpg" alt="" class="header__user-photo">
+                    <span id="auth-button">Войти</span><!--<img src="../../static/assets/male.jpg" alt="" class="header__user-photo">-->
                 </div>
             </div>
         </div>
@@ -72,6 +73,44 @@
                 <a href="" class="dropdown__button">СУМКИ</a>
                 <a href="" class="dropdown__button">АКСЕССУАРЫ</a>
             </nav>
+        </div>
+        <div class="authorizer authorizer__background">
+            <div class="authorizer__window">
+                <div class="authorizer__choice">
+                    <input type="radio" name="auth" id="sign-in" checked>
+                    <label for="sign-in">Войти</label>
+                    <input type="radio" name="auth" id="sign-up">
+                    <label for="sign-up">Создать аккаунт</label>
+                </div>
+                <form class="authorizer__form_sign-in authorizer__form authorizer__form_visible">
+                    <label for="sign-in__login">Логин</label>
+                    <input type="text" id="sign-in__login">
+                    <label for="sign-in__password">Пароль</label>
+                    <input type="password" id="sign-in__password">
+                    <div class="sign-in__remember-and-forget">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me" class="authorizer__checkbox-label">Запомнить меня</label>
+                        <a href="">Забыли пароль?</a>
+                    </div>
+                    <input type="submit" class="button sign-in__button" value="Войти">
+                    <label for="sign-up" class="sign-in__not-a-label">Не зарегистрированы на Droux? Создайте аккаунт</label>
+                </form>
+                <form class="authorizer__form_sign-up authorizer__form">
+                    <label for="sign-up__login">Логин</label>
+                    <input type="text" id="sign-up__login">
+                    <span class="sign-up__bottom-text">*Необходимо ввести логин на английском языке и только прописными буквами</span>
+                    <label for="sign-up__email">Адрес электронной почты</label>
+                    <input type="text" id="sign-up__email">
+                    <label for="sign-up__password">Пароль</label>
+                    <input type="password" id="sign-up__password">
+                    <span class="sign-up__bottom-text">*Не менее 8 символов (латиница и цифры)</span>
+                    <label for="sign-up__repeat-password">Повторите пароль</label>
+                    <input type="password" id="sign-up__repeat-password">
+                    <input type="checkbox" id="accept-rules">
+                    <label for="accept-rules" class="authorizer__checkbox-label" id="sign-up__checkbox"><span>Я принимаю условия <a href="">Пользовательского соглашения</a></span></label>
+                    <input type="submit" class="button sign-up__button" value="Зарегистрироваться" disabled>
+                </form>
+            </div>
         </div>
         <div class="header__dropdown dropdown">
             <div class="dropdown__border-for-brands dropdown__border">
@@ -179,6 +218,10 @@
     </header>
 
     <main class="container main">
+        <div class="filters-sort-buttons">
+            <div class="sort-buttons">Сортировать <img src="/static/assets/arrow-hide.svg" alt=""></div>
+            <div class="sort-buttons"><img src="/static/assets/arrow-hide.svg" alt=""> Фильтры</div>
+        </div>
         <div class="sort-by">
             <span>Сортировать:</span>
             <input type="radio" class="sort-by__variant" name="sort-by" id="date" checked>
@@ -191,264 +234,276 @@
             <label for="popularity">по популярности</label>
             <label for="date" class="sort-by__discard">Сбросить</label>
         </div>
-        <aside class="filters">
+        <div class="filters__layout">
+            <aside class="sort-by">
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-date" checked>
+                <label for="-m-date">по дате</label>
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-price-up">
+                <label for="-m-price-up">по возрастанию цены</label>
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-price-down">
+                <label for="-m-price-down">по убыванию цены</label>
+                <input type="radio" class="sort-by__variant" name="sort-by" id="-m-popularity">
+                <label for="-m-popularity">по популярности</label>
+                <label for="-m-date" class="sort-by__discard">Сбросить</label>
+            </aside>
+            <aside class="filters">
+                <div class="filters__sector filters__sector_sex">
+                    <div class="filters__sector-header">
+                        <span>Категории</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <form class="filters__sector-options">
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="men" id="men">
+                                <label for="men">Мужчины</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="women" id="women">
+                                <label for="women">Женщины</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
-            <div class="filters__sector filters__sector_sex">
-                <div class="filters__sector-header">
-                    <span>Категории</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                <div class="filters__sector filters__sector_category">
+                    <div class="filters__sector-header">
+                        <span>Категория</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <form class="filters__sector-options">
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="clothing" id="clothing">
+                                <label for="clothing">Одежда</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="footwear" id="footwear">
+                                <label for="footwear">Обувь</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="outwear" id="outwear">
+                                <label for="outwear">Верхняя одежда</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="accessories" id="accessories">
+                                <label for="accessories">Аксессуары</label>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="filters__must-be-hidden">
-                    <form class="filters__sector-options">
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="men" id="men">
-                            <label for="men">Мужчины</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="women" id="women">
-                            <label for="women">Женщины</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
-            <div class="filters__sector filters__sector_category">
-                <div class="filters__sector-header">
-                    <span>Категория</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                <div class="filters__sector filters__sector_type">
+                    <div class="filters__sector-header">
+                        <span>Вид</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <form class="filters__sector-options">
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="bodies" id="bodies">
+                                <label for="bodies">Боди</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="trousers" id="trousers">
+                                <label for="trousers">Брюки</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="type_outwear" id="type_outwear">
+                                <label for="type_outwear">Верхняя одежда</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="turtlenecks" id="turtlenecks">
+                                <label for="turtlenecks">Водолазки</label>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="filters__must-be-hidden">
-                    <form class="filters__sector-options">
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="clothing" id="clothing">
-                            <label for="clothing">Одежда</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="footwear" id="footwear">
-                            <label for="footwear">Обувь</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="outwear" id="outwear">
-                            <label for="outwear">Верхняя одежда</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="accessories" id="accessories">
-                            <label for="accessories">Аксессуары</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
-            <div class="filters__sector filters__sector_type">
-                <div class="filters__sector-header">
-                    <span>Вид</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                <div class="filters__sector filters__sector_brand">
+                    <div class="filters__sector-header">
+                        <span>Бренды</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <input type="text" placeholder="Искать" class="filters__search-field">
+                        <form class="filters__sector-options">
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="adidas" id="adidas">
+                                <label for="adidas">ADIDAS</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="asicks" id="asicks">
+                                <label for="asicks">ASICKS</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="armani" id="armani">
+                                <label for="armani">ARMANI</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="bordur" id="bordur">
+                                <label for="bordur">BORDUR</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="chingchong" id="chingchong">
+                                <label for="chingchong">CHINGCHONG</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="dandy" id="dandy">
+                                <label for="dandy">DANDY</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="ernie-ball" id="ernie-ball">
+                                <label for="ernie-ball">ERNIE BALL</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="fuck-this" id="fuck-this">
+                                <label for="fuck-this">FUCK THIS</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="gender-2" id="gender-2">
+                                <label for="gender-2">GENDER 2</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="howdy-hu" id="howdy-hu">
+                                <label for="howdy-hu">HOWDY HU</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="iiiiiiiii" id="iiiiiiiii">
+                                <label for="iiiiiiiii">IIIIIIIII</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="jojo" id="jojo">
+                                <label for="jojo">JOJO</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="kkk" id="kkk">
+                                <label for="kkk">KKK</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="louis-vuitton" id="louis-vuitton">
+                                <label for="louis-vuitton">LOUIS VUITTON</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="mother-of-yours" id="mother-of-yours">
+                                <label for="mother-of-yours">MOTHER OF YOURS</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="n*gger" id="n*gger">
+                                <label for="n*gger">N*GGER</label>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="filters__must-be-hidden">
-                    <form class="filters__sector-options">
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="bodies" id="bodies">
-                            <label for="bodies">Боди</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="trousers" id="trousers">
-                            <label for="trousers">Брюки</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="type_outwear" id="type_outwear">
-                            <label for="type_outwear">Верхняя одежда</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="turtlenecks" id="turtlenecks">
-                            <label for="turtlenecks">Водолазки</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
-            <div class="filters__sector filters__sector_brand">
-                <div class="filters__sector-header">
-                    <span>Бренды</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                <div class="filters__sector filters__sector_size">
+                    <div class="filters__sector-header">
+                        <span>Размер</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <input type="text" placeholder="Искать" class="filters__search-field">
+                        <form class="filters__sector-options">
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="1" id="1">
+                                <label for="1">1</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="2" id="2">
+                                <label for="2">2</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="3" id="3">
+                                <label for="3">3</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="4" id="4">
+                                <label for="4">4</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="5" id="5">
+                                <label for="5">5</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="6" id="6">
+                                <label for="6">6</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="7" id="7">
+                                <label for="7">7</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="8" id="8">
+                                <label for="8">8</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="10" id="10">
+                                <label for="10">10</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="11" id="11">
+                                <label for="11">11</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="12" id="12">
+                                <label for="12">12</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="13" id="13">
+                                <label for="13">13</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="14" id="14">
+                                <label for="14">14</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="15" id="15">
+                                <label for="15">15</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="16" id="16">
+                                <label for="16">16</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="17" id="17">
+                                <label for="17">17</label>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="filters__must-be-hidden">
-                    <input type="text" placeholder="Искать" class="filters__search-field">
-                    <form class="filters__sector-options">
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="adidas" id="adidas">
-                            <label for="adidas">ADIDAS</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="asicks" id="asicks">
-                            <label for="asicks">ASICKS</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="armani" id="armani">
-                            <label for="armani">ARMANI</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="bordur" id="bordur">
-                            <label for="bordur">BORDUR</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="chingchong" id="chingchong">
-                            <label for="chingchong">CHINGCHONG</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="dandy" id="dandy">
-                            <label for="dandy">DANDY</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="ernie-ball" id="ernie-ball">
-                            <label for="ernie-ball">ERNIE BALL</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="fuck-this" id="fuck-this">
-                            <label for="fuck-this">FUCK THIS</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="gender-2" id="gender-2">
-                            <label for="gender-2">GENDER 2</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="howdy-hu" id="howdy-hu">
-                            <label for="howdy-hu">HOWDY HU</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="iiiiiiiii" id="iiiiiiiii">
-                            <label for="iiiiiiiii">IIIIIIIII</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="jojo" id="jojo">
-                            <label for="jojo">JOJO</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="kkk" id="kkk">
-                            <label for="kkk">KKK</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="louis-vuitton" id="louis-vuitton">
-                            <label for="louis-vuitton">LOUIS VUITTON</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="mother-of-yours" id="mother-of-yours">
-                            <label for="mother-of-yours">MOTHER OF YOURS</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="n*gger" id="n*gger">
-                            <label for="n*gger">N*GGER</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
-            <div class="filters__sector filters__sector_size">
-                <div class="filters__sector-header">
-                    <span>Размер</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                <div class="filters__sector filters__sector_condition">
+                    <div class="filters__sector-header">
+                        <span>Состояние</span>
+                        <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
+                    </div>
+                    <div class="filters__must-be-hidden">
+                        <form class="filters__sector-options">
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="new-with-tag" id="new-with-tag">
+                                <label for="new-with-tag">Новое с биркой</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="new-no-tag" id="new-no-tag">
+                                <label for="new-no-tag">Новое без бирки</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="wore-once" id="wore-once">
+                                <label for="wore-once">Надевалось один раз</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="wore" id="wore">
+                                <label for="wore">Надевалось несколько раз</label>
+                            </div>
+                            <div class="filters__checkbox-div">
+                                <input type="checkbox" value="has-defects" id="has-defects">
+                                <label for="has-defects">Есть дефекты</label>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="filters__must-be-hidden">
-                    <input type="text" placeholder="Искать" class="filters__search-field">
-                    <form class="filters__sector-options">
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="1" id="1">
-                            <label for="1">1</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="2" id="2">
-                            <label for="2">2</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="3" id="3">
-                            <label for="3">3</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="4" id="4">
-                            <label for="4">4</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="5" id="5">
-                            <label for="5">5</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="6" id="6">
-                            <label for="6">6</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="7" id="7">
-                            <label for="7">7</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="8" id="8">
-                            <label for="8">8</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="10" id="10">
-                            <label for="10">10</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="11" id="11">
-                            <label for="11">11</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="12" id="12">
-                            <label for="12">12</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="13" id="13">
-                            <label for="13">13</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="14" id="14">
-                            <label for="14">14</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="15" id="15">
-                            <label for="15">15</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="16" id="16">
-                            <label for="16">16</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="17" id="17">
-                            <label for="17">17</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="filters__sector filters__sector_condition">
-                <div class="filters__sector-header">
-                    <span>Состояние</span>
-                    <img src="../../static/assets/arrow-hide.svg" alt="Иконка скрытия раздела фильтров">
-                </div>
-                <div class="filters__must-be-hidden">
-                    <form class="filters__sector-options">
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="new-with-tag" id="new-with-tag">
-                            <label for="new-with-tag">Новое с биркой</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="new-no-tag" id="new-no-tag">
-                            <label for="new-no-tag">Новое без бирки</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="wore-once" id="wore-once">
-                            <label for="wore-once">Надевалось один раз</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="wore" id="wore">
-                            <label for="wore">Надевалось несколько раз</label>
-                        </div>
-                        <div class="filters__checkbox-div">
-                            <input type="checkbox" value="has-defects" id="has-defects">
-                            <label for="has-defects">Есть дефекты</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </aside>
+            </aside>
+        </div>
         <div class="search-results">
 
             <div class="ad"> <!--Объявление целиком-->
@@ -836,8 +891,6 @@
             </div>
         </div>
     </footer>
-    <button style="appearance: none; border: none; background-color:#fff;">Артем - пидорас<br>
-    Это - кнопка<br>Нахуй - это туда <img src="../../static/assets/show-all.svg" alt=""></button>
     <script src="../../static/js/ad-carousel.js"></script>
     <script src="../../static/js/hide-sector.js"></script>
     <script src="../../static/js/search-filter.js"></script>
@@ -845,5 +898,6 @@
     <script src="../../static/js/auth.js"></script>
     <script src="../../static/js/favourite.js"></script>
     <script src="../../static/js/dropdown.js"></script>
+    <script src="../../static/js/filters-hide.js"></script>
 </body>
 </html>

@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="ad.css">
-    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/ad.css">
+    <link rel="stylesheet" href="../../static/css/product.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
 </head>
 <body>
@@ -12,15 +13,15 @@
     <div class="services">
         <div class="container services__container">
             <div class="services__item">
-                <img src="assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
+                <img src="../../static/assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
                 <span>Безопасная сделка</span>
             </div>
             <div class="services__item">
-                <img src="assets/delivery.svg" alt="Иконка доставки" class="services__icon">
+                <img src="../../static/assets/delivery.svg" alt="Иконка доставки" class="services__icon">
                 <span>Бесплатная доставка</span>
             </div>
             <div class="services__item">
-                <img src="assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
+                <img src="../../static/assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
                 <span>Экспертиза на подлинность</span>
             </div>
         </div>
@@ -30,19 +31,19 @@
             <form class="header__search">
                 <div class="search__field">
                     <label for="header-search">
-                        <img src="assets/search.svg" alt="Иконка поиска" class="search__icon">
+                        <img src="../../static/assets/search.svg" alt="Иконка поиска" class="search__icon">
                     </label>
                     <input class="search__input" type="search" id="header-search" placeholder="Поиск по товарам">
                 </div>
                 <input class="search__button button" type="submit" value="Найти">
             </form>
             <div class="header__logo">
-                <img src="assets/droux-logo.svg" alt="Логотип Droux">
+                <img src="../../static/assets/droux-logo.svg" alt="Логотип Droux">
             </div>
             <div class="header__buttons">
                 <a href="" class="button sell__button">Продать</a>
-                <img src="assets/chat.svg" alt="Иконка чата" class="buttons__icon">
-                <img src="assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
+                <img src="../../static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
+                <img src="../../static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
                 <span>Войти</span>
             </div>
         </div>
@@ -79,21 +80,24 @@
                         49.5 US
                     </span>
                 </div>
-                <img src="assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav">
+                <div class="ad__favourite-icon ">
+                    <img src="../../static/assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav">
+                    <img src="../../static/assets/favourite-filled.svg" alt="Добавить в избранное" class="product__add-to-fav fav-icon_active">
+                </div>
             </div>
             <div class="product__main">
                 <div class="product__photo-border">
                     <div class="product__arrow-div product__arrow-div_left">
-                        <img src="assets/arrow-left.svg" alt="Иконка перелистывания фото товара влево">
+                        <img src="../../static/assets/arrow-left.svg" alt="Иконка перелистывания фото товара влево">
                     </div>
                     <div class="product__all-photos">
-                        <img src="assets/male.jpg" alt="">
-                        <img src="assets/female.jpg" alt="">
-                        <img src="assets/male.jpg" alt="">
-                        <img src="assets/female.jpg" alt="">
+                        <img src="../../static/assets/male.jpg" alt="">
+                        <img src="../../static/assets/female.jpg" alt="">
+                        <img src="../../static/assets/male.jpg" alt="">
+                        <img src="../../static/assets/female.jpg" alt="">
                     </div>
                     <div class="product__arrow-div product__arrow-div_right">
-                        <img src="assets/arrow-right.svg" alt="Иконка перелистывания фото товара вправо">
+                        <img src="../../static/assets/arrow-right.svg" alt="Иконка перелистывания фото товара вправо">
                     </div>
                 </div>
                 <div class="product__info">
@@ -102,7 +106,7 @@
                             <span class="author__name">Продавец Михал Палыч</span>
                             <span class="author__reg-date">На Droux с мая 2007</span>
                         </div>
-                        <img src="assets/scan.svg" alt="" class="author__profile-photo">
+                        <img src="../../static/assets/scan.svg" alt="" class="author__profile-photo">
                         <div class="author__stat">
                             <div class="author__rating author__stat-item">
                                 <span class="stat__value">0</span>
@@ -137,7 +141,7 @@
                         </div>
                         <div class="product__share">
                             <span>Поделиться:</span>
-                            <img src="assets/vk-filled.svg" alt="Иконка поделиться ВК">
+                            <img src="../../static/assets/vk-filled.svg" alt="Иконка поделиться ВК">
                         </div>
                     </div>
                     <div class="product__description">
@@ -157,12 +161,12 @@
                                 <span>Новое без бирки</span>
                             </div>
                         </div>
-                        <a href="" class="button product__button product__button_color_white">
-                            Чат с продавцом
-                        </a>
-                        <a href="" class="button product__button product__button_color_black">
-                            Купить с доставкой
-                        </a>
+                        <form action="">
+                            <input type="submit" class="button product__button product__button_color_white" value="Чат с продавцом">
+                        </form>
+                        <form action="">
+                            <input type="submit" class="button product__button product__button_color_black" value="Купить с доставкой">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -171,27 +175,27 @@
             <h2 class="show-all__header">Новые объявления</h2>
             <a href=""><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
-                <img src="assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
+                <img src="../../static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>
         </div>
         <div class="ads">
             <div class="part__ad ad"> <!--Объявление целиком-->
                 <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                     <div class="ad__arrow ad__arrow_left">
-                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
                     </div>
                     <div class="ad__all-images"> <!--Все фото в линию-->
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
                     </div>
                     <div class="ad__arrow ad__arrow_right">
-                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
                     </div>
                     <div class="ad__favourite-icon">
-                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                        <img src="../../static/assets/favourite.svg" alt="Иконка избранного">
                     </div>
                 </div>
                 <div class="ad__name-and-size">
@@ -204,20 +208,20 @@
             <div class="part__ad ad"> <!--Объявление целиком-->
                 <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                     <div class="ad__arrow ad__arrow_left">
-                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
                     </div>
                     <div class="ad__all-images"> <!--Все фото в линию-->
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
                     </div>
                     <div class="ad__arrow ad__arrow_right">
-                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
                     </div>
                     <div class="ad__favourite-icon">
-                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                        <img src="../../static/assets/favourite.svg" alt="Иконка избранного">
                     </div>
                 </div>
                 <div class="ad__name-and-size">
@@ -230,20 +234,20 @@
             <div class="part__ad ad"> <!--Объявление целиком-->
                 <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                     <div class="ad__arrow ad__arrow_left">
-                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
                     </div>
                     <div class="ad__all-images"> <!--Все фото в линию-->
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
                     </div>
                     <div class="ad__arrow ad__arrow_right">
-                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
                     </div>
                     <div class="ad__favourite-icon">
-                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                        <img src="../../static/assets/favourite.svg" alt="Иконка избранного">
                     </div>
                 </div>
                 <div class="ad__name-and-size">
@@ -256,20 +260,20 @@
             <div class="part__ad ad"> <!--Объявление целиком-->
                 <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                     <div class="ad__arrow ad__arrow_left">
-                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
                     </div>
                     <div class="ad__all-images"> <!--Все фото в линию-->
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
                     </div>
                     <div class="ad__arrow ad__arrow_right">
-                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
                     </div>
                     <div class="ad__favourite-icon">
-                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                        <img src="../../static/assets/favourite.svg" alt="Иконка избранного">
                     </div>
                 </div>
                 <div class="ad__name-and-size">
@@ -282,20 +286,20 @@
             <div class="part__ad ad"> <!--Объявление целиком-->
                 <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                     <div class="ad__arrow ad__arrow_left">
-                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
                     </div>
                     <div class="ad__all-images"> <!--Все фото в линию-->
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
                     </div>
                     <div class="ad__arrow ad__arrow_right">
-                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
                     </div>
                     <div class="ad__favourite-icon">
-                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                        <img src="../../static/assets/favourite.svg" alt="Иконка избранного">
                     </div>
                 </div>
                 <div class="ad__name-and-size">
@@ -308,20 +312,20 @@
             <div class="part__ad ad"> <!--Объявление целиком-->
                 <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                     <div class="ad__arrow ad__arrow_left">
-                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
                     </div>
                     <div class="ad__all-images"> <!--Все фото в линию-->
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
                     </div>
                     <div class="ad__arrow ad__arrow_right">
-                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
                     </div>
                     <div class="ad__favourite-icon">
-                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                        <img src="../../static/assets/favourite.svg" alt="Иконка избранного">
                     </div>
                 </div>
                 <div class="ad__name-and-size">
@@ -334,20 +338,20 @@
             <div class="part__ad ad"> <!--Объявление целиком-->
                 <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                     <div class="ad__arrow ad__arrow_left">
-                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
                     </div>
                     <div class="ad__all-images"> <!--Все фото в линию-->
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
                     </div>
                     <div class="ad__arrow ad__arrow_right">
-                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
                     </div>
                     <div class="ad__favourite-icon">
-                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                        <img src="../../static/assets/favourite.svg" alt="Иконка избранного">
                     </div>
                 </div>
                 <div class="ad__name-and-size">
@@ -360,20 +364,20 @@
             <div class="part__ad ad"> <!--Объявление целиком-->
                 <div class="ad__img-container"> <!--Рамка для одной фотографии-->
                     <div class="ad__arrow ad__arrow_left">
-                        <img src="assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
+                        <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
                     </div>
                     <div class="ad__all-images"> <!--Все фото в линию-->
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
-                        <img src="assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
+                        <img src="../../static/assets/male.jpg" alt="" class="ad__img">
                     </div>
                     <div class="ad__arrow ad__arrow_right">
-                        <img src="assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                        <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
                     </div>
                     <div class="ad__favourite-icon">
-                        <img src="assets/favourite.svg" alt="Иконка избранного">
+                        <img src="../../static/assets/favourite.svg" alt="Иконка избранного">
                     </div>
                 </div>
                 <div class="ad__name-and-size">
@@ -404,13 +408,15 @@
             <a href="">Новости</a>
         </div>
         <div class="footer__column footer__column_fourth">
-            <span>Мы в соц. сетях</span>
-            <div class="footer__media-links">
-                <a href=""><img src="assets/youtube.svg" alt="Иконка YouTube" class="media-links__icon"></a>
-                <a href=""><img src="assets/vk.svg" alt="Иконка VK" class="media-links__icon"></a>
-                <a href=""><img src="assets/facebook.svg" alt="Иконка Facebook" class="media-links__icon"></a>
-                <a href=""><img src="assets/instagram.svg" alt="Иконка Instagram" class="media-links__icon"></a>
-                <a href=""><img src="assets/telegram.svg" alt="Иконка Telegram" class="media-links__icon"></a>
+            <div class="footer__media-links-div">
+                <span>Мы в соц. сетях</span>
+                <div class="footer__media-links">
+                    <a href=""><img src="../../static/assets/youtube.svg" alt="Иконка YouTube" class="media-links__icon"></a>
+                    <a href=""><img src="../../static/assets/vk.svg" alt="Иконка VK" class="media-links__icon"></a>
+                    <a href=""><img src="../../static/assets/facebook.svg" alt="Иконка Facebook" class="media-links__icon"></a>
+                    <a href=""><img src="../../static/assets/instagram.svg" alt="Иконка Instagram" class="media-links__icon"></a>
+                    <a href=""><img src="../../static/assets/telegram.svg" alt="Иконка Telegram" class="media-links__icon"></a>
+                </div>
             </div>
             <span>Подписка на новости</span>
             <label class="subscribe__text" for="footer-subscribe">Получайте все самые последние новости о мероприятиях.</label>
@@ -421,7 +427,7 @@
         </div>
     </div>
 </footer>
-    <script src="ad-carousel.js"></script>
-    <script src="product-carousel.js"></script>
+    <script src="../../static/js/ad-carousel.js"></script>
+    <script src="../../static/js/product-carousel.js"></script>
 </body>
 </html>

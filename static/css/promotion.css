@@ -1,0 +1,94 @@
+.promotion {
+    flex-direction: column;
+}
+
+.promotion__form {
+    width: 730px;
+}
+
+.commission-info {
+    font-size: 14px;
+    margin-top: 28px;
+}
+
+.commission-info a {
+    text-decoration: underline;
+}
+
+h1 {
+    margin:20px 0 35px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.preorder {
+    width: 208px;
+    border: 1px solid black;
+    padding: 11px 12px 18px 15px;
+    margin-bottom: 59px;
+}
+
+.preorder label {
+    font-size: 18px;
+}
+
+.preorder label span {
+    font-size: 17px;
+    margin-bottom: -3px;
+}
+
+.preorder label::before {
+    margin-right: 11px;
+}
+
+.preorder div {
+    margin-top: 16px;
+    font-size: 12px;
+    padding-left: 26px;
+}
+
+.promotion__item-div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.promotion__item-div label::before {
+    margin-right: 29px;
+}
+
+.promotion__item-div:not(.promotion__item-div_nothing) {
+    font-weight: bold;
+    margin-bottom: 65px;
+}
+
+.promotion__bottom-text {
+    font-size: 12px;
+    margin-left: 43px;
+    font-weight: normal;
+}
+
+.promotion__coupon-and-button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0 0;
+}
+
+.promotion__coupon-and-button input[type=text] {
+    width: 350px;
+    height: 36px;
+    border: 1px solid black;
+}
+
+.promotion__coupon-and-button input[type=submit] {
+    width: 285px;
+    color: white;
+    background-color: black;
+    font-size: 18px;
+}
+
+.promotion__bottom-text_submit {
+    margin-left: 445px;
+    margin-bottom: 110px;
+}

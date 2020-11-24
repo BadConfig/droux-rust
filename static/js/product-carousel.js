@@ -17,3 +17,10 @@ function swipeProduct() {
     }
     photos.style = "transform: translateX(-" + String(photoWidth * productCurrentPhoto) + "px);";
 }
+
+let productPhotoBorder = document.querySelector('.product__photo-border')
+let productPhotoWidth = productPhotoBorder.clientWidth;
+let productPhotos = document.querySelectorAll('.product__photo-border img');
+for (let i = 0; i < productPhotos.length; i++) {
+    productPhotos[i].style.width = productPhotoWidth + 'px';
+}

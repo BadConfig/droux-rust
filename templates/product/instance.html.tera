@@ -35,11 +35,11 @@
             </div>
             {% if is_logged %}
                 <div class="ad__favourite-icon">
-                    <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="ad__favourite-icon-img_empty                     
+                    <img src="/static/assets/favourite.svg" alt="Иконка избранного" class="ad__favourite-icon-img_empty                 
                         {% if ad.is_in_favourites == false %}
                             fav-icon_active
                         {% endif %}">
-                    <img src="/static/assets/favourite-filled.svg" class="ad__favourite-icon-img_filled 
+                    <img src="/static/assets/favourite-filled.svg" class="ad__favourite-icon-img_filled
                         {% if ad.is_in_favourites %}
                             fav-icon_active
                         {% endif %}">

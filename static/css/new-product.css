@@ -18,8 +18,9 @@
     width: 185px;
 }
 
-.filters__sector_size_s {
-    width: 223px;
+.filters__sector_size_l {
+    max-width: 223px;
+    overflow-x: hidden;
 }
 
 .filters__sector-header {
@@ -408,4 +409,92 @@ textarea {
 .bottom-text_submit {
     margin: 10px 0 16px 255px;
     width: 500px;
+}
+
+.mobile__page {
+    display: block;
+}
+
+.mobile__button {
+    display: none;
+}
+
+input[type=text] {
+    appearance: none;
+    height: 36px;
+    border: 1px solid black;
+}
+
+.mobile__page_3 {
+    position: absolute;
+    right: 0;
+    top: 596px;
+    display: flex;
+    flex-direction: row;
+}
+.mobile__page_2 {
+    position: relative;
+}
+
+.main {
+    position: relative;
+}
+
+@media (max-width: 1200px) {
+    .mobile__page {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .filters {
+        flex-direction: column;
+        border: 0;
+    }
+    .filters__sector {
+        width: 100%;
+    }
+
+    .mobile__button {
+        width: 75%;
+        height: 36px;
+        color: white;
+        background-color: black;
+        margin: 20px auto;
+        display: flex;
+    }
+
+    .form-column {
+        width: 100%;
+    }
+    .form-column > * > * {
+        width: 100%;
+    }
+
+    .state__options {
+        max-width: 50%;
+        font-size: 12px;
+    }
+    .state__options label:not(:last-child) {
+        margin-bottom: 15px;
+    }
+    .state__options label::before {
+        min-width: 14px;
+        min-height: 14px;
+    }
+    .ad-form__submit-button {
+        width: 80%;
+        margin: 20px auto 0;
+    }
+    .bottom-text_submit {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .header__buttons a {
+        display: none;
+    }
+    .mobile__page_3 {
+        position: static;
+    }
 }

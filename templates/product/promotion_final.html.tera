@@ -1,0 +1,14 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/static-pages.css">
+    <meta charset="UTF-8">
+    <title>Публикация создана</title>
+{% endblock head %}
+{% block main %}
+  <main class="static container static__product-is-created">
+    <h1 class="static__header">Ваша публикация успешно создана!</h1>
+    <p class="static__text">Сейчас она находится на рассмотрении. В течение 30 минут<br>публикация будет размещена на сайте.</p>
+    <a href="/users/products" class="button static__button">Вернуться в личный кабинет</a>
+</main>
+{% endblock main %}

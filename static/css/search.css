@@ -57,3 +57,19 @@
     margin-left: 30px;
     margin-bottom: 30px;
 }
+
+@media (max-width: 1200px) {
+    .search-results .ad {
+        margin: 0;
+        width: 47%;
+        margin-bottom: 30px;
+    }
+    .search-results {
+        width: 100%;
+        justify-content: space-between;
+        align-content: flex-start;
+    }
+    body {
+        max-height: fit-content;
+    }
+}

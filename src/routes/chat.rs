@@ -1,16 +1,11 @@
-use rocket_contrib::templates::{Template,tera::*};
+use rocket_contrib::templates::Template;
 use rocket::request::Form;
 use rocket::response::Redirect;
-use rocket::http::{Cookie, Cookies};
 
-use rocket::State;
-use crate::auth::IsLogged;
-use std::sync::atomic::{Ordering,AtomicUsize};
 use super::get_base_context;
 use crate::users::CommonUser;
 use crate::db::chat::*;
 
-use crate::auth::make_jwt_for_user;
 use crate::routes::Either;
 use crate::models::users::Users;
 
@@ -24,7 +19,7 @@ pub fn get_chat_messages(user: CommonUser, user_id: i32, prod_id: i32, conn: cra
         ctx.insert("people_list",&get_dialoge_list(user.id, &conn));
         ctx.insert("messages",&get_messages(chat, user.id, &conn));
         let rate_int = if user.rate_count != 0 {
-            (user.rate_summ/user.rate_count)
+            user.rate_summ/user.rate_count
         } else {
             0
         };
@@ -45,7 +40,7 @@ pub fn get_chats(user: CommonUser, conn: crate::db::Conn) -> Either {
     if let CommonUser::Logged(user) = user {
         ctx.insert("my_user", &user.clone());
         let rate_int = if user.rate_count != 0 {
-            (user.rate_summ/user.rate_count)
+            user.rate_summ/user.rate_count
         } else {
             0
         };
@@ -64,7 +59,6 @@ pub struct CreateChatForm {
 }
 #[get("/chat/create?<other_id>&<product_id>")]
 pub fn create_chat_messages(other_id: i32, product_id: i32, user: CommonUser, conn: crate::db::Conn) -> Either {
-    let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(user) = user {
         print!("my_id: {} other_id: {} prod_id: {}",user.id,other_id,product_id);
         if other_id == user.id {
@@ -95,7 +89,6 @@ pub struct MessageForm {
 }
 #[post("/chat/send",data="<form>")]
 pub fn write_chat_messages(user: CommonUser,form: Form<MessageForm>, conn: crate::db::Conn) -> Either {
-    let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(user) = user {
         let chat = get_chat(
             user.id,

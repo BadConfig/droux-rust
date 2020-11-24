@@ -1,0 +1,22 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/static-pages.css">
+    <meta charset="UTF-8">
+    <title>Контакты</title>
+{% endblock head %}
+{% block main %}
+    <main class="static container static__contacts">
+        <h1 class="static__header">Контакты</h1>
+        <p class="static__text">
+            ИП Постников Михаил Олегович<br>
+            ОГРНИП 316595800167239<br>
+            Адрес: 614015, г. Пермь, ул. Советская, д. 65А, оф. 15 (215)<br>
+            По всем вопросам просьба обращаться в нашу группу ВКонтакте<br>
+            Email: help@tmrkt.ru (только для коммерческих предложений)<br>
+            <br>
+            VK-951320<br>
+        </p>
+        <a href="/" class="button static__button">Вернуться на главную</a>
+    </main>
+{% endblock main %}

@@ -5,10 +5,11 @@
     <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/ad.css">
     <link rel="stylesheet" href="/static/css/product.css">
-    <title>Title</title>
+    <title>{{ product.title }}</title>
 {% endblock head %}
 {% block main %}  
     <main class="container main">
+    <input type ='hidden' class='prod_id' value='{{ product.id }}'>
         <div class="breadcrumbs">
             <a href="">{{ product.type_name }}/</a>
             <a href="">{{ product.category_name }}/</a>
@@ -28,7 +29,10 @@
                         {{ product.size_name }}
                     </span>
                 </div>
-                <img src="/static/assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav">
+                <div class="ad__favourite-icon ">
+                    <img src="/static/assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav">
+                    <img src="/static/assets/favourite-filled.svg" alt="Добавить в избранное" class="product__add-to-fav fav-icon_active">
+                </div>
             </div>
             <div class="product__main">
                 <div class="product__photo-border">
@@ -107,9 +111,9 @@
                         <a href="/chat/create/?other_id={{ seller.id }}&product_id={{ product.id }}" class="button product__button product__button_color_white">
                             Чат с продавцом
                         </a>
-                        <a href="" class="button product__button product__button_color_black">
-                            Купить с доставкой
-                        </a>
+                        <form action="/product/order/create/{{ product.id }}">
+                            <input type="submit" class="button product__button product__button_color_black" value="Купить с доставкой">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -129,6 +133,6 @@
     </main>
 {% endblock main %}
 {% block scripts %}
-    <script src="ad-carousel.js"></script>
-    <script src="product-carousel.js"></script>
+    <script src="/static/js/ad-carousel.js"></script>
+    <script src="/static/js/product-carousel.js"></script>
 {% endblock scripts %}

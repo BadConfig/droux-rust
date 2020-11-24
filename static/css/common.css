@@ -29,8 +29,8 @@ input[type=checkbox] {
 input[type=checkbox] + label::before {
     display: block;
     border: 1px solid black;
-    width: 14px;
-    height: 14px;
+    min-width: 14px;
+    min-height: 14px;
     content: "";
     align-self: center;
     background-size: 90% 90%;
@@ -143,6 +143,19 @@ input[type=checkbox] + label {
     color: black;
     cursor: pointer;
     font-size: 13px;
+    transition: transform 0.2s ease;
+}
+
+.button:hover {
+    transform: scale(1.1);
+}
+
+.button[disabled]:hover {
+    transform: none;
+}
+
+.button[disabled] {
+    background-color: #707070;
 }
 
 
@@ -369,7 +382,7 @@ input[type=checkbox] + label {
     border: 1px solid black;
 }
 
-.authorizer__form input[type=submit] {
+.sign-up__button, .sign-in__button {
     background-color: black;
     color: white;
     font-size: 18px;
@@ -544,4 +557,295 @@ input[type=checkbox] + label {
     height: 1px;
 }
 
+@media (max-width: 1200px) {
+    .container {
+        width: 100%;
+    }
+    html {
+        width: 100%;
+    }
+    body {
+        width: 100%;
+    }
+    .header {
+        width: 100%;
+    }
+    .services {
+        width: 100%;
+        min-height: 40px;
+        justify-content: space-between;
+    }
+    .services__item {
+        font-size: 12px;
+        width: 33%;
+        margin: 0;
+    }
+    .services__item img {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+    }
+    .header__base {
+        justify-content: space-between;
+        height: unset;
+        align-items: center;
+    }
 
+    .header__nav a, .header__nav a:hover {
+        padding: 0;
+    }
+
+    .header__nav::-webkit-scrollbar {
+        width: 0;
+    }
+
+
+}
+
+
+.sign-up__bottom-text {
+    font-size: 9px;
+    color: #747474;
+    margin-bottom: -10px;
+}
+
+.authorizer__window .authorizer__form .authorizer__input_failed {
+    border: 1px solid red;
+}
+
+.authorizer__window .authorizer__form .authorizer__input_failed + .sign-up__bottom-text {
+    color: red;
+}
+
+.footer__media-links-div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+@media (max-width: 1200px) {
+    
+    .container {
+        padding: 0 17px;
+        width: 100%;
+    }
+
+    .header__base {
+        padding: 25px 15px;
+    }
+    
+    .services {
+        min-height: 40px;
+        height: unset;
+        background-color: #E0E0E0;
+        position: relative;
+        z-index: 7;
+        display: flex;
+        align-items: center;
+    }
+    
+    .services > * {
+        margin: auto;
+        white-space: nowrap;
+    }
+    
+    .header__search {
+        max-width: 16px;
+        overflow: hidden;
+    }
+
+    .search__field {
+        border-bottom: 0;
+    }
+    
+    .header__search__mobile__button {
+        width: 20px;
+        position: relative;
+    }
+    
+    .header__search__mobile__button > .search__icon {
+        height: 18px;
+    }
+    
+    .header__search__mobile__button__checkbox {
+        position: absolute;
+        display: none;
+    }
+    
+    .header__login__button__mobile {
+        font-size: 14px;
+    }
+
+    .header__buttons {
+        width: unset;
+    }
+    
+    .header__buttons > *{
+       display: none;
+    }
+
+    .header__buttons > span, .header__buttons > .header__user-photo {
+        display: block;
+    }
+
+    .header__buttons .sell__button {
+        position: fixed;
+        display: flex;
+        width: 170px;
+        margin: 0 auto;
+        bottom: 15px;
+        height: 30px;
+        right: calc(50% - 85px);
+        border: 1px solid white;
+    }
+    
+    .footer {
+        height: 576px;
+    }
+    
+    .footer__column > a {
+        font-size: 14px;
+    }
+    
+    .footer__column__fourth {
+        display: flex;
+    }
+    
+    .header-nav__line {
+        padding: 0 17px;
+        height: 66px;
+    }
+    
+    .header__nav {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        height: unset;
+    }
+    
+    .header__nav a:hover {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 7px;
+    }
+    
+    .header__nav > a {
+        margin-left: 20px;
+        white-space: nowrap;
+        padding-bottom: 7px;
+    }
+    
+    .header__nav a:first-child {
+        margin-left: 0;
+    }
+    
+    .footer {
+        margin-top: 71px;
+    }
+    
+    .footer__container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .footer__column {
+        height: 200px;
+        width: 150px;
+        display: flex;
+        margin: 0;
+    }
+    
+    .footer__column_fourth {
+        flex-basis: 100%;
+    }
+    
+    .flex__break {
+        flex-basis: 100%;  
+        height: 0;
+    }
+    
+    .footer__link_46, .footer__column > a {
+        margin-bottom: 50px;
+    }
+
+    .footer__column:not(.footer__column__fourth){
+        width: 33%;
+    }
+    .services__item div {
+        white-space: pre-wrap;
+        width: 70px;
+    }
+    .header__logo {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header__logo img {
+        width: 100%;
+        height: unset;
+    }
+
+    .authorizer__window {
+        width: 71%;
+        height: unset;
+        margin: 20px auto 0;
+    }
+
+    .footer__media-links-div {
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+        padding: 17px 0;
+        border-bottom: 1px solid white;
+        border-top: 1px solid white;
+        margin-bottom: 30px;
+    }
+
+    .footer__media-links {
+        margin: 0;
+        width: 60%;
+        justify-content: space-around;
+    }
+
+}
+
+
+@media only screen and (max-width: 510px) {
+    .services__item {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 430px) {
+    .show-all .show-all__header {
+        font-size: 14px;
+    }
+    .footer .footer__column > a{
+        font-size: 10px;
+    }
+    .show-all__button {
+        justify-content: flex-start;
+        width: unset;
+    }
+    .services__item span {
+        white-space: normal;
+    }
+
+    .authorizer__choice input + label {
+        font-size: 14px;
+    }
+
+    .authorizer__form input[type=text],  .authorizer__form input[type=password] {
+        min-height: 20px;
+    }
+
+    .authorizer__checkbox-label, .authorizer__form a {
+        font-size: 12px;
+    }
+    .footer__media-links-div span {
+        font-size: 14px;
+    }
+
+
+}

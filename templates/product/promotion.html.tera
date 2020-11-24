@@ -1,0 +1,60 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/promotion.css">
+    <meta charset="UTF-8">
+    <title>Продвижение</title>
+{% endblock head %}
+{% block main %}
+    <main class="promotion container">
+        <form class="promotion__form" method="POST" action="/product/promotion/create">
+            <div class="commission-info">При успешной продаже лота мы взимаем комиссию 9%
+                <a href="">Почему мы взимаем комиссию?</a>
+            </div>
+            <h1>Продвижение публикации</h1>
+            <div class="preorder">
+                <input type="checkbox" id="preorder-check" name="pre_order" value="true">
+                <label for="preorder-check">Предзаказ - 499<span>₽</span></label>
+                <div>Выводит публикацию в раздел новостей, что повышает вероятность продажи в несколько раз.</div>
+            </div>
+            <div class="promotion__item-div">
+                <input type="checkbox" id="top-name" name="top_name" value="true">
+                <label for="top-name">Поднятие публикации в топ по названию на 7 дней</label>
+                <span class="promotion__price">189 ₽</span>
+            </div>
+            <div class="promotion__item-div">
+                <input type="checkbox" id="top-category" name="top_cat" value="true">
+                <label for="top-category">Поднятие публикации в топ по категории на 7 дней</label>
+                <span class="promotion__price">149 ₽</span>
+            </div>
+            <div class="promotion__item-div">
+                <input type="checkbox" id="to-news" name="take_in_news" value="true">
+                <label for="to-news">Выведение публикации в раздел новостей на 7 дней</label>
+                <span class="promotion__price">399 ₽</span>
+            </div>
+            <div class="promotion__item-div">
+                <div class="promotion__turbo-wrapper">
+                    <input type="checkbox" id="turbo" name="all" value="true">
+                    <label for="turbo">Турбо-продажа</label>
+                    <span class="promotion__bottom-text">Все пункты одновременно</span>
+                </div>
+                <span class="promotion__price">599 ₽</span>
+            </div>
+            <div class="promotion__item-div promotion__item-div_nothing">
+                <input type="checkbox" id="nothing" name="none" value="true">
+                <label for="nothing">Продвижение публикации без услуг</label>
+                <span class="promotion__price">Бесплатно</span>
+            </div>
+            <input type="hidden" name="seller_id" value="{{ seller_id }}">
+            <input type="hidden" name="product_id" value="{{ product.id }}">
+            <input type="hidden" name="product_name" value="{{ product.title }}">
+            <div class="promotion__coupon-and-button">
+                <input type="text" placeholder="Введите промокод">
+                <input type="submit" class="button promotion__button">
+            </div>
+            <div class="promotion__bottom-text promotion__bottom-text_submit">*Каждое объявление автоматически удаляется через 2 месяца</div>
+        </form>
+    </main>
+{% endblock main %}
+{% block scripts %}
+{% endblock scripts %}

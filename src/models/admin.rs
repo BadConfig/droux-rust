@@ -4,7 +4,7 @@ use serde::{Serialize, Deserialize};
 use crate::schema::priveleges;
 use diesel::PgConnection;
 use diesel::prelude::*;
-
+use crate::Error;
 #[derive(Serialize, Deserialize, Queryable)]
 pub struct Priveleges {
     pub id: i32,

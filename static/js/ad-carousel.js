@@ -1,16 +1,18 @@
 let ads = document.getElementsByClassName('ad');
 let photosCount = [];
 let currentPhoto = [];
-for (let i = 0; i < ads.length; i++) {
-    photosCount[i] = ads[i].getElementsByClassName('ad__img').length;
-    currentPhoto[i] = 0;
-    ads[i].id =  'carousel-id_' + String(i);
-    let arrowLeft = ads[i].getElementsByClassName('ad__arrow_left')[0];
-    arrowLeft.addEventListener('click', SwipePhotos);
-    let arrowRight = ads[i].getElementsByClassName('ad__arrow_right')[0];
-    arrowRight.addEventListener('click', SwipePhotos);
+function checkAds() {
+    for (let i = 0; i < ads.length; i++) {
+        photosCount[i] = ads[i].getElementsByClassName('ad__img').length;
+        currentPhoto[i] = 0;
+        ads[i].id = 'carousel-id_' + String(i);
+        let arrowLeft = ads[i].getElementsByClassName('ad__arrow_left')[0];
+        arrowLeft.addEventListener('click', SwipePhotos);
+        let arrowRight = ads[i].getElementsByClassName('ad__arrow_right')[0];
+        arrowRight.addEventListener('click', SwipePhotos);
+    }
 }
-
+checkAds();
 function SwipePhotos() {
     let arrow = event.currentTarget;
     let ad = arrow.parentNode.parentNode;
@@ -27,5 +29,18 @@ function SwipePhotos() {
         }
     }
     photos.style="transform: translateX(-" + String(photoWidth * currentPhoto[adID]) + "px);";
+
+}
+
+let photoWidth = String(document.querySelector('.ad__img-container').clientWidth) + 'px';
+let borderHeight = Number(window.getComputedStyle(document.querySelector('.ad__img-container')).height.slice(0, -2));
+let adPhotos = document.getElementsByClassName('ad__img');
+for (let i = 0; i < adPhotos.length; i++) {
+    adPhotos[i].style.width = photoWidth;
+    adPhotos[i].onload = function(){
+        let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
+        adPhotos[i].style.top = String(-(photoHeight - borderHeight)/2) + 'px';
+        console.log(String(-(photoHeight - borderHeight)/2) + 'px');
+    }
 
 }

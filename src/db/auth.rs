@@ -2,9 +2,6 @@ use diesel;
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
 
-use ring::digest::Digest;
-use crate::models::users::Users;
-
 pub fn get_id_from_link(link: String, conn: &PgConnection) -> Result<i32,()> {
   
     use crate::schema::activation_links::dsl::*;

@@ -45,7 +45,7 @@ pub fn create_user(u_login: String, u_email: String, u_password: String, conn: &
     print!("error in creating user insert into db\n");
     let user = match user {
         Ok(u) => u,
-        Err(e) => return Err("can't insert".to_string()),
+        Err(_) => return Err("can't insert".to_string()),
     };
 
 
