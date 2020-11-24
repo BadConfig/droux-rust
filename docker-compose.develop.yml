@@ -3,16 +3,17 @@ services:
   app_dev:
     image: badconfig/droux
     container_name: rocket-server_dev
+    restart: unless-stopped
     tty: true
     ports:
-      - "8000:8000"
+      - "8001:8000"
     environment:
       DATABASE_URL: postgres://docker:docker@postgres1_dev:5432/diesel_db
     volumes:
-          - ./Rocket.toml:/droux/Rocket.toml
+          - ./Rocket.dev.toml:/droux/Rocket.toml
           - ./static/:/droux/static/
           - ./templates/:/droux/templates/
-          - ./.env:/droux/.env
+          - ./.env.dev:/droux/.env
           - ./migrations:/droux/migrations/
     networks:
       - app-network
@@ -31,7 +32,7 @@ services:
     container_name: postgres1_dev
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       POSTGRES_DB: diesel_db
       POSTGRES_PASSWORD: docker
