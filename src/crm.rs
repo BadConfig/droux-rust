@@ -1,6 +1,7 @@
 extern crate reqwest;
 use serde_json::json;
 use crate::Error;
+use std::env;
 use crate::routes::product::BuyForm;
 use crate::routes::product::PrivForm;
 use serde::{
@@ -53,9 +54,11 @@ impl BuyForm {
                     },
                 ]
         });
+        let retail_api_key = env::var("RETAIL_CRM_API_KEY")
+        .expect("DATABASE_URL must be set");
         print!("my_json:\n{:#?}\n",&data.to_string());
         let params = [
-            ("apiKey", "qZPXO3WaF2LLQI3YEZHdpJLoYZxhHdzH"),
+            ("apiKey", &retail_api_key[..]),
             ("site", "droux.ru"),
             ("order", &data.to_string())];
 
@@ -86,13 +89,18 @@ pub enum TrDescription {
 
 impl PrivForm {
     pub fn send_sber_pay_link(&self, summ: i64) -> Result<String,Error> {
-
+        let site_url = env::var("SITE_URL")
+        .expect("SITE_URL must be set");
+        let sber_uname = env::var("SBERBANK_USERNAME")
+        .expect("SBERBANK_USERNAME must be set");
+        let sber_pass = env::var("SBERBANK_PASSWORD")
+        .expect("SBERBANK_PASSWORD must be set"); 
         let params = [
-            ("userName", "T773007004660-api"),
-            ("password", "T773007004660"),
+            ("userName", &sber_uname[..]),
+            ("password", &sber_pass[..]),
             ("amount", &format!("{}",summ*100)[..]),
             ("currency", "643"),
-            ("returnUrl", "https://droux.ru/product/pay"),
+            ("returnUrl", &("https://".to_string() + &site_url + &("/product/pay".to_string()))[..]),
             ("orderNumber", &format!("{}{}pay",self.product_name,self.product_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Priveleges(self.clone()))?[..])];
 
@@ -153,14 +161,18 @@ impl TrDescription {
 
 impl BuyForm {
     pub fn send_sber_pre_pay_link(&self) -> Result<String,Error> {
-
-        print!("here");
+        let site_url = env::var("SITE_URL")
+        .expect("SITE_URL must be set");
+        let sber_uname = env::var("SBERBANK_USERNAME")
+        .expect("SBERBANK_USERNAME must be set");
+        let sber_pass = env::var("SBERBANK_PASSWORD")
+        .expect("SBERBANK_PASSWORD must be set"); 
         let params = [
-            ("userName", "T773007004660-api"),
-            ("password", "T773007004660"),
+            ("userName", &sber_pass[..]),
+            ("password", &sber_uname[..]),
             ("amount", &format!("{}",self.pr_price*100)),
             ("currency", &format!("{}",643)[..]),
-            ("returnUrl", "https://droux.ru/product/pay"),
+            ("returnUrl", &("https://".to_string() + &site_url + &("/product/pay".to_string()))[..]),
             ("orderNumber", &format!("{}{}order",self.pr_name,self.pr_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Order(self.clone()))?[..])];
 
