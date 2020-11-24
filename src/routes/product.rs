@@ -311,6 +311,8 @@ pub fn check_pay(orderId: String, _lang: String, conn: crate::db::Conn) -> Resul
         TrDescription::Order(o) => {
             let (num, addr) = o.send_new_order_to_crm()?;
             Product::set_status(o.pr_id, "sold".to_string(), &conn)?;
+
+            // make it bought
             Ok(Either::Redirect(Redirect::to(format!("/product/order/final/{}/{}",num,addr))))
         },
         TrDescription::Unpayed => Ok(Either::Redirect(Redirect::to("/")))

@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: ls -a via OPEN SSH Private Key
         uses: garygrossgarten/github-action-ssh@release
-        with:
+        with: 
           command: ls -a
           host: ${{ secrets.HOST }}
           username: garygrossgarten
