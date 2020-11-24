@@ -1,6 +1,10 @@
-name: Command via SSH
+name: Command via SSH UPDATE TEST SERVER
 
-on: push
+on: 
+
+    push:
+        branches: [develop]
+
 
 jobs:
   build:
@@ -13,7 +17,7 @@ jobs:
           command: ls -a
           host: ${{ secrets.HOST }}
           username: garygrossgarten
-          password: ${{ secrets.PASSPHRASE }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+          #password: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.SSH_KEY}}
         env:
           CI: true

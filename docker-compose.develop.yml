@@ -2,12 +2,12 @@ version: '3'
 services:
   app_dev:
     image: badconfig/droux
-    container_name: rocket-server
+    container_name: rocket-server_dev
     tty: true
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgres://docker:docker@postgres1:5432/diesel_db
+      DATABASE_URL: postgres://docker:docker@postgres1_dev:5432/diesel_db
     volumes:
           - ./Rocket.toml:/droux/Rocket.toml
           - ./static/:/droux/static/
@@ -18,17 +18,17 @@ services:
       - app-network
   nginx_dev:
     image: nginx:1.15-alpine
-    container_name: nginx
+    container_name: nginx_dev
     restart: unless-stopped
     volumes:
-      - ./data/nginx:/etc/nginx/conf.d
+      - ./data/nginx_dev:/etc/nginx/conf.d
     ports:
       - "8080:80"
     networks:
       - app-network
-  postgres:
+  postgres_dev:
     image: "postgres:9.6"
-    container_name: postgres1
+    container_name: postgres1_dev
     restart: unless-stopped
     ports:
       - "5432:5432"
