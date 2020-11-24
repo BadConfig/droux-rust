@@ -1,7 +1,7 @@
 version: '3'
 services:
   app_dev:
-    image: badconfig/droux
+    image: badconfig/droux:dev
     container_name: rocket-server_dev
     restart: unless-stopped
     tty: true
