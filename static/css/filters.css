@@ -139,7 +139,7 @@ aside.sort-by {
         display: none;
         height: 200vh;
     }
-    .filters{
+    aside.filters{
         width: 46%;
         float: right;
         background-color: white;
