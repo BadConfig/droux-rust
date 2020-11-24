@@ -689,7 +689,7 @@ input[type=checkbox] + label {
         display: block;
     }
 
-    .header__buttons sell__button {
+    .header__buttons .sell__button {
         position: fixed;
         display: flex;
         width: 170px;
