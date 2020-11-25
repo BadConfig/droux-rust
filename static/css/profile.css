@@ -708,6 +708,10 @@
         border: 0;
         position: relative;
     }
+
+    .profile-buttom {
+        display: block;
+    }
     .card {
         width: 100%;
         border: none;
