@@ -690,11 +690,23 @@
     display: flex;
 }
 
+
+.profile-button {
+    cursor: pointer;
+    display: none;
+    color: #747474;
+    position: absolute;
+    top: 38px;
+    right:15px;
+    font-size: 14px;
+}
+
 @media (max-width: 1200px) {
     .profile__content {
         width: 100%;
         padding: 0 15px;
         border: 0;
+        position: relative;
     }
     .card {
         width: 100%;
