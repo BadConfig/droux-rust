@@ -111,5 +111,5 @@
     <script src="/static/js/profile-ads-category.js"></script>
     <script src="/static/js/chat.js"></script>
     <script src="/static/js/review.js"></script>
-    <script src="/static/js/upload-mobile.js"></script>
+    <script src="/static/js/mobile-profile.js"></script>
 {% endblock scripts %}
