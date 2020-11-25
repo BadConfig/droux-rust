@@ -8,11 +8,11 @@ services:
     ports:
       - "8001:8000"
     environment:
-      - DATABASE_URL: postgres://docker:docker@postgres1_dev:5432/diesel_db
-      - RETAIL_CRM_API_KEY: qZPXO3WaF2LLQI3YEZHdpJLoYZxhHdzH
-      - SBERBANK_USERNAME: T773007004660-api
-      - SBERBANK_PASSWORD: T773007004660
-      - SITE_URL: 178.154.229.126:8080
+      - DATABASE_URL="postgres://docker:docker@postgres1_dev:5432/diesel_db"
+      - RETAIL_CRM_API_KEY="qZPXO3WaF2LLQI3YEZHdpJLoYZxhHdzH"
+      - SBERBANK_USERNAME="T773007004660-api"
+      - SBERBANK_PASSWORD="T773007004660"
+      - SITE_URL="178.154.229.126:8080"
     volumes:
           - ./Rocket.dev.toml:/droux/Rocket.toml
           - ./static/:/droux/static/
