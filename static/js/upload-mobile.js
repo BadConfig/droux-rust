@@ -3,7 +3,7 @@ let add_buttons = document.getElementsByClassName('mobile__button');
 
 let firstCheck = document.getElementsByClassName('filters__sector');
 
-for (let i = 0; i < firstChecks.length; i++) {
+for (let i = 0; i < firstCheck.length; i++) {
     firstCheck[i].addEventListener('click', check1);
 }
 
