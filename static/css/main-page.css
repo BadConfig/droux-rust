@@ -221,9 +221,10 @@ a .photos__female img {
 
     .ad__author-rating {
         width: 50%;
+        margin-top: 3px;
     }
 
-    .ad__author-photo {
+    .ad__author-photo img {
         width: 20px;
         height: 20px;
     }
