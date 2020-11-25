@@ -208,8 +208,7 @@
                     <button class="button pop-up__button pop-up__button_cancel">Отмена</button>
                 </div>
                 <img src="/static/assets/close.svg" alt="" class="pop-up__close">
-            </div>
-        </div>
+        </form>
     </main>
 {% endblock main %}
 {% block scripts %}

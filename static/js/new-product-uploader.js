@@ -85,7 +85,7 @@ function ClosePopUp() {
 
 let scissors = new Croppie(place, {
     viewport: {width: document.documentElement.clientWidth * 0.32, height: document.documentElement.clientWidth * 0.285},
-    boundary: {width: document.documentElement.clientWidth * 0.8, height: document.documentElement.clientHeight * 0.8},
+    boundary: {width: document.documentElement.clientWidth * 0.5, height: document.documentElement.clientHeight * 0.5},
     showZoomer: true,
     enableOrientation: false
 })
