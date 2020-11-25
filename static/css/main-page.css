@@ -291,6 +291,7 @@ a .photos__female img {
         background-repeat: no-repeat;
         background-position: -35px -50px;
         align-content: flex-start;
+        height: unset;
     }
 
     .photos__buttons .photos-buttons__button {
@@ -301,7 +302,7 @@ a .photos__female img {
     }
 
     .photos__buttons .photos-buttons__button:not(:last-child) {
-        margin-bottom: 31px;
+        margin-bottom: 15px;
     }
 
     .photos__buttons h1 {
