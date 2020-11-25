@@ -16,7 +16,7 @@ services:
           - ./Rocket.toml:/droux/Rocket.toml
           - ./static/:/droux/static/
           - ./templates/:/droux/templates/
-          - ./.env:/droux/.env
+          #- ./.env:/droux/.env
           - ./migrations:/droux/migrations/
     networks:
       - app-network
