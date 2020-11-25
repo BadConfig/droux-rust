@@ -72,7 +72,6 @@ function check3() {
 }
 
 function turnPage3() {
-    preventDefault();
     add_pages[2].classList.remove('mobile__page_vis');
     add_pages[3].classList.add('mobile__page_vis');
 }
