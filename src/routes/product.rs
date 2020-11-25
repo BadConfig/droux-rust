@@ -364,8 +364,10 @@ pub fn post_promotions(form: Form<PrivForm>, user: CommonUser) -> Result<Either,
             399
         } else if form.top_cat {
             149
-        } else {
+        } else if form.top_name {
             189
+        } else {
+            0
         };
         if form.pre_order {
             summ += 499;

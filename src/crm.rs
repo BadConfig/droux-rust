@@ -95,6 +95,7 @@ impl PrivForm {
         .expect("SBERBANK_USERNAME must be set");
         let sber_pass = env::var("SBERBANK_PASSWORD")
         .expect("SBERBANK_PASSWORD must be set"); 
+        print!("INFO| sberbank url return {}\n",site_url);
         let params = [
             ("userName", &sber_uname[..]),
             ("password", &sber_pass[..]),
@@ -120,10 +121,13 @@ impl PrivForm {
 
 impl TrDescription {
     pub fn get_sber_pay_status(orderId: String) -> Result<TrDescription, Error> {
-
+        let sber_uname = env::var("SBERBANK_USERNAME")
+        .expect("SBERBANK_USERNAME must be set");
+        let sber_pass = env::var("SBERBANK_PASSWORD")
+        .expect("SBERBANK_PASSWORD must be set"); 
         let params = [
-            ("userName", "T773007004660-api"),
-            ("password", "T773007004660"),
+            ("userName", &sber_uname[..]),
+            ("password", &sber_pass[..]),
             ("orderId", &orderId[..])];
 
         let client = reqwest::blocking::Client::new();
