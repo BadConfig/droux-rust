@@ -704,7 +704,7 @@
 @media (max-width: 1200px) {
     .profile__content {
         width: 100%;
-        padding: 0 15px;
+        padding: 0;
         border: 0;
         position: relative;
     }
@@ -797,10 +797,6 @@
 
     .dialogue__price, .dialogue__date {
         display: none;
-    }
-
-    .my-dialogues {
-        transform: scale(0.8);
     }
 
     .chat__send-message {
