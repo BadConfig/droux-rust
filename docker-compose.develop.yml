@@ -16,6 +16,7 @@ services:
           - ./.env.dev:/droux/.env
           - ./migrations:/droux/migrations/
     networks:
+      
       - app-network
   nginx_dev:
     image: nginx:1.15-alpine
