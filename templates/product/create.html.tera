@@ -9,7 +9,7 @@
 {% endblock head %}
 {% block main %}
     <main class="main container">
-        <div class="mobile__page_1 mobile__page mobile-page_vis">
+        <div class="mobile__page_1 mobile__page mobile__page_vis">
             <div class="page-top">
                 <div class="page-top__commission-info">При успешной продаже лота мы взимаем комиссию 9%
                     <a href="">Почему мы взимаем комиссию?</a>
