@@ -301,7 +301,7 @@ a .photos__female img {
         height: 30px;
     }
 
-    .photos__buttons .photos-buttons__button:not(:last-child) {
+    .photos__buttons .photos-buttons__button{
         margin-bottom: 15px;
     }
 
