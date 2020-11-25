@@ -212,17 +212,12 @@ a .photos__female img {
     margin-top: 196px;
 }
 
-.ad__name {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis
-}
-
 
 @media (max-width: 1200px) {
 
     .show-all__text {
         white-space: nowrap;
+        margin-right: 5px;
     }
 
     .show-all__button {
@@ -300,7 +295,9 @@ a .photos__female img {
 
     .photos__buttons .photos-buttons__button {
         margin: 0;
-
+        width: 80%;
+        font-size: 14px;
+        height: 30px;
     }
 
     .photos__buttons .photos-buttons__button:not(:last-child) {
@@ -311,5 +308,7 @@ a .photos__female img {
         margin: 15px 0;
         font-size: 24px;
     }
+
+
 }
 
