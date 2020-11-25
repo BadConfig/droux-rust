@@ -26,7 +26,6 @@ function check1() {
 function turnPage1() {
     add_pages[0].classList.remove('mobile__page_vis');
     add_pages[1].classList.add('mobile__page_vis');
-    return false;
 }
 
 let secondCheck = [document.getElementById('ad-name'), document.getElementById('ad-description'),
@@ -55,7 +54,6 @@ function check2() {
 function turnPage2() {
     add_pages[1].classList.remove('mobile__page_vis');
     add_pages[2].classList.add('mobile__page_vis');
-    return false;
 }
 
 
@@ -74,7 +72,7 @@ function check3() {
 }
 
 function turnPage3() {
+    preventDefault();
     add_pages[2].classList.remove('mobile__page_vis');
     add_pages[3].classList.add('mobile__page_vis');
-    return false;
 }

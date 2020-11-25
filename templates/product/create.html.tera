@@ -117,7 +117,7 @@
                     </div>
                 </div>
             </div>
-            <button class="mobile__button mobile__button_1 button" disabled onclick="turnPage1()">Продолжить</button>
+            <button type="button" class="mobile__button mobile__button_1 button" disabled onclick="turnPage1()">Продолжить</button>
             </div>
             <div class="mobile__page_2 mobile__page">
             <h2 class="ad-form__header">Параметры</h2>
@@ -154,7 +154,7 @@
                     <div class="ad-form__label">Цена</div>
                     <div class="price__input"><input type="text" id="price"><span>₽</span></div>
                 </div>
-                <button class="mobile__button mobile__button_2 button" disabled onclick="turnPage2()">Продолжить</button>
+                <button type="button" class="mobile__button mobile__button_2 button" disabled onclick="turnPage2()">Продолжить</button>
                 </div>
                 <div class="mobile__page_3 mobile__page">
                     <div class="bottom-text__wrapper bottom-text__wrapper_photo-uploader">
@@ -182,7 +182,7 @@
                                 <img src="/static/assets/arrow-right.svg" alt="">
                             </div>
                         </div>
-                        <button class="mobile__button mobile__button_3 button" onclick="turnPage3()" disabled>Продолжить</button>
+                        <button type="button" class="mobile__button mobile__button_3 button" onclick="turnPage3()" disabled>Продолжить</button>
                         </div>
                 <div class="mobile__page_4 mobile__page">
                 <h2 class="ad-form__header ad-form__header_params">Контакты</h2>
