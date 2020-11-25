@@ -139,12 +139,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-column form-column_second">
-                        <div class="bottom-text__wrapper bottom-text__wrapper_photo-uploader">
-                            <span class="ad-form__label ad-form__label_for-photos">Фотографии</span>
-                            <span class="bottom-text">Не более 10</span>
-                        </div>
-                    </div>
                 </div>
                 <div class="ad-form__state">
                     <div class="ad-form__label">Состояние</div>
@@ -163,7 +157,11 @@
                 <button class="mobile__button mobile__button_2 button">Продолжить</button>
                 </div>
                 <div class="mobile__page_3 mobile__page">
-            <div class="ad-form__photo-upload-block uploader">
+                                        <div class="bottom-text__wrapper bottom-text__wrapper_photo-uploader">
+                                            <span class="ad-form__label ad-form__label_for-photos">Фотографии</span>
+                                            <span class="bottom-text">Не более 10</span>
+                                        </div>
+                    <div class="ad-form__photo-upload-block uploader">
                             <input type="file" id="photo-upload-input" class="uploader__input">
                                 <div id="upload-photo-button" class="uploader__main-label">
                                     <label for="photo-upload-input"></label>
