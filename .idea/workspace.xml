@@ -64,7 +64,6 @@
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
@@ -73,6 +72,7 @@
       <change beforePath="$PROJECT_DIR$/static/js/part-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/part-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/product-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/product-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/search-filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/search-filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/upload-mobile.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/upload-mobile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-04 21:58:39.984599-text default-1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-04 22:01:00.467727-text default-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-04 22:01:25.135615-text defaulter-1.jpg" beforeDir="false" />
@@ -279,13 +279,11 @@
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-22 23:26:48.032795335-Тестовое объявление-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/users/chat_dialogue.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/chat_dialogue.html.tera" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

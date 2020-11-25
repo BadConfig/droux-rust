@@ -9,7 +9,7 @@
 {% endblock head %}
 {% block main %}
     <main class="main container">
-        <div class="mobile__page_1 mobile__page">
+        <div class="mobile__page_1 mobile__page mobile-page_vis">
             <div class="page-top">
                 <div class="page-top__commission-info">При успешной продаже лота мы взимаем комиссию 9%
                     <a href="">Почему мы взимаем комиссию?</a>
@@ -117,7 +117,7 @@
                     </div>
                 </div>
             </div>
-            <button class="mobile__button mobile__button_1 button">Продолжить</button>
+            <button class="mobile__button mobile__button_1 button" disabled onclick="turnPage1()">Продолжить</button>
             </div>
             <div class="mobile__page_2 mobile__page">
             <h2 class="ad-form__header">Параметры</h2>
@@ -154,7 +154,7 @@
                     <div class="ad-form__label">Цена</div>
                     <div class="price__input"><input type="text" id="price"><span>₽</span></div>
                 </div>
-                <button class="mobile__button mobile__button_2 button">Продолжить</button>
+                <button class="mobile__button mobile__button_2 button" disabled onclick="turnPage2()">Продолжить</button>
                 </div>
                 <div class="mobile__page_3 mobile__page">
                     <div class="bottom-text__wrapper bottom-text__wrapper_photo-uploader">
@@ -182,7 +182,7 @@
                                 <img src="/static/assets/arrow-right.svg" alt="">
                             </div>
                         </div>
-                        <button class="mobile__button mobile__button_3 button">Продолжить</button>
+                        <button class="mobile__button mobile__button_3 button" onclick="turnPage3()" disabled>Продолжить</button>
                         </div>
                 <div class="mobile__page_4 mobile__page">
                 <h2 class="ad-form__header ad-form__header_params">Контакты</h2>
@@ -197,7 +197,7 @@
                 <input type="button" value="Продолжить" class="button ad-form__submit-button" onclick="PostProduct()">
             </div>
 
-            <input type="hidden" name="seller_id" value="{{ user.id }}">
+            <input type="hidden" name="seller_id" value="{{ user.id }}" disabled>
         </form>
         </div>
         <div class="uploader__pop-up pop-up pop-up__background">
@@ -216,4 +216,5 @@
     <script src="/static/js/search-filter.js"></script>
     <script src="/static/js/croppie.min.js"></script>
     <script src="/static/js/new-product-uploader.js"></script>
+    <script src="/static/js/upload-mobile.js"></script>
 {% endblock scripts %}

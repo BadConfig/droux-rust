@@ -443,8 +443,13 @@ input[type=text] {
 @media (max-width: 1200px) {
     .mobile__page {
         width: 100%;
-        display: flex;
+        display: none;
         flex-direction: column;
+        min-height: 70vh;
+    }
+
+    .mobile__page_vis {
+        display: flex;
     }
 
 
