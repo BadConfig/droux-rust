@@ -14,6 +14,7 @@
         {% block head %}
         {% endblock head %}
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/static/assets/safety.svg" type="image/svg+xml">
     </head>
     <body>
         {% include "header" %}

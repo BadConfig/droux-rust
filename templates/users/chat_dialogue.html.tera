@@ -34,7 +34,6 @@
         </div>
         <div class="chat__field">
             <div class="chat__messages">
-
             {% for msg in messages %}
                 {% if msg.from_user_id == user.id %}
                     <div class="chat__message-div chat__message-div_author_user 
@@ -59,7 +58,7 @@
                     </div>
                 {% endif %}
             {% endfor %}
-        </div>
+            </div>
         </div>
         <form class="chat__send-message" action="/chat/send" method="POST">
             <input type="text" name="message" placeholder="Написать сообщение" class="chat__input">
