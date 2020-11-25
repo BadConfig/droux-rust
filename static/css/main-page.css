@@ -213,6 +213,20 @@ a .photos__female img {
 }
 
 @media (max-width: 1200px) {
+
+    .ad__author {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .ad__author-rating {
+        width: 50%;
+    }
+
+    .ad__author-photo {
+        width: 20px;
+        height: 20px;
+    }
     .photos__buttons h1 {
         font-size: 36px;
     }
@@ -267,7 +281,7 @@ a .photos__female img {
         background-size: 200%;
         background-repeat: no-repeat;
         background-position: -35px -50px;
-        align-content: center;
+        align-content: flex-start;
     }
 
     .photos__buttons .photos-buttons__button {
