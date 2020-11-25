@@ -301,21 +301,20 @@ use crate::crm::{
 };
 
 #[get("/product/pay?<orderId>&<_lang>")]
-pub fn check_pay(orderId: String, _lang: String, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn check_pay(orderId: String, _lang: String, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
     let transcation = TrDescription::get_sber_pay_status(orderId)?;
-    match transcation {
-        TrDescription::Priveleges(p) => {
+    match (transcation,user) {
+        (TrDescription::Priveleges(p),CommonUser::Logged(_)) => {
             p.save(&conn)?;
             Ok(Either::Redirect(Redirect::to("/product/promotion/final")))
         },
-        TrDescription::Order(o) => {
+        (TrDescription::Order(o),CommonUser::Logged(u)) => {
             let (num, addr) = o.send_new_order_to_crm()?;
-            Product::set_status(o.pr_id, "sold".to_string(), &conn)?;
-
-            // make it bought
+            Product::set_status(o.pr_id.clone(), "sold".to_string(), &conn)?;
+            Product::set_customer_id(o.pr_id,u.id, &conn);
             Ok(Either::Redirect(Redirect::to(format!("/product/order/final/{}/{}",num,addr))))
         },
-        TrDescription::Unpayed => Ok(Either::Redirect(Redirect::to("/")))
+        _ => Ok(Either::Redirect(Redirect::to("/")))
     }
 }
 use crate::models::users::Users;

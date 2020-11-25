@@ -488,6 +488,16 @@ impl Product {
         Ok(())
     }
 
+    pub fn set_customer_id(p_id: i32, c_id: i32, conn: &PgConnection) -> Result<(),Error> {
+
+        use crate::schema::products::dsl::*;
+        
+        diesel::update(products.filter(id.eq(p_id)))
+            .set(bought_with.eq(c_id))
+            .execute(conn)?;
+        Ok(())
+    }
+
     pub fn get_products_by_status_and_user(stat: String, u_id: i32, conn: &PgConnection) -> Result<Vec<ProductWithFav>,Error> {
 
         use crate::schema::products::dsl::*;

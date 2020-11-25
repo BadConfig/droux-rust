@@ -100,7 +100,7 @@ impl PrivForm {
             ("password", &sber_pass[..]),
             ("amount", &format!("{}",summ*100)[..]),
             ("currency", "643"),
-            ("returnUrl", &("http://".to_string() + &site_url + &("/product/pay".to_string()))[..]),
+            ("returnUrl", &(site_url + &("/product/pay".to_string()))[..]),
             ("orderNumber", &format!("{}{}pay",self.product_name,self.product_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Priveleges(self.clone()))?[..])];
 
@@ -172,7 +172,7 @@ impl BuyForm {
             ("password", &sber_uname[..]),
             ("amount", &format!("{}",self.pr_price*100)),
             ("currency", &format!("{}",643)[..]),
-            ("returnUrl", &("http://".to_string() + &site_url + &("/product/pay".to_string()))[..]),
+            ("returnUrl", &(site_url + &"/product/pay".to_string())[..]),
             ("orderNumber", &format!("{}{}order",self.pr_name,self.pr_id)[..]),
             ("description", &serde_json::to_string(&TrDescription::Order(self.clone()))?[..])];
 
