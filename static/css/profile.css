@@ -692,13 +692,14 @@
 
 @media (max-width: 1200px) {
     .profile__content {
-        display: none;
         width: 100%;
         padding: 0 15px;
+        border: 0;
     }
     .card {
         width: 100%;
         border: none;
+        display: none;
     }
     .profile {
         padding-right: 15px;
@@ -789,6 +790,14 @@
     .chat__send-message {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .card_mob_vis {
+        display: block;
+    }
+
+    .content_mob_invis {
+        display: none;
     }
 }
 
