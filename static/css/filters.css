@@ -189,4 +189,7 @@ aside.sort-by {
     .m_active {
         display: flex!important;
     }
+    .filters__sector_size_l {
+        max-width: unset;
+    }
 }

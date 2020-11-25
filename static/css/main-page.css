@@ -267,6 +267,7 @@ a .photos__female img {
         background-size: 200%;
         background-repeat: no-repeat;
         background-position: -35px -50px;
+        align-content: center;
     }
 
     .photos__buttons .photos-buttons__button {
@@ -276,6 +277,11 @@ a .photos__female img {
 
     .photos__buttons .photos-buttons__button:not(:last-child) {
         margin-bottom: 31px;
+    }
+
+    .photos__buttons h1 {
+        margin: 15px 0;
+        font-size: 24px;
     }
 }
 
