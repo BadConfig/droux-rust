@@ -64,7 +64,6 @@
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/profile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
@@ -281,6 +280,8 @@
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/main.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile/products.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile/products.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
