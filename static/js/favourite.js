@@ -7,18 +7,18 @@ function addDelToFav(evt) {
     let wasInFav = 0;
     let icons = evt.currentTarget.querySelectorAll('img');
     let adId = icons[0].parentNode.parentNode.parentNode.getElementsByClassName('prod_id')[0].value;
-    let same = document.querySelectorAll('input[value=' + CSS.escape(adId) + ']:not(input[type=checkbox])');
+    let same = document.querySelectorAll('input[value=\"' + adId + '\"]:not([type=\"checkbox\"]):not([type=\"radio\"])');
     for (let i = 0; i < same.length; i++) {
-        console.log(i);
         let sameIcons = same[i].parentNode.getElementsByClassName('ad__favourite-icon')[0].querySelectorAll('img');
         sameIcons[0].classList.toggle('fav-icon_active');
         console.log(sameIcons[0].classList);
         sameIcons[1].classList.toggle('fav-icon_active');
         console.log(sameIcons[0].classList);
     }
-    if (icons[0].classList.contains('fav-icon_active')) {
+    if (evt.currentTarget.querySelector('.ad__favourite-icon-img_empty').classList.contains('fav-icon_active')) {
         wasInFav = 1;
     }
+    console.log(wasInFav);
     let addToFav = new XMLHttpRequest();
     if (wasInFav === 0) {
         addToFav.open('POST', '/product/favourites/add', true);

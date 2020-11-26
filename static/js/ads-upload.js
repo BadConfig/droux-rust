@@ -21,6 +21,7 @@ function checkAndAdd() {
         portions+=1;
         request.onreadystatechange = function() {
             jsonToAds(request.response);
+            changeSize();
         }
     }
 }
@@ -40,6 +41,14 @@ headerSearchField.addEventListener('change', NewSearch);
 headerSearchButton.addEventListener('click', NewSearch);
 
 function NewSearch() {
+    if (timeout) {
+        clearTimeout(timeout);
+    }
+    timer = setInterval(checkAndAdd,3000);
+    let timeout = setTimeout(useFilters, 1000);
+}
+
+function useFilters() {
     portions = 0;
     body = 'limit=12';
     if (headerSearchField.value != '') {
@@ -50,7 +59,7 @@ function NewSearch() {
     }
     if (filters[1].querySelector('input:checked') != null) {
         body += '&category_id=' + filters[1].querySelector('input:checked').value;
-    } 
+    }
     if (filters[2].querySelector('input:checked') != null) {
         body += '&subcategory_id=' + filters[2].querySelector('input:checked').value;
     }
@@ -64,7 +73,6 @@ function NewSearch() {
         body += '&product_state_id=' + filters[5].querySelector('input:checked').value;
     }
     filtersActive = true;
-    portions += 1;
     let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -75,12 +83,12 @@ function NewSearch() {
     let main = document.querySelector('main');
     main.append(searchResults);
     request.send(encodeURI(body + '&offset=' + (12 * portions)));
+    portions += 1;
     request.onreadystatechange = function() {
         jsonToAds(request.response);
+        changeSize();
     }
 }
-
-
 
 
 

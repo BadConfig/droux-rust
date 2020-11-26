@@ -69,6 +69,7 @@ function DeleteFrame(){
     function DelThis(){
         delFrame.remove();
     }
+    check3()
 }
 
 popUp.addEventListener('click', ClosePopUp);
@@ -155,6 +156,7 @@ function MakeMini(){
         frames.style = "transform: translateX(-" + String(currentFirstFrame * GetWidth()) + "px);";
     });
     popUp.classList.remove('pop-up_visible');
+    add_buttons[2].disabled = false;
 }
 
 
