@@ -167,6 +167,10 @@ function jsonToAds(response) {
             productPhoto.innerHTML = "<img src=\"" + resp[i].pictures[j] + "\" class=\"ad__img\" alt=\"\">";
             imageDiv.append(productPhoto);
         }
+        let favDiv = newAd.querySelector('.ad__favourite-icon');
+        if (document.getElementById('auth-button')) {
+            favDiv.style.display = 'none';
+        }
         if (resp[i].is_in_favourites) {
             newAd.querySelector('.ad__favourite-icon-img_filled').classList.add('fav-icon_active');
         } else {
