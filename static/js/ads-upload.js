@@ -2,7 +2,7 @@ let searchResults = document.querySelector('.search-results');
 
 let timer = setInterval(checkAndAdd,3000);
 
-let portions = 0;
+let portions = 1;
 let filtersActive = false;
 let body;
 
