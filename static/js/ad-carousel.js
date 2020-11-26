@@ -35,11 +35,12 @@ function SwipePhotos() {
 let photoWidth = String(document.querySelector('.ad__img-container').clientWidth) + 'px';
 let borderHeight = Number(window.getComputedStyle(document.querySelector('.ad__img-container')).height.slice(0, -2));
 let adPhotos = document.getElementsByClassName('ad__img');
-for (let i = 0; i < adPhotos.length; i++) {
-    adPhotos[i].style.width = photoWidth;
-    adPhotos[i].onload = function(){
-        let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
-        adPhotos[i].style.top = String(-(photoHeight - borderHeight)/2) + 'px';
+function changeSize() {
+    for (let i = 0; i < adPhotos.length; i++) {
+        adPhotos[i].style.width = photoWidth;
+        adPhotos[i].onload = function () {
+            let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
+            adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
+        }
     }
-
 }
