@@ -1,4 +1,5 @@
-SELECT 	pr.id, 
+SELECT DISTINCT ON (pr.id)
+		pr.id, 
 		pr.title,
 		pr.price, 
 		fv.id IS NOT NULL AS is_in_favourites,
