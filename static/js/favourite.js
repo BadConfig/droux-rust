@@ -7,7 +7,7 @@ function addDelToFav(evt) {
     let wasInFav = 0;
     let icons = evt.currentTarget.querySelectorAll('img');
     let adId = icons[0].parentNode.parentNode.parentNode.getElementsByClassName('prod_id')[0].value;
-    let same = document.querySelectorAll('input[value=' + CSS.escape(adId) + ']:not(input[type=checkbox])');
+    let same = document.querySelectorAll('input[value=' + adId + ']:not(input[type=checkbox])');
     for (let i = 0; i < same.length; i++) {
         console.log(i);
         let sameIcons = same[i].parentNode.getElementsByClassName('ad__favourite-icon')[0].querySelectorAll('img');
