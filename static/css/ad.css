@@ -13,6 +13,7 @@
 .ad__img {
     z-index: 1;
     display: block;
+    position: relative;
 }
 
 .ad__arrow {
