@@ -18,6 +18,7 @@ function addDelToFav(evt) {
     if (evt.currentTarget.querySelector('.ad__favourite-icon-img_empty').classList.contains('fav-icon_active')) {
         wasInFav = 1;
     }
+    console.log(wasInFav);
     let addToFav = new XMLHttpRequest();
     if (wasInFav === 0) {
         addToFav.open('POST', '/product/favourites/add', true);
