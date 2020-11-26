@@ -89,6 +89,7 @@ pub fn app() -> rocket::Rocket {
             routes::auth::authorize,
             routes::auth::logout,
             routes::index,
+            routes::auth::verify_link,
             routes::auth::register,
             routes::product::product_create,
             routes::product::product_create_get,

@@ -210,13 +210,15 @@ pub fn parse_multiform_product(content_type: &ContentType, form: Data) -> NewPro
 }
 
 #[post("/product/create",data="<form>")]
-pub fn product_create(content_type: &ContentType, form: Data, conn: crate::db::Conn) ->  String {
+pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, conn: crate::db::Conn) ->  String {
    
     use crate::db::product::create_product;
-
-    let p = parse_multiform_product(content_type, form);
-    let id = create_product(p, &conn);
-    id
+    if let CommonUser::Logged(_) = user {
+        let p = parse_multiform_product(content_type, form);
+        let id = create_product(p, &conn);
+        return id;
+    }
+    "-1".to_string()
 }
 
 #[derive(FromForm,Clone)]
@@ -311,7 +313,7 @@ pub fn check_pay(orderId: String, _lang: String, user: CommonUser, conn: crate::
         (TrDescription::Order(o),CommonUser::Logged(u)) => {
             let (num, addr) = o.send_new_order_to_crm()?;
             Product::set_status(o.pr_id.clone(), "sold".to_string(), &conn)?;
-            Product::set_customer_id(o.pr_id,u.id, &conn);
+            Product::set_customer_id(o.pr_id,u.id, &conn)?;
             Ok(Either::Redirect(Redirect::to(format!("/product/order/final/{}/{}",num,addr))))
         },
         _ => Ok(Either::Redirect(Redirect::to("/")))
