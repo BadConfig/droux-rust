@@ -124,13 +124,13 @@
                     authorizer__form_visible 
                 {% endif %}" action="/register" method="POST">
                 <label for="sign-up__login">Логин</label>
-                <span class="sign-up__bottom-text">*Необходимо ввести логин на английском языке и только прописными буквами</span>
                 <input type="text" id="sign-up__login" name="username">
+                <span class="sign-up__bottom-text">*Необходимо ввести логин на английском языке и только прописными буквами</span>
                 <label for="sign-up__email">Адрес электронной почты</label>
                 <input type="text" id="sign-up__email" name="email">
                 <label for="sign-up__password">Пароль</label>
-                <span class="sign-up__bottom-text">*Не менее 8 символов (латиница и цифры)</span>
                 <input type="password" id="sign-up__password" name="pass">
+                <span class="sign-up__bottom-text">*Не менее 8 символов (латиница и цифры)</span>
                 <label for="sign-up__repeat-password">Повторите пароль</label>
                 <input type="password" id="sign-up__repeat-password">
                 <input type="checkbox" id="accept-rules">
