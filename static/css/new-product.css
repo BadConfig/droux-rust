@@ -438,6 +438,7 @@ input[type=text] {
 
 .main {
     position: relative;
+    overflow: hidden;
 }
 
 @media (max-width: 1200px) {

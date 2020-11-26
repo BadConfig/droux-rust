@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 .main {
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .sort-by {
@@ -51,7 +52,9 @@
     width: 855px;
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
 }
+
 
 .search-results .ad{
     margin-left: 30px;

@@ -1,3 +1,13 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/croppie.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/filters.css">
+    <link rel="stylesheet" href="/static/css/new-product.css">
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+{% endblock head %}
+{% block main %}
 
 <main class="main container">
     <form class="ad-form">
@@ -208,3 +218,9 @@
         </div>
     </div>
 </main>
+{% endblock main %}
+{% block scripts %}
+    <script src="/static/js/search-filter.js"></script>
+    <script src="/static/js/croppie.min.js"></script>
+    <script src="/static/js/new-product-uploader.js"></script>
+{% endblock scripts %}
