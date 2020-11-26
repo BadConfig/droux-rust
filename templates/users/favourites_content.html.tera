@@ -13,7 +13,7 @@
             {% if favourite_products | length == 0 %}
             {% else %}
                 {% for ad in favourite_products %}
-                <div class="ad ad_fav">
+                <div class="ad-profile ad_fav">
                     <div class="ad__img-container ad__img-container_fav"> <!--Рамка для одной фотографии-->
                         <div class="ad__arrow ad__arrow_left">
                             <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">

@@ -791,9 +791,6 @@
         width: 30%;
         margin: 0;
     }
-    .ad_fav .ad__img-container {
-        width: 100%;
-    }
 
     .dialogue__price, .dialogue__date {
         display: none;
