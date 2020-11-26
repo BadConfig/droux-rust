@@ -172,6 +172,7 @@ pub fn parse_multiform_product(content_type: &ContentType, form: Data) -> NewPro
 
     let price       : i32 = unpack(price).trim().parse().expect("error parsing price");
     let seller_id   : i32 = unpack(seller_id).trim().parse().expect("error parsing seller_id");
+    print!("SELLER ID| {}",&seller_id);
     let brand_id    : i32 = unpack(brand_id).trim().parse().expect("error parsing category_id");
     let sub_category_id : i32 = unpack(sub_category_id).trim().parse().expect("error parsing category_id");
     let size_id     : i32 = unpack(size_id).trim().parse().expect("error parsing category_id");
@@ -210,13 +211,15 @@ pub fn parse_multiform_product(content_type: &ContentType, form: Data) -> NewPro
 }
 
 #[post("/product/create",data="<form>")]
-pub fn product_create(content_type: &ContentType, form: Data, conn: crate::db::Conn) ->  String {
+pub fn product_create(content_type: &ContentType, form: Data, user: CommonUser, conn: crate::db::Conn) ->  String {
    
     use crate::db::product::create_product;
-
-    let p = parse_multiform_product(content_type, form);
-    let id = create_product(p, &conn);
-    id
+    if let CommonUser::Logged(_) = user {
+        let p = parse_multiform_product(content_type, form);
+        let id = create_product(p, &conn);
+        return id;
+    }
+    "-1".to_string()
 }
 
 #[derive(FromForm,Clone)]
@@ -301,21 +304,20 @@ use crate::crm::{
 };
 
 #[get("/product/pay?<orderId>&<_lang>")]
-pub fn check_pay(orderId: String, _lang: String, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn check_pay(orderId: String, _lang: String, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
     let transcation = TrDescription::get_sber_pay_status(orderId)?;
-    match transcation {
-        TrDescription::Priveleges(p) => {
+    match (transcation,user) {
+        (TrDescription::Priveleges(p),CommonUser::Logged(_)) => {
             p.save(&conn)?;
             Ok(Either::Redirect(Redirect::to("/product/promotion/final")))
         },
-        TrDescription::Order(o) => {
+        (TrDescription::Order(o),CommonUser::Logged(u)) => {
             let (num, addr) = o.send_new_order_to_crm()?;
-            Product::set_status(o.pr_id, "sold".to_string(), &conn)?;
-
-            // make it bought
+            Product::set_status(o.pr_id.clone(), "sold".to_string(), &conn)?;
+            Product::set_customer_id(o.pr_id,u.id, &conn)?;
             Ok(Either::Redirect(Redirect::to(format!("/product/order/final/{}/{}",num,addr))))
         },
-        TrDescription::Unpayed => Ok(Either::Redirect(Redirect::to("/")))
+        _ => Ok(Either::Redirect(Redirect::to("/")))
     }
 }
 use crate::models::users::Users;
@@ -365,8 +367,10 @@ pub fn post_promotions(form: Form<PrivForm>, user: CommonUser) -> Result<Either,
             399
         } else if form.top_cat {
             149
-        } else {
+        } else if form.top_name {
             189
+        } else {
+            0
         };
         if form.pre_order {
             summ += 499;

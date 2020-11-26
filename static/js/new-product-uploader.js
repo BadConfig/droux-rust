@@ -43,7 +43,6 @@ for (let i = 0; i < crosses.length; i++) {
     crosses[i].addEventListener('click', DeleteFrame);
 }
 function DeleteFrame(){
-    console.log('hui')
     let delta = GetWidth();
     frames.style = "transform: translateX(-" + String(currentFirstFrame * delta) + "px);";
     let delFrame = event.currentTarget.parentNode;
@@ -84,8 +83,8 @@ function ClosePopUp() {
 }
 
 let scissors = new Croppie(place, {
-    viewport: {width: 350, height: 311.5},
-    boundary: {width: 350, height: 350},
+    viewport: {width: document.documentElement.clientWidth * 0.32, height: document.documentElement.clientWidth * 0.285},
+    boundary: {width: document.documentElement.clientWidth * 0.5, height: document.documentElement.clientHeight * 0.5},
     showZoomer: true,
     enableOrientation: false
 })
@@ -172,7 +171,6 @@ async function PostProduct() {
     let number = document.getElementsByClassName('ad-form__num')[0];
     let email = document.getElementsByClassName('ad-form__email')[0];
 
-    console.log("afsdaffas");
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
     body.append('category_id', category.querySelector('input:checked').value);
@@ -185,16 +183,15 @@ async function PostProduct() {
     body.append('price', price.querySelector('input').value);
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
-    body.append('seller_id', 1);
+    body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
+    console.log(body.toString());
 
     let photos = document.getElementsByClassName('uploader__frame-img');
-    console.log(photos);
     for (let i = 0; i < 10; i++) {
         let id = 'photo' + String(i + 1);
         if (photos[i] !=null) {
             let blob = await fetch(photos[i].src).then(r => r.blob())
             body.append(id, blob);
-            console.log(blob);
         }
     }
 
@@ -222,7 +219,6 @@ async function EditProduct() {
     let number = document.getElementsByClassName('ad-form__num')[0];
     let email = document.getElementsByClassName('ad-form__email')[0];
 
-    console.log("afsdaffas");
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
     body.append('category_id', category.querySelector('input:checked').value);
@@ -235,16 +231,15 @@ async function EditProduct() {
     body.append('price', price.querySelector('input').value);
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
-    body.append('seller_id', 1);
+    body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
+    console.log(body.toString());
 
     let photos = document.getElementsByClassName('uploader__frame-img');
-    console.log(photos);
     for (let i = 0; i < 10; i++) {
         let id = 'photo' + String(i + 1);
         if (photos[i] !=null) {
             let blob = await fetch(photos[i].src).then(r => r.blob())
             body.append(id, blob);
-            console.log(blob);
         }
     }
     
@@ -252,13 +247,11 @@ async function EditProduct() {
     let route = "/admin/product/change/" + prodId
     console.log(route);
     let postAd = new XMLHttpRequest();
-    let page = document.getElementById('page_num');
     postAd.open('POST', route, true);
     postAd.responseType = 'text';
     postAd.send(body);
     postAd.onreadystatechange = function() {
         let redirectRoute = "/admin/product/1";
-        console.log(redirectRoute);
         window.location.replace(redirectRoute);
     }
     return false;

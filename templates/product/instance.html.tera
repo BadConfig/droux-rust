@@ -51,6 +51,6 @@
             <span class="ad__size">{{ ad.size_name }}</span>
         </div>
         <div class="ad__category">{{ ad.category_name }}</div>
-        <div class="ad__price">{{ ad.price }}</div>
+        <div class="ad__price">{{ ad.price }} руб.</div>
     </div>   
 {% endmacro instance %}

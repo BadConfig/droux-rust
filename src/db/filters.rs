@@ -54,23 +54,24 @@ pub fn get_product_states(conn: &PgConnection) -> Vec<ProductState> {
 }
 
 pub fn get_categories_for_header(conn: &PgConnection) -> Vec<AllSubCategories> {
-    let ret = get_category_list(conn);
-    for i in ret {
-        i.sub_categories.sort();
+    let mut ret = get_category_list(conn);
+    for i in &mut ret {
+        i.sub_categories.sort_unstable_by(| a,b | { a.name.cmp(&b.name) });
     }
     ret
 }
 
 pub fn get_brands_for_header(conn: &PgConnection) -> Vec<Vec<Brand>> {
-    let res = Vec::new();
-    let br = get_brands(conn);
-    br.sort();
+    let mut res = Vec::new();
+    let mut br = get_brands(conn);
+    br.sort_unstable_by( | a,b| { a.name.cmp(&b.name) });
     let fl = br[0].name.chars().nth(0).unwrap();
-    for i in br {
+    for i in &mut br {
         if fl != i.name.chars().nth(0).unwrap() {
             res.push(Vec::new());
         }
-        res[res.len()-1].push(i);
+        let l = (res.len()-1).clone();
+        res[l].push(i.clone());
     }
     print!("\n{:?}\n",&res);
     res

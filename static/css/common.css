@@ -4,7 +4,7 @@ body{
     font-family: Helvetica, Roboto, "Liberation Sans", Arial, sans-serif;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;

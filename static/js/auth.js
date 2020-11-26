@@ -1,29 +1,9 @@
-// let signInButton = document.getElementById('sign-in');
-// let signUpButton = document.getElementById('sign-up');
-// let signInForm = document.getElementsByClassName('authorizer__form_sign-in')[0];
-// let signUpForm = document.getElementsByClassName('authorizer__form_sign-up')[0];
-// signInButton.addEventListener('change', ChangeAuthType);
-// signUpButton.addEventListener('change', ChangeAuthType);
-//
-// function ChangeAuthType() {
-//     signInForm.classList.toggle('authorizer__form_visible');
-//     signUpForm.classList.toggle('authorizer__form_visible');
-// }
-//
-// let authLayout = document.getElementsByClassName('authorizer__background')[0];
-// let authButton = document.getElementById('auth-button');
-// if (authButton != null) {
-//     authButton.addEventListener('click', AuthToggle);
-//     authLayout.addEventListener('click', AuthToggle);
-// }
-//
-// function AuthToggle(evt) {
-//     if (evt.target === authLayout) {
-//         authLayout.classList.remove('authorizer_visible');
-//     } else {
-//         authLayout.classList.add('authorizer_visible');
-//     }
-// }
+let signInButton = document.getElementById('sign-in');
+let signUpButton = document.getElementById('sign-up');
+let signInForm = document.getElementsByClassName('authorizer__form_sign-in')[0];
+let signUpForm = document.getElementsByClassName('authorizer__form_sign-up')[0];
+signInButton.addEventListener('change', ChangeAuthType);
+signUpButton.addEventListener('change', ChangeAuthType);
 
 function ChangeAuthType() {
     signInForm.classList.toggle('authorizer__form_visible');
@@ -69,7 +49,7 @@ function actionsShowHide(evt) {
 
 let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 let alphabetHigh = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
+let other = ['-', '$', '&', '%', '#', '@', '*']
 let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 let login = document.getElementById('sign-up__login');
@@ -79,7 +59,7 @@ login.addEventListener('change', checkLogin);
 function checkLogin() {
     login.classList.remove('authorizer__input_failed');
     for (let i = 0; i < login.value.length; i++) {
-        if (!alphabet.includes(login.value.charAt(i))) {
+        if ((!numbers.includes(login.value.charAt(i))) && (!alphabet.includes(login.value.charAt(i)))) {
             login.classList.add('authorizer__input_failed');
             regAllowed = 0;
             break;
@@ -100,7 +80,7 @@ function checkPass() {
         pass.classList.add('authorizer__input_failed');
     } else {
         for (let i = 0; i < pass.value.length; i++) {
-            if (!numbers.includes(pass.value.charAt(i)) && !alphabet.includes(pass.value.charAt(i)) && !alphabetHigh.includes(pass.value.charAt(i))) {
+            if (!numbers.includes(pass.value.charAt(i)) && !alphabet.includes(pass.value.charAt(i)) && !alphabetHigh.includes(pass.value.charAt(i)) && !other.includes(pass.value.charAt(i))) {
                 pass.classList.add('authorizer__input_failed');
                 break;
             }
@@ -132,13 +112,11 @@ function AllowReg() {
         for (let i = 0; i < checklist.length; i++) {
             if ((checklist[i].value === "") || (checklist[i].classList.contains('authorizer__input_failed'))){
                 flag = 0;
-                console.log('fuck u')
                 break;
             }
         }
         if (flag === 1) {
             button.disabled = 0;
-            console.log('evthorite');
         }
     }
 }

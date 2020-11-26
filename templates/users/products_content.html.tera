@@ -14,7 +14,7 @@
         </div>
         <div class="profile-ads content__ads content__ads_active content__ads_visible">
             {% for ad in active_products %}
-                <div class="ad">
+                <div class="ad-profile">
                     <div class="ad__img-container"> <!--Рамка для одной фотографии -->
                         <div class="ad__arrow ad__arrow_left">
                             <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
@@ -61,7 +61,7 @@
         </div>
         <div class="profile-ads content__ads content__ads_sold">
             {% for ad in sold_products %}
-                <div class="ad">
+                <div class="ad-profile">
                     <div class="ad__img-container"> <!--Рамка для одной фотографии -->
                         <div class="ad__arrow ad__arrow_left">
                             <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
@@ -99,7 +99,7 @@
             {% endfor %}
         <div class="profile-ads content__ads content__ads_deleted">
         {% for ad in deleted_products %}
-            <div class="ad">
+            <div class="ad-profile">
                 <div class="ad__img-container"> <!--Рамка для одной фотографии -->
                     <div class="ad__arrow ad__arrow_left">
                         <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
@@ -145,3 +145,6 @@
         </div>
     </div>
 {% endblock page_content %}
+{% block products %}
+    card__label_active
+{% endblock products %}

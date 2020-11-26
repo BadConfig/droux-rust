@@ -139,7 +139,7 @@ aside.sort-by {
         display: none;
         height: 200vh;
     }
-    .filters{
+    aside.filters{
         width: 46%;
         float: right;
         background-color: white;
@@ -188,5 +188,8 @@ aside.sort-by {
     }
     .m_active {
         display: flex!important;
+    }
+    .filters__sector_size_l {
+        max-width: unset;
     }
 }

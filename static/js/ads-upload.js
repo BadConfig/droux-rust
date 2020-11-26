@@ -3,16 +3,22 @@ let searchResults = document.querySelector('.search-results');
 let timer = setInterval(checkAndAdd,3000);
 
 let portions = 0;
+let filtersActive = false;
+let body;
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
     if (currentBottom < document.documentElement.clientHeight + 450) {
-        portions+=1;
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        let body = 'search_string=&limit=12&offset=' + String(portions * 12);
-        request.send(body)
+        if (filtersActive) {
+            request.send(body + '&offset=' + (12 * portions));
+        } else {
+            body = 'search_string=&limit=12' + '&offset=' + (12 * portions);
+            request.send(body)
+        }
+        portions+=1;
         request.onreadystatechange = function() {
             jsonToAds(request.response);
         }
@@ -22,21 +28,20 @@ function checkAndAdd() {
 let filters = document.getElementsByClassName('filters__sector-options');
 for (let i = 0; i < filters.length; i++) {
     let options = filters[i].querySelectorAll('input[type=radio]');
-    console.log(options);
     for (let j = 0; j < options.length; j++) {
         options[j].addEventListener('change', NewSearch);
     }
 }
 
 let headerSearchField = document.getElementById('header-search');
-console.log(headerSearchField);
 let headerSearchButton = document.querySelector('.search__button');
 
 headerSearchField.addEventListener('change', NewSearch);
 headerSearchButton.addEventListener('click', NewSearch);
 
 function NewSearch() {
-    let body = 'limit=12' + '&offset=0';
+    portions = 0;
+    body = 'limit=12';
     if (headerSearchField.value != '') {
         body += '&search_string=' + headerSearchField.value;
     }
@@ -58,7 +63,8 @@ function NewSearch() {
     if (filters[5].querySelector('input:checked') != null) {
         body += '&product_state_id=' + filters[5].querySelector('input:checked').value;
     }
-    console.log(body);
+    filtersActive = true;
+    portions += 1;
     let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -68,9 +74,8 @@ function NewSearch() {
     searchResults.className = 'search-results';
     let main = document.querySelector('main');
     main.append(searchResults);
-    request.send(encodeURI(body));
+    request.send(encodeURI(body + '&offset=' + (12 * portions)));
     request.onreadystatechange = function() {
-        console.log(request.response);
         jsonToAds(request.response);
     }
 }

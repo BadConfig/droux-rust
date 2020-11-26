@@ -42,6 +42,7 @@
     color: white;
     font-size: 36px;
     text-shadow: 1px 1px 2px gray;
+    position: relative;
 }
 
 .photos__buttons {
@@ -211,7 +212,30 @@ a .photos__female img {
     margin-top: 196px;
 }
 
+
 @media (max-width: 1200px) {
+
+    .show-all__text {
+        white-space: nowrap;
+        margin-right: 5px;
+    }
+
+    .show-all__button {
+        width: unset;
+    }
+    .ad__author {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .ad__author-rating {
+        width: 50%;
+        margin-top: 3px;
+    }
+
+    .ad__author-photo {
+        display: none;
+    }
     .photos__buttons h1 {
         font-size: 36px;
     }
@@ -266,15 +290,26 @@ a .photos__female img {
         background-size: 200%;
         background-repeat: no-repeat;
         background-position: -35px -50px;
+        align-content: flex-start;
+        height: unset;
     }
 
     .photos__buttons .photos-buttons__button {
         margin: 0;
-
+        width: 80%;
+        font-size: 14px;
+        height: 30px;
     }
 
-    .photos__buttons .photos-buttons__button:not(:last-child) {
-        margin-bottom: 31px;
+    .photos__buttons .photos-buttons__button{
+        margin-bottom: 15px;
     }
+
+    .photos__buttons h1 {
+        margin: 15px 0 5px;
+        font-size: 24px;
+    }
+
+
 }
 

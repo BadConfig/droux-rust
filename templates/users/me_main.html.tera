@@ -45,17 +45,18 @@
                 Скоро здесь будут подписки или настройки профиля
             </div>
             <div class="card__nav">
-                <a href="/users/products"><span class="card__label">Мои объявления</span></a>
-                <a href="/users/reviews"><span class="card__label">Мои отзывы</span></a>
-                <a href="/users/favourites"><span class="card__label">Избранное</span></a>
+                <a href="/users/products"><span class="card__label {% block products %}{% endblock products %}">Мои объявления</span></a>
+                <a href="/users/reviews"><span class="card__label {% block reviews %}{% endblock reviews %}">Мои отзывы</span></a>
+                <a href="/users/favourites"><span class="card__label {% block favourites %}{% endblock favourites %}">Избранное</span></a>
                 <a href="/chat"><span class="card__label card__label_messages 
                     {% if unread_messages %}
                         new-message
-                    {% endif %}
+                    {% endif %} {% block messages %}{% endblock messages %}
                 ">Сообщения</span></a>
             </div>
         </div>
         <div class="profile__content content">
+        <div class="profile-button">Профиль</div>
     {% block page_content %}
     {% endblock page_content %}
         </div>
@@ -65,4 +66,5 @@
     <script src="/static/js/ad-carousel.js"></script>
     <script src="/static/js/profile-ads-category.js"></script>
     <script src="/static/js/chat.js"></script>
+    <script src="/static/js/mobile-profile.js"></script>
 {% endblock scripts %}

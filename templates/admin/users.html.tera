@@ -3,204 +3,43 @@
     <h2 class="admin__header">Управление пользователями</h2>
     <div class="admin__users users admin__table">
 
+    {% for usr in users %}
         <div class="users__item user">
             <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
+                <a href="/profile/users/{{ usr.id }}/product" class="user__img"><img src="/static/profile_pictures/{{ usr.picture_path }}" alt=""></a>
+                <a href="/profile/users/{{ usr.id }}/product" class="user__name">{{ usr.username }}</a>
             </div>
-            <form class="user__button-form_ban user__button-form">
-                <input type="submit" value="Сломать колени" class="button user__button user__button_ban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                <input type="submit" value="Дать леща" class="button user__button user__button_deban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_ban user__button-form">
-                <input type="submit" value="Сломать колени" class="button user__button user__button_ban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                <input type="submit" value="Дать леща" class="button user__button user__button_deban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_ban user__button-form">
-                <input type="submit" value="Сломать колени" class="button user__button user__button_ban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                <input type="submit" value="Дать леща" class="button user__button user__button_deban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_ban user__button-form">
-                <input type="submit" value="Сломать колени" class="button user__button user__button_ban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                <input type="submit" value="Дать леща" class="button user__button user__button_deban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_ban user__button-form">
-                <input type="submit" value="Сломать колени" class="button user__button user__button_ban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                <input type="submit" value="Дать леща" class="button user__button user__button_deban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_ban user__button-form">
-                <input type="submit" value="Сломать колени" class="button user__button user__button_ban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                <input type="submit" value="Дать леща" class="button user__button user__button_deban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_ban user__button-form">
-                <input type="submit" value="Сломать колени" class="button user__button user__button_ban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                <input type="submit" value="Дать леща" class="button user__button user__button_deban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_ban user__button-form">
-                <input type="submit" value="Сломать колени" class="button user__button user__button_ban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                <input type="submit" value="Дать леща" class="button user__button user__button_deban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_ban user__button-form">
-                <input type="submit" value="Сломать колени" class="button user__button user__button_ban">
-            </form>
-        </div>
-
-        <div class="users__item user">
-            <div class="user__info">
-                <a href="" class="user__img"><img src="../../static/assets/female.jpg" alt=""></a>
-                <a href="" class="user__name">Женщина</a>
-            </div>
-            <form class="user__button-form_deban user__button-form">
-                <input type="submit" value="Дать леща" class="button user__button user__button_deban">
-            </form>
-        </div>
+            {% if usr.is_banned == false %}
+                <form class="user__button-form_ban user__button-form"  method="POST" action="/admin/users/ban">
+                    <input type="hidden" value="{{ usr.id }}" name="user_id">
+                    <input type="hidden" value="{{ current_page }}" name="page">
+                    <input type="hidden" value="true" name="change_flag">
+                    <input type="submit" value="Забанить" class="button user__button user__button_ban">
+                </form>
+            {% else %}
+                <form class="user__button-form_deban user__button-form" method="POST" action="/admin/users/ban">
+                    <input type="hidden" value="{{ usr.id }}" name="user_id">
+                    <input type="hidden" value="{{ current_page }}" name="page">
+                    <input type="hidden" value="false" name="change_flag">
+                    <input type="submit" value="Разбанить" class="button user__button user__button_deban">
+                </form>
+            {% endif %}
+        </div>          
+    {% endfor %}
     </div>
     <div class="admin__page-links">
-    <a href="">
+    <a href="/admin/users/{{ current_page-1 }}">
         <img src="../../static/assets/arrow-left.svg" alt="">
         <img src="../../static/assets/arrow-left.svg" alt="">
     </a>
-    <a href="">1</a>
-    <a href="">2</a>
-    <a href="">3</a>
-    <a href="">4</a>
-    <a href="">5</a>
-    <a href="">6</a>
-    <a href="">7</a>
-    <a href="">8</a>
-    <a href="">9</a>
-    <a href="">...</a>
-    <a href="">
+    <a href="/admin/users/{{ current_page }}">{{ current_page }}</a>
+
+    <a href="/admin/users/{{ current_page+1 }}">
         <img src="../../static/assets/arrow-right.svg" alt="">
         <img src="../../static/assets/arrow-right.svg" alt="">
     </a>
 </div>
 {% endblock page_content %}
+{% block users %}
+    card__label_active
+{% endblock users %}

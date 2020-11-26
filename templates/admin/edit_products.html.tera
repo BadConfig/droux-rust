@@ -29,10 +29,10 @@
                         <div class="filters__sector-options">
                             {% for types in ProductTypes %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" 
+                                    <input type="radio"
                                     {% if prod_data.type_id == types.id %} checked {% endif %} name="type_id" value="{{ types.id }}" id="ad_types{{ types.id }}">
                                     <label for="ad_types{{ types.id }}">{{ types.name }}</label>
-                                </div>                             
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
@@ -46,12 +46,12 @@
                         <div class="filters__sector-options">
                             {% for categories in ProductCategories %}
                                 <div class="filters__checkbox-div">
-                                    <input 
-                                    {% if 0 != categories.sub_categories | filter(attribute="id", value=prod_data.sub_category_id) | length %} 
-                                        checked 
+                                    <input
+                                    {% if 0 != categories.sub_categories | filter(attribute="id", value=prod_data.sub_category_id) | length %}
+                                        checked
                                     {% endif %} type="radio" name="category_id" value="{{ categories.category_id }}" id="ad_cat{{ categories.category_id }}">
                                     <label for="ad_cat{{ categories.category_id }}">{{ categories.category_name }}</label>
-                                </div>                             
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
@@ -66,11 +66,11 @@
                             {% for categories in ProductCategories %}
                                 {% for sub_cat in categories.sub_categories %}
                                     <div class="filters__checkbox-div">
-                                        <input 
+                                        <input
                                         {% if prod_data.sub_category_id == sub_cat.id %} checked {% endif %} type="radio" name="sub_category_id" value="{{ sub_cat.id }}" id="ad_sub_cat{{ sub_cat.id }}">
                                         <label for="ad_sub_cat{{ sub_cat.id }}">{{ sub_cat.name }}</label>
-                                    </div>           
-                                {% endfor %}   
+                                    </div>
+                                {% endfor %}
                             {% endfor %}
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                                      {% endif %}
                                      type="radio" name="brand_id" value="{{ brand.id }}" id="ad_brand{{ brand.id }}">
                                     <label for="ad_brand{{ brand.id }}">{{ brand.name }}</label>
-                                </div>                             
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
@@ -112,7 +112,7 @@
                                         {% endif %}
                                      type="radio" name="size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
                                     <label for="ad_size{{ size.id }}">{{ size.name }}</label>
-                                </div>                             
+                                </div>
                             {% endfor %}
                         </div>
                     </div>
@@ -154,12 +154,12 @@
                                 <div class="uploader__photo-frame" id="photo_1">
                                     <img src="/{{ pic_url }}" alt="" class="uploader__frame-img">
                                     <img src="/static/assets/close.svg" alt="" class="uploader__delete-frame">
-                                </div>       
+                                </div>
                             {% endfor %}
                             {% if prod_data.pictures | length < 10 %}
-                                
+
                                     <div class="uploader__photo-frame"></div>
-                                
+
                             {% endif %}
                                 </div>
                             </div>
@@ -182,7 +182,7 @@
                                  checked
                                 {% endif %}
                              type="radio" name="state_id" value="{{ state.id }}" id="ad_state{{ state.id }}">
-                            <label for="ad_state{{ state.id }}">{{ state.name }}</label>                            
+                            <label for="ad_state{{ state.id }}">{{ state.name }}</label>
                         {% endfor %}
                         </div>
                     </div>

@@ -22,11 +22,11 @@
                 </div>
             </div>
             <div class="card__change-photo">
-                Скоро здесь будут подписки или настройки профиля
+               
             </div>
             <div class="card__nav">
                 {% if admin.is_admin or admin.is_moderator %}
-                    <a href=""><span class="card__label ">Пользователи</span></a>
+                    <a href="/admin/users/1"><span class="card__label {% block users %}{% endblock users %}">Пользователи</span></a>
                     <a href="/admin/product/1">
                         <span class="card__label {% block active_products %}{% endblock active_products %}">
                             Объявления</span>

@@ -70,6 +70,9 @@
     margin: 0;
     font-size: 18px;
     font-weight: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
 }
 
 .ad__size {
@@ -93,6 +96,7 @@
     transition: transform 0.3s ease;
     width: 2550px;
 }
+
 
 @media (max-width: 1200px) {
     div .part__ads .ad:not(.doesntexist) {
@@ -118,6 +122,11 @@
         width: unset;
         position: relative;
     }
+    .ad__author {
+        margin-bottom: unset;
+    }
+
+
 }
 
 

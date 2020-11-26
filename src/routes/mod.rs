@@ -38,7 +38,7 @@ pub fn get_required_context(data: UserGuard, conn: &PgConnection) -> Context {
     use crate::db::filters::{
         get_categories_for_header,
     };
-    ctx.insert("header_brands", &get_brands_for_header(&conn));
+    //ctx.insert("header_brands", &get_brands_for_header(&conn)); потом переписать
     ctx.insert("header_categories", &get_categories_for_header(&conn));
     ctx.insert("login_fail",&false);
     ctx.insert("register_fail",&false);
