@@ -66,7 +66,6 @@
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/ads-upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ads-upload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/hide-sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hide-sector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/new-product-uploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/new-product-uploader.js" afterDir="false" />
@@ -342,7 +341,7 @@
       <workItem from="1605943561786" duration="2682000" />
       <workItem from="1606024753070" duration="45514000" />
       <workItem from="1606128369499" duration="3608000" />
-      <workItem from="1606378768147" duration="10472000" />
+      <workItem from="1606378768147" duration="10740000" />
     </task>
     <servers />
   </component>
