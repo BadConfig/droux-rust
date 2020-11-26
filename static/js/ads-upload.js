@@ -21,6 +21,7 @@ function checkAndAdd() {
         portions+=1;
         request.onreadystatechange = function() {
             jsonToAds(request.response);
+            changeSize();
         }
     }
 }
