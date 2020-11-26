@@ -43,13 +43,11 @@ function changeSize() {
                 adPhotos[i].style.width = photoWidth;
                 let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
                 adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
-                console.log('width');
             } else {
                 adPhotos[i].style.height = String(borderHeight) + 'px';
-                console.log( String(borderHeight) + 'px');
-                adPhotos[i].style.left = String((adPhotos[i].clientWidth - 255)/2) + 'px';
-
-                console.log(String((adPhotos[i].clientWidth - 255)/2) + 'px');
+                console.log( adPhotos[i].style.height);
+                adPhotos[i].style.left = '-' + String((adPhotos[i].clientWidth - 255)/2) + 'px';
+                console.log( adPhotos[i].style.left);
             }
         }
     }
