@@ -38,10 +38,15 @@ let adPhotos = document.getElementsByClassName('ad__img');
 changeSize();
 function changeSize() {
     for (let i = 0; i < adPhotos.length; i++) {
-        adPhotos[i].style.width = photoWidth;
         adPhotos[i].onload = function () {
-            let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
-            adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
+            if (document.documentElement.clientWidth < 1200) {
+                adPhotos[i].style.width = photoWidth;
+                let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
+                adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
+            } else {
+                adPhotos[i].style.height = borderHeight + 'px';
+                adPhotos[i].style.left = (adPhotos[i].clientWidth - 255)/2 + 'px';
+            }
         }
     }
 }
