@@ -5,9 +5,9 @@
 
 .ad__img-container{
     width: 255px;
-    height: 276px;
     position: relative;
     overflow: hidden;
+    height: unset;
 }
 
 .ad__img {
@@ -115,7 +115,7 @@
     .ad__img-container {
         width: 100%;
         padding-top: 78%;
-        height: unset!important;
+        height: unset;
     }
     .ad__img {
         height: unset;
