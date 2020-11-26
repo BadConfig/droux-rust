@@ -110,8 +110,10 @@
                 {% endif %}" action="/login" method="POST">
                 <label for="sign-in__login">Логин</label>
                 <input type="text" id="sign-in__login" name="login" {% if login_fail %}class="authorizer__input_failed"{% endif %}>
+                <span class="sign-up__bottom-text">*Необходимо ввести логин на английском языке и только прописными буквами</span>
                 <label for="sign-in__password">Пароль</label>
                 <input type="password" id="sign-in__password" name="pass" {% if login_fail %}class="authorizer__input_failed"{% endif %}>
+                <span class="sign-up__bottom-text">*Не менее 8 символов (латиница и цифры)</span>
                 <div class="sign-in__remember-and-forget">
                     <input type="checkbox" id="remember-me">
                     <label for="remember-me" class="authorizer__checkbox-label">Запомнить меня</label>
