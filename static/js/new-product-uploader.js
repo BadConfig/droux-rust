@@ -184,7 +184,7 @@ async function PostProduct() {
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
-    console.log(body);
+    console.log(body.toString());
 
     let photos = document.getElementsByClassName('uploader__frame-img');
     for (let i = 0; i < 10; i++) {
@@ -232,7 +232,7 @@ async function EditProduct() {
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
-    console.log(body);
+    console.log(body.toString());
 
     let photos = document.getElementsByClassName('uploader__frame-img');
     for (let i = 0; i < 10; i++) {
