@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: badconfig/droux
+    image: badconfig/droux:latest
     container_name: rocket-server
     tty: true
     ports:
