@@ -59,7 +59,7 @@ login.addEventListener('change', checkLogin);
 function checkLogin() {
     login.classList.remove('authorizer__input_failed');
     for (let i = 0; i < login.value.length; i++) {
-        if (!numbers.includes(pass.value.charAt(i)) && !alphabet.includes(pass.value.charAt(i))) {
+        if ((!numbers.includes(pass.value.charAt(i))) && (!alphabet.includes(pass.value.charAt(i)))) {
             login.classList.add('authorizer__input_failed');
             regAllowed = 0;
             break;
@@ -112,13 +112,11 @@ function AllowReg() {
         for (let i = 0; i < checklist.length; i++) {
             if ((checklist[i].value === "") || (checklist[i].classList.contains('authorizer__input_failed'))){
                 flag = 0;
-                console.log('fuck u')
                 break;
             }
         }
         if (flag === 1) {
             button.disabled = 0;
-            console.log('evthorite');
         }
     }
 }
