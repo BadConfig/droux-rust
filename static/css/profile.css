@@ -690,11 +690,27 @@
     display: flex;
 }
 
+
+.profile-button {
+    cursor: pointer;
+    display: none;
+    color: #747474;
+    position: absolute;
+    top: 25px;
+    right:15px;
+    font-size: 14px;
+}
+
 @media (max-width: 1200px) {
     .profile__content {
         width: 100%;
-        padding: 0 15px;
+        padding: 0;
         border: 0;
+        position: relative;
+    }
+
+    .profile-button {
+        display: block;
     }
     .card {
         width: 100%;
@@ -783,10 +799,6 @@
         display: none;
     }
 
-    .my-dialogues {
-        transform: scale(0.8);
-    }
-
     .chat__send-message {
         padding-left: 0;
         padding-right: 0;
@@ -799,6 +811,34 @@
     .content_mob_invis {
         display: none;
     }
+
+    .review textarea {
+        height: 100px;
+        min-height: unset;
+    }
+    .chat__message-div {
+        max-width: 70%;
+    }
+
+    .chat__product-block {
+        flex-direction: column;
+        max-width: 110px;
+        align-content: flex-end;
+
+    }
+    .chat__product-block * {
+        margin: 0;
+        text-align: right;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .chat {
+        max-height: 90vh;
+    }
+
 }
 
 
@@ -811,5 +851,11 @@
     }
     .ad__button {
         font-size: 10px;
+    }
+    .chat__message-time {
+        display: none;
+    }
+    .chat__companion-photo {
+        display: none;
     }
 }

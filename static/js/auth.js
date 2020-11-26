@@ -49,7 +49,7 @@ function actionsShowHide(evt) {
 
 let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 let alphabetHigh = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
+let other = ['-', '$', '&', '%', '#', '@', '*']
 let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 let login = document.getElementById('sign-up__login');
@@ -59,7 +59,7 @@ login.addEventListener('change', checkLogin);
 function checkLogin() {
     login.classList.remove('authorizer__input_failed');
     for (let i = 0; i < login.value.length; i++) {
-        if (!alphabet.includes(login.value.charAt(i))) {
+        if (!numbers.includes(pass.value.charAt(i)) && !alphabet.includes(pass.value.charAt(i))) {
             login.classList.add('authorizer__input_failed');
             regAllowed = 0;
             break;
@@ -80,7 +80,7 @@ function checkPass() {
         pass.classList.add('authorizer__input_failed');
     } else {
         for (let i = 0; i < pass.value.length; i++) {
-            if (!numbers.includes(pass.value.charAt(i)) && !alphabet.includes(pass.value.charAt(i)) && !alphabetHigh.includes(pass.value.charAt(i))) {
+            if (!numbers.includes(pass.value.charAt(i)) && !alphabet.includes(pass.value.charAt(i)) && !alphabetHigh.includes(pass.value.charAt(i)) && !other.includes(pass.value.charAt(i))) {
                 pass.classList.add('authorizer__input_failed');
                 break;
             }

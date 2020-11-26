@@ -84,8 +84,8 @@ function ClosePopUp() {
 }
 
 let scissors = new Croppie(place, {
-    viewport: {width: 350, height: 311.5},
-    boundary: {width: 350, height: 350},
+    viewport: {width: document.documentElement.clientWidth * 0.32, height: document.documentElement.clientWidth * 0.285},
+    boundary: {width: document.documentElement.clientWidth * 0.5, height: document.documentElement.clientHeight * 0.5},
     showZoomer: true,
     enableOrientation: false
 })
@@ -185,7 +185,7 @@ async function PostProduct() {
     body.append('price', price.querySelector('input').value);
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
-    body.append('seller_id', 1);
+    body.append('seller_id', document.querySelector('input[type=hidden]').value);
 
     let photos = document.getElementsByClassName('uploader__frame-img');
     console.log(photos);
@@ -235,7 +235,7 @@ async function EditProduct() {
     body.append('price', price.querySelector('input').value);
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
-    body.append('seller_id', 1);
+    body.append('seller_id', document.querySelector('input[type=hidden]').value);
 
     let photos = document.getElementsByClassName('uploader__frame-img');
     console.log(photos);

@@ -283,8 +283,8 @@ textarea {
 }
 
 .pop-up__cropper-bg {
-    width: 700px;
-    height: 500px;
+    width: 90vw;
+    height: 90vh;
     background-color: white;
     border-radius: 10px;
     position: relative;
@@ -400,7 +400,7 @@ textarea {
 .ad-form__submit-button {
     height: 36px;
     width: 350px;
-    margin: 62px 0 0 255px;
+    margin: 62px 0 30px 255px;
     color: white;
     background-color: black;
     font-size: 18px;
@@ -443,8 +443,13 @@ input[type=text] {
 @media (max-width: 1200px) {
     .mobile__page {
         width: 100%;
-        display: flex;
+        display: none;
         flex-direction: column;
+        min-height: 70vh;
+    }
+
+    .mobile__page_vis {
+        display: flex;
     }
 
 
