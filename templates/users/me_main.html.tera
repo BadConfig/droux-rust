@@ -45,13 +45,13 @@
                 Скоро здесь будут подписки или настройки профиля
             </div>
             <div class="card__nav">
-                <a href="/users/products"><span class="card__label {% block products %}{% endblock products %}">Мои объявления</span></a>
-                <a href="/users/reviews"><span class="card__label {% block reviews %}{% endblock reviews %}">Мои отзывы</span></a>
-                <a href="/users/favourites"><span class="card__label {% block favourites %}{% endblock favourites %}">Избранное</span></a>
+                <a href="/users/products"><span class="card__label">Мои объявления</span></a>
+                <a href="/users/reviews"><span class="card__label">Мои отзывы</span></a>
+                <a href="/users/favourites"><span class="card__label">Избранное</span></a>
                 <a href="/chat"><span class="card__label card__label_messages 
                     {% if unread_messages %}
                         new-message
-                    {% endif %} {% block messages %}{% endblock messages %}
+                    {% endif %}
                 ">Сообщения</span></a>
             </div>
         </div>

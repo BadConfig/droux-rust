@@ -37,6 +37,3 @@
         </div>
     </div>
 {% endblock page_content %}
-{% block reviews %}
-    card__label_active
-{% endblock reviews %}

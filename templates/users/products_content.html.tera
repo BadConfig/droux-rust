@@ -145,6 +145,3 @@
         </div>
     </div>
 {% endblock page_content %}
-{% block products %}
-    card__label_active
-{% endblock products %}

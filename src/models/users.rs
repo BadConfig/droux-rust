@@ -3,7 +3,6 @@ use serde::{Serialize, Deserialize};
 use diesel::*;
 
 use crate::schema::users;
-use crate::Error;
 
 #[derive(Serialize, Deserialize, Queryable, Clone, Debug)]
 pub struct Users {
@@ -31,30 +30,6 @@ impl Users {
             .get_result::<Users>(conn)
             .expect("Error getting user by id in get_user_by_id")
     }
-
-    pub fn get_with_page(page: i64, conn: &PgConnection) ->  Result<Vec<Users>,Error> {
-        
-        use crate::schema::users::dsl::*;
-
-        Ok(users
-            .limit(18)
-            .offset(18*(page-1))
-            .get_results::<Users>(conn)?)
-
-    }
-
-    pub fn change_banned(flag: bool, u_id: i32, conn: &PgConnection) -> Result<(),Error> {
-      
-        use crate::schema::users::dsl::*;
-
-        diesel::update(users)
-            .filter(id.eq(u_id))
-            .set(is_banned.eq(flag))
-            .execute(conn)?;
-        Ok(())
-        
-    }
-
 }
 
 #[derive(Insertable,AsChangeset,Debug)]
