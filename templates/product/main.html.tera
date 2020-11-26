@@ -29,10 +29,12 @@
                         {{ product.size_name }}
                     </span>
                 </div>
+                {% if is_logged %}
                 <div class="ad__favourite-icon ">
                     <img src="/static/assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav {% if product.in_favourites == false %} fav-icon_active {% endif %}">
                     <img src="/static/assets/favourite-filled.svg" alt="Добавить в избранное" class="product__add-to-fav {% if product.in_favourites %} fav-icon_active {% endif %}">
                 </div>
+                {% endif %}
             </div>
             <div class="product__main">
                 <div class="product__photo-border">
