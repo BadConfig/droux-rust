@@ -30,8 +30,8 @@
                     </span>
                 </div>
                 <div class="ad__favourite-icon ">
-                    <img src="/static/assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav">
-                    <img src="/static/assets/favourite-filled.svg" alt="Добавить в избранное" class="product__add-to-fav fav-icon_active">
+                    <img src="/static/assets/favourite.svg" alt="Добавить в избранное" class="product__add-to-fav {% if product.in_favourites == false %} fav-icon_active {% endif %}">
+                    <img src="/static/assets/favourite-filled.svg" alt="Добавить в избранное" class="product__add-to-fav {% if product.in_favourites %} fav-icon_active {% endif %}">
                 </div>
             </div>
             <div class="product__main">
