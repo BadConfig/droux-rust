@@ -40,6 +40,7 @@ document.onload = function() {
 }
 function changeSize() {
     for (let i = 0; i < adPhotos.length; i++) {
+        console.log(i);
         adPhotos[i].onload = function () {
             if (document.documentElement.clientWidth < 1200) {
                 adPhotos[i].style.width = photoWidth;
