@@ -115,7 +115,7 @@
     .ad__img-container {
         width: 100%;
         padding-top: 78%;
-        height: unset;
+        height: unset!important;
     }
     .ad__img {
         height: unset;

@@ -2,7 +2,7 @@ let searchResults = document.querySelector('.search-results');
 
 let timer = setInterval(checkAndAdd,3000);
 
-let portions = 0;
+let portions = 1;
 let filtersActive = false;
 let body;
 
@@ -166,6 +166,10 @@ function jsonToAds(response) {
             productPhoto.href = adLink;
             productPhoto.innerHTML = "<img src=\"" + resp[i].pictures[j] + "\" class=\"ad__img\" alt=\"\">";
             imageDiv.append(productPhoto);
+        }
+        let favDiv = newAd.querySelector('.ad__favourite-icon');
+        if (document.getElementById('auth-button')) {
+            favDiv.style.display = 'none';
         }
         if (resp[i].is_in_favourites) {
             newAd.querySelector('.ad__favourite-icon-img_filled').classList.add('fav-icon_active');
