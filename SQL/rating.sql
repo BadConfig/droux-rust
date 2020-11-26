@@ -10,5 +10,5 @@
  	rating.create_datetime
  FROM 
  	rating JOIN users AS u
- 		ON u.id = rating.seller_id
+ 		ON u.id = rating.voter_id
 WHERE rating.seller_id = $1;

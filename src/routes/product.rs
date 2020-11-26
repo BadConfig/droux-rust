@@ -172,6 +172,7 @@ pub fn parse_multiform_product(content_type: &ContentType, form: Data) -> NewPro
 
     let price       : i32 = unpack(price).trim().parse().expect("error parsing price");
     let seller_id   : i32 = unpack(seller_id).trim().parse().expect("error parsing seller_id");
+    print!("SELLER ID| {}",&seller_id);
     let brand_id    : i32 = unpack(brand_id).trim().parse().expect("error parsing category_id");
     let sub_category_id : i32 = unpack(sub_category_id).trim().parse().expect("error parsing category_id");
     let size_id     : i32 = unpack(size_id).trim().parse().expect("error parsing category_id");
