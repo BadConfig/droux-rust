@@ -35,6 +35,8 @@ for (let i = 0; i < secondCheck.length; i++) {
     secondCheck[i].addEventListener('click', check2);
 }
 
+document.querySelector('.state__options').addEventListener('click', check2);
+
 
 function check2() {
     let flag = 1
@@ -55,6 +57,7 @@ function turnPage2() {
     add_pages[1].classList.remove('mobile__page_vis');
     add_pages[2].classList.add('mobile__page_vis');
 }
+
 
 
 
