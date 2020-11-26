@@ -9,13 +9,13 @@
 {% endblock head %}
 {% block main %}  
     <main class="container main">
-    <input type ='hidden' class='prod_id' value='{{ product.id }}'>
         <div class="breadcrumbs">
             <a href="">{{ product.type_name }}/</a>
             <a href="">{{ product.category_name }}/</a>
             <a href="">{{ product.sub_category_name }}</a>
         </div>
         <div class="product">
+        <input type ='hidden' class='prod_id' value='{{ product.id }}'>
             <div class="product__top">
                 <div class="product__name-and-date">
                     <h1 class="product__name">{{ product.title }}</h1>
