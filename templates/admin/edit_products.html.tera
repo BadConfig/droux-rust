@@ -8,18 +8,17 @@
     <title>Редактирование</title>
 {% endblock head %}
 {% block main %}
-
-<main class="main container">
-    <form class="ad-form">
-        <input type="hidden" name="seller_id" value="{{ user.id }}" disabled>
-        <div class="mobile__page_1 mobile__page mobile__page_vis">
-            <div class="page-top">
-                <div class="page-top__commission-info">При успешной продаже лота мы взимаем комиссию 9%
-                    <a href="">Почему мы взимаем комиссию?</a>
-                </div>
-                <h1 class="page-top__header">Новое объявление</h1>
-                <a href="" class="page-top__requirements-info">Ознакомьтесь с критериями отбора публикаций</a>
+    <main class="main container">
+        <div class="page-top">
+            <div class="page-top__commission-info">При успешной продаже лота мы взимаем комиссию 9%
+                <a href="">Почему мы взимаем комиссию?</a>
             </div>
+            <h1 class="page-top__header">Новое объявление</h1>
+            <a href="" class="page-top__requirements-info">Ознакомьтесь с критериями отбора публикаций</a>
+        </div>
+
+        <form class="ad-form">
+
             <div class="filters ad-form__filters">
 
                 <div class="filters__sector filters__sector_sex filters__sector_size_s">
@@ -28,15 +27,13 @@
                     </div>
                     <div class="filters__must-be-hidden">
                         <div class="filters__sector-options">
-                            <div class="safari-sucks">
-                                {% for types in ProductTypes %}
+                            {% for types in ProductTypes %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" name="type_id" value="{{ types.id }}"
-                                           id="ad_types{{ types.id }}">
+                                    <input type="radio"
+                                    {% if prod_data.type_id == types.id %} checked {% endif %} name="type_id" value="{{ types.id }}" id="ad_types{{ types.id }}">
                                     <label for="ad_types{{ types.id }}">{{ types.name }}</label>
                                 </div>
-                                {% endfor %}
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -47,16 +44,15 @@
                     </div>
                     <div class="filters__must-be-hidden">
                         <div class="filters__sector-options">
-                            <div class="safari-sucks">
-                                {% for categories in ProductCategories %}
+                            {% for categories in ProductCategories %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" name="category_id" value="{{ categories.category_id }}"
-                                           id="ad_cat{{ categories.category_id }}">
-                                    <label for="ad_cat{{ categories.category_id }}">{{ categories.category_name
-                                        }}</label>
+                                    <input
+                                    {% if 0 != categories.sub_categories | filter(attribute="id", value=prod_data.sub_category_id) | length %}
+                                        checked
+                                    {% endif %} type="radio" name="category_id" value="{{ categories.category_id }}" id="ad_cat{{ categories.category_id }}">
+                                    <label for="ad_cat{{ categories.category_id }}">{{ categories.category_name }}</label>
                                 </div>
-                                {% endfor %}
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -67,17 +63,15 @@
                     </div>
                     <div class="filters__must-be-hidden">
                         <div class="filters__sector-options">
-                            <div class="safari-sucks">
-                                {% for categories in ProductCategories %}
+                            {% for categories in ProductCategories %}
                                 {% for sub_cat in categories.sub_categories %}
-                                <div class="filters__checkbox-div">
-                                    <input type="radio" name="sub_category_id" value="{{ sub_cat.id }}"
-                                           id="ad_sub_cat{{ sub_cat.id }}">
-                                    <label for="ad_sub_cat{{ sub_cat.id }}">{{ sub_cat.name }}</label>
-                                </div>
+                                    <div class="filters__checkbox-div">
+                                        <input
+                                        {% if prod_data.sub_category_id == sub_cat.id %} checked {% endif %} type="radio" name="sub_category_id" value="{{ sub_cat.id }}" id="ad_sub_cat{{ sub_cat.id }}">
+                                        <label for="ad_sub_cat{{ sub_cat.id }}">{{ sub_cat.name }}</label>
+                                    </div>
                                 {% endfor %}
-                                {% endfor %}
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -89,15 +83,16 @@
                     <div class="filters__must-be-hidden">
                         <input type="text" placeholder="Искать" class="filters__search-field">
                         <div class="filters__sector-options">
-                            <div class="safari-sucks">
-                                {% for brand in ProductBrands %}
+                            {% for brand in ProductBrands %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" name="brand_id" value="{{ brand.id }}"
-                                           id="ad_brand{{ brand.id }}">
+                                    <input
+                                     {% if prod_data.brand_id == brand.id %}
+                                      checked
+                                     {% endif %}
+                                     type="radio" name="brand_id" value="{{ brand.id }}" id="ad_brand{{ brand.id }}">
                                     <label for="ad_brand{{ brand.id }}">{{ brand.name }}</label>
                                 </div>
-                                {% endfor %}
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -109,23 +104,20 @@
                     <div class="filters__must-be-hidden">
                         <input type="text" placeholder="Искать" class="filters__search-field">
                         <div class="filters__sector-options">
-                            <div class="safari-sucks">
-                                {% for size in ProductSizes %}
+                            {% for size in ProductSizes %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" name="size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
+                                    <input
+                                        {% if prod_data.size_id == size.id %}
+                                            checked
+                                        {% endif %}
+                                     type="radio" name="size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
                                     <label for="ad_size{{ size.id }}">{{ size.name }}</label>
                                 </div>
-                                {% endfor %}
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="button" class="mobile__button mobile__button_1 button" disabled onclick="turnPage1()">
-                Продолжить
-            </button>
-        </div>
-        <div class="mobile__page_2 mobile__page">
             <h2 class="ad-form__header">Параметры</h2>
             <div class="ad-form__main-info">
                 <div class="form__top-3">
@@ -133,91 +125,97 @@
                         <div class="ad-form__field-div ad-form__field-div_name">
                             <label for="ad-name" class="ad-form__label">Название объявления</label>
                             <div class="bottom-text__wrapper">
-                                <input type="text" name="title" id="ad-name">
+                                <input type="text" name="title" value="{{ prod_data.title }}" id="ad-name">
                                 <span class="bottom-text">Например, «iPhone 6S Plus серый космос 32 гб» или «Фотоаппарат Canon 700D Kit 18-55»</span>
                             </div>
                         </div>
                         <div class="ad-form__field-div ad-form__field-div_description">
                             <label for="ad-description" class="ad-form__label">Описание объявления</label>
                             <div class="bottom-text__wrapper">
-                                <textarea id="ad-description" name="descr"></textarea>
+                                <textarea id="ad-description" name="descr">{{ prod_data.descr }}</textarea>
                                 <span class="bottom-text">Не указывайте в описании телефон и e-mail — для этого есть отдельные поля</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-column form-column_second">
+                        <div class="bottom-text__wrapper bottom-text__wrapper_photo-uploader">
+                            <span class="ad-form__label ad-form__label_for-photos">Фотографии</span>
+                            <span class="bottom-text">Не более 10</span>
+                        </div>
+                        <div class="ad-form__photo-upload-block uploader">
+                            <input type="file" id="photo-upload-input" class="uploader__input">
+                                <div id="upload-photo-button" class="uploader__main-label">
+                                    <label for="photo-upload-input"></label>
+                                    <img src="/static/assets/plus.svg" alt="">
+                                </div>
+                            <div class="uploader__photo-frame-border">
+                                <div class="uploader__all-frames">
+                            {% for pic_url in prod_data.pictures %}
+                                <div class="uploader__photo-frame" id="photo_1">
+                                    <img src="/{{ pic_url }}" alt="" class="uploader__frame-img">
+                                    <img src="/static/assets/close.svg" alt="" class="uploader__delete-frame">
+                                </div>
+                            {% endfor %}
+                            {% if prod_data.pictures | length < 10 %}
+
+                                    <div class="uploader__photo-frame"></div>
+
+                            {% endif %}
+                                </div>
+                            </div>
+                            <div class="uploader__arrow uploader__arrow_left">
+                                <img src="/static/assets/arrow-left.svg" alt="">
+                            </div>
+
+                            <div class="uploader__arrow uploader__arrow_right">
+                                <img src="/static/assets/arrow-right.svg" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="ad-form__state">
                     <div class="ad-form__label">Состояние</div>
-                    <div class="state__options">
+                        <div class="state__options">
                         {% for state in ProductStates %}
-                        <input type="radio" name="state_id" value="{{ state.id }}" id="ad_state{{ state.id }}">
-                        <label for="ad_state{{ state.id }}">{{ state.name }}</label>
+                            <input
+                                {% if prod_data.product_state == state.id %}
+                                 checked
+                                {% endif %}
+                             type="radio" name="state_id" value="{{ state.id }}" id="ad_state{{ state.id }}">
+                            <label for="ad_state{{ state.id }}">{{ state.name }}</label>
                         {% endfor %}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="ad-form__price">
-                <label class="ad-form__label" for="price">Цена</label>
-                <div class="price__input"><input type="text" id="price"><span>₽</span></div>
-            </div>
-            <button type="button" class="mobile__button mobile__button_2 button" disabled onclick="turnPage2()">
-                Продолжить
-            </button>
-        </div>
-        <div class="mobile__page_3 mobile__page">
-            <div class="bottom-text__wrapper bottom-text__wrapper_photo-uploader">
-                <span class="ad-form__label ad-form__label_for-photos">Фотографии</span>
-                <span class="bottom-text">Не более 10</span>
-            </div>
-            <div class="ad-form__photo-upload-block uploader">
-                <input type="file" id="photo-upload-input" class="uploader__input">
-                <div id="upload-photo-button" class="uploader__main-label">
-                    <label for="photo-upload-input"></label>
-                    <img src="/static/assets/plus.svg" alt="">
+                <div class="ad-form__price">
+                    <div class="ad-form__label">Цена</div>
+                    <div class="price__input"><input type="text" value="{{ prod_data.price }}" id="price"><span>₽</span></div>
                 </div>
-
-
-                <div class="uploader__photo-frame-border">
-                    <div class="uploader__all-frames">
-                        <div class="uploader__photo-frame"></div>
-                    </div>
+                <input type="hidden" id="product_id" value="{{ prod_data.id }}">
+                <h2 class="ad-form__header ad-form__header_params">Параметры</h2>
+                <div class="ad-form__num">
+                    <div class="ad-form__label">Телефон</div>
+                    <input type="text" value="{{ prod_data.phone_number }}">
                 </div>
-                <div class="uploader__arrow uploader__arrow_left">
-                    <img src="/static/assets/arrow-left.svg" alt="">
+                <div class="ad-form__email">
+                    <div class="ad-form__label">Место</div>
+                    <input type="text" value="{{ prod_data.location }}">
                 </div>
-
-                <div class="uploader__arrow uploader__arrow_right">
-                    <img src="/static/assets/arrow-right.svg" alt="">
+                <input type="button" value="Опубликовать" class="button ad-form__submit-button" onclick="EditProduct()"> {# onclick="EditProduct()" если это страница редактирования#}
+            </div>
+            <input type="hidden" name="seller_id" value="{{ user.id }}">
+        </form>
+        <div class="uploader__pop-up pop-up pop-up__background">
+            <div class="pop-up__cropper-bg">
+                <div class="pop-up__croppie-place"></div>
+                <div class="pop-up__buttons-div">
+                    <button class="button pop-up__button pop-up__button_ok">OK</button>
+                    <button class="button pop-up__button pop-up__button_cancel">Отмена</button>
                 </div>
+                <img src="/static/assets/close.svg" alt="" class="pop-up__close">
             </div>
-            <button type="button" class="mobile__button mobile__button_3 button" onclick="turnPage3()" disabled>
-                Продолжить
-            </button>
         </div>
-        <div class="mobile__page_4 mobile__page">
-            <h2 class="ad-form__header ad-form__header_params">Контакты</h2>
-            <div class="ad-form__num">
-                <label class="ad-form__label" for="phone">Телефон</label>
-                <input type="text" id="phone">
-            </div>
-            <div class="ad-form__email">
-                <label class="ad-form__label" for="city">Город</label>
-                <input type="text" id="city">
-            </div>
-            <input type="button" value="Продолжить" class="button ad-form__submit-button" onclick="PostProduct()">
-        </div>
-    </form>
-    <div class="uploader__pop-up pop-up pop-up__background">
-        <div class="pop-up__cropper-bg">
-            <div class="pop-up__croppie-place"></div>
-            <div class="pop-up__buttons-div">
-                <button class="button pop-up__button pop-up__button_ok">OK</button>
-                <button class="button pop-up__button pop-up__button_cancel">Отмена</button>
-            </div>
-            <img src="/static/assets/close.svg" alt="" class="pop-up__close">
-        </div>
-    </div>
-</main>
+    </main>
 {% endblock main %}
 {% block scripts %}
     <script src="/static/js/search-filter.js"></script>
