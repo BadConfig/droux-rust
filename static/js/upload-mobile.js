@@ -32,7 +32,7 @@ let secondCheck = [document.getElementById('ad-name'), document.getElementById('
     document.getElementById('price')];
 
 for (let i = 0; i < secondCheck.length; i++) {
-    secondCheck[i].addEventListener('click', check2);
+    secondCheck[i].addEventListener('change', check2);
 }
 
 document.querySelector('.state__options').addEventListener('click', check2);
