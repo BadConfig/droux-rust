@@ -35,7 +35,9 @@ function SwipePhotos() {
 let photoWidth = String(document.querySelector('.ad__img-container').clientWidth) + 'px';
 let borderHeight = Number(window.getComputedStyle(document.querySelector('.ad__img-container')).height.slice(0, -2));
 let adPhotos = document.getElementsByClassName('ad__img');
-changeSize();
+document.onload = function() {
+    changeSize();
+}
 function changeSize() {
     for (let i = 0; i < adPhotos.length; i++) {
         adPhotos[i].onload = function () {
