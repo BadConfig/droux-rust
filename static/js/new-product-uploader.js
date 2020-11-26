@@ -183,7 +183,7 @@ async function PostProduct() {
     body.append('price', price.querySelector('input').value);
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
-    body.append('seller_id', document.querySelector('input[type=hidden]').value);
+    body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
     console.log(body);
 
     let photos = document.getElementsByClassName('uploader__frame-img');
