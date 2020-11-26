@@ -40,7 +40,6 @@ for (let i = 0; i < adPhotos.length; i++) {
     adPhotos[i].onload = function(){
         let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
         adPhotos[i].style.top = String(-(photoHeight - borderHeight)/2) + 'px';
-        console.log(String(-(photoHeight - borderHeight)/2) + 'px');
     }
 
 }

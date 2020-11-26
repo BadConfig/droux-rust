@@ -28,14 +28,12 @@ function checkAndAdd() {
 let filters = document.getElementsByClassName('filters__sector-options');
 for (let i = 0; i < filters.length; i++) {
     let options = filters[i].querySelectorAll('input[type=radio]');
-    console.log(options);
     for (let j = 0; j < options.length; j++) {
         options[j].addEventListener('change', NewSearch);
     }
 }
 
 let headerSearchField = document.getElementById('header-search');
-console.log(headerSearchField);
 let headerSearchButton = document.querySelector('.search__button');
 
 headerSearchField.addEventListener('change', NewSearch);
@@ -66,7 +64,6 @@ function NewSearch() {
         body += '&product_state_id=' + filters[5].querySelector('input:checked').value;
     }
     filtersActive = true;
-    console.log(body + '&offset=' + (12 * portions));
     portions += 1;
     let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
@@ -79,7 +76,6 @@ function NewSearch() {
     main.append(searchResults);
     request.send(encodeURI(body + '&offset=' + (12 * portions)));
     request.onreadystatechange = function() {
-        console.log(request.response);
         jsonToAds(request.response);
     }
 }
