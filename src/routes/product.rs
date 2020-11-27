@@ -306,6 +306,9 @@ use crate::crm::{
 #[get("/product/pay?<orderId>&<lang>")]
 pub fn check_pay(orderId: String, lang: String, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
     let transcation = TrDescription::get_sber_pay_status(orderId)?;
+    if let CommonUser::NotLogged() = user.clone() {
+        print!("INFO| ERROR SBER GOFUCK\n");
+    }
     match (transcation,user) {
         (TrDescription::Priveleges(p),CommonUser::Logged(_)) => {
             p.save(&conn)?;
