@@ -1,4 +1,4 @@
-SELECT DISTINCT ON (pr.id)
+SELECT
  		pr.id, 
 		pr.title,
 		pr.price, 
