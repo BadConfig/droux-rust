@@ -118,7 +118,12 @@ function UploadPhoto() {
 popUp.getElementsByClassName('pop-up__button_ok')[0].addEventListener('click', MakeMini);
 
 function MakeMini(){
-    scissors.result('blob', 'original', 'png', 1).then(function(blob){
+    let imageSize = {
+        width: 635,
+        height: 568,
+        type: 'square'
+    };
+    scissors.result('blob', imageSize, 'png', 1).then(function(blob){
 
         currentLastPhoto += 1;
 
