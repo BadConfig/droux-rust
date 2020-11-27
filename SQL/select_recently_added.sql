@@ -1,4 +1,5 @@
-SELECT 	pr.id, 
+SELECT
+ 		pr.id, 
 		pr.title,
 		pr.price, 
 		fv.id IS NOT NULL AS is_in_favourites,
