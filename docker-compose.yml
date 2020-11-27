@@ -11,7 +11,7 @@ services:
       - RETAIL_CRM_API_KEY=qZPXO3WaF2LLQI3YEZHdpJLoYZxhHdzH
       - SBERBANK_USERNAME=T773007004660-api
       - SBERBANK_PASSWORD=T773007004660
-      - SITE_URL=droux.ru
+      - SITE_URL=https://droux.ru
     volumes:
           - ./Rocket.toml:/droux/Rocket.toml
           - ./static/:/droux/static/
