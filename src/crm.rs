@@ -171,6 +171,7 @@ impl BuyForm {
         .expect("SBERBANK_USERNAME must be set");
         let sber_pass = env::var("SBERBANK_PASSWORD")
         .expect("SBERBANK_PASSWORD must be set"); 
+        print!("INFO| sberbank url return {}\n",site_url);
         let params = [
             ("userName", &sber_pass[..]),
             ("password", &sber_uname[..]),
