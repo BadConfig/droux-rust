@@ -23,6 +23,7 @@ use rocket::request::Request;
 use rocket::http::Status;
 use rocket::response;
 use rocket::response::Responder;
+use rocket_contrib::serve::StaticFiles;
 //use std::error::Error;
 
 #[derive(Debug)]

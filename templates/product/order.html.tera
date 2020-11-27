@@ -26,6 +26,7 @@
                 <input type="hidden" name="username" value="{{ my_user.username }}">
                 <input type="hidden" name="pr_price" value="{{ product.price }}">
                 <input type="hidden" name="seller_username" value="{{ seller.username }}">
+                <input type="hidden" name="seller_id" value="{{ seller.id }}">
                 <input type="hidden" name="seller_phone" value="{{ product.phone_number }}">
                 <input type="hidden" name="seller_email" value="{{ seller.email }}">
                 <input type="hidden" name="seller_location" value="{{ product.location }}">
