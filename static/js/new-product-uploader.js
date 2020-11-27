@@ -22,6 +22,10 @@ frame[currentLastPhoto + 1].append(label);
 arrowLeft.addEventListener('click', SwipeFrames);
 arrowRight.addEventListener('click', SwipeFrames);
 
+
+photosArray = [];
+
+
 function GetWidth() {
     let frame = frames.getElementsByClassName('uploader__photo-frame')[0];
     let frameWidth = Number(getComputedStyle(frame).width.slice(0, -2));
@@ -46,6 +50,8 @@ function DeleteFrame(){
     let delta = GetWidth();
     frames.style = "transform: translateX(-" + String(currentFirstFrame * delta) + "px);";
     let delFrame = event.currentTarget.parentNode;
+    photosArray.splice(frame.indexOf(delFrame), 1);
+    console.log(photosArray);
     delFrame.style = "transform: translateY(50px);";
 
     if (framesCount === 10) {
@@ -115,6 +121,8 @@ function MakeMini(){
     scissors.result('blob', 'original').then(function(blob){
 
         currentLastPhoto += 1;
+
+        photosArray.push(blob);
 
         let link = URL.createObjectURL(blob);
         let miniature = document.createElement('img');
@@ -188,11 +196,10 @@ async function PostProduct() {
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
     console.log(body.toString());
 
-    let photos = document.getElementsByClassName('uploader__frame-img');
     for (let i = 0; i < 10; i++) {
         let id = 'photo' + String(i + 1);
-        if (photos[i] !=null) {
-            let blob = await fetch(photos[i].src).then(r => r.blob())
+        if (photosArray[i] !=null) {
+            let blob = photosArray[i];
             body.append(id, blob);
         }
     }

@@ -37,15 +37,15 @@ for (let i = 0; i < filters.length; i++) {
 let headerSearchField = document.getElementById('header-search');
 let headerSearchButton = document.querySelector('.search__button');
 
-headerSearchField.addEventListener('change', NewSearch);
+headerSearchField.addEventListener('input', NewSearch);
 headerSearchButton.addEventListener('click', NewSearch);
-
+let timeout = 0;
 function NewSearch() {
-    if (timeout) {
+    if (timeout != 0) {
         clearTimeout(timeout);
     }
     timer = setInterval(checkAndAdd,3000);
-    let timeout = setTimeout(useFilters, 1000);
+    timeout = setTimeout(useFilters, 1000);
 }
 
 function useFilters() {
@@ -88,6 +88,7 @@ function useFilters() {
         jsonToAds(request.response);
         changeSize();
     }
+    timeout = 0;
 }
 
 

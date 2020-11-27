@@ -35,13 +35,35 @@ function SwipePhotos() {
 let photoWidth = String(document.querySelector('.ad__img-container').clientWidth) + 'px';
 let borderHeight = Number(window.getComputedStyle(document.querySelector('.ad__img-container')).height.slice(0, -2));
 let adPhotos = document.getElementsByClassName('ad__img');
+
 changeSize();
 function changeSize() {
     for (let i = 0; i < adPhotos.length; i++) {
-        adPhotos[i].style.width = photoWidth;
-        adPhotos[i].onload = function () {
-            let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
-            adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
+        console.log(i);
+        if (adPhotos[i].complete){
+            if (document.documentElement.clientWidth < 1200) {
+                adPhotos[i].style.width = photoWidth;
+                let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
+                adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
+            } else {
+                adPhotos[i].style.height = String(borderHeight) + 'px';
+                console.log(adPhotos[i].style.height);
+                adPhotos[i].style.left = '-' + String((adPhotos[i].clientWidth - 255) / 2) + 'px';
+                console.log(adPhotos[i].style.left);
+            }
+        } else {
+            adPhotos[i].onload = function () {
+                if (document.documentElement.clientWidth < 1200) {
+                    adPhotos[i].style.width = photoWidth;
+                    let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
+                    adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
+                } else {
+                    adPhotos[i].style.height = String(borderHeight) + 'px';
+                    console.log(adPhotos[i].style.height);
+                    adPhotos[i].style.left = '-' + String((adPhotos[i].clientWidth - 255) / 2) + 'px';
+                    console.log(adPhotos[i].style.left);
+                }
+            }
         }
     }
 }

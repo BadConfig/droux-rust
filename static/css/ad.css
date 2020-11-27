@@ -5,14 +5,15 @@
 
 .ad__img-container{
     width: 255px;
-    height: 276px;
     position: relative;
     overflow: hidden;
+    height: 276px;
 }
 
 .ad__img {
     z-index: 1;
     display: block;
+    position: relative;
 }
 
 .ad__arrow {
@@ -115,7 +116,7 @@
     .ad__img-container {
         width: 100%;
         padding-top: 78%;
-        height: unset!important;
+        height: unset;
     }
     .ad__img {
         height: unset;
