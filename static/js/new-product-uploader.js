@@ -123,7 +123,11 @@ function MakeMini(){
         height: 568,
         type: 'square'
     };
-    scissors.result('blob', imageSize, 'png', 1).then(function(blob){
+    scissors.result({
+        type: 'blob',
+        size: imageSize,
+        format: 'png',
+        quality: 1}).then(function(blob){
 
         currentLastPhoto += 1;
 
