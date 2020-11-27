@@ -95,7 +95,7 @@ pub fn app() -> rocket::Rocket {
             routes::product::product_create,
             routes::product::product_create_get,
             routes::product::get_product_by_id,
-            //routes::product::file,
+            routes::product::file,
             routes::chat::write_chat_messages,
             routes::chat::create_chat_messages,
             routes::chat::get_chat_messages,
@@ -137,7 +137,6 @@ pub fn app() -> rocket::Rocket {
             routes::static_pages::serve_terms,
             routes::static_pages::user_terms,
             ])
-        .mount("/static", StaticFiles::from("/static"))
         .attach(Template::fairing())
         .attach(db::Conn::fairing())
 
