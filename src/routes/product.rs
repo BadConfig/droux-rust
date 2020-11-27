@@ -279,6 +279,7 @@ pub struct BuyForm {
     pub pr_price: i32,
     pub seller_username: String,
     pub seller_phone: String,
+    pub seller_id: i32,
     pub seller_email: String,
     pub seller_location: String,
     pub pr_is_pre_order: bool,
@@ -304,20 +305,17 @@ use crate::crm::{
 };
 
 #[get("/product/pay?<orderId>&<lang>")]
-pub fn check_pay(orderId: String, lang: String, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+pub fn check_pay(orderId: String, lang: String, conn: crate::db::Conn) -> Result<Either,Error> {
     let transcation = TrDescription::get_sber_pay_status(orderId)?;
-    if let CommonUser::NotLogged() = user.clone() {
-        print!("INFO| ERROR SBER GOFUCK\n");
-    }
-    match (transcation,user) {
-        (TrDescription::Priveleges(p),CommonUser::Logged(_)) => {
+    match transcation {
+        TrDescription::Priveleges(p) => {
             p.save(&conn)?;
             Ok(Either::Redirect(Redirect::to("/product/promotion/final")))
         },
-        (TrDescription::Order(o),CommonUser::Logged(u)) => {
+        TrDescription::Order(o) => {
             let (num, addr) = o.send_new_order_to_crm()?;
             Product::set_status(o.pr_id.clone(), "sold".to_string(), &conn)?;
-            Product::set_customer_id(o.pr_id,u.id, &conn)?;
+            Product::set_customer_id(o.pr_id,o.seller_id.clone(), &conn)?;
             Ok(Either::Redirect(Redirect::to(format!("/product/order/final/{}/{}",num,addr))))
         },
         _ => Ok(Either::Redirect(Redirect::to("/")))
