@@ -141,7 +141,7 @@ function MakeMini(){
         frame[currentLastPhoto].append(miniature);
 
         let frameCross = document.createElement('img');
-        frameCross.src = 'assets/close.svg';
+        frameCross.src = '/static/assets/close.svg';
         frameCross.alt = '';
         frameCross.className = 'uploader__delete-frame';
         frame[currentLastPhoto].append(frameCross);
@@ -203,7 +203,6 @@ async function PostProduct() {
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
-    console.log(body.toString());
 
     for (let i = 0; i < 10; i++) {
         let id = 'photo' + String(i + 1);
@@ -213,12 +212,12 @@ async function PostProduct() {
         }
     }
 
+
     let postAd = new XMLHttpRequest();
     postAd.open('POST', '/product/create', true);
     postAd.send(body);
     postAd.onreadystatechange = function() {
         let redirectRoute = "/product/promotion/create/" + String(postAd.response);
-        console.log(redirectRoute);
         window.location.replace(redirectRoute);
     }
     return false;
