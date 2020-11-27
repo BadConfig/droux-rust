@@ -80,7 +80,7 @@ impl BuyForm {
     }
 }
 
-#[derive(Serialize,Deserialize)]
+#[derive(Serialize,Deserialize,Debug)]
 pub enum TrDescription {
     Priveleges(PrivForm),
     Order(BuyForm),
