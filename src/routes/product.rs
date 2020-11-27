@@ -303,8 +303,8 @@ use crate::crm::{
     TrDescription,
 };
 
-#[get("/product/pay?<orderId>&<_lang>")]
-pub fn check_pay(orderId: String, _lang: String, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+#[get("/product/pay?<orderId>&<lang>")]
+pub fn check_pay(orderId: String, lang: String, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
     let transcation = TrDescription::get_sber_pay_status(orderId)?;
     match (transcation,user) {
         (TrDescription::Priveleges(p),CommonUser::Logged(_)) => {
