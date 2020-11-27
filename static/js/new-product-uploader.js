@@ -126,8 +126,6 @@ function MakeMini(){
 
         currentLastPhoto += 1;
 
-        photosArray.push(blob);
-
         let link = URL.createObjectURL(blob);
         let miniature = document.createElement('img');
         miniature.src = link;
