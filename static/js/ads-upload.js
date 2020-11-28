@@ -88,6 +88,7 @@ function useFilters() {
     } else {
         body += '&order_by=' + mobileSort.querySelector('input:checked').value;
     }
+
     filtersActive = true;
     let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
