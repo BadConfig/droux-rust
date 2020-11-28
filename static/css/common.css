@@ -582,7 +582,7 @@ input[type=checkbox] + label {
         min-height: 40px;
         justify-content: space-between;
     }
-    .services . .services__container .services__item {
+    .services .services__container .services__item {
         font-size: 12px;
         width: 30%;
         margin: 0;
