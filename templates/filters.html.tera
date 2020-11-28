@@ -16,7 +16,7 @@
         </div>
         <div class="sort-by">
             <span>Сортировать:</span>
-            <input type="radio" class="sort-by__variant" name="order_by" value="None" id="nothing" checked style="display: none;">
+            <input type="radio" class="sort-by__variant" name="order_by" value="None" id="nothing" style="display: none;">
             <input type="radio" class="sort-by__variant" name="order_by" value="Date" id="date">
             <label for="date">по дате</label>
             <input type="radio" class="sort-by__variant" name="order_by" value="PriceASC" id="price-up">
@@ -29,7 +29,7 @@
         </div>
         <div class="filters__layout">
             <aside class="sort-by">
-                <input type="radio" class="sort-by__variant" name="order_by" value="None" id="-m-nothing" checked style="display: none;">
+                <input type="radio" class="sort-by__variant" name="order_by" value="None" id="-m-nothing" style="display: none;">
                 <input type="radio" class="sort-by__variant" name="sort-by" value="Date" id="-m-date">
                 <label for="-m-date">по дате</label>
                 <input type="radio" class="sort-by__variant" name="sort-by" value="PriceASC" id="-m-price-up">
