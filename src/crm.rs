@@ -80,7 +80,7 @@ impl BuyForm {
     }
 }
 
-#[derive(Serialize,Deserialize)]
+#[derive(Serialize,Deserialize,Debug)]
 pub enum TrDescription {
     Priveleges(PrivForm),
     Order(BuyForm),
@@ -173,8 +173,8 @@ impl BuyForm {
         .expect("SBERBANK_PASSWORD must be set"); 
         print!("INFO| sberbank url return {}\n",site_url);
         let params = [
-            ("userName", &sber_pass[..]),
-            ("password", &sber_uname[..]),
+            ("userName", &sber_uname[..]),
+            ("password", &sber_pass[..]),
             ("amount", &format!("{}",self.pr_price*100)),
             ("currency", &format!("{}",643)[..]),
             ("returnUrl", &(site_url + &"/product/pay".to_string())[..]),

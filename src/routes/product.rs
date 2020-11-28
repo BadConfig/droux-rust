@@ -59,6 +59,9 @@ pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Te
 
 use std::path::{Path, PathBuf};
 use rocket::response::NamedFile;
+// use rocket::State;
+// extern crate rocket_file_cache;
+// use rocket_file_cache::{Cache, CacheBuilder, CachedFile};
 
 #[get("/static/<file..>")]
 pub fn file(file: PathBuf) -> Option<NamedFile> {
@@ -268,7 +271,7 @@ pub fn get_promotions(id: i32, user: CommonUser, conn: crate::db::Conn) -> Resul
     }
 }
 
-#[derive(FromForm,Clone,Serialize,Deserialize)]
+#[derive(FromForm,Clone,Serialize,Deserialize,Debug)]
 pub struct BuyForm {
     pub name: String,
     pub username: String,
@@ -287,7 +290,7 @@ pub struct BuyForm {
     pub pr_name: String,
 }
 
-#[derive(FromForm,Clone,Serialize,Deserialize)]
+#[derive(FromForm,Clone,Serialize,Deserialize,Debug)]
 pub struct PrivForm {
     pub pre_order: bool,
     pub top_name: bool,
@@ -307,15 +310,18 @@ use crate::crm::{
 #[get("/product/pay?<orderId>&<lang>")]
 pub fn check_pay(orderId: String, lang: String, conn: crate::db::Conn) -> Result<Either,Error> {
     let transcation = TrDescription::get_sber_pay_status(orderId)?;
+    print!("\nINFO| {:?}\n",&transcation);
     match transcation {
         TrDescription::Priveleges(p) => {
             p.save(&conn)?;
+            print!("\nINFO| got in priveleges\n");
             Ok(Either::Redirect(Redirect::to("/product/promotion/final")))
         },
         TrDescription::Order(o) => {
             let (num, addr) = o.send_new_order_to_crm()?;
             Product::set_status(o.pr_id.clone(), "sold".to_string(), &conn)?;
             Product::set_customer_id(o.pr_id,o.seller_id.clone(), &conn)?;
+            print!("\nINFO| got in order\n");
             Ok(Either::Redirect(Redirect::to(format!("/product/order/final/{}/{}",num,addr))))
         },
         _ => Ok(Either::Redirect(Redirect::to("/")))

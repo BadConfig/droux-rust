@@ -691,7 +691,7 @@ input[type=checkbox] + label {
 
     .header__buttons .sell__button {
         position: fixed;
-        display: flex;
+        display: none;
         width: 170px;
         margin: 0 auto;
         bottom: 15px;

@@ -23,9 +23,6 @@ arrowLeft.addEventListener('click', SwipeFrames);
 arrowRight.addEventListener('click', SwipeFrames);
 
 
-photosArray = [];
-
-
 function GetWidth() {
     let frame = frames.getElementsByClassName('uploader__photo-frame')[0];
     let frameWidth = Number(getComputedStyle(frame).width.slice(0, -2));
@@ -50,8 +47,6 @@ function DeleteFrame(){
     let delta = GetWidth();
     frames.style = "transform: translateX(-" + String(currentFirstFrame * delta) + "px);";
     let delFrame = event.currentTarget.parentNode;
-    photosArray.splice(frame.indexOf(delFrame), 1);
-    console.log(photosArray);
     delFrame.style = "transform: translateY(50px);";
 
     if (framesCount === 10) {
@@ -131,8 +126,6 @@ function MakeMini(){
 
         currentLastPhoto += 1;
 
-        photosArray.push(blob);
-
         let link = URL.createObjectURL(blob);
         let miniature = document.createElement('img');
         miniature.src = link;
@@ -141,7 +134,7 @@ function MakeMini(){
         frame[currentLastPhoto].append(miniature);
 
         let frameCross = document.createElement('img');
-        frameCross.src = 'assets/close.svg';
+        frameCross.src = '/static/assets/close.svg';
         frameCross.alt = '';
         frameCross.className = 'uploader__delete-frame';
         frame[currentLastPhoto].append(frameCross);
@@ -203,22 +196,22 @@ async function PostProduct() {
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
-    console.log(body.toString());
 
+    let photos = document.getElementsByClassName('uploader__frame-img');
     for (let i = 0; i < 10; i++) {
         let id = 'photo' + String(i + 1);
-        if (photosArray[i] !=null) {
-            let blob = photosArray[i];
+        if (photos[i] !=null) {
+            let blob = await fetch(photos[i].src).then(r => r.blob())
             body.append(id, blob);
         }
     }
+
 
     let postAd = new XMLHttpRequest();
     postAd.open('POST', '/product/create', true);
     postAd.send(body);
     postAd.onreadystatechange = function() {
         let redirectRoute = "/product/promotion/create/" + String(postAd.response);
-        console.log(redirectRoute);
         window.location.replace(redirectRoute);
     }
     return false;
