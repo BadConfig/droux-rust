@@ -83,7 +83,7 @@ function useFilters() {
     if (filters[5].querySelector('input:checked') != null) {
         body += '&product_state_id=' + filters[5].querySelector('input:checked').value;
     }
-    if (document.documentElement.clientWidth < 1200) {
+    if (document.documentElement.clientWidth >= 1200) {
         body += '&order_by=' + sort.querySelector('input:checked').value;
     } else {
         body += '&order_by=' + mobileSort.querySelector('input:checked').value;
