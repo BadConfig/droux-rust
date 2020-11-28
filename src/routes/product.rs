@@ -59,6 +59,9 @@ pub fn get_product_by_id(id: i32, user: CommonUser, conn: crate::db::Conn) -> Te
 
 use std::path::{Path, PathBuf};
 use rocket::response::NamedFile;
+// use rocket::State;
+// extern crate rocket_file_cache;
+// use rocket_file_cache::{Cache, CacheBuilder, CachedFile};
 
 #[get("/static/<file..>")]
 pub fn file(file: PathBuf) -> Option<NamedFile> {
