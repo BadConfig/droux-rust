@@ -60,6 +60,7 @@ input[type=checkbox] + label {
     background-color: #E0E0E0;
     position: relative;
     z-index: 7;
+    justify-content: center;
 }
 
 .services__icon{
@@ -75,6 +76,9 @@ input[type=checkbox] + label {
     align-items: center;
     font-size: 14px;
     color: #303030;
+}
+
+.services__item:not(:last-child) {
     margin-right: 63px;
 }
 
