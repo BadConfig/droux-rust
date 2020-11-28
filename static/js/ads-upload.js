@@ -34,6 +34,17 @@ for (let i = 0; i < filters.length; i++) {
     }
 }
 
+let sort = document.querySelector('div.sort-by');
+let mobileSort = document.querySelector('aside.sort-by');
+
+let sortOptions =sort.getElementsByTagName('input');
+let mobileSortOptions = mobileSort.getElementsByTagName('input');
+
+for (let i = 0; i < sortOptions.length; i++) {
+    sortOptions[i].addEventListener('change', NewSearch);
+    mobileSortOptions[i].addEventListener('change', NewSearch);
+}
+
 let headerSearchField = document.getElementById('header-search');
 let headerSearchButton = document.querySelector('.search__button');
 
