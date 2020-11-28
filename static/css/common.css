@@ -580,11 +580,10 @@ input[type=checkbox] + label {
     .services {
         width: 100%;
         min-height: 40px;
-        justify-content: space-between;
     }
     .services .services__container .services__item {
         font-size: 12px;
-        width: 30%;
+        min-width: 30%;
         margin: 0;
     }
     .services__item img {
@@ -636,6 +635,10 @@ input[type=checkbox] + label {
     .container {
         padding: 0 17px;
         width: 100%;
+    }
+
+    .services__container {
+        justify-content: space-between;
     }
 
     .header__base {
@@ -780,7 +783,6 @@ input[type=checkbox] + label {
     }
     .services__item div {
         white-space: pre-wrap;
-        width: 70px;
     }
     .header__logo {
         width: 40%;
