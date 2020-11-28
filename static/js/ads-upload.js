@@ -198,4 +198,5 @@ function jsonToAds(response) {
     }
     checkAds();
     listenFav();
+    changeSize();
 }
