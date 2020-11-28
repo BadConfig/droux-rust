@@ -1,0 +1,1 @@
+document.querySelector('.sell__button').style.display = 'flex';

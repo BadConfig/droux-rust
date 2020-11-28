@@ -120,6 +120,7 @@
 {% endblock main %}
 
 {% block scripts %}
+    <script src="static/js/showsellbutton.js"></script>
     <script src="static/js/ad-carousel.js"></script>
     <script src="static/js/part-carousel.js"></script>
 {% endblock scripts %}

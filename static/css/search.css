@@ -61,6 +61,10 @@
     margin-bottom: 30px;
 }
 
+.filters-sort-buttons {
+    display: none;
+}
+
 @media (max-width: 1200px) {
     .search-results .ad {
         margin: 0;
