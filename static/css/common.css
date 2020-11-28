@@ -60,6 +60,9 @@ input[type=checkbox] + label {
     background-color: #E0E0E0;
     position: relative;
     z-index: 7;
+}
+
+.services__container {
     justify-content: center;
 }
 
