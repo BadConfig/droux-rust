@@ -62,9 +62,7 @@ function NewSearch() {
 function useFilters() {
     portions = 0;
     body = 'limit=12';
-    if (headerSearchField.value != '') {
-        body += '&search_string=' + headerSearchField.value;
-    }
+    body += '&search_string=' + headerSearchField.value;
     if (filters[0].querySelector('input:checked') != null) {
         body += '&prod_type_id=' + filters[0].querySelector('input:checked').value;
     }
