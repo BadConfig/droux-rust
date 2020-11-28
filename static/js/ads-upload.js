@@ -197,4 +197,5 @@ function jsonToAds(response) {
         searchResults.append(newAd);
     }
     checkAds();
+    listenFav();
 }
