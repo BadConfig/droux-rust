@@ -59,6 +59,7 @@
       <change beforePath="$PROJECT_DIR$/static/assets/vk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/youtube.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/ad.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ad.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
@@ -340,7 +341,7 @@
       <workItem from="1605943561786" duration="2682000" />
       <workItem from="1606024753070" duration="45514000" />
       <workItem from="1606128369499" duration="3608000" />
-      <workItem from="1606378768147" duration="30384000" />
+      <workItem from="1606378768147" duration="31009000" />
     </task>
     <servers />
   </component>
