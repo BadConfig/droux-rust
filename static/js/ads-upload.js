@@ -88,7 +88,7 @@ function useFilters() {
     } else {
         body += '&order_by=' + mobileSort.querySelector('input:checked').value;
     }
-
+    body += '&offset=' + (12 * portions);
     console.log(body);
 
     filtersActive = true;
@@ -101,7 +101,7 @@ function useFilters() {
     searchResults.className = 'search-results';
     let main = document.querySelector('main');
     main.append(searchResults);
-    request.send(encodeURI(body + '&offset=' + (12 * portions)));
+    request.send(encodeURI(body));
     portions += 1;
     request.onreadystatechange = function() {
         jsonToAds(request.response);
