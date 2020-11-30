@@ -6,6 +6,7 @@
     <title>Безопасная сделка</title>
 {% endblock head %}
 {% block main %}
+<main class="static container static__safe-deal">
  <h1 class="static__header">Правила безопасной сделки</h1>
         <p class="static__text">
             <h2 class="static__text-subheader">1.	ТЕРМИНЫ И ОПРЕДЕЛЕНИЯ</h1>
@@ -112,4 +113,5 @@
             </p>
         </p>
         <a href="/" class="button static__button">Вернуться на главную</a>
+</main>
 {% endblock main %}
