@@ -308,6 +308,7 @@
 .product__button {
     width: 100%;
 }
+
 @media (max-width: 1200px) {
     .product__main {
         flex-direction: column;
