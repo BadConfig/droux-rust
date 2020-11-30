@@ -619,6 +619,10 @@ input[type=checkbox] + label {
     margin-bottom: -10px;
 }
 
+.subscribe__field {
+    font-size: 40px;
+}
+
 .authorizer__window .authorizer__form .authorizer__input_failed {
     border: 1px solid red;
 }
@@ -820,7 +824,6 @@ input[type=checkbox] + label {
         width: 60%;
         justify-content: space-around;
     }
-
 }
 
 
