@@ -1,30 +1,30 @@
 let searchResults = document.querySelector('.search-results');
 
-let timer = setInterval(checkAndAdd,3000);
+// let timer = setInterval(checkAndAdd,3000);
 
 let portions = 1;
 let filtersActive = false;
 let body;
 
-function checkAndAdd() {
-    let currentBottom = document.documentElement.getBoundingClientRect().bottom;
-    if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
-        let request = new XMLHttpRequest();
-        request.open("POST", '/filters/lots', true);
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        if (filtersActive) {
-            request.send(body + '&offset=' + (12 * portions));
-        } else {
-            body = 'search_string=&limit=12' + '&offset=' + (12 * portions);
-            request.send(body)
-        }
-        portions+=1;
-        request.onreadystatechange = function() {
-            jsonToAds(request.response);
-            changeSize();
-        }
-    }
-}
+// function checkAndAdd() {
+//     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
+//     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
+//         let request = new XMLHttpRequest();
+//         request.open("POST", '/filters/lots', true);
+//         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//         if (filtersActive) {
+//             request.send(body + '&offset=' + (12 * portions));
+//         } else {
+//             body = 'search_string=&limit=12' + '&offset=' + (12 * portions);
+//             request.send(body)
+//         }
+//         portions+=1;
+//         request.onreadystatechange = function() {
+//             jsonToAds(request.response);
+//             changeSize();
+//         }
+//     }
+// }
 
 let filters = document.getElementsByClassName('filters__sector-options');
 for (let i = 0; i < filters.length; i++) {
@@ -181,12 +181,12 @@ function jsonToAds(response) {
             "                <div class=\"ad__category\">" + resp[i].category_name + "</div>\n" +
             "                <div class=\"ad__price\">" + resp[i].price + "</div>"
         let imageDiv = newAd.querySelector('.ad__all-images');
-        // for (let j = 0; j < resp[i].pictures.length; j++) {
-        //     let productPhoto = document.createElement('a');
-        //     productPhoto.href = adLink;
-        //     productPhoto.innerHTML = "<img src=\"" + resp[i].pictures[j] + "\" class=\"ad__img\" alt=\"\">";
-        //     imageDiv.append(productPhoto);
-        // }
+        for (let j = 0; j < resp[i].pictures.length; j++) {
+            let productPhoto = document.createElement('a');
+            productPhoto.href = adLink;
+            productPhoto.innerHTML = "<img src=\"" + resp[i].pictures[j] + "\" class=\"ad__img\" alt=\"\">";
+            imageDiv.append(productPhoto);
+        }
         let favDiv = newAd.querySelector('.ad__favourite-icon');
         if (document.getElementById('auth-button')) {
             favDiv.style.display = 'none';
