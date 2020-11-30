@@ -857,6 +857,6 @@
     }
     .review__author-name-and-date, .review__rating-and-product {
         flex-direction: column;
-        align-content: flex-start;S
+        align-items: flex-start;
     }
 }
