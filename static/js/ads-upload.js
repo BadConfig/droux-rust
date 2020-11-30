@@ -1,30 +1,30 @@
 let searchResults = document.querySelector('.search-results');
 
-// let timer = setInterval(checkAndAdd,3000);
+let timer = setInterval(checkAndAdd,3000);
 
 let portions = 1;
 let filtersActive = false;
 let body;
 
-// function checkAndAdd() {
-//     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
-//     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
-//         let request = new XMLHttpRequest();
-//         request.open("POST", '/filters/lots', true);
-//         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-//         if (filtersActive) {
-//             request.send(body + '&offset=' + (12 * portions));
-//         } else {
-//             body = 'search_string=&limit=12' + '&offset=' + (12 * portions);
-//             request.send(body)
-//         }
-//         portions+=1;
-//         request.onreadystatechange = function() {
-//             jsonToAds(request.response);
-//             changeSize();
-//         }
-//     }
-// }
+function checkAndAdd() {
+    let currentBottom = document.documentElement.getBoundingClientRect().bottom;
+    if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
+        let request = new XMLHttpRequest();
+        request.open("POST", '/filters/lots', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        if (filtersActive) {
+            request.send(body + '&offset=' + (12 * portions));
+        } else {
+            body = 'search_string=&limit=12' + '&offset=' + (12 * portions);
+            request.send(body)
+        }
+        portions+=1;
+        request.onreadystatechange = function() {
+            jsonToAds(request.response);
+            changeSize();
+        }
+    }
+}
 
 let filters = document.getElementsByClassName('filters__sector-options');
 for (let i = 0; i < filters.length; i++) {
@@ -55,7 +55,7 @@ function NewSearch() {
     if (timeout != 0) {
         clearTimeout(timeout);
     }
-    // timer = setInterval(checkAndAdd,3000);
+    timer = setInterval(checkAndAdd,3000);
     timeout = setTimeout(useFilters, 1000);
 }
 
@@ -65,7 +65,9 @@ function useFilters() {
     stopItFlag = true;
     portions = 0;
     body = 'limit=12';
-    body += '&search_string=' + headerSearchField.value;
+    if (headerSearchField.value != "") {
+        body += '&search_string=' + headerSearchField.value;
+    }
     if (filters[0].querySelector('input:checked') != null) {
         body += '&prod_type_id=' + filters[0].querySelector('input:checked').value;
     }
