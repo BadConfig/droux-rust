@@ -61,6 +61,7 @@ function NewSearch() {
 
 let stopItFlag;
 function useFilters() {
+    filtersActive = true;
     stopItFlag = true;
     portions = 0;
     body = 'limit=12';
@@ -90,8 +91,6 @@ function useFilters() {
     }
     body += '&offset=' + (12 * portions);
     console.log(body);
-
-    filtersActive = true;
     let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
