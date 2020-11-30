@@ -618,9 +618,7 @@ input[type=checkbox] + label {
     color: #747474;
     margin-bottom: -10px;
 }
-
-.subscribe__field {
-    font-size: 40px;
+.subscribe__form {
     margin-top: 40px;
 }
 
