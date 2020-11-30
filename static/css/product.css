@@ -305,7 +305,7 @@
     right: 0;
 }
 
-.product__Button {
+.product__button {
     width: 100%;
 }
 @media (max-width: 1200px) {
