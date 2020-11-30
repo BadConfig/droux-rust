@@ -132,7 +132,7 @@
                 <label for="sign-up__repeat-password">Повторите пароль</label>
                 <input type="password" id="sign-up__repeat-password">
                 <input type="checkbox" id="accept-rules">
-                <label for="accept-rules" class="authorizer__checkbox-label" id="sign-up__checkbox"><span>Я принимаю условия <a href="">Пользовательского соглашения</a></span></label>
+                <label for="accept-rules" class="authorizer__checkbox-label" id="sign-up__checkbox"><span>Я принимаю условия <a href="/user_terms">Пользовательского соглашения</a></span></label>
                 <input type="submit" class="button sign-up__button" value="Зарегистрироваться" disabled>
             </form>
         </div>
