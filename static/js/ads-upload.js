@@ -99,7 +99,7 @@ function useFilters() {
     searchResults.className = 'search-results';
     let main = document.querySelector('main');
     main.append(searchResults);
-    request.send(encodeURI(body));
+    request.send(body);
     portions += 1;
     request.onreadystatechange = function() {
         jsonToAds(request.response);
