@@ -90,8 +90,6 @@ function useFilters() {
         body += '&order_by=' + mobileSort.querySelector('input:checked').value;
     }
     body += '&offset=' + (12 * portions);
-    console.log(body);
-    let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     let res = document.querySelector('.search-results');
@@ -100,8 +98,11 @@ function useFilters() {
     searchResults.className = 'search-results';
     let main = document.querySelector('main');
     main.append(searchResults);
-    request.send(body);
     portions += 1;
+    console.log(body);
+    let request = new XMLHttpRequest();
+    request.send(body);
+    console.log(body);
     request.onreadystatechange = function() {
         jsonToAds(request.response);
         changeSize();
