@@ -78,8 +78,6 @@
     </div>
     <div class="header-nav__line">
         <nav class="header__nav">
-            <a  class="dropdown__button_to-hide">ВЫБОР DROUX</a>
-            <a  class="dropdown__button_to-hide">НОВИНКИ</a>
             <a href="/filters?limit=12&offset=0&search_string=" class="dropdown__button">БРЕНДЫ</a>
             {% for cat in header_categories %}
                 <a href="/filters?limit=12&offset=0&category_id={{ cat.category_id }}" class="dropdown__button">{{ cat.category_name | upper }}</a>
