@@ -346,12 +346,14 @@
     .product__top {
         justify-content: space-between;
     }
-
+    .product__name-and-date {
+        max-width: 65%;
+    }
     .product__name-and-date .product__name {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 65%;
+        max-width: 100%;
     }
     .product__price {
         width: unset;
@@ -359,5 +361,11 @@
     }
     .product__price-and-size {
         width: unset;
+    }
+    .author__profile-photo {
+        display: none;
+    }
+    .product__info {
+        margin-top: 15px;
     }
 }
