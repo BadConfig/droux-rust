@@ -181,12 +181,12 @@ function jsonToAds(response) {
             "                <div class=\"ad__category\">" + resp[i].category_name + "</div>\n" +
             "                <div class=\"ad__price\">" + resp[i].price + "</div>"
         let imageDiv = newAd.querySelector('.ad__all-images');
-        for (let j = 0; j < resp[i].pictures.length; j++) {
-            let productPhoto = document.createElement('a');
-            productPhoto.href = adLink;
-            productPhoto.innerHTML = "<img src=\"" + resp[i].pictures[j] + "\" class=\"ad__img\" alt=\"\">";
-            imageDiv.append(productPhoto);
-        }
+        // for (let j = 0; j < resp[i].pictures.length; j++) {
+        //     let productPhoto = document.createElement('a');
+        //     productPhoto.href = adLink;
+        //     productPhoto.innerHTML = "<img src=\"" + resp[i].pictures[j] + "\" class=\"ad__img\" alt=\"\">";
+        //     imageDiv.append(productPhoto);
+        // }
         let favDiv = newAd.querySelector('.ad__favourite-icon');
         if (document.getElementById('auth-button')) {
             favDiv.style.display = 'none';
