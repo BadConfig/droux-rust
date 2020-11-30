@@ -118,3 +118,12 @@
 .card__price {
     margin-bottom: 10px;
 }
+
+@media (max-width: 1200px) {
+   .new-order__content {
+       flex-direction: column-reverse;
+   }
+    .new-order__content > * {
+        width: 100%;
+    }
+}
