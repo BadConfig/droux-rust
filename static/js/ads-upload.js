@@ -55,7 +55,7 @@ function NewSearch() {
     if (timeout != 0) {
         clearTimeout(timeout);
     }
-    timer = setInterval(checkAndAdd,3000);
+    // timer = setInterval(checkAndAdd,3000);
     timeout = setTimeout(useFilters, 1000);
 }
 
