@@ -92,3 +92,13 @@ h1 {
     margin-left: 445px;
     margin-bottom: 110px;
 }
+
+@media (max-width: 1200px) {
+    .promotion__form {
+        width: 100%;
+    }
+
+    .promotion__item-div label {
+        max-width: calc(100% - 55px);
+    }
+}
