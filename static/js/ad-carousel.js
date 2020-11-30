@@ -57,6 +57,7 @@ function changeSize() {
                     // let photoHeight = Number(window.getComputedStyle(adPhotos[i]).height.slice(0, -2));
                     adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
                 } else {
+                    adPhotos[i].style.height = String(borderHeight) + 'px';
                     adPhotos[i].style.left = '-' + String((adPhotos[i].clientWidth - 255) / 2) + 'px';
                 }
             }
