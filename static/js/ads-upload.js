@@ -8,7 +8,7 @@ let body;
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
-    if (currentBottom < document.documentElement.clientHeight + 450) {
+    if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -59,7 +59,9 @@ function NewSearch() {
     timeout = setTimeout(useFilters, 1000);
 }
 
+let stopItFlag;
 function useFilters() {
+    stopItFlag = true;
     portions = 0;
     body = 'limit=12';
     body += '&search_string=' + headerSearchField.value;
@@ -106,6 +108,7 @@ function useFilters() {
     //     changeSize();
     // }
     timeout = 0;
+
 }
 
 
@@ -199,4 +202,5 @@ function jsonToAds(response) {
     checkAds();
     listenFav();
     changeSize();
+    stopItFlag = false;
 }
