@@ -103,10 +103,10 @@ function useFilters() {
     main.append(searchResults);
     request.send(body);
     portions += 1;
-    // request.onreadystatechange = function() {
-    //     jsonToAds(request.response);
-    //     changeSize();
-    // }
+    request.onreadystatechange = function() {
+        jsonToAds(request.response);
+        changeSize();
+    }
     timeout = 0;
 
 }
