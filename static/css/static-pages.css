@@ -30,6 +30,9 @@ br {
 
 }
 
+.static__text-subheader {
+    font-size: 14px;
+}
 .static__order-address {
     font-size: 21px;
     margin-bottom: 30px;
