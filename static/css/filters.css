@@ -102,11 +102,14 @@
     align-items: center;
     cursor: pointer;
 }
+.filters__sector-options {
+    overflow-x: hidden;
+}
 
 .filters__checkbox-div label::before, .state__options label::before{
     display: block;
-    width: 14px;
-    height: 14px;
+    min-width: 14px;
+    min-height: 14px;
     border: 1px solid black;
     margin-right: 5px;
     content: "";
