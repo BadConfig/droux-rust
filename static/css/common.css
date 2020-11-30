@@ -621,6 +621,7 @@ input[type=checkbox] + label {
 
 .subscribe__field {
     font-size: 40px;
+    margin-top: 40px;
 }
 
 .authorizer__window .authorizer__form .authorizer__input_failed {
