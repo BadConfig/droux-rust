@@ -213,7 +213,7 @@
                 </div>
                 <input type="button" value="Опубликовать" class="button ad-form__submit-button" onclick="EditProduct()"> {# onclick="EditProduct()" если это страница редактирования#}
             </div>
-            <input type="hidden" name="seller_id" value="{{ user.id }}">
+            <input type="hidden" name="seller_id" value="{{ prod_data.seller_id }}">
         </form>
         <div class="uploader__pop-up pop-up pop-up__background">
             <div class="pop-up__cropper-bg">
