@@ -107,50 +107,10 @@ function useFilters() {
     console.log(body);
     request.onreadystatechange = function() {
         jsonToAds(request.response);
-        changeSize();
     }
     timeout = 0;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function jsonToAds(response) {
