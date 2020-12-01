@@ -2,7 +2,6 @@ let dropdownButtons = document.getElementsByClassName('dropdown__button');
 let dropdown = document.getElementsByClassName('dropdown')[0];
 let dropdownLayout = document.getElementsByClassName('dropdown__layout')[0];
 let dropdownCategories = document.getElementsByClassName('dropdown__border');
-let dropdownHideButtons = document.getElementsByClassName('dropdown__button_to-hide');
 
 for (let i = 0; i < dropdownButtons.length; i++) {
     dropdownButtons[i].addEventListener('mouseover', showDD);
@@ -28,7 +27,6 @@ function showDD(evt) {
 dropdownLayout.addEventListener('mouseover', hideDD);
 document.querySelector('.services').addEventListener('mouseover', hideDD);
 document.querySelector('.header-base__line').addEventListener('mouseover', hideDD);
-dropdownHideButtons[1].addEventListener('mouseover', hideDD);
 document.getElementsByClassName('header__base')[0].addEventListener('mouseover', hideDD);
 function hideDD(evt) {
     if (document.documentElement.clientWidth > 700) {
