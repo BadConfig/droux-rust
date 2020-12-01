@@ -26,7 +26,8 @@ function showDD(evt) {
 }
 
 dropdownLayout.addEventListener('mouseover', hideDD);
-dropdownHideButtons[0].addEventListener('mouseover', hideDD);
+document.querySelector('.services').addEventListener('mouseover', hideDD);
+document.querySelector('.header-base__line').addEventListener('mouseover', hideDD);
 dropdownHideButtons[1].addEventListener('mouseover', hideDD);
 document.getElementsByClassName('header__base')[0].addEventListener('mouseover', hideDD);
 function hideDD(evt) {
