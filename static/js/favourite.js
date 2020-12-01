@@ -16,14 +16,11 @@ function addDelToFav(evt) {
     for (let i = 0; i < same.length; i++) {
         let sameIcons = same[i].parentNode.getElementsByClassName('ad__favourite-icon')[0].querySelectorAll('img');
         sameIcons[0].classList.toggle('fav-icon_active');
-        console.log(sameIcons[0].classList);
         sameIcons[1].classList.toggle('fav-icon_active');
-        console.log(sameIcons[0].classList);
     }
     if (evt.currentTarget.querySelector('.ad__favourite-icon-img_empty').classList.contains('fav-icon_active')) {
         wasInFav = 1;
     }
-    console.log(wasInFav);
     let addToFav = new XMLHttpRequest();
     if (wasInFav === 0) {
         addToFav.open('POST', '/product/favourites/add', true);
