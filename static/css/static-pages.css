@@ -7,9 +7,9 @@
     margin: 30px 0 22px;
 }
 
-.static__text {
+.static__text, p {
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.5;
 }
 
@@ -30,6 +30,9 @@ br {
 
 }
 
+.static__text-subheader {
+    font-size: 16px;
+}
 .static__order-address {
     font-size: 21px;
     margin-bottom: 30px;

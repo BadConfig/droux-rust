@@ -73,7 +73,12 @@
     font-weight: normal;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
+
+}
+
+.ad__name-and-size a {
+    max-width: calc(100% - 40px);
 }
 
 .ad__size {

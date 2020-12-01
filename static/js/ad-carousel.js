@@ -32,14 +32,15 @@ function SwipePhotos() {
 
 }
 
-let photoWidth = String(document.querySelector('.ad__img-container').clientWidth) + 'px';
-let borderHeight = Number(window.getComputedStyle(document.querySelector('.ad__img-container')).height.slice(0, -2));
-let adPhotos = document.getElementsByClassName('ad__img');
+
+
 
 changeSize();
 function changeSize() {
+    let adPhotos = document.getElementsByClassName('ad__img');
+    let photoWidth = String(document.querySelector('.ad__img-container').clientWidth) + 'px';
+    let borderHeight = Number(window.getComputedStyle(document.querySelector('.ad__img-container')).height.slice(0, -2));
     for (let i = 0; i < adPhotos.length; i++) {
-        console.log(i);
         if (adPhotos[i].complete){
             if (document.documentElement.clientWidth < 1200) {
                 adPhotos[i].style.width = photoWidth;
@@ -47,9 +48,7 @@ function changeSize() {
                 adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
             } else {
                 adPhotos[i].style.height = String(borderHeight) + 'px';
-                console.log(adPhotos[i].style.height);
                 adPhotos[i].style.left = '-' + String((adPhotos[i].clientWidth - 255) / 2) + 'px';
-                console.log(adPhotos[i].style.left);
             }
         } else {
             adPhotos[i].onload = function () {
@@ -59,9 +58,7 @@ function changeSize() {
                     adPhotos[i].style.top = String(-(photoHeight - borderHeight) / 2) + 'px';
                 } else {
                     adPhotos[i].style.height = String(borderHeight) + 'px';
-                    console.log(adPhotos[i].style.height);
                     adPhotos[i].style.left = '-' + String((adPhotos[i].clientWidth - 255) / 2) + 'px';
-                    console.log(adPhotos[i].style.left);
                 }
             }
         }

@@ -8,7 +8,7 @@ let body;
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
-    if (currentBottom < document.documentElement.clientHeight + 450) {
+    if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -28,10 +28,21 @@ function checkAndAdd() {
 
 let filters = document.getElementsByClassName('filters__sector-options');
 for (let i = 0; i < filters.length; i++) {
-    let options = filters[i].querySelectorAll('input[type=radio]');
+    let options = filters[i].querySelectorAll('input[type="radio"]');
     for (let j = 0; j < options.length; j++) {
         options[j].addEventListener('change', NewSearch);
     }
+}
+
+let sort = document.querySelector('div.sort-by');
+let mobileSort = document.querySelector('aside.sort-by');
+
+let sortOptions =sort.getElementsByTagName('input');
+let mobileSortOptions = mobileSort.getElementsByTagName('input');
+
+for (let i = 0; i < sortOptions.length; i++) {
+    sortOptions[i].addEventListener('change', NewSearch);
+    mobileSortOptions[i].addEventListener('change', NewSearch);
 }
 
 let headerSearchField = document.getElementById('header-search');
@@ -48,12 +59,12 @@ function NewSearch() {
     timeout = setTimeout(useFilters, 1000);
 }
 
+let stopItFlag;
 function useFilters() {
+    filtersActive = true;
+    stopItFlag = true;
     portions = 0;
     body = 'limit=12';
-    if (headerSearchField.value != '') {
-        body += '&search_string=' + headerSearchField.value;
-    }
     if (filters[0].querySelector('input:checked') != null) {
         body += '&prod_type_id=' + filters[0].querySelector('input:checked').value;
     }
@@ -72,63 +83,34 @@ function useFilters() {
     if (filters[5].querySelector('input:checked') != null) {
         body += '&product_state_id=' + filters[5].querySelector('input:checked').value;
     }
-    filtersActive = true;
-    let request = new XMLHttpRequest();
-    request.open("POST", '/filters/lots', true);
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    if (document.documentElement.clientWidth >= 1200) {
+        body += '&order_by=' + sort.querySelector('input:checked').value;
+    } else {
+        body += '&order_by=' + mobileSort.querySelector('input:checked').value;
+    }
+    if ((headerSearchField.value != "") || (body.length < 30)) { //ПЕРВОЕ, ЧТО МОЖЕТ СЛОМАТЬСЯ
+        body += '&search_string=' + headerSearchField.value;
+    }
+    body += '&offset=' + (12 * portions);
     let res = document.querySelector('.search-results');
     res.parentNode.removeChild(res);
     searchResults = document.createElement('div');
     searchResults.className = 'search-results';
     let main = document.querySelector('main');
     main.append(searchResults);
-    request.send(encodeURI(body + '&offset=' + (12 * portions)));
     portions += 1;
+    console.log(body);
+    let request = new XMLHttpRequest();
+    request.open("POST", '/filters/lots', true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    request.send(body);
+    console.log(body);
     request.onreadystatechange = function() {
         jsonToAds(request.response);
-        changeSize();
     }
     timeout = 0;
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function jsonToAds(response) {
@@ -180,4 +162,7 @@ function jsonToAds(response) {
         searchResults.append(newAd);
     }
     checkAds();
+    listenFav();
+    changeSize();
+    stopItFlag = false;
 }

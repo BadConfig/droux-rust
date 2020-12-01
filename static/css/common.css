@@ -62,6 +62,10 @@ input[type=checkbox] + label {
     z-index: 7;
 }
 
+.services__container {
+    justify-content: center;
+}
+
 .services__icon{
     width: 18px;
     height: 18px;
@@ -75,6 +79,9 @@ input[type=checkbox] + label {
     align-items: center;
     font-size: 14px;
     color: #303030;
+}
+
+.services__item:not(:last-child) {
     margin-right: 63px;
 }
 
@@ -573,12 +580,15 @@ input[type=checkbox] + label {
     .services {
         width: 100%;
         min-height: 40px;
-        justify-content: space-between;
     }
-    .services__item {
+    .services .services__container .services__item {
         font-size: 12px;
-        width: 33%;
+        min-width: 30%;
         margin: 0;
+    }
+
+    .services .services__container .services__item:not(:last-child){
+        margin-right: 5px;
     }
     .services__item img {
         width: 18px;
@@ -608,6 +618,9 @@ input[type=checkbox] + label {
     color: #747474;
     margin-bottom: -10px;
 }
+.subscribe {
+    margin-top: 40px;
+}
 
 .authorizer__window .authorizer__form .authorizer__input_failed {
     border: 1px solid red;
@@ -629,6 +642,10 @@ input[type=checkbox] + label {
     .container {
         padding: 0 17px;
         width: 100%;
+    }
+
+    .services__container {
+        justify-content: space-between;
     }
 
     .header__base {
@@ -773,7 +790,6 @@ input[type=checkbox] + label {
     }
     .services__item div {
         white-space: pre-wrap;
-        width: 70px;
     }
     .header__logo {
         width: 40%;
@@ -807,7 +823,6 @@ input[type=checkbox] + label {
         width: 60%;
         justify-content: space-around;
     }
-
 }
 
 
@@ -847,5 +862,8 @@ input[type=checkbox] + label {
         font-size: 14px;
     }
 
+    .services__item {
+        font-size: 9px;
+    }
 
 }

@@ -1,7 +1,12 @@
 var favButtons = document.getElementsByClassName('ad__favourite-icon');
-for (let i=0; i < favButtons.length; i++) {
-    favButtons[i].addEventListener('click', addDelToFav);
+
+function listenFav() {
+    for (let i = 0; i < favButtons.length; i++) {
+        favButtons[i].addEventListener('click', addDelToFav);
+    }
 }
+
+listenFav();
 function addDelToFav(evt) {
     evt.stopImmediatePropagation();
     let wasInFav = 0;

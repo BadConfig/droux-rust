@@ -71,3 +71,7 @@
 {% block messages %}
     card__label_active
 {% endblock mseeages %}
+
+{% block scripts %}
+<script src="/static/js/hide-profile-button-chat.js"></script>
+{% endblock scripts %}

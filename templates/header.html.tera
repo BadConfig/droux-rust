@@ -78,8 +78,6 @@
     </div>
     <div class="header-nav__line">
         <nav class="header__nav">
-            <a  class="dropdown__button_to-hide">ВЫБОР DROUX</a>
-            <a  class="dropdown__button_to-hide">НОВИНКИ</a>
             <a href="/filters?limit=12&offset=0&search_string=" class="dropdown__button">БРЕНДЫ</a>
             {% for cat in header_categories %}
                 <a href="/filters?limit=12&offset=0&category_id={{ cat.category_id }}" class="dropdown__button">{{ cat.category_name | upper }}</a>
@@ -134,7 +132,7 @@
                 <label for="sign-up__repeat-password">Повторите пароль</label>
                 <input type="password" id="sign-up__repeat-password">
                 <input type="checkbox" id="accept-rules">
-                <label for="accept-rules" class="authorizer__checkbox-label" id="sign-up__checkbox"><span>Я принимаю условия <a href="">Пользовательского соглашения</a></span></label>
+                <label for="accept-rules" class="authorizer__checkbox-label" id="sign-up__checkbox"><span>Я принимаю условия <a href="/user_terms">Пользовательского соглашения</a></span></label>
                 <input type="submit" class="button sign-up__button" value="Зарегистрироваться" disabled>
             </form>
         </div>

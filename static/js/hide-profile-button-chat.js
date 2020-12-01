@@ -1,0 +1,1 @@
+document.querySelector('.profile-button').style.display = 'none';
