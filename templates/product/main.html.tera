@@ -124,7 +124,7 @@
         </div>
         <div class="show-all show-all_new-ads">
             <h2 class="show-all__header">Новые объявления</h2>
-            <a href=""><div class="show-all__button">
+            <a href="/filters?limit=12&offset=0&search_string=&order_by=Views"><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
                 <img src="/static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>
