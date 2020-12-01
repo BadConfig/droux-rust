@@ -10,9 +10,9 @@
 {% block main %}  
     <main class="container main">
         <div class="breadcrumbs">
-            <a href="">{{ product.type_name }}/</a>
-            <a href="">{{ product.category_name }}/</a>
-            <a href="">{{ product.sub_category_name }}</a>
+            <a >{{ product.type_name }}/</a>
+            <a >{{ product.category_name }}/</a>
+            <a >{{ product.sub_category_name }}</a>
         </div>
         <div class="product">
         <input type ='hidden' class='prod_id' value='{{ product.id }}'>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="product__price-and-size">
                     <span class="product__price">
-                        {{ product.price }}
+                        {{ product.price }} руб
                     </span>
                     <span class="product__size">
                         {{ product.size_name }}
