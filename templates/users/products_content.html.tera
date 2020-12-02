@@ -17,7 +17,7 @@
                 <div class="ad-profile">
                     <div class="ad__img-container"> <!--Рамка для одной фотографии -->
                         <div class="ad__all-images"> <!--Все фото в линию -->
-                                <img src="/{{ ad.pictures.0 }}" alt="" class="ad__img">
+                                <img src="/{{ ad.prod.pictures.0 }}" alt="" class="ad__img">
                         </div>
                     </div>
                     <div class="ad__info">
