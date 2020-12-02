@@ -393,6 +393,7 @@
 
 .dialogue__photo {
     width: 95px;
+    min-width: 95px;
     height: 103px;
     display: block;
     margin-right: 28px;
