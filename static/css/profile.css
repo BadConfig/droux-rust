@@ -754,6 +754,7 @@
     }
     .ad__img {
         height: unset;
+        width: unset;
     }
     .ad__info {
         width: 65%;

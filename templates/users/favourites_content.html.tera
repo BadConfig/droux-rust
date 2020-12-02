@@ -15,17 +15,9 @@
                 {% for ad in favourite_products %}
                 <div class="ad-profile ad_fav">
                     <div class="ad__img-container ad__img-container_fav"> <!--Рамка для одной фотографии-->
-                        <div class="ad__arrow ad__arrow_left">
-                            <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
-                        </div>
-                        <div class="ad__all-images"> <!--Все фото в линию-->
                          {% for pic_url in ad.pictures %}
                                 <img src="/{{ pic_url }}" alt="" class="ad__img ad__img_fav">
                          {% endfor %}
-                        </div>
-                        <div class="ad__arrow ad__arrow_right">
-                            <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
-                        </div>
                     </div>
                     <div class="ad__title-and-price ad__title-and-price_fav">
                         <a href="/product/{{ ad.id }}" class="ad__title">{{ ad.title }}</a>
