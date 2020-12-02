@@ -396,6 +396,7 @@
     height: 103px;
     display: block;
     margin-right: 28px;
+    object-fit: cover;
 }
 
 .dialogue__info {
