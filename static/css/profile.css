@@ -756,9 +756,10 @@
         border: 1px solid black;
     }
     .ad__img {
-        height: unset;
-        width: unset;
         object-fit: cover;
+        position: absolute;
+        width: 100%;
+        height: 100%;
     }
     .ad__info {
         width: 65%;
