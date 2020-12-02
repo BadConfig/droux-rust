@@ -296,7 +296,6 @@ input[type=checkbox] + label {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
 }
 
 .subscribe__text {
