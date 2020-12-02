@@ -618,9 +618,6 @@ input[type=checkbox] + label {
     color: #747474;
     margin-bottom: -10px;
 }
-.subscribe {
-    margin-top: 40px;
-}
 
 .authorizer__window .authorizer__form .authorizer__input_failed {
     border: 1px solid red;
