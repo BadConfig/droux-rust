@@ -179,8 +179,8 @@
 }
 
 .ad__img {
-    width: 190px;
-    height: 206px;
+  position: relative;
+    object-fit: cover;
 }
 
 .ad__title {
@@ -393,9 +393,11 @@
 
 .dialogue__photo {
     width: 95px;
+    min-width: 95px;
     height: 103px;
     display: block;
     margin-right: 28px;
+    object-fit: cover;
 }
 
 .dialogue__info {
@@ -739,7 +741,10 @@
         font-size: 18px;
         color: #747474;
     }
-
+    .ad__title-and-price {
+        width: unset;
+        flex-direction: column;
+    }
     .card_inactive {
         display: none;
     }
@@ -754,7 +759,10 @@
         border: 1px solid black;
     }
     .ad__img {
-        height: unset;
+        object-fit: cover;
+        position: absolute;
+        width: 100%;
+        height: 100%;
     }
     .ad__info {
         width: 65%;

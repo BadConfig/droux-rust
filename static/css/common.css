@@ -296,7 +296,6 @@ input[type=checkbox] + label {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
 }
 
 .subscribe__text {
@@ -619,7 +618,7 @@ input[type=checkbox] + label {
     margin-bottom: -10px;
 }
 .subscribe {
-    margin-top: 40px;
+    height: fit-content;
 }
 
 .authorizer__window .authorizer__form .authorizer__input_failed {
