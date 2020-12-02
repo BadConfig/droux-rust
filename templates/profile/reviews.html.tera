@@ -2,7 +2,7 @@
 {% block page_content %}
    <div class="my-reviews content__border">
         <div class="content__top">
-            <h2 class="content__header my-reviews__header">Мои отзывы</h2>
+            <h2 class="content__header my-reviews__header">Отзывы</h2>
         </div>
         <div class="content__reviews">
             {% for review in reviews %}
