@@ -738,7 +738,10 @@
         font-size: 18px;
         color: #747474;
     }
-
+    .ad__title-and-price {
+        width: unset;
+        flex-direction: column;
+    }
     .card_inactive {
         display: none;
     }
@@ -755,6 +758,7 @@
     .ad__img {
         height: unset;
         width: unset;
+        object-fit: cover;
     }
     .ad__info {
         width: 65%;
