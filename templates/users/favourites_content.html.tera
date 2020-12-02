@@ -15,9 +15,7 @@
                 {% for ad in favourite_products %}
                 <div class="ad-profile ad_fav">
                     <div class="ad__img-container ad__img-container_fav"> <!--Рамка для одной фотографии-->
-                         {% for pic_url in ad.pictures %}
-                                <img src="/{{ pic_url }}" alt="" class="ad__img ad__img_fav">
-                         {% endfor %}
+                        <img src="/{{ ad.pictures.0 }}" alt="" class="ad__img ad__img_fav">
                     </div>
                     <div class="ad__title-and-price ad__title-and-price_fav">
                         <a href="/product/{{ ad.id }}" class="ad__title">{{ ad.title }}</a>
