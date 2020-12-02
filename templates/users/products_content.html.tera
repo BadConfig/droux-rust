@@ -16,16 +16,8 @@
             {% for ad in active_products %}
                 <div class="ad-profile">
                     <div class="ad__img-container"> <!--Рамка для одной фотографии -->
-                        <div class="ad__arrow ad__arrow_left">
-                            <img src="../../static/assets/arrow-left.svg" alt="Стрелка просмотра предыдущего фото">
-                        </div>
                         <div class="ad__all-images"> <!--Все фото в линию -->
-                            {% for url in ad.prod.pictures %}
-                                <img src="/{{ url }}" alt="" class="ad__img">
-                            {% endfor %} 
-                        </div>
-                        <div class="ad__arrow ad__arrow_right">
-                            <img src="../../static/assets/arrow-right.svg" alt="Стрелка просмотра слюдующего фото">
+                                <img src="/{{ ad.pictures.0 }}" alt="" class="ad__img">
                         </div>
                     </div>
                     <div class="ad__info">
