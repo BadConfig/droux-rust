@@ -180,6 +180,7 @@
 
 .ad__img {
   position: relative;
+    object-fit: cover;
 }
 
 .ad__title {
