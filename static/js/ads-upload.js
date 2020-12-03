@@ -126,6 +126,7 @@ function jsonToAds(response) {
         clearInterval(timer);
     }
     for (let i = 0; i < resp.length; i++) {
+        console.log(i);
         let newAd = document.createElement('div');
         let adLink = '/product/' + resp[i].id
         newAd.className = 'ad';
