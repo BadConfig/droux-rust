@@ -5,7 +5,7 @@ let timer = setInterval(checkAndAdd,3000);
 let portions = 1;
 let filtersActive = false;
 let body;
-let stopItFlag;
+let stopItFlag = false;
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
@@ -25,7 +25,7 @@ function checkAndAdd() {
             request.send(body)
         }
         portions+=1;
-        request.onreadystatechange = function() {
+        request.onload = function() {
             console.log(request.response)
             let resp = JSON.parse(request.response);
             console.log(resp)
