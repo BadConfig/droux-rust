@@ -5,10 +5,12 @@ let timer = setInterval(checkAndAdd,3000);
 let portions = 1;
 let filtersActive = false;
 let body;
+let stopItFlag;
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
+        stopItFlag = true;
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -62,8 +64,6 @@ function NewSearch() {
     timer = setInterval(checkAndAdd,3000);
     timeout = setTimeout(useFilters, 1000);
 }
-
-let stopItFlag;
 function useFilters() {
     filtersActive = true;
     stopItFlag = true;
