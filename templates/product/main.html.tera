@@ -23,7 +23,7 @@
                 </div>
                 <div class="product__price-and-size">
                     <span class="product__price">
-                        {{ product.price }} руб
+                        {{ product.price }}₽
                     </span>
                     <span class="product__size">
                         {{ product.size_name }}

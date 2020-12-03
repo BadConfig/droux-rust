@@ -2,7 +2,7 @@
 {% block page_content %}
     <div class="my-adss content__border">
         <div class="content__top">
-            <h2 class="content__header my-ads__header">Мои объявления</h2>
+            <h2 class="content__header my-ads__header">Объявления</h2>
             <div class="my-ads__buttons">
                 <input type="radio" name="ads-types" id="active" class="content__radio" checked>
                 <label for="active" class="content__label button">Активные</label>
