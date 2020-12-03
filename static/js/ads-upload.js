@@ -5,10 +5,15 @@ let timer = setInterval(checkAndAdd,3000);
 let portions = 1;
 let filtersActive = false;
 let body;
+let stopItFlag = false;
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
+    console.log(currentBottom);
+    console.log(document.documentElement.clientHeight + 450);
+    console.log(stopItFlag);
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
+        stopItFlag = true;
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -16,10 +21,14 @@ function checkAndAdd() {
             request.send(body + '&offset=' + (12 * portions));
         } else {
             body = 'search_string=&limit=12' + '&offset=' + (12 * portions);
+            console.log(body);
             request.send(body)
         }
         portions+=1;
-        request.onreadystatechange = function() {
+        request.onload = function() {
+            console.log(request.response)
+            let resp = JSON.parse(request.response);
+            console.log(resp)
             jsonToAds(request.response);
             changeSize();
         }
@@ -58,8 +67,6 @@ function NewSearch() {
     timer = setInterval(checkAndAdd,3000);
     timeout = setTimeout(useFilters, 1000);
 }
-
-let stopItFlag;
 function useFilters() {
     filtersActive = true;
     stopItFlag = true;
@@ -106,6 +113,9 @@ function useFilters() {
     request.send(body);
     console.log(body);
     request.onreadystatechange = function() {
+        console.log(request.response)
+        let resp = JSON.parse(request.response);
+        console.log(resp)
         jsonToAds(request.response);
     }
     timeout = 0;
@@ -115,10 +125,11 @@ function useFilters() {
 
 function jsonToAds(response) {
     let resp = JSON.parse(response);
-    if (resp.length === 0) {
+    if (resp.length < 12) {
         clearInterval(timer);
     }
     for (let i = 0; i < resp.length; i++) {
+        console.log(i);
         let newAd = document.createElement('div');
         let adLink = '/product/' + resp[i].id
         newAd.className = 'ad';
