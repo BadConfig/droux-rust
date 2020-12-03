@@ -125,7 +125,7 @@ function useFilters() {
 
 function jsonToAds(response) {
     let resp = JSON.parse(response);
-    if (resp.length === 0) {
+    if (resp.length < 12) {
         clearInterval(timer);
     }
     for (let i = 0; i < resp.length; i++) {
