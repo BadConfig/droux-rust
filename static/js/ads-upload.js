@@ -16,6 +16,7 @@ function checkAndAdd() {
             request.send(body + '&offset=' + (12 * portions));
         } else {
             body = 'search_string=&limit=12' + '&offset=' + (12 * portions);
+            console.log(body);
             request.send(body)
         }
         portions+=1;
@@ -119,6 +120,7 @@ function jsonToAds(response) {
         clearInterval(timer);
     }
     for (let i = 0; i < resp.length; i++) {
+        console.log(resp[i].title);
         let newAd = document.createElement('div');
         let adLink = '/product/' + resp[i].id
         newAd.className = 'ad';
