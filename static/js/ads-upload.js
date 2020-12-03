@@ -107,6 +107,9 @@ function useFilters() {
     request.send(body);
     console.log(body);
     request.onreadystatechange = function() {
+        console.log(request.response)
+        let resp = JSON.parse(request.response);
+        console.log(resp)
         jsonToAds(request.response);
     }
     timeout = 0;
@@ -120,7 +123,6 @@ function jsonToAds(response) {
         clearInterval(timer);
     }
     for (let i = 0; i < resp.length; i++) {
-        console.log(resp[i].title);
         let newAd = document.createElement('div');
         let adLink = '/product/' + resp[i].id
         newAd.className = 'ad';
