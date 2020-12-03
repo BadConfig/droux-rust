@@ -9,6 +9,9 @@ let stopItFlag;
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
+    console.log(currentBottom);
+    console.log(document.documentElement.clientHeight + 450);
+    console.log(stopItFlag);
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
         stopItFlag = true;
         let request = new XMLHttpRequest();
