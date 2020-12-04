@@ -141,7 +141,6 @@ function useFilters() {
     searchResults.className = 'search-results';
     let main = document.querySelector('main');
     main.append(searchResults);
-    portions += 1;
     let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -151,6 +150,7 @@ function useFilters() {
         console.log(request.response)
         jsonToAds(request.response);
     }
+    portions += 1;
     timeout = 0;
 
 }
