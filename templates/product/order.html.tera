@@ -59,4 +59,5 @@
     </main>
 {% endblock main %}
 {% block scripts %}
+<script src="accept-agreements.js"></script>
 {% endblock scripts %}
