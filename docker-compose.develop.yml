@@ -15,9 +15,8 @@ services:
       - SITE_URL=http://178.154.229.126:8080
     volumes:
           - ./Rocket.dev.toml:/droux/Rocket.toml
-          #- ./static/:/droux/static/
+          - ./static/:/droux/static/
           - ./templates/:/droux/templates/
-          #- ./.env.dev:/droux/.env
           - ./migrations:/droux/migrations/
     networks:
       
@@ -28,7 +27,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./data/nginx_dev:/etc/nginx/conf.d
-      - ./static/:/var/tools/static/
+      #- ./static/:/var/tools/static/
       #- ./templates/:/var/tools/templates/
     ports:
       - "8080:80"
