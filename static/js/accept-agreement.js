@@ -1,6 +1,6 @@
 let acceptCheckbox = document.getElementById('accept-agreement');
 acceptCheckbox.addEventListener('change', allowBuying);
-orderButton = document.querySelector('.new-order__form input[type=\"submit\"]');
+orderButton = document.querySelector('.new-order__button');
 function allowBuying() {
     if (acceptCheckbox.checked) {
         orderButton.disabled = false;

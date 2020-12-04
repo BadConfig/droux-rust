@@ -62,9 +62,11 @@
       <change beforePath="$PROJECT_DIR$/static/css/ad.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ad.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/new-order.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-order.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/accept-agreement.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/accept-agreement.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/hide-sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hide-sector.js" afterDir="false" />
@@ -345,7 +347,7 @@
       <workItem from="1606378768147" duration="32084000" />
       <workItem from="1606750499149" duration="21942000" />
       <workItem from="1607001931106" duration="5096000" />
-      <workItem from="1607079104787" duration="7933000" />
+      <workItem from="1607079104787" duration="8204000" />
     </task>
     <servers />
   </component>

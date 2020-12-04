@@ -22,7 +22,7 @@
                 <input type="text" id="customer-phone" class="new-order__input" name="phone">
                 <label for="customer-email" class="new-order__label">E-mail</label>
                 <input type="text" id="customer-email" class="new-order__input" name="mail">
-                <input type="submit" value="Продолжить" class="button" disabled>
+                <input type="submit" value="Продолжить" class="button new-order__button" disabled>
                 <input type="hidden" name="username" value="{{ my_user.username }}">
                 <input type="hidden" name="pr_price" value="{{ product.price }}">
                 <input type="hidden" name="seller_username" value="{{ seller.username }}">
@@ -59,5 +59,5 @@
     </main>
 {% endblock main %}
 {% block scripts %}
-<script src="accept-agreements.js"></script>
+<script src="/static/js/accept-agreements.js"></script>
 {% endblock scripts %}

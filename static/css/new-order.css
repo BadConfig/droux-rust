@@ -41,7 +41,7 @@
     margin-bottom: 30px;
 }
 
-.new-order__form input[type=submit] {
+.new-order__button {
     width: 350px;
     height: 36px;
     color: white;
