@@ -42,7 +42,7 @@ FROM products AS pr
     	ON u2.id = pr.seller_id 
 WHERE
 	pr.status = 'published' AND
-	(CASE WHEN ($1 IS NOT NULL) THEN POSITION($1 IN pr.title) != 0 		END OR
+	(CASE WHEN ($1 IS NOT NULL) THEN POSITION(UPPER($1) IN UPPER(pr.title)) != 0 		END OR
 	CASE WHEN ($7 IS NOT NULL) THEN sc.category_id 		= $7 			END OR
 	CASE WHEN ($6 IS NOT NULL) THEN pr.sub_category_id 	= $6			END OR
 	CASE WHEN ($2 IS NOT NULL) THEN pr.size_id 			= $2 			END OR
