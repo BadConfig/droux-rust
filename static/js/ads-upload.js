@@ -29,6 +29,15 @@ if (address.includes("prod_type_id=1")) {
     body = "limit=12&prod_type_id=2";
 }
 
+let categories = document.querySelectorAll('.input[name=\"category_id\"]');
+for (let i = 0; i < categories.length; i++) {
+    if (address.includes("category_id=" + (i + 1))) {
+        filtersActive = true;
+        document.getElementById('ad_cat' + (i + 1)).checked = true;
+        body = "limit=12&category_id=" + (i + 1);
+    }
+}
+
 
 
 function checkAndAdd() {
