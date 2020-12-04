@@ -22,11 +22,11 @@ if (address.includes("order_by=Date")) {
 if (address.includes("prod_type_id=1")) {
     filtersActive = true;
     document.getElementById('ad_types1').checked = true;
-    body = "search_string=&limit=12&prod_type_id=1";
+    body = "limit=12&prod_type_id=1";
 } else if (address.includes("prod_type_id=2")) {
     filtersActive = true;
     document.getElementById('ad_types2').checked = true;
-    body = "search_string=&limit=12&prod_type_id=2";
+    body = "limit=12&prod_type_id=2";
 }
 
 
