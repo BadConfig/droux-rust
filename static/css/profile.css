@@ -843,6 +843,9 @@
     .chat {
         max-height: 90vh;
     }
+    .other-ad-img {
+        top: 0;
+    }
 
 }
 
