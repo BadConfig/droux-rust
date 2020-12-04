@@ -16,7 +16,7 @@
             {% for ad in active_products %}
                 <div class="ad-profile">
                     <div class="ad__img-container"> <!--Рамка для одной фотографии -->
-                                <img src="/{{ ad.prod.pictures.0 }}" alt="" class="ad__img">
+                                <img src="/{{ ad.prod.pictures.0 }}" alt="" class="ad__img ">
                     </div>
                     <div class="ad__info">
                         <div class="ad__top">
