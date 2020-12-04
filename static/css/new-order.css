@@ -56,6 +56,9 @@
     margin-top: 21px;
     display: flex;
 }
+.new-order__form input[type=checkbox] {
+    display: none;
+}
 
 .new-order__form input[type=checkbox] + label::before {
     margin-right: 12px;
