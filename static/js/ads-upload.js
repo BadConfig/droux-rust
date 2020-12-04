@@ -6,6 +6,7 @@ let portions = 1;
 let filtersActive = false;
 let body;
 let stopItFlag = false;
+let address = window.location.href;
 
 
 
