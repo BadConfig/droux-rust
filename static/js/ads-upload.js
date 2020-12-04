@@ -115,7 +115,7 @@ function useFilters() {
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(body);
     console.log(body);
-    request.onreadystatechange = function() {
+    request.onload = function() {
         console.log(request.response)
         let resp = JSON.parse(request.response);
         console.log(resp)
