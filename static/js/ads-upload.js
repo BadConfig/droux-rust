@@ -12,9 +12,6 @@ let address = window.location.href;
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
-    console.log(currentBottom);
-    console.log(document.documentElement.clientHeight + 450);
-    console.log(stopItFlag);
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
         stopItFlag = true;
         let request = new XMLHttpRequest();
@@ -30,8 +27,6 @@ function checkAndAdd() {
         portions+=1;
         request.onload = function() {
             console.log(request.response)
-            let resp = JSON.parse(request.response);
-            console.log(resp)
             jsonToAds(request.response);
             changeSize();
         }
@@ -109,7 +104,6 @@ function useFilters() {
     let main = document.querySelector('main');
     main.append(searchResults);
     portions += 1;
-    console.log(body);
     let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -117,8 +111,6 @@ function useFilters() {
     console.log(body);
     request.onload = function() {
         console.log(request.response)
-        let resp = JSON.parse(request.response);
-        console.log(resp)
         jsonToAds(request.response);
     }
     timeout = 0;
