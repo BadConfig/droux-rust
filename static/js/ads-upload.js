@@ -12,6 +12,11 @@ if (address.includes("order_by=Date")) {
     document.getElementById('date').checked = true;
     document.getElementById('-m-date').checked = true;
     body = "search_string=&limit=12&order_by=Date";
+} else if (address.includes("order_by=Views")) {
+    filtersActive = true;
+    document.getElementById('popularity').checked = true;
+    document.getElementById('-m-popularity').checked = true;
+    body = "search_string=&limit=12&order_by=Views";
 }
 
 
