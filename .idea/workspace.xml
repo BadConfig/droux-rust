@@ -66,6 +66,7 @@
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/ads-upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ads-upload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/hide-sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hide-sector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/new-product-uploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/new-product-uploader.js" afterDir="false" />
@@ -283,7 +284,6 @@
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/static_pages/contacts.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static_pages/contacts.html.tera" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +344,8 @@
       <workItem from="1606128369499" duration="3608000" />
       <workItem from="1606378768147" duration="32084000" />
       <workItem from="1606750499149" duration="21942000" />
-      <workItem from="1607001931106" duration="4065000" />
+      <workItem from="1607001931106" duration="5096000" />
+      <workItem from="1607079104787" duration="762000" />
     </task>
     <servers />
   </component>

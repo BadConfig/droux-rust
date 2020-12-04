@@ -7,6 +7,8 @@ let filtersActive = false;
 let body;
 let stopItFlag = false;
 
+
+
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
     console.log(currentBottom);
