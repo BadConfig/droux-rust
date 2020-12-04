@@ -186,7 +186,7 @@ function jsonToAds(response) {
             "                    <span class=\"ad__size\">" + resp[i].size_name + "</span>\n" +
             "                </div>\n" +
             "                <div class=\"ad__category\">" + resp[i].category_name + "</div>\n" +
-            "                <div class=\"ad__price\">" + resp[i].price + "</div>"
+            "                <div class=\"ad__price\">" + resp[i].price + "₽</div>"
         let imageDiv = newAd.querySelector('.ad__all-images');
         for (let j = 0; j < resp[i].pictures.length; j++) {
             let productPhoto = document.createElement('a');
