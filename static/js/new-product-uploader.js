@@ -210,8 +210,9 @@ async function PostProduct() {
     let postAd = new XMLHttpRequest();
     postAd.open('POST', '/product/create', true);
     postAd.send(body);
-    postAd.onreadystatechange = function() {
+    postAd.onload = function() {
         let redirectRoute = "/product/promotion/create/" + String(postAd.response);
+        console.log(redirectRoute);
         window.location.replace(redirectRoute);
     }
     return false;
@@ -243,7 +244,6 @@ async function EditProduct() {
     body.append('phone_number', number.querySelector('input').value);
     body.append('location', email.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
-    console.log(body.toString());
 
     let photos = document.getElementsByClassName('uploader__frame-img');
     for (let i = 0; i < 10; i++) {

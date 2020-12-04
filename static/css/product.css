@@ -372,4 +372,10 @@
     .product__info {
         margin-top: 15px;
     }
+    .author__stat-item:not(:last-child) {
+        margin-right: 10px;
+    }
+    .author__stat-item {
+        width: unset;
+    }
 }

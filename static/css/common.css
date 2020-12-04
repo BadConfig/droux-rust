@@ -822,6 +822,11 @@ input[type=checkbox] + label {
         width: 60%;
         justify-content: space-around;
     }
+    .search__input:focus {
+        position: absolute;
+        width: 80%;
+        height: 100%;
+    }
 }
 
 
