@@ -19,6 +19,17 @@ if (address.includes("order_by=Date")) {
     body = "search_string=&limit=12&order_by=Views";
 }
 
+if (address.includes("prod_type_id=1")) {
+    filtersActive = true;
+    document.getElementById('ad_types1').checked = true;
+    body = "search_string=&limit=12&prod_type_id=1";
+} else if (address.includes("prod_type_id=2")) {
+    filtersActive = true;
+    document.getElementById('ad_types2').checked = true;
+    body = "search_string=&limit=12&prod_type_id=2";
+}
+
+
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
