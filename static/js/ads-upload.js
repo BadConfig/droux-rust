@@ -40,6 +40,7 @@ function checkAndAdd() {
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         if (filtersActive) {
             request.send(body + '&offset=' + (12 * portions));
+            console.log(body + '&offset=' + (12 * portions));
         } else {
             body = 'search_string=&limit=12' + '&offset=' + (12 * portions);
             console.log(body);
