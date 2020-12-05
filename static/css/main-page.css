@@ -248,6 +248,7 @@ a .photos__female img {
 
     .photos__male span, .photos__female span {
         font-size: 20px;
+        text-align: center;
     }
 
     .photos__male img, .photos__female img {
