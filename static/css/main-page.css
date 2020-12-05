@@ -239,14 +239,15 @@ a .photos__female img {
     .photos__buttons h1 {
         font-size: 36px;
     }
-    .photos {
-        flex-direction: column;
-    }
     .photos__male, .photos__female {
-        width: 100%;
-        padding-top: 97%;
+        width: 47%;
+        padding-top: 46%;
         height: unset;
         margin-bottom: 18px;
+    }
+
+    .photos__male span, .photos__female span {
+        font-size: 20px;
     }
 
     .photos__male img, .photos__female img {
