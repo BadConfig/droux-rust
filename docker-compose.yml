@@ -28,7 +28,7 @@ services:
       - ./data/nginx:/etc/nginx/conf.d
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
-      #- ./static/:/var/tools/static/
+      - ./static/:/var/tools/static/
       #- ./templates/:/var/tools/templates/
     ports:
       - "80:80"
