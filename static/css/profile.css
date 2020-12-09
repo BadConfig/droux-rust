@@ -823,6 +823,7 @@
     }
     .chat__message-div {
         max-width: 70%;
+        overflow-x: hidden;
     }
 
     .chat__product-block {
@@ -846,6 +847,10 @@
     .other-ad-img {
         top: 0;
     }
+    .chat__message-div {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
 
 }
 
@@ -859,9 +864,6 @@
     }
     .ad__button {
         font-size: 10px;
-    }
-    .chat__message-time {
-        display: none;
     }
     .chat__companion-photo {
         display: none;
