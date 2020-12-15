@@ -2,7 +2,11 @@ FROM rustlang/rust:nightly AS builder
 
 WORKDIR /code
 COPY ./ /code
+
+RUN mkdir .cargo
+RUN cargo vendor > .cargo/config
 RUN cargo build --release
+RUN cargo install --path . --verbose
 
 FROM debian:buster-slim
 
