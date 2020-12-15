@@ -63,6 +63,7 @@
       <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/news.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/news.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
@@ -281,6 +282,7 @@
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/news.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
     </list>
@@ -349,6 +351,7 @@
       <workItem from="1607200157708" duration="1614000" />
       <workItem from="1607534974300" duration="316000" />
       <workItem from="1608039606394" duration="10639000" />
+      <workItem from="1608061325152" duration="720000" />
     </task>
     <servers />
   </component>
