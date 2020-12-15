@@ -32,3 +32,7 @@
 .news__date {
     margin-top: 30px;
 }
+
+.news__item > a {
+    height: fit-content;
+}
