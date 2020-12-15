@@ -1,0 +1,102 @@
+.carousel {
+    width: 100%;
+    height: 433px;
+    position: relative;
+    margin: 0;
+    overflow-x: hidden;
+}
+.carousel__all-news {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.carousel__item {
+    position: relative;
+    height: 100%;
+    width: 100vw;
+}
+
+.carousel__image {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel__container {
+    width: 100vw;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    top: 0;
+    color: white;
+}
+
+.carousel__header {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.carousel__description {
+    font-size: 18px;
+    text-align: center;
+}
+
+.carousel__arrow-div {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.carousel__arrow-div_position_left {
+    left: 0;
+}
+
+.carousel__arrow-div_position_right {
+    right: 0;
+}
+
+.carousel__arrow {
+    height: 14px;
+    width: 7px;
+}
+
+.carousel__markers {
+    height: 10px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 205px;
+    position: absolute;
+    bottom: 6px;
+    left: calc(50% - 102.5px);
+}
+
+.carousel__button {
+    width: 258px;
+    height: 41px;
+    font-size: 18px;
+    color: white;
+    border-color: white;
+    margin: 0 auto;
+    display: flex;
+}
+
+.show-all_part_news {
+    margin: 30px auto 40px;
+}
