@@ -1,0 +1,17 @@
+{% extends "main" %}
+{% block head %}
+ 
+{% endblock head %}
+{% block main %}
+    подписчики : {{ your_sub_count }}
+    {% for u in your_sub_users %}
+        {{ u.username }}
+    {% endfor %}
+    подписки : {{ you_sub_count}}
+    {% for u in you_sub_users %}
+        {{ u.username }}
+    {% endfor %}
+{% endblock main %}
+{% block scripts %}
+ 
+{% endblock scripts %}

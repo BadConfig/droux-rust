@@ -136,6 +136,9 @@ pub fn app() -> rocket::Rocket {
             routes::static_pages::save_deal_terms,
             routes::static_pages::serve_terms,
             routes::static_pages::user_terms,
+            routes::subs::unsubscribe,
+            routes::subs::subscribe,
+            routes::subs::get_sublist,
             ])
         .attach(Template::fairing())
         .attach(db::Conn::fairing())
