@@ -95,7 +95,7 @@ impl Subscribes {
         let subs = subscribes
             .inner_join(
                 users::table.on(
-                    users::id.eq(from_id))
+                    users::id.eq(to_id))
             )
             .select((
                 users::id,
