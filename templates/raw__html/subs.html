@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/subs.css">
+</head>
+<body>
+    <header class="header">
+        <div class="services">
+            <div class="container services__container">
+                <div class="services__item">
+                    <img src="../../static/assets/safety.svg" alt="Иконка безопасной сделки" class="services__icon">
+                    <span>Безопасная сделка</span>
+                </div>
+                <div class="services__item">
+                    <img src="../../static/assets/delivery.svg" alt="Иконка доставки" class="services__icon">
+                    <span>Бесплатная доставка</span>
+                </div>
+                <div class="services__item">
+                    <img src="../../static/assets/scan.svg" alt="Иконка экспертизы" class="services__icon">
+                    <span>Экспертиза на подлинность</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-base__line">
+            <div class="container header__base">
+                <form class="header__search">
+                    <div class="search__field">
+                        <label for="header-search">
+                            <img src="../../static/assets/search.svg" alt="Иконка поиска" class="search__icon">
+                        </label>
+                        <input class="search__input" type="search" id="header-search" placeholder="Поиск по товарам">
+                    </div>
+                    <input class="search__button button" type="submit" value="Найти">
+                </form>
+                <div class="header__logo">
+                    <img src="../../static/assets/droux-logo.svg" alt="Логотип Droux">
+                </div>
+                <div class="header__buttons">
+                    <a href="" class="button sell__button">Продать</a>
+                    <img src="../../static/assets/chat.svg" alt="Иконка чата" class="buttons__icon">
+                    <img src="../../static/assets/favourite.svg" alt="Иконка избранного" class="buttons__icon">
+                    <span>Войти</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-nav__line">
+            <nav class="header__nav">
+                <a href="">ВЫБОР DROUX</a>
+                <a href="">НОВИНКИ</a>
+                <a href="">БРЕНДЫ</a>
+                <a href="">ОДЕЖДА</a>
+                <a href="">ОБУВЬ</a>
+                <a href="">СУМКИ</a>
+                <a href="">АКСЕССУАРЫ</a>
+            </nav>
+        </div>
+    </header>
+    <main class="subscribes container">
+        <div class="subscribes__switchers">
+            <input type="radio" name="subscribes__category" id="followers" class="subscribes__category-switcher" checked> <!--Пропиши в шаблонизаторе этот checked здесь для клика на подписчиков-->
+            <label for="followers" class="subscribes__category-label">3 подписчиков (да, именно так, ТЗ и деньги)</label>
+            <input type="radio" name="subscribes__category" id="following" class="subscribes__category-switcher"> <!--А этот для клика на подписки-->
+            <label for="following" class="subscribes__category-label">7 подписки</label>
+        </div>
+        <div class="subscribes__search">
+            <input type="text"> <!--Допилю позже, не работает-->
+        </div>
+        <div class="subscribes__section subscribes__section_active subscribers"> <!--класс subscribes__section_active отвечает за активный раздел. ШАблонизатором прихерачь-->
+            <div class="subscribers__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscribers__photo">
+                </a>
+                <div class="subscribers__info">
+                    <a href=""><h3 class="subscribers__name">Егор Вареник</h3></a>
+                    <span class="subscribers__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscribers__buttons-section">
+                    <button class="subscribers__button subscribers__button_action_subscribe button">Подписаться</button>
+                    <button class="subscribers__button subscribers__button_action_delete button">Удалить</button>
+                </div>
+            </div>
+            <div class="subscribers__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscribers__photo">
+                </a>
+                <div class="subscribers__info">
+                    <a href=""><h3 class="subscribers__name">Егор Вареник</h3></a>
+                    <span class="subscribers__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscribers__buttons-section">
+                    <button class="subscribers__button subscribers__button_action_subscribe button">Подписаться</button>
+                    <button class="subscribers__button subscribers__button_action_delete button">Удалить</button>
+                </div>
+            </div>
+            <div class="subscribers__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscribers__photo">
+                </a>
+                <div class="subscribers__info">
+                    <a href=""><h3 class="subscribers__name">Егор Вареник</h3></a>
+                    <span class="subscribers__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscribers__buttons-section">
+                    <button class="subscribers__button subscribers__button_action_subscribe button">Подписаться</button>
+                    <button class="subscribers__button subscribers__button_action_delete button">Удалить</button>
+                </div>
+            </div>
+        </div>
+        <div class="subscribes__section subscriptions"> <!--Или сюда --!>
+            <div class="subscriptions__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscriptions__photo">
+                </a>
+                <div class="subscriptions__info">
+                    <a href=""><h3 class="subscriptions__name">Егор Вареник</h3></a>
+                    <span class="subscriptions__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscriptions__buttons-section">
+                    <button class="subscriptions__button subscriptions__button_action_unsub button">Вы подписаны</button>
+                </div>
+            </div>
+            <div class="subscriptions__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscriptions__photo">
+                </a>
+                <div class="subscriptions__info">
+                    <a href=""><h3 class="subscriptions__name">Егор Вареник</h3></a>
+                    <span class="subscriptions__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscriptions__buttons-section">
+                    <button class="subscriptions__button subscriptions__button_action_unsub button">Вы подписаны</button>
+                </div>
+            </div>
+            <div class="subscriptions__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscriptions__photo">
+                </a>
+                <div class="subscriptions__info">
+                    <a href=""><h3 class="subscriptions__name">Егор Вареник</h3></a>
+                    <span class="subscriptions__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscriptions__buttons-section">
+                    <button class="subscriptions__button subscriptions__button_action_unsub button">Вы подписаны</button>
+                </div>
+            </div>
+            <div class="subscriptions__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscriptions__photo">
+                </a>
+                <div class="subscriptions__info">
+                    <a href=""><h3 class="subscriptions__name">Егор Вареник</h3></a>
+                    <span class="subscriptions__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscriptions__buttons-section">
+                    <button class="subscriptions__button subscriptions__button_action_unsub button">Вы подписаны</button>
+                </div>
+            </div>
+            <div class="subscriptions__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscriptions__photo">
+                </a>
+                <div class="subscriptions__info">
+                    <a href=""><h3 class="subscriptions__name">Егор Вареник</h3></a>
+                    <span class="subscriptions__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscriptions__buttons-section">
+                    <button class="subscriptions__button subscriptions__button_action_unsub button">Вы подписаны</button>
+                </div>
+            </div>
+            <div class="subscriptions__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscriptions__photo">
+                </a>
+                <div class="subscriptions__info">
+                    <a href=""><h3 class="subscriptions__name">Егор Вареник</h3></a>
+                    <span class="subscriptions__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscriptions__buttons-section">
+                    <button class="subscriptions__button subscriptions__button_action_unsub button">Вы подписаны</button>
+                </div>
+            </div>
+            <div class="subscriptions__item">
+                <a href="">
+                    <img src="../../static/assets/news-picture.jpg" alt="" class="subscriptions__photo">
+                </a>
+                <div class="subscriptions__info">
+                    <a href=""><h3 class="subscriptions__name">Егор Вареник</h3></a>
+                    <span class="subscriptions__date">Без денег с 14.12.2020</span>
+                </div>
+                <div class="subscriptions__buttons-section">
+                    <button class="subscriptions__button subscriptions__button_action_unsub button">Вы подписаны</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+    <div class="container footer__container">
+        <div class="footer__column footer__column_first">
+            <a href="" class="footer__link footer__link_46">Пользовательское соглашение</a>
+            <a href="" class="footer__link footer__link_46">Безопасная сделка</a>
+            <a href="">Помощь и поддержка</a>
+            <a href="">Критерии отбора публикаций</a>
+        </div>
+        <div class="footer__column footer__column_second">
+            <a href="" class="footer__link footer__link_46">Политика конфиденциальности</a>
+            <a href="" class="footer__link footer__link_46">Правила безопасной сделки</a>
+            <a href="">FAQ</a>
+        </div>
+        <div class="footer__column footer__column_third">
+            <a href="" class="footer__link footer__link_46">Правила оказания услуг</a>
+            <a href="" class="footer__link footer__link_46">Контакты</a>
+            <a href="">Новости</a>
+        </div>
+        <div class="footer__column footer__column_fourth">
+            <div class="footer__media-links-div">
+                <span>Мы в соц. сетях</span>
+                <div class="footer__media-links">
+                    <a href=""><img src="../../static/assets/youtube.svg" alt="Иконка YouTube" class="media-links__icon"></a>
+                    <a href=""><img src="../../static/assets/vk.svg" alt="Иконка VK" class="media-links__icon"></a>
+                    <a href=""><img src="../../static/assets/facebook.svg" alt="Иконка Facebook" class="media-links__icon"></a>
+                    <a href=""><img src="../../static/assets/instagram.svg" alt="Иконка Instagram" class="media-links__icon"></a>
+                    <a href=""><img src="../../static/assets/telegram.svg" alt="Иконка Telegram" class="media-links__icon"></a>
+                </div>
+            </div>
+            <span>Подписка на новости</span>
+            <label class="subscribe__text" for="footer-subscribe">Получайте все самые последние новости о мероприятиях.</label>
+            <form class="subscribe">
+                <input type="text" class="subscribe__field" id="footer-subscribe">
+                <input type="submit" value="" class="button subscribe__button">
+            </form>
+        </div>
+    </div>
+</footer>
+    <script src="../../static/js/subs.js"></script>
+</body>
+</html>
