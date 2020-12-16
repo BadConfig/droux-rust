@@ -1,17 +1,58 @@
 {% extends "main" %}
 {% block head %}
- 
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/subs.css">
 {% endblock head %}
 {% block main %}
-    подписчики : {{ your_sub_count }}
-    {% for u in your_sub_users %}
-        {{ u.username }}
-    {% endfor %}
-    подписки : {{ you_sub_count}}
-    {% for u in you_sub_users %}
-        {{ u.username }}
-    {% endfor %}
+    <main class="subscribes container">
+        <div class="subscribes__switchers">
+            <input type="radio" name="subscribes__category" id="followers" class="subscribes__category-switcher" checked> <!--Пропиши в шаблонизаторе этот checked здесь для клика на подписчиков-->
+            <label for="followers" class="subscribes__category-label">{{ your_sub_count }} Подписчиков</label>
+            <input type="radio" name="subscribes__category" id="following" class="subscribes__category-switcher"> <!--А этот для клика на подписки-->
+            <label for="following" class="subscribes__category-label">{{ you_sub_count}} Подписки</label>
+        </div>
+        <div class="subscribes__search">
+            <input type="text"> <!--Допилю позже, не работает-->
+        </div>
+        <div class="subscribes__section subscribes__section_active subscribers"> <!--класс subscribes__section_active отвечает за активный раздел. ШАблонизатором прихерачь-->
+            {% for u in your_sub_users %}
+                <div class="subscribers__item">
+                    <a href="/profile/users/{{ u.id }}/product">
+                        <img src="/static/profile_pictures/{{ u.picture_path }}" alt="" class="subscribers__photo">
+                    </a>
+                    <div class="subscribers__info">
+                        <a href="/profile/users/{{ u.id }}/product"><h3 class="subscribers__name">{{ u.username }}</h3></a>
+                        <span class="subscribers__date">На droux с {{ u.register_data | date }}</span>
+                    </div>
+                    <div class="subscribers__buttons-section">
+                        <button class="subscribers__button subscribers__button_action_subscribe button">Подписаться</button>
+                        <button class="subscribers__button subscribers__button_action_delete button">Отписать</button>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="subscribes__section subscriptions">
+            {% for u in you_sub_users %}
+                <div class="subscriptions__item">
+                    <a href="/profile/users/{{ u.id }}/product">
+                        <img src="/static/profile_pictures/{{ u.picture_path }}" alt="" class="subscriptions__photo">
+                    </a>
+                    <div class="subscriptions__info">
+                        <a href="/profile/users/{{ u.id }}/product"><h3 class="subscriptions__name">{{ u.username }}</h3></a>
+                        <span class="subscriptions__date">На droux с {{ u.register_data | date }}</span>
+                    </div>
+                    <div class="subscriptions__buttons-section">
+
+                        <button class="subscriptions__button subscriptions__button_action_unsub button">Отписаться</button>
+                    </div>
+                </div>      
+            {% endfor %}
+        </div>
+    </main>
 {% endblock main %}
 {% block scripts %}
- 
+    <script src="/static/js/subs.js"></script>
 {% endblock scripts %}
