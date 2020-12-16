@@ -90,12 +90,12 @@
             <div class="card__subscribe-button-div card__button-div">
                 {% if in_subs %}
                     <form action="/subs/unsub" method="POST">
-                        <input type="hidden" name="u_id" value="{{ reviewed_user.id }}">
+                        <input type="hidden" name="u_id" value="{{ viewed_user.id }}">
                         <button type="submit" class="card__subscribe-button button card__button">Отписаться</button>
                     </form>
                 {% else %}
                     <form action="/subs/new" method="POST">
-                        <input type="hidden" name="u_id" value="{{ reviewed_user.id }}">
+                        <input type="hidden" name="u_id" value="{{ viewed_user.id }}">
                         <button type="submit" class="card__subscribe-button button card__button">Подписаться</button>
                     </form>
                 {% endif %}
