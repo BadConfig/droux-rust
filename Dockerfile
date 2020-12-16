@@ -1,12 +1,23 @@
 FROM rustlang/rust:nightly AS builder
 
-WORKDIR /code
-COPY ./ /code
+RUN USER=root cargo new --bin droux
+WORKDIR /droux
 
-RUN mkdir .cargo
-RUN cargo vendor > .cargo/config
+# copy over your manifests
+COPY ./Cargo.lock ./Cargo.lock
+COPY ./Cargo.toml ./Cargo.toml
+
+# this build step will cache your dependencies
 RUN cargo build --release
-RUN cargo install --path . --verbose
+RUN rm src/*.rs
+
+# copy your source tree
+COPY ./src ./src
+COPY ./SQL ./SQL
+
+# build for release
+RUN rm ./target/release/deps/droux*
+RUN cargo build --release
 
 FROM debian:buster-slim
 
