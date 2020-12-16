@@ -117,7 +117,7 @@ pub fn get_user_products_profile(id: i32, user: CommonUser, conn: crate::db::Con
     let mut ctx = get_base_context(user.clone(), &conn);
     let user_viewed = Users::get_by_id(id, &conn);
     if let CommonUser::Logged(u) = user {
-        let (yours,you) = Subscribes::count(u.id.clone(), &conn)?;
+        let (you,yours) = Subscribes::count(id.clone(), &conn)?;
         ctx.insert("your_sub_count", &yours);
         ctx.insert("you_sub_count", &you);
         ctx.insert("in_subs", &Subscribes::exists(u.id, id.clone(), &conn)?);
@@ -152,7 +152,7 @@ pub fn get_user_reviews_profile(id: i32, user: CommonUser, conn: crate::db::Conn
         0
     };
     if let CommonUser::Logged(u) = user {
-        let (yours,you) = Subscribes::count(u.id.clone(), &conn)?;
+        let (you,yours) = Subscribes::count(id.clone(), &conn)?;
         ctx.insert("your_sub_count", &yours);
         ctx.insert("you_sub_count", &you);
         ctx.insert("in_subs", &Subscribes::exists(u.id, id.clone(), &conn)?);

@@ -126,12 +126,12 @@ impl Subscribes {
         use diesel::dsl::count;
 
         let you = subscribes
-            .filter(to_id.eq(u_id))
+            .filter(from_id.eq(u_id))
             .select(count(id))
             .first::<i64>(conn)?;
 
         let yours = subscribes
-            .filter(from_id.eq(u_id))
+            .filter(to_id.eq(u_id))
             .select(count(id))
             .first::<i64>(conn)?;
 
