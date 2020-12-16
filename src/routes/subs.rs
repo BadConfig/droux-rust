@@ -30,7 +30,7 @@ use crate::models::subs::Subscribes;
 pub fn get_sublist(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
     let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(u) = user {
-        let (yours,you) = Subscribes::count(u.id.clone(), &conn)?;
+        let (you,yours) = Subscribes::count(u.id.clone(), &conn)?;
         ctx.insert("your_sub_count", &yours);
         ctx.insert("you_sub_count", &you);
         ctx.insert("your_sub_users", &Subscribes::subscribers(u.id.clone(), 30, 0, &conn)?);
