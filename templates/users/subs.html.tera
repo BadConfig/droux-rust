@@ -27,8 +27,14 @@
                         <span class="subscribers__date">На droux с {{ u.register_data | date }}</span>
                     </div>
                     <div class="subscribers__buttons-section">
-                        <button class="subscribers__button subscribers__button_action_subscribe button">Подписаться</button>
-                        <button class="subscribers__button subscribers__button_action_delete button">Отписать</button>
+                        <form action="/subs/new" method="POST">
+                            <input type="hidden" name="u_id" value="{{ u.id }}">
+                                <button class="subscribers__button subscribers__button_action_subscribe button">Подписаться</button>
+                        </form>
+                        <form action="/subs/delete" method="POST">
+                            <input type="hidden" name="u_id" value="{{ u.id }}">
+                            <button class="subscribers__button subscribers__button_action_delete button">Отписать</button>
+                        </form>
                     </div>
                 </div>
             {% endfor %}
@@ -45,8 +51,10 @@
                         <span class="subscriptions__date">На droux с {{ u.register_data | date }}</span>
                     </div>
                     <div class="subscriptions__buttons-section">
-
-                        <button class="subscriptions__button subscriptions__button_action_unsub button">Отписаться</button>
+                        <form action="/subs/unsub" method="POST">
+                            <input type="hidden" name="u_id" value="{{ u.id }}">
+                            <button class="subscriptions__button subscriptions__button_action_unsub button">Отписаться</button>
+                        </form>
                     </div>
                 </div>      
             {% endfor %}

@@ -66,3 +66,13 @@ pub fn unsubscribe(form: Form<SubscribeForm>,  user: CommonUser, conn: crate::db
         Ok(Either::Redirect(Redirect::to("/")))
     }  
 }
+
+#[post("/subs/delete",data="<form>")]
+pub fn unsubscribe_force(form: Form<SubscribeForm>,  user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if let CommonUser::Logged(u) = user {
+        Subscribes::delete(form.u_id.clone(), u.id, &conn)?;
+        Ok(Either::Redirect(Redirect::to(format!("/lk/subscribes"))))
+    } else {
+        Ok(Either::Redirect(Redirect::to("/")))
+    }  
+}

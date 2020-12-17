@@ -43,6 +43,7 @@
             </div>
             <div class="card__change-photo">
                 Скоро здесь будут подписки или настройки профиля
+                <a href="/lk/subscribes">Подписки: {{ your_sub_count }} Подписчики: {{ you_sub_count }}</a>
             </div>
             <div class="card__nav">
                 <a href="/users/products"><span class="card__label {% block products %}{% endblock products %}">Мои объявления</span></a>
