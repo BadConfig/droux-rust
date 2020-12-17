@@ -30,7 +30,7 @@ RUN apt-get update && \
         --no-install-recommends
 RUN apt-get update && apt-get -y install ca-certificates libssl-dev && rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /code/target/release/droux /droux/droux
+COPY --from=builder /droux/target/release/droux /droux/droux
 WORKDIR /droux/
 EXPOSE 8000
 
