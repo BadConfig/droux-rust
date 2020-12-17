@@ -139,6 +139,7 @@ pub fn app() -> rocket::Rocket {
             routes::subs::unsubscribe,
             routes::subs::subscribe,
             routes::subs::get_sublist,
+            routes::subs::unsubscribe_force,
             ])
         .attach(Template::fairing())
         .attach(db::Conn::fairing())
