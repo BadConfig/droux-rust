@@ -1,0 +1,20 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/common.css">
+    <meta charset="UTF-8">
+    <title>Панель администрирования</title>
+{% endblock head %}
+{% block main %}
+    <form action="http://localhost:8000" method="post" enctype="multipart/form-data">
+        <p><input type="text" name="title" value="title default"></p>
+        <p><input type="text" name="subtitle" value="subtitle default"></p>
+        <p><input type="text" name="body" value="body default"></p>
+        banner
+        <p><input type="file" name="banner"></p>
+        pic
+        <p><input type="file" name="picture"></p>
+        <p><button type="submit">Submit</button></p>
+    </form>
+{% endblock main %}
+{% block scripts %}
+{% endblock scripts %}

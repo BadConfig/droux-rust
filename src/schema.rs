@@ -56,6 +56,8 @@ table! {
         body -> Text,
         picture -> Varchar,
         creation_datetime -> Timestamp,
+        subtitle -> Varchar,
+        banner -> Varchar,
     }
 }
 

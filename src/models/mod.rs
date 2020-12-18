@@ -5,4 +5,4 @@ pub mod users;
 pub mod product;
 pub mod chat;
 pub mod subs;
-
+pub mod news;
