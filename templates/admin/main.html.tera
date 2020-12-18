@@ -34,7 +34,7 @@
                     <a href=""><span class="card__label">Отзывы</span></a>
                 {% endif %}
                 {% if admin.is_admin or admin.is_editor %}
-                    <a href=""><span class="card__label {% block news%}{% endblock news%}">Новости</span></a>
+                    <a href="/admin/news"><span class="card__label {% block news%}{% endblock news%}">Новости</span></a>
                 {% endif %}
                 {% if admin.is_admin %}
                     <a href="/admin/priveleges"><span class="card__label {% block priveleges %}{% endblock priveleges %}">Модераторы и редакторы</span></a>
