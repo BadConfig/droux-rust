@@ -84,7 +84,7 @@ pub fn parse_multiform_news(content_type: &ContentType, form: Data) -> Result<Ne
 
     let title       = unpack(multipart_form_data.texts.remove("title"))?;
     let picture     = unpack_photo(&multipart_form_data.raw.get("picture"), &(title.clone() + "_pic"))?; // Use the get method to preserve file fields from moving out of the MultipartFormData instance in order to delete them automatically when the MultipartFormData instance is being dropped
-    let banner      = unpack_photo(&multipart_form_data.raw.get("banner"), &(title.clone() + "_pic"))?;
+    let banner      = unpack_photo(&multipart_form_data.raw.get("banner"), &(title.clone() + "_banner"))?;
     let body        = unpack(multipart_form_data.texts.remove("body"))?;
     let subtitle    = unpack(multipart_form_data.texts.remove("subtitle"))?;
 
@@ -118,6 +118,14 @@ impl News {
             .order_by(creation_datetime)
             .limit(6)
             .get_results::<News>(conn)?)
+    }
+
+    pub fn get(news_id: i32, conn: &PgConnection) -> Result<News,Error> {
+        use crate::schema::news::dsl::*;
+
+        Ok(news
+            .filter(id.eq(news_id))
+            .get_result::<News>(conn)?)
     }
 
     pub fn delete(news_id: i32, conn: &PgConnection) -> Result<(),Error> {

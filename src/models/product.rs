@@ -123,7 +123,7 @@ pub struct SearchForm {
 
 impl ProductCard {
 
-    pub fn in_news(user_id: i32, conn: &PgConnection) -> Result<Vec<ProductCard>,Error> {
+    pub fn in_news(user_id: Option<i32>, conn: &PgConnection) -> Result<Vec<ProductCard>,Error> {
         let r = diesel::sql_query(include_str!("../../SQL/get_in_news.sql"))
         .bind::<Nullable<Integer>, _>(user_id)
         .get_results::<ProductCard>(conn)?;

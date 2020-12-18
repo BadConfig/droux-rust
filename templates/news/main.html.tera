@@ -1,0 +1,10 @@
+{% extends "main" %}
+{% block head %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <title></title>
+{% endblock head %}
+{% block main %}  
+{% endblock main %}
+{% block scripts %}
+{% endblock scripts %}

@@ -163,6 +163,9 @@ pub fn app() -> rocket::Rocket {
             routes::admin::news_show,
             routes::admin::news_delete,
             routes::admin::news_make,
+            routes::news::article,
+            routes::news::feed,
+            routes::news::products,
             ])
         .attach(Template::fairing())
         .attach(db::Conn::fairing())
