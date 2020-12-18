@@ -32,7 +32,7 @@
                                 <input type="hidden" name="u_id" value="{{ u.id }}">
                                 <button class="subscribers__button subscribers__button_action_subscribe button">Отписаться</button>
                             </form>
-                        {% elif  %}
+                        {% else %}
                             <form action="/subs/new" method="POST">
                                 <input type="hidden" name="u_id" value="{{ u.id }}">
                                 <button class="subscribers__button subscribers__button_action_subscribe button">Подписаться</button>
