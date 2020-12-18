@@ -13,14 +13,6 @@
             <img src="/static/assets/carousel-arrow-left.svg" alt="" class="carousel__arrow carousel__arrow_position_left">
         </div>
         <div class="carousel__all-news">
-            <div class="carousel__item">
-                <img src="/static/assets/news-img.jpg" alt="" class="carousel__image">
-                <div class="carousel__container">
-                    <h2 class="carousel__header">Пять фэшн-фильмов, связанных с хип-хоп-культурой от Deep Cuts</h2>
-                    <div class="carousel__description">Наши друзья из Deep Cuts рассказывают о пяти фильмах, тесно связанных с хип-хопом и стритвэром в целом</div>
-                    <a href="" class="carousel__button button">Читать далее</a>
-                </div>
-            </div>
             {% for banner in banners %}
                 <div class="carousel__item">
                     <img src="/{{ banner.banner }}" alt="" class="carousel__image">

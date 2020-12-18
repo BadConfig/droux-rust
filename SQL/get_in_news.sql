@@ -30,6 +30,6 @@ FROM products AS pr
     JOIN users AS u2 
     	ON u2.id = pr.seller_id 
 WHERE
-	pr.status = 'published' AND (prom.is_pre_order = true OR prom.in_news = true)
+	pr.status = 'published' AND (prom.is_pre_prder = true OR prom.in_news = true)
 ORDER BY 
     pr.create_datetime
