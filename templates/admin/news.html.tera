@@ -5,7 +5,7 @@
     {% for n in news_list %}
         <p>
             <a href="/news/{{ n.id }}"> {{ n.title }} </a>
-            <form action="/admin/news/detete" method="POST">
+            <form action="/admin/news/delete" method="POST">
                 <input type="hidden" name="id" value="{{ n.id }}">
                 <button type="submit">Удалить новость</button>
             </form>
