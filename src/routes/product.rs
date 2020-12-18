@@ -301,6 +301,7 @@ pub struct PrivForm {
     pub seller_id: i32,
     pub product_id: i32,
     pub product_name: String,
+    pub promo: String,
 }
 
 use crate::crm::{
@@ -354,7 +355,8 @@ pub fn post_order(form: Form<BuyForm>, user: CommonUser) -> Result<Either,Error>
 }
 
 #[post("/product/promotion/create",data="<form>")]
-pub fn post_promotions(form: Form<PrivForm>, user: CommonUser) -> Result<Either,Error> {
+pub fn post_promotions(form: Form<PrivForm>, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    use crate::models::promos::Promo;
     if let CommonUser::Logged(user) = user {
         if form.seller_id != user.id {
             return Ok(Either::Redirect(Redirect::to("/")));
@@ -382,6 +384,7 @@ pub fn post_promotions(form: Form<PrivForm>, user: CommonUser) -> Result<Either,
         if form.pre_order {
             summ += 499;
         }
+        summ = Promo::get_sale(summ, form.promo.clone(), &conn);
         let url = form
             .into_inner()
             .send_sber_pay_link(summ)?;

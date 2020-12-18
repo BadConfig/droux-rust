@@ -70,7 +70,7 @@ impl Subscribes {
 
     pub fn subscribed(u_id: i32, limit: i32, offset: i32, conn: &PgConnection) -> Result<Vec<User>,Error> {
 
-        let subs = diesel::sql_query(include_str!("../../SQL/subs_list.sql"))
+        let subs = diesel::sql_query(include_str!("../../SQL/me_subs_list.sql"))
             .bind::<Integer, _>(u_id)
             .bind::<Integer, _>(limit)
             .bind::<Integer, _>(offset)

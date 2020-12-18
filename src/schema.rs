@@ -106,6 +106,14 @@ table! {
 }
 
 table! {
+    promos (id) {
+        id -> Int4,
+        promo -> Varchar,
+        sale -> Int4,
+    }
+}
+
+table! {
     promotions (id) {
         id -> Int4,
         product_id -> Int4,
@@ -222,6 +230,7 @@ allow_tables_to_appear_in_same_query!(
     products,
     product_state,
     product_type,
+    promos,
     promotions,
     rating,
     selled_posts,
