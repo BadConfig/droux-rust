@@ -6,7 +6,7 @@
         <p>
             <a href="/news/{{ n.id }}"> {{ n.title }} </a>
             <form action="/admin/news/detete" method="POST">
-                <input type="hidden" name="id" value="{{ u.id }}">
+                <input type="hidden" name="id" value="{{ n.id }}">
                 <button type="submit">Удалить новость</button>
             </form>
         </p>
