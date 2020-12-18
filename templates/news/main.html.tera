@@ -5,6 +5,7 @@
     <title></title>
 {% endblock head %}
 {% block main %}  
+    {{ article.title }}
 {% endblock main %}
 {% block scripts %}
 {% endblock scripts %}

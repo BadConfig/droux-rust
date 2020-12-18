@@ -21,23 +21,16 @@
                     <a href="" class="carousel__button button">Читать далее</a>
                 </div>
             </div>
-            <div class="carousel__item">
-                <img src="/static/assets/news-img.jpg" alt="" class="carousel__image">
-                <div class="carousel__container">
-                    <h2 class="carousel__header">Пять фэшн-фильмов, связанных с хип-хоп-культурой от Deep Cuts</h2>
-                    <div class="carousel__description">Наши друзья из Deep Cuts рассказывают о пяти фильмах, тесно связанных с хип-хопом и стритвэром в целом</div>
-                    <a href="" class="carousel__button button">Читать далее</a>
-                </div>
-            </div>
-            <div class="carousel__item">
-                <img src="/static/assets/news-img.jpg" alt="" class="carousel__image">
-                <div class="carousel__container">
-                    <h2 class="carousel__header">Пять фэшн-фильмов, связанных с хип-хоп-культурой от Deep Cuts</h2>
-                    <div class="carousel__description">Наши друзья из Deep Cuts рассказывают о пяти фильмах, тесно связанных с хип-хопом и стритвэром в целом</div>
-                    <a href="" class="carousel__button button">Читать далее</a>
-                </div>
-            </div>
-
+            {% for banner in banners %}
+                <div class="carousel__item">
+                    <img src="/{{ banner.banner }}" alt="" class="carousel__image">
+                    <div class="carousel__container">
+                        <h2 class="carousel__header">{{ banner.title }}</h2>
+                        <div class="carousel__description">{{ banner.subtitle }}</div>
+                        <a href="/news/{{ banner.id }}" class="carousel__button button">Читать далее</a>
+                    </div>
+                </div>  
+            {% endfor %}
         </div>
         <div class="carousel__arrow-div carousel__arrow-div_position_right">
             <img src="/static/assets/carousel-arrow-right.svg" alt="" class="carousel__arrow carousel__arrow_position_right">
@@ -58,55 +51,14 @@
         </div></a>
     </div>
     <main class="news container">
-        <div class="news__item">
-            <a href=""><img src="/static/assets/news-picture.jpg" class="news__photo" alt=""></a>
-            <a href=""><h3 class="news__title">Нам снова не заплатили, Артём</h3></a>
-            <a href=""><div class="news__text">Очередной блядский день без деняк</div></a>
-            <div class="news__date">УЖЕ ДВА ДНЯ</div>
-        </div>
-        <div class="news__item">
-            <a href=""><img src="/static/assets/news-picture.jpg" class="news__photo" alt=""></a>
-            <a href=""><h3 class="news__title">Нам снова не заплатили, Артём</h3></a>
-            <a href=""><div class="news__text">Очередной блядский день без деняк</div></a>
-            <div class="news__date">УЖЕ ДВА ДНЯ</div>
-        </div>
-        <div class="news__item">
-            <a href=""><img src="/static/assets/news-picture.jpg" class="news__photo" alt=""></a>
-            <a href=""><h3 class="news__title">Нам снова не заплатили, Артём</h3></a>
-            <a href=""><div class="news__text">Очередной блядский день без деняк</div></a>
-            <div class="news__date">УЖЕ ДВА ДНЯ</div>
-        </div>
-        <div class="news__item">
-            <a href=""><img src="/static/assets/news-picture.jpg" class="news__photo" alt=""></a>
-            <a href=""><h3 class="news__title">Нам снова не заплатили, Артём</h3></a>
-            <a href=""><div class="news__text">Очередной блядский день без деняк</div></a>
-            <div class="news__date">УЖЕ ДВА ДНЯ</div>
-        </div>
-        <div class="news__item">
-            <a href=""><img src="/static/assets/news-picture.jpg" class="news__photo" alt=""></a>
-            <a href=""><h3 class="news__title">Нам снова не заплатили, Артём</h3></a>
-            <a href=""><div class="news__text">Очередной блядский день без деняк</div></a>
-            <div class="news__date">УЖЕ ДВА ДНЯ</div>
-        </div>
-        <div class="news__item">
-            <a href=""><img src="/static/assets/news-picture.jpg" class="news__photo" alt=""></a>
-            <a href=""><h3 class="news__title">Нам снова не заплатили, Артём</h3></a>
-            <a href=""><div class="news__text">Очередной блядский день без деняк</div></a>
-            <div class="news__date">УЖЕ ДВА ДНЯ</div>
-        </div>
-        <div class="news__item">
-            <a href=""><img src="/static/assets/news-picture.jpg" class="news__photo" alt=""></a>
-            <a href=""><h3 class="news__title">Нам снова не заплатили, Артём</h3></a>
-            <a href=""><div class="news__text">Очередной блядский день без деняк</div></a>
-            <div class="news__date">УЖЕ ДВА ДНЯ</div>
-        </div>
-        <div class="news__item">
-            <a href=""><img src="/static/assets/news-picture.jpg" class="news__photo" alt=""></a>
-            <a href=""><h3 class="news__title">Нам снова не заплатили, Артём</h3></a>
-            <a href=""><div class="news__text">Очередной блядский день без деняк</div></a>
-            <div class="news__date">УЖЕ ДВА ДНЯ</div>
-        </div>
-
+        {% for article in articles %}
+            <div class="news__item">
+                <a href="/news/{{ article.id }}"><img src="/{{ article.picture }}" class="news__photo" alt=""></a>
+                <a href="/news/{{ article.id }}"><h3 class="news__title">{{ article.title }}</h3></a>
+                <a href="/news/{{ article.id }}"><div class="news__text">{{ article.subtitle }}</div></a>
+                <div class="news__date">{{ article.create_datetime | date(format="%A, %B %d") | upper }}</div>
+            </div>  
+        {% endfor %}
     </main>
 {% endblock main %}
 {% block scripts %}

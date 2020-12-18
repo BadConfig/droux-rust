@@ -5,6 +5,10 @@
     <title></title>
 {% endblock head %}
 {% block main %}  
+    {% for product in products %}
+     {{ product.title }}
+     {{ product.descr }}
+    {% endfor %}
 {% endblock main %}
 {% block scripts %}
 {% endblock scripts %}

@@ -15,7 +15,7 @@
         <div class="footer__column footer__column_third">
             <a href="/serve_terms" class="footer__link footer__link_46">Правила оказания услуг</a>
             <a href="/contacts" class="footer__link footer__link_46">Контакты</a>
-            <a href="/">Новости</a>
+            <a href="/news/feed">Новости</a>
         </div>
         <div class="footer__column footer__column_fourth">
             <div class="footer__media-links-div">
