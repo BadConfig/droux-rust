@@ -1,4 +1,4 @@
-SELECT 	s.id,
+SELECT 	u.id,
 		u.username,
 		u.register_data,
 		EXISTS (
