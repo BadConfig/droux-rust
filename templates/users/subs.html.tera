@@ -27,10 +27,17 @@
                         <span class="subscribers__date">На droux с {{ u.register_data | date }}</span>
                     </div>
                     <div class="subscribers__buttons-section">
-                        <form action="/subs/new" method="POST">
-                            <input type="hidden" name="u_id" value="{{ u.id }}">
+                        {% if u.in_subs %}
+                            <form action="/subs/unsub" method="POST">
+                                <input type="hidden" name="u_id" value="{{ u.id }}">
+                                <button class="subscribers__button subscribers__button_action_subscribe button">Отписаться</button>
+                            </form>
+                        {% elif  %}
+                            <form action="/subs/new" method="POST">
+                                <input type="hidden" name="u_id" value="{{ u.id }}">
                                 <button class="subscribers__button subscribers__button_action_subscribe button">Подписаться</button>
-                        </form>
+                            </form>          
+                        {% endif %}
                         <form action="/subs/delete" method="POST">
                             <input type="hidden" name="u_id" value="{{ u.id }}">
                             <button class="subscribers__button subscribers__button_action_delete button">Отписать</button>

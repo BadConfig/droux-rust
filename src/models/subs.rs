@@ -20,11 +20,17 @@ pub struct Subscribes {
     pub to_id: i32,
 }
 
-#[derive(Serialize,Clone,Debug)]
+#[derive(Serialize,Clone,Debug,QueryableByName)]
 pub struct User {
+    #[sql_type="Integer"]
     pub id: i32,
+    #[sql_type="Text"]
     pub username: String,
+    #[sql_type="Timestamp"]
     pub register_data: NaiveDateTime,
+    #[sql_type="Bool"]
+    pub in_subs: bool,
+    #[sql_type="Text"]
     pub picture_path: String,
 }
 
@@ -40,38 +46,14 @@ impl Subscribes {
 
     }
 
-    pub fn subscribers(u_id: i32, limit: i64, offset: i64, conn: &PgConnection) -> Result<Vec<User>,Error> {
+    pub fn subscribers(u_id: i32, limit: i32, offset: i32, conn: &PgConnection) -> Result<Vec<User>,Error> {
 
-        use crate::schema::subscribes::dsl::*;
-        use crate::schema::users;
-        use crate::models::users::Users;
-
-        let subs = subscribes
-            .inner_join(
-                users::table.on(
-                    users::id.eq(from_id))
-            )
-            .select((
-                users::id,
-                users::username,
-                users::register_data,
-                users::picture_path,
-            ))
-            .filter(to_id.eq(u_id))
-            .limit(limit)
-            .offset(offset)
-            .get_results::<(i32,String,NaiveDateTime,String)>(conn)?;
-        let r: Vec<User> = subs
-            .into_iter()
-            .map( |s|
-            User {
-                id: s.0,
-                username: s.1,
-                register_data: s.2,
-                picture_path: s.3,
-            })
-            .collect();
-        Ok(r)
+        let subs = diesel::sql_query(include_str!("../../SQL/subs_list.sql"))
+            .bind::<Integer, _>(u_id)
+            .bind::<Integer, _>(limit)
+            .bind::<Integer, _>(offset)
+            .get_results::<User>(conn)?;         
+        Ok(subs)
     }
 
     pub fn delete(sub: i32, user: i32, conn: &PgConnection) -> Result<(),Error> {
@@ -86,38 +68,14 @@ impl Subscribes {
 
     }
 
-    pub fn subscribed(u_id: i32, limit: i64, offset: i64, conn: &PgConnection) -> Result<Vec<User>,Error> {
+    pub fn subscribed(u_id: i32, limit: i32, offset: i32, conn: &PgConnection) -> Result<Vec<User>,Error> {
 
-        use crate::schema::subscribes::dsl::*;
-        use crate::schema::users;
-        use crate::models::users::Users;
-
-        let subs = subscribes
-            .inner_join(
-                users::table.on(
-                    users::id.eq(to_id))
-            )
-            .select((
-                users::id,
-                users::username,
-                users::register_data,
-                users::picture_path,
-            ))
-            .filter(from_id.eq(u_id))
-            .limit(limit)
-            .offset(offset)
-            .get_results::<(i32,String,NaiveDateTime,String)>(conn)?;
-        let r: Vec<User> = subs
-            .into_iter()
-            .map( |s|
-            User {
-                id: s.0,
-                username: s.1,
-                register_data: s.2,
-                picture_path: s.3,
-            })
-            .collect();
-        Ok(r)
+        let subs = diesel::sql_query(include_str!("../../SQL/subs_list.sql"))
+            .bind::<Integer, _>(u_id)
+            .bind::<Integer, _>(limit)
+            .bind::<Integer, _>(offset)
+            .get_results::<User>(conn)?; 
+        Ok(subs)
     }
 
     pub fn count(u_id: i32, conn: &PgConnection) -> Result<(i64,i64),Error> {

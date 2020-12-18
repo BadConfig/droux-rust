@@ -37,7 +37,7 @@
     </div>
     <div class="show-all container show-all_part_news">
         <h2 class="show-all__header">Самые свежие релизы</h2>
-        <a href=""><div class="show-all__button">
+        <a href="/news/feed/products"><div class="show-all__button">
             <span class="show-all__text">Показать все</span>
             <img src="/static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
         </div></a>

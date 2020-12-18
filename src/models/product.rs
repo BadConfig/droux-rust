@@ -121,12 +121,24 @@ pub struct SearchForm {
     pub user_id: Option<i32>,
 }
 
+#[derive(Serialize,Clone,Debug,QueryableByName)]
+pub struct ProductNews {
+    #[sql_type="Integer"]
+    pub id: i32,
+    #[sql_type="Text"]
+    pub title: String,
+    #[sql_type="Text"]
+    pub descr: String,
+    #[sql_type="Text"]
+    pub pictures: String,
+}
+
 impl ProductCard {
 
-    pub fn in_news(user_id: Option<i32>, conn: &PgConnection) -> Result<Vec<ProductCard>,Error> {
+    pub fn in_news(user_id: Option<i32>, conn: &PgConnection) -> Result<Vec<ProductNews>,Error> {
         let r = diesel::sql_query(include_str!("../../SQL/get_in_news.sql"))
         .bind::<Nullable<Integer>, _>(user_id)
-        .get_results::<ProductCard>(conn)?;
+        .get_results::<ProductNews>(conn)?;
         Ok(r)
     }
 
