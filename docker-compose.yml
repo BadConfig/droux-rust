@@ -59,6 +59,12 @@ services:
       POSTGRES_USER: docker
     networks:
       - app-network
+  cron:
+    image: badconfig/cron
+    container_name: cron
+    restart: unless-stopped
+    networks:
+      - app-network
 networks:
   app-network:
     driver: bridge
