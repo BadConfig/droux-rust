@@ -197,6 +197,7 @@ pub fn admin_product_edit(id: i32, user: CommonUser, admin: crate::admin::AdminU
     let mut ctx = get_base_context(user, &conn);
     ctx.insert("admin",&admin);
     get_filter_context(&mut ctx, &conn);
+    ctx.insert("admin",&admin);
     ctx.insert("prod_data", &Product::get_by_id(id, &conn));
     Either::Template(Template::render("admin/edit_products", &ctx))
 }
@@ -236,6 +237,7 @@ pub fn rescue_list(user: CommonUser, admin: crate::admin::AdminUser, conn: crate
     }
     let mut ctx = get_base_context(user, &conn);
     ctx.insert("issues", &Issue::list(0, 100, &conn)?);
+    ctx.insert("admin",&admin);
     Ok(Either::Template(Template::render("admin/rescue", ctx)))
 }
 
