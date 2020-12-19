@@ -1,0 +1,57 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/carousel.css">
+    <link rel="stylesheet" href="/static/css/main-page.css">
+    <link rel="stylesheet" href="/static/css/news.css">
+    <meta charset="UTF-8">
+    <title>Title</title>
+{% endblock head %}
+{% block main %}
+    <div class="carousel">
+        <div class="carousel__arrow-div carousel__arrow-div_position_left">
+            <img src="/static/assets/carousel-arrow-left.svg" alt="" class="carousel__arrow carousel__arrow_position_left">
+        </div>
+        <div class="carousel__all-news">
+            {% for banner in banners %}
+                <div class="carousel__item">
+                    <img src="/{{ banner.banner }}" alt="" class="carousel__image">
+                    <div class="carousel__container">
+                        <h2 class="carousel__header">{{ banner.title }}</h2>
+                        <div class="carousel__description">{{ banner.subtitle }}</div>
+                        <a href="/news/{{ banner.id }}" class="carousel__button button">Читать далее</a>
+                    </div>
+                </div>  
+            {% endfor %}
+        </div>
+        <div class="carousel__arrow-div carousel__arrow-div_position_right">
+            <img src="/static/assets/carousel-arrow-right.svg" alt="" class="carousel__arrow carousel__arrow_position_right">
+        </div>
+        <div class="carousel__markers">
+            <img src="/static/assets/carousel-marker-active.svg" alt="" class="carousel__marker carousel__marker_active">
+            <img src="/static/assets/carousel-marker.svg" alt="" class="carousel__marker">
+            <img src="/static/assets/carousel-marker.svg" alt="" class="carousel__marker">
+            <img src="/static/assets/carousel-marker.svg" alt="" class="carousel__marker">
+            <img src="/static/assets/carousel-marker.svg" alt="" class="carousel__marker">
+        </div>
+    </div>
+    <div class="show-all container show-all_part_news">
+        <h2 class="show-all__header">Самые свежие релизы</h2>
+        <a href="/news/feed/products"><div class="show-all__button">
+            <span class="show-all__text">Показать все</span>
+            <img src="/static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
+        </div></a>
+    </div>
+    <main class="news container">
+        {% for article in articles %}
+            <div class="news__item">
+                <a href="/news/{{ article.id }}"><img src="/{{ article.picture }}" class="news__photo" alt=""></a>
+                <a href="/news/{{ article.id }}"><h3 class="news__title">{{ article.title }}</h3></a>
+                <a href="/news/{{ article.id }}"><div class="news__text">{{ article.subtitle }}</div></a>
+                <div class="news__date">{{ article.creation_datetime | date(format="%A, %B %d") | upper }}</div>
+            </div>  
+        {% endfor %}
+    </main>
+{% endblock main %}
+{% block scripts %}
+{% endblock scripts %}

@@ -1,0 +1,17 @@
+{% extends "admin/main" %}
+{% block page_content %}
+    <h2 class="admin__header">Управление модерацией</h2>
+    <a href="/admin/news/add"> create news </a>
+    {% for n in news_list %}
+        <p>
+            <a href="/news/{{ n.id }}"> {{ n.title }} </a>
+            <form action="/admin/news/delete" method="POST">
+                <input type="hidden" name="id" value="{{ n.id }}">
+                <button type="submit">Удалить новость</button>
+            </form>
+        </p>
+    {% endfor %}
+{% endblock page_content %}
+{% block news %}
+    card__label_active
+{% endblock news %}

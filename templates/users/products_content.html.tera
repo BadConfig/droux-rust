@@ -43,7 +43,7 @@
                                     <span>{{ ad.favourites }}</span>
                                 </div>
                             </div>
-                            <a href="" class="button ad__button">Поднять просмотры</a>
+                            <a href="/product/promotion/create/{{ ad.prod.id}}" class="button ad__button">Поднять просмотры</a>
                         </div>
                     </div>
                 </div>

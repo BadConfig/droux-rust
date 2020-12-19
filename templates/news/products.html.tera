@@ -1,0 +1,14 @@
+{% extends "main" %}
+{% block head %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <title></title>
+{% endblock head %}
+{% block main %}  
+    {% for product in products %}
+     {{ product.title }}
+     {{ product.descr }}
+    {% endfor %}
+{% endblock main %}
+{% block scripts %}
+{% endblock scripts %}

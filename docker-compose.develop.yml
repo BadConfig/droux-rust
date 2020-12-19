@@ -12,7 +12,7 @@ services:
       - RETAIL_CRM_API_KEY=qZPXO3WaF2LLQI3YEZHdpJLoYZxhHdzH
       - SBERBANK_USERNAME=T773007004660-api
       - SBERBANK_PASSWORD=T773007004660
-      - SITE_URL=http://178.154.229.126:8080
+      - SITE_URL=http://178.154.224.169:8080
     volumes:
           - ./Rocket.dev.toml:/droux/Rocket.toml
           - ./static/:/droux/static/
@@ -43,6 +43,12 @@ services:
       POSTGRES_DB: diesel_db
       POSTGRES_PASSWORD: docker
       POSTGRES_USER: docker
+    networks:
+      - app-network
+  cron_dev:
+    image: badconfig/cron:dev
+    container_name: cron_dev
+    restart: unless-stopped
     networks:
       - app-network
 networks:

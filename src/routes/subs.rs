@@ -30,7 +30,7 @@ use crate::models::subs::Subscribes;
 pub fn get_sublist(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
     let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(u) = user {
-        let (yours,you) = Subscribes::count(u.id.clone(), &conn)?;
+        let (you,yours) = Subscribes::count(u.id.clone(), &conn)?;
         ctx.insert("your_sub_count", &yours);
         ctx.insert("you_sub_count", &you);
         ctx.insert("your_sub_users", &Subscribes::subscribers(u.id.clone(), 30, 0, &conn)?);
@@ -62,6 +62,16 @@ pub fn unsubscribe(form: Form<SubscribeForm>,  user: CommonUser, conn: crate::db
     if let CommonUser::Logged(u) = user {
         Subscribes::delete(u.id, form.u_id.clone(), &conn)?;
         Ok(Either::Redirect(Redirect::to(format!("/profile/users/{}/reviews",form.u_id))))
+    } else {
+        Ok(Either::Redirect(Redirect::to("/")))
+    }  
+}
+
+#[post("/subs/delete",data="<form>")]
+pub fn unsubscribe_force(form: Form<SubscribeForm>,  user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if let CommonUser::Logged(u) = user {
+        Subscribes::delete(form.u_id.clone(), u.id, &conn)?;
+        Ok(Either::Redirect(Redirect::to(format!("/lk/subscribes"))))
     } else {
         Ok(Either::Redirect(Redirect::to("/")))
     }  

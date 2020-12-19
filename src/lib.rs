@@ -19,6 +19,7 @@ extern crate dotenv;
 extern crate rocket_slog;
 
 use diesel::result::Error as DieselError;
+use std::io::Error as IOError;
 use rocket::request::Request;
 use rocket::http::Status;
 use rocket::response;
@@ -45,6 +46,24 @@ impl From<DieselError> for Error {
         Error {
             status: Status::InternalServerError,
             message: error.to_string(),
+        }
+    }
+}
+
+impl From<IOError> for Error {
+    fn from(error: IOError) -> Error {
+        Error {
+            status: Status::InternalServerError,
+            message: error.to_string(),
+        }
+    }
+}
+
+impl From<String> for Error {
+    fn from(error: String) -> Error {
+        Error {
+            status: Status::InternalServerError,
+            message: error,
         }
     }
 }
@@ -139,6 +158,18 @@ pub fn app() -> rocket::Rocket {
             routes::subs::unsubscribe,
             routes::subs::subscribe,
             routes::subs::get_sublist,
+            routes::subs::unsubscribe_force,
+            routes::admin::news_add,
+            routes::admin::news_show,
+            routes::admin::news_delete,
+            routes::admin::news_make,
+            routes::news::article,
+            routes::news::feed,
+            routes::news::products,
+            routes::rescue::create,
+            routes::rescue::rescue,
+            routes::admin::rescue_delete,
+            routes::admin::rescue_list,
             ])
         .attach(Template::fairing())
         .attach(db::Conn::fairing())

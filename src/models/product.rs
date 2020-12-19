@@ -121,7 +121,26 @@ pub struct SearchForm {
     pub user_id: Option<i32>,
 }
 
+#[derive(Serialize,Clone,Debug,QueryableByName)]
+pub struct ProductNews {
+    #[sql_type="Integer"]
+    pub id: i32,
+    #[sql_type="Text"]
+    pub title: String,
+    #[sql_type="Text"]
+    pub descr: String,
+    #[sql_type="Text"]
+    pub pictures: String,
+}
+
 impl ProductCard {
+
+    pub fn in_news(user_id: Option<i32>, conn: &PgConnection) -> Result<Vec<ProductNews>,Error> {
+        let r = diesel::sql_query(include_str!("../../SQL/get_in_news.sql"))
+        .bind::<Nullable<Integer>, _>(user_id)
+        .get_results::<ProductNews>(conn)?;
+        Ok(r)
+    }
 
     pub fn get_favourites(user_id: i32, conn: &PgConnection) -> Vec<ProductCard> {
         
@@ -331,7 +350,23 @@ impl ProductPromotions {
             Err(_) => Ok(false),
             Ok(i) => Ok(i.is_pre_order),
         }
+    }
 
+    pub fn exists(prod_id: i32, conn: &PgConnection) -> Result<bool,Error> {
+        use crate::schema::promotions::dsl::*;
+        use chrono::Duration;
+
+        let r: Vec<ProductPromotions> = promotions
+            .filter(product_id.eq(prod_id))
+            .get_results::<ProductPromotions>(conn)?
+            .into_iter()
+            .filter( | prom | {
+             -(chrono::Local::now().naive_utc()
+                    .signed_duration_since( prom.prod_bought_date + Duration::days(7))
+                    .num_days()) < 7
+            })
+            .collect();
+        Ok(r.len() > 0)
     }
 }
 
