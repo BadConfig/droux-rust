@@ -257,10 +257,11 @@ pub fn favourites_delete(form: Form<FavouritesForm>, user: CommonUser, conn: cra
 use crate::models::product::Product;
 #[get("/product/promotion/create/<id>")]
 pub fn get_promotions(id: i32, user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    use crate::models::product::ProductPromotions;
     let mut ctx = get_base_context(user.clone(), &conn);
     if let CommonUser::Logged(user) = user {
         let pr = Product::get_by_id(id, &conn);
-        if pr.seller_id != user.id {
+        if pr.seller_id != user.id || ProductPromotions::exists(id.clone(), &conn) {
             return Ok(Either::Redirect(Redirect::to("/")));
         }
         ctx.insert("product", &pr);

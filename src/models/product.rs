@@ -350,7 +350,23 @@ impl ProductPromotions {
             Err(_) => Ok(false),
             Ok(i) => Ok(i.is_pre_order),
         }
+    }
 
+    pub fn exists(prod_id: i32, conn: &PgConnection) -> Result<bool,Error> {
+        use crate::schema::promotions::dsl::*;
+        use chrono::Duration;
+
+        let r: Vec<ProductPromotions> = promotions
+            .filter(product_id.eq(prod_id))
+            .get_results::<ProductPromotions>(conn)?
+            .into_iter()
+            .filter( | prom | {
+             -(chrono::Local::now().naive_utc()
+                    .signed_duration_since( prom.prod_bought_date + Duration::days(7))
+                    .num_days()) < 7
+            })
+            .collect();
+        Ok(r.len() > 0)
     }
 }
 
