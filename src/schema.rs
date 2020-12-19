@@ -140,6 +140,14 @@ table! {
 }
 
 table! {
+    rescue_issues (id) {
+        id -> Int4,
+        contact -> Varchar,
+        issue -> Varchar,
+    }
+}
+
+table! {
     selled_posts (id) {
         id -> Int4,
         product_id -> Int4,
@@ -233,6 +241,7 @@ allow_tables_to_appear_in_same_query!(
     promos,
     promotions,
     rating,
+    rescue_issues,
     selled_posts,
     sizes,
     social_links,

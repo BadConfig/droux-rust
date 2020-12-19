@@ -31,6 +31,7 @@
                         <span class="card__label {% block active_products %}{% endblock active_products %}">
                             Объявления</span>
                     </a>
+                    <a href="/admin/rescue/list"><span class="card__label {% block rescue%}{% endblock rescue%}">Поддержка</span></a>
                     <a href=""><span class="card__label">Отзывы</span></a>
                 {% endif %}
                 {% if admin.is_admin or admin.is_editor %}

@@ -7,6 +7,7 @@ pub mod chat;
 pub mod static_pages;
 pub mod subs;
 pub mod news;
+pub mod rescue;
 
 use rocket_contrib::templates::{Template,tera::*};
 use rocket::response::Redirect;

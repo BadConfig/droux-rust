@@ -16,6 +16,7 @@ use crate::Error;
 use crate::models::admin::Priveleges;
 use crate::models::product::Links;
 use crate::models::news::News;
+use crate::models::rescue::Issue;
 
 #[post("/admin/news/add",data="<form>")]
 pub fn news_add(form: Data, content_type: &ContentType, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
@@ -226,4 +227,28 @@ pub fn product_change(id: i32, content_type: &ContentType, form: Data, _user: Co
     ProductAdmin::change_product(id, content_type, form, &conn);
     ProductAdmin::publish(id, &conn);
     Redirect::to("/admin/product/0")
+}
+
+#[get("/admin/rescue/list")]
+pub fn rescue_list(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if admin.is_editor {
+        return Ok(Either::Redirect(Redirect::to("/admin")));
+    }
+    let mut ctx = get_base_context(user, &conn);
+    ctx.insert("issues", &Issue::list(0, 100, &conn)?);
+    Ok(Either::Template(Template::render("admin/rescue", ctx)))
+}
+
+#[derive(FromForm)]
+pub struct RescueId {
+    id: i32,
+}
+
+#[post("/admin/rescue/delete",data="<form>")]
+pub fn rescue_delete(form: Form<RescueId>, user: CommonUser, admin: crate::admin::AdminUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    if admin.is_editor {
+        return Ok(Either::Redirect(Redirect::to("/admin")))
+    }
+    Issue::delete(form.id, &conn)?;
+    Ok(Either::Redirect(Redirect::to("/admin/rescue/list")))
 }

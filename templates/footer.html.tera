@@ -4,7 +4,7 @@
         <div class="footer__column footer__column_first">
             <a href="/user_terms" class="footer__link footer__link_46">Пользовательское соглашение</a>
             <a href="/save_deal" class="footer__link footer__link_46">Безопасная сделка</a>
-            <a href="/help">Помощь и поддержка</a>
+            <a href="/rescue">Помощь и поддержка</a>
             <a href="/criteria">Критерии отбора публикаций</a>
         </div>
         <div class="footer__column footer__column_second">
