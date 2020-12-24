@@ -97,3 +97,28 @@
     margin-bottom: 108px;
 }
 
+
+@media (max-width: 800px) {
+    .preorder__header {
+        font-size: 36px;
+        text-align: center;
+    }
+    .preorder__title {
+        font-size: 30px;
+    }
+    .preorder__paragraph {
+        font-size: 16px;
+    }
+
+    .preorder-item {
+        width: 47%;
+    }
+
+    .preorder-item:nth-child(2) ~ .preorder-item {
+        display: none;
+    }
+
+    .preorder-item__button {
+        width: 87%;
+    }
+}

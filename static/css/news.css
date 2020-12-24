@@ -7,16 +7,19 @@
 }
 
 .news__item {
-    width: 255px;
+    width: 22.3%;
     height: 551px;
     margin-bottom: 30px;
 }
 
 .news__photo {
     width: 100%;
-    height: 291px;
+    height: 100%;
     display: block;
+    position: absolute;
+    top: 0;
     object-fit: cover;
+    object-position: center;
 }
 .news__title {
     font-weight: bold;
@@ -35,4 +38,21 @@
 
 .news__item > a {
     height: fit-content;
+}
+
+.news__img-link {
+    display: block;
+    width: 100%;
+    padding-top: 114%;
+    position: relative;
+}
+
+@media (max-width: 800px) {
+    .news__item {
+        width: 47%;
+    }
+
+    .news__item:nth-child(6) ~ .news__item {
+        display: none;
+    }
 }
