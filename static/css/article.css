@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.article {
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+}
+
+.article__header {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
+.article__text {
+    font-size: 24px;
+}
+
+.article__text > h2 {
+    font-family: Alegreya, "Times New Roman", Times, serif;
+    font-size: 48px;
+    margin: 50px 0 30px;
+    font-weight: normal;
+}
+
+.article__img {
+    width: 100%;
+    margin: 30px 0 206px;
+}
