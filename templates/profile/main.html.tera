@@ -59,7 +59,7 @@
                             {{ viewed_user.username }}
                         </span>
                     <span class="card__reg-date">
-                            На Droux с {{ viewed_user.register_data | date }}
+                            На Droux с {{ viewed_user.register_data | date(format="%d.%m.%Y") }}
                         </span>
                     <div class="card__rating-div">
                             <span class="rating__num">

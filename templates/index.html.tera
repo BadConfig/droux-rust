@@ -115,7 +115,17 @@
             <div class="part__arrow part__arrow_right part__arrow_popular-today">
                 <img src="static/assets/arrow-right.svg" alt="Стрелка пролистывания вправо">
             </div>
-        </div>
+        </div> 
+        <a href="/news/feed"> показать все </a>
+        {% for banner in banners %} <!-- лишние данные просто удали -->
+            <img src="/{{ banner.banner }}">
+            <img src="/{{ banner.picture }}"> 
+            {{ banner.title }}      
+            {{ banner.subtitle }}
+            {{ banner.body }}
+            <a href="/news/{{ banner.id }}"> src </a>
+            {{ banner.create_datetime | date(format="%A, %B %d") | upper }}
+        {% endfor %}
     </main>
 {% endblock main %}
 
