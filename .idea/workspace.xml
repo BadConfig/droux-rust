@@ -60,36 +60,13 @@
       <change beforePath="$PROJECT_DIR$/static/assets/vk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/youtube.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/ad.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ad.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/article.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/article.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/carousel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index-notemp.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/common.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/index-notemp.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/chat.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/delivery.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/droux-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/facebook.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/favourite.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/instagram.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/safety.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/scan.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/search.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/telegram.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/vk.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/index/media/youtube.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/chat.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/delivery.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/droux-logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/facebook.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/favourite.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/instagram.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/safety.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/scan.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/search.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/telegram.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/vk.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/index/media/youtube.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/news.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/news.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/preorder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/preorder.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
@@ -307,7 +284,10 @@
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/article.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/preorders.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/preorders.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
     </list>
@@ -319,9 +299,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -377,6 +357,7 @@
       <workItem from="1607534974300" duration="316000" />
       <workItem from="1608039606394" duration="10639000" />
       <workItem from="1608061325152" duration="5225000" />
+      <workItem from="1608574040174" duration="14192000" />
     </task>
     <servers />
   </component>
@@ -400,6 +381,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606558119341" />
+    <state x="536" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608574057784">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="536" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1608574057784" />
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605969322001">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
