@@ -6,6 +6,11 @@
 {% endblock head %}
 {% block main %}  
     {{ article.title }}
+    {{ article.subtitle }}
+    {{ article.body }}
+    {{ article.banner }}
+    {{ article.picture }}
+    {{ article.creation_datetime | date(format="%A, %B %d") | upper }}
 {% endblock main %}
 {% block scripts %}
 {% endblock scripts %}
