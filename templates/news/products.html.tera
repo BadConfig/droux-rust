@@ -9,7 +9,7 @@
      {{ product.title }}
      {{ product.descr }}
      <a href="/product/{{ product.id }}"> btn </a>
-     <img src="/{{ product.pictures.0 }}">
+     <img src="/{{ product.pictures[0] }}">
 
     {% endfor %}
 {% endblock main %}

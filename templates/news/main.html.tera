@@ -8,8 +8,8 @@
     {{ article.title }}
     {{ article.subtitle }}
     {{ article.body }}
-    {{ article.banner }}
-    {{ article.picture }}
+    <img src="/{{ article.banner }}">
+    <img src="/{{ article.picture }}">
     {{ article.creation_datetime | date(format="%A, %B %d") | upper }}
 {% endblock main %}
 {% block scripts %}
