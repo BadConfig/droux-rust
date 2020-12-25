@@ -1,7 +1,7 @@
 SELECT 	pr.id, 
 		pr.title,
 		pr.descr, 
-		pr.pictures
+		pr.pictures[0] AS pictures
 FROM products AS pr 
 	LEFT JOIN promotions AS prom 
 		ON prom.product_id = pr.id 
