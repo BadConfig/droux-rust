@@ -124,7 +124,7 @@
             {{ banner.subtitle }}
             {{ banner.body }}
             <a href="/news/{{ banner.id }}"> src </a>
-            {{ banner.create_datetime | date(format="%A, %B %d") | upper }}
+            {{ banner.creation_datetime | date(format="%A, %B %d") | upper }}
         {% endfor %}
     </main>
 {% endblock main %}
