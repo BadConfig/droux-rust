@@ -881,4 +881,8 @@ input[type=checkbox] + label {
         font-size: 9px;
     }
 
+    #strange-link {
+        margin-bottom: 37px;
+    }
+
 }
