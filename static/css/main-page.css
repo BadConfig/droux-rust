@@ -386,5 +386,13 @@ a .photos__female img {
         margin-top: 0;
         margin-bottom: 0;
     }
+
+    .show-all {
+        margin: 40px auto 25px;
+    }
+
+    .show-all_news {
+        margin-top: 30px;
+    }
 }
 
