@@ -7,8 +7,17 @@
 {% endblock head %}
 {% block main %}
 
-     <main class="preorder">
-        <div class="preorder__content container">
+<main class="preorder">
+    <div class="preorder__top">
+        <img src="../../static/assets/preorder-picture.png" alt="" class="preorder__img">
+        <h1 class="container preorder__header">10 новых трендов этой весны</h1>
+    </div>
+    <div class="preorder__content container">
+        <article class="preorder__article">
+            <h2 class="preorder__title">Заголовок</h2>
+            <p class="preorder__paragraph">Итальянский техно-гуру Donato Dozzy известен манерой творить музыку ломая жанровые устои, оставаясь при этом максимально лаконичным.</p>
+            <p class="preorder__paragraph">"Cleo" с первых секунд навязывает атмосферу безмятежности, словно смотришь на техно танцпол с самой высокой точки. Эйфория накрывает не сразу: сначала из свинцовых басовых линий поднимается в воздух магический синт, затем акцент смещается в сторону потустороннего голоса, отдающемся эхом.</p>
+        </article>
             <div class="preorder__row_second preorder__row">
             {% for product in products %}
                 <div class="preorder__item preorder-item">
