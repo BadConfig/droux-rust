@@ -293,7 +293,7 @@ a .photos__female img {
         font-size: 36px;
     }
     .photos__male, .photos__female {
-        width: 47%;
+        width: calc(50% - 5px);
         padding-top: 46%;
         height: unset;
     }
