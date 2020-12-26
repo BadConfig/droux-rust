@@ -231,7 +231,7 @@ a .photos__female img {
     height: 179px;
 }
 
-.news__banner:not(:first-child) > .news__img-link {
+.news__banner:first-child > .news__img-link {
     width: 635px;
     height: 390px;
 }
