@@ -1,4 +1,4 @@
-{% extends "main" %}
+{% extends "admin/main" %}
 {% block head %}
     <link rel="stylesheet" href="/static/css/common.css">
     <meta charset="UTF-8">
@@ -6,8 +6,8 @@
 {% endblock head %}
 {% block main %}
     <form action="/admin/news/add" method="POST" enctype="multipart/form-data">
-        <input type="text" name="title" value="title default" placeholder="Заголовок статьи">
-        <input type="text" name="subtitle" value="subtitle default" placeholder="Краткое описание">
+        <input type="text" name="title" placeholder="Заголовок статьи">
+        <input type="text" name="subtitle" placeholder="Краткое описание">
         <label for="news__body">Основной текст новости. Подзаголовки заключайте между тегами &lth2&gt и &lt/h2&gt</label>
         <textarea name="body" id="news__body"></textarea>
         <label for="banner">Фото для баннера и миниатюры(автоматически выравнивается по центру)</label>
