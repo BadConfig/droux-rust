@@ -14,7 +14,7 @@
     </div>
     <div class="resque__div rescue__div_type_issue">
         <label for="issue">Опишите Вашу проблему</label>
-        <textarea name="issue" id="issue"><textarea>
+        <textarea name="issue" id="issue"></textarea>
     </div>
     <button type="submit" class="button rescue__button">Отправить</button>
     </form>
