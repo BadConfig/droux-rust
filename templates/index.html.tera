@@ -115,17 +115,22 @@
             <div class="part__arrow part__arrow_right part__arrow_popular-today">
                 <img src="static/assets/arrow-right.svg" alt="Стрелка пролистывания вправо">
             </div>
-        </div> 
-        <a href="/news/feed"> показать все </a>
+        </div>
+
+        <div class="show-all container show-all_most-viewed">
+            <h2 class="show-all__header">Актуальные новости</h2>
+            <a href="/filters?limit=12&offset=0&order_by=Views&search_string="><div class="show-all__button">
+                <span class="show-all__text">Показать все</span>
+                <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
+            </div></a>
+        </div>
+        <div class="part news">
         {% for banner in banners %} <!-- лишние данные просто удали -->
-            <img src="/{{ banner.banner }}">
-            <img src="/{{ banner.picture }}"> 
-            {{ banner.title }}      
-            {{ banner.subtitle }}
-            {{ banner.body }}
-            <a href="/news/{{ banner.id }}"> src </a>
-            {{ banner.creation_datetime | date(format="%A, %B %d") | upper }}
+            <img src="/{{ banner.banner }}" class="news__banner">
+            <h3 class="news__title">{{ banner.title }}</h3>
+            <span class="news__date">{{ banner.creation_datetime | date(format="%A, %B %d") | upper }}</span>
         {% endfor %}
+        </div>
     </main>
 {% endblock main %}
 
