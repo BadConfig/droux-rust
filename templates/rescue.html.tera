@@ -8,11 +8,11 @@
 {% endblock head %}
 {% block main %}
     <form action="/rescue/create"  method="POST" class="rescue container">
-    <div class="resque__div rescue__div_type_email">
+    <div class="rescue__div rescue__div_type_email">
         <label for="email">Ваш e-mail</label>
         <input type="text" name="address" id="email" placeholder="Введите свой e-mail">
     </div>
-    <div class="resque__div rescue__div_type_issue">
+    <div class="rescue__div rescue__div_type_issue">
         <label for="issue">Опишите Вашу проблему</label>
         <textarea name="issue" id="issue"></textarea>
     </div>

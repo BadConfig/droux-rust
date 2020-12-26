@@ -12,6 +12,7 @@
 .rescue__div > label {
     margin-top: 12px;
     width: 160px;
+    display: block;
 }
 
 #email, #issue {
