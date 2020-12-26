@@ -69,6 +69,7 @@
       <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/hide-sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hide-sector.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/new-product-uploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/new-product-uploader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/news-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/news-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/part-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/part-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/product-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/product-carousel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/search-filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/search-filter.js" afterDir="false" />
@@ -278,7 +279,6 @@
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-22 23:26:48.032795335-Тестовое объявление-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/news/feed.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/feed.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
@@ -352,7 +352,7 @@
       <workItem from="1608039606394" duration="10639000" />
       <workItem from="1608061325152" duration="5225000" />
       <workItem from="1608574040174" duration="14192000" />
-      <workItem from="1608999882731" duration="17924000" />
+      <workItem from="1608999882731" duration="18337000" />
     </task>
     <servers />
   </component>

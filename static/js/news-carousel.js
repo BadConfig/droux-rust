@@ -11,11 +11,13 @@ newsArrowRight.addEventListener('click', SwipeNews);
 function SwipeNews(e) {
     let sliderWidth = slider.clientWidth;
     newsMarkers[currentBanner].classList.remove('carousel__marker_active');
+    newsMarkers[currentBanner].src = "/static/assets/carousel-marker.svg"
     if ((e.target === newsArrowLeft) && (currentBanner > 0)) {
         currentBanner -= 1;
-    } else if ((e.target === newsArrowRight) && (currentBanner > newsMarkers.length - 2)) {
+    } else if ((e.target === newsArrowRight) && (currentBanner < newsMarkers.length - 2)) {
         currentBanner += 1;
     }
     newsMarkers[currentBanner].classList.add('carousel__marker_active');
+    newsMarkers[currentBanner].src = "/static/assets/carousel-marker-active.svg"
     slider.style.transform = "translateX(-" + (currentBanner * sliderWidth) + "px)";
 }
