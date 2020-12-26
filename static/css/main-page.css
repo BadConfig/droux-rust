@@ -363,5 +363,9 @@ a .photos__female img {
         margin: 15px 0 5px;
         font-size: 24px;
     }
+
+    .news__banner:not(:first-child) {
+        display: none;
+    }
 }
 
