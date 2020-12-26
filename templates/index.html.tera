@@ -117,7 +117,7 @@
             </div>
         </div>
 
-        <div class="show-all container show-all_most-viewed">
+        <div class="show-all container show-all_news">
             <h2 class="show-all__header">Актуальные новости</h2>
             <a href="/news/feed"><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
@@ -125,7 +125,7 @@
             </div></a>
         </div>
         <div class="news container">
-        {% for banner in banners %} <!-- лишние данные просто удали -->
+        {% for banner in banners %}
         <div class="news__banner">
             <a href="news/{{ banner.id }}" class="news__img-link"><img src="/{{ banner.banner }}" class="news__image"></a>
             <a href="news/{{ banner.id }}"><h3 class="news__title">{{ banner.title }}</h3></a>

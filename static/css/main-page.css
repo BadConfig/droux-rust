@@ -205,7 +205,7 @@ a .photos__female img {
 }
 
 .popular-today {
-    margin: 44px 0 150px 0;
+    margin: 44px 0 0 0;
 }
 
 .part__arrow_popular-today {
@@ -218,6 +218,7 @@ a .photos__female img {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
+    margin-bottom: 150px;
 }
 
 .news__banner {
@@ -259,6 +260,10 @@ a .photos__female img {
     position: absolute;
     left: 14px;
     bottom: 12px;
+}
+
+.show-all__news {
+    margin: 50px 0 40px;
 }
 
 @media (max-width: 1200px) {
