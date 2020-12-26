@@ -4,13 +4,16 @@
     <link rel="stylesheet" href="/static/css/common.css">
     <title></title>
 {% endblock head %}
-{% block main %}  
-    {{ article.title }}
-    {{ article.subtitle }}
-    {{ article.body }}
-    <img src="/{{ article.banner }}">
-    <img src="/{{ article.picture }}">
-    {{ article.creation_datetime | date(format="%A, %B %d") | upper }}
+{% block main %}
+    <main class="container article">
+        <article class="article__content">
+            <h1 class="article__header">{{ article.title }}</h1>
+            <div class="article__text">
+                {{ article.body }}
+            </div>
+            <img src="/{{ article.picture }}" alt="" class="article__img">
+        </article>
+    </main>
 {% endblock main %}
 {% block scripts %}
 {% endblock scripts %}
