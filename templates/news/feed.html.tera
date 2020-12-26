@@ -27,11 +27,9 @@
             <img src="/static/assets/carousel-arrow-right.svg" alt="" class="carousel__arrow carousel__arrow_position_right">
         </div>
         <div class="carousel__markers">
-            <img src="/static/assets/carousel-marker-active.svg" alt="" class="carousel__marker carousel__marker_active">
+            {% for banner in banners %}
             <img src="/static/assets/carousel-marker.svg" alt="" class="carousel__marker">
-            <img src="/static/assets/carousel-marker.svg" alt="" class="carousel__marker">
-            <img src="/static/assets/carousel-marker.svg" alt="" class="carousel__marker">
-            <img src="/static/assets/carousel-marker.svg" alt="" class="carousel__marker">
+            {% endfor %}
         </div>
     </div>
     <div class="show-all container show-all_part_news">
