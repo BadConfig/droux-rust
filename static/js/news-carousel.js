@@ -17,7 +17,7 @@ function SwipeNews(e) {
     newsMarkers[currentBanner].src = "/static/assets/carousel-marker.svg";
     if ((e.target === newsArrowLeft) && (currentBanner > 0)) {
         currentBanner -= 1;
-    } else if ((e.target === newsArrowRight) && (currentBanner < newsMarkers.length - 2)) {
+    } else if ((e.target === newsArrowRight) && (currentBanner < newsMarkers.length - 1)) {
         currentBanner += 1;
     }
     newsMarkers[currentBanner].classList.add('carousel__marker_active');
