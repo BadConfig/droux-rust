@@ -60,13 +60,9 @@
       <change beforePath="$PROJECT_DIR$/static/assets/vk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/youtube.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/ad.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ad.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/article.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/article.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/carousel.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/carousel.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/news.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/news.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/preorder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/preorder.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
@@ -284,10 +280,7 @@
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/raw__html/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/article.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/raw__html/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/raw__html/preorders.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/preorders.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
     </list>
@@ -358,6 +351,7 @@
       <workItem from="1608039606394" duration="10639000" />
       <workItem from="1608061325152" duration="5225000" />
       <workItem from="1608574040174" duration="14192000" />
+      <workItem from="1608999882731" duration="3336000" />
     </task>
     <servers />
   </component>
