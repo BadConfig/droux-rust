@@ -297,3 +297,18 @@
     width: 150px;
     height: 30px;
 }
+
+.admin__add-news {
+    flex-direction: column;
+}
+
+.admin__add-news > *:not(textarea) {
+    width: 80%;
+    height: 35px;
+}
+
+.admin__add-news > textarea {
+    width: 80%;
+    height: 100px;
+    resize: horizontal;
+}
