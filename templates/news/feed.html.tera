@@ -51,4 +51,5 @@
     </main>
 {% endblock main %}
 {% block scripts %}
+<script src="/static/js/news-carousel.js"></script>
 {% endblock scripts %}
