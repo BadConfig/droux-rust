@@ -9,22 +9,6 @@
 
      <main class="preorder">
         <div class="preorder__content container">
-            <div class="preorder__row_first preorder__row">
-            {% for product in products %}
-                <div class="preorder__item preorder-item">
-                    <a href="/product/{{ product.id }}" class="preorder-item__photo-link">
-                        <img src="/{{ product.pictures }}" class="preorder-item__photo" alt="">
-                    </a>
-                    <a href="/product/{{ product.id }}" class="preorder-item__link">
-                        <h3 class="preorder-item__title">{{ product.title }}</h3>
-                    </a>
-                    <div class="preorder-item__description">
-                        {{ product.descr }}
-                    </div>
-                    <a href="/product/{{ product.id }}" class="button preorder-item__button">Купить</a>
-                </div>
-            {% endfor %}
-            </div>
             <div class="preorder__row_second preorder__row">
             {% for product in products %}
                 <div class="preorder__item preorder-item">
