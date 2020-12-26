@@ -212,6 +212,51 @@ a .photos__female img {
     margin-top: 196px;
 }
 
+.news {
+    flex-direction: column;
+    height: 390px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.news__img-link {
+    display: block;
+    position: relative;
+    background-color: black;
+}
+
+.news__banner:not(:first-child) > .news__img-link {
+    width: 445px;
+    height: 179px;
+}
+
+.news__banner:not(:first-child) > .news__img-link {
+    width: 635px;
+    height: 390px;
+}
+
+.news__banner {
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    object-fit: cover;
+}
+
+.news__title {
+    position: absolute;
+    font-size: 18px;
+    left: 14px;
+    bottom: 36px;
+    margin: 0;
+}
+
+.news__date {
+    font-size: 12px;
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+}
 
 @media (max-width: 1200px) {
 
@@ -310,7 +355,5 @@ a .photos__female img {
         margin: 15px 0 5px;
         font-size: 24px;
     }
-
-
 }
 
