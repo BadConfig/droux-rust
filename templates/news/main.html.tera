@@ -2,6 +2,7 @@
 {% block head %}
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/article.css">
     <title></title>
 {% endblock head %}
 {% block main %}
