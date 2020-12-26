@@ -1,14 +1,22 @@
 {% extends "main" %}
 {% block head %}
     <meta charset="UTF-8">
-    <title>Фильтры</title>
+    <link rel="stylesheet" href="/static/css/static-pages.css">
+    <link rel="stylesheet" href="/static/css/rescue.css">
+    <title>Поддержка</title>
     <link rel="stylesheet" href="/static/css/common.css">
 {% endblock head %}
 {% block main %}
-    <form action="/rescue/create"  method="POST">
-        <input type="text" name="address">
-        <input type="text" name="issue">   
-        <button type="submit">Отправить</button>
+    <form action="/rescue/create"  method="POST" class="rescue container">
+    <div class="resque__div rescue__div_type_email">
+        <label for="email">Ваш e-mail</label>
+        <input type="text" name="address" id="email" placeholder="Введите свой e-mail">
+    </div>
+    <div class="resque__div rescue__div_type_issue">
+        <label for="issue">Опишите Вашу проблему</label>
+        <textarea name="issue" id="issue"><textarea>
+    </div>
+    <button type="submit" class="button rescue__button">Отправить</button>
     </form>
 {% endblock main %}
 {% block scripts %}

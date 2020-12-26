@@ -1,0 +1,40 @@
+.rescue__div {
+    display: flex;
+    align-items: flex-start;
+    font-size: 16px;
+}
+
+.rescue__div {
+    margin-bottom: 30px;
+}
+
+.rescue__div > label {
+    margin-top: 12px;
+    width: 160px;
+}
+
+#email, #issue {
+    width: 380px;
+    resize: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 1px solid black;
+}
+
+#email {
+    height: 45px;
+    font-size: 16px;
+}
+
+#issue {
+    height: 204px;
+}
+
+.rescue__button {
+    height: 41px;
+    width: 190px;
+    color: white;
+    background-color: black;
+    margin-left: 350px;
+}
