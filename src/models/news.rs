@@ -115,7 +115,7 @@ impl News {
         use crate::schema::news::dsl::*;
 
         Ok(news
-            .order_by(creation_datetime)
+            .order_by(creation_datetime.desc())
             .limit(limit)
             .get_results::<News>(conn)?)
     }
