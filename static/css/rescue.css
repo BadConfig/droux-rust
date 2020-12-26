@@ -46,6 +46,5 @@
     width: 190px;
     color: white;
     background-color: black;
-    margin-left: 350px;
-    margin-bottom: 186px;
+    margin:0 0 186px 350px;
 }
