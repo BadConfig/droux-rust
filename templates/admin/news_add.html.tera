@@ -6,14 +6,15 @@
 {% endblock head %}
 {% block main %}
     <form action="/admin/news/add" method="POST" enctype="multipart/form-data">
-        <p><input type="text" name="title" value="title default"></p>
-        <p><input type="text" name="subtitle" value="subtitle default"></p>
-        <p><input type="text" name="body" value="body default"></p>
-        banner
-        <p><input type="file" name="banner"></p>
-        pic
-        <p><input type="file" name="picture"></p>
-        <p><button type="submit">Submit</button></p>
+        <input type="text" name="title" value="title default" placeholder="Заголовок статьи">
+        <input type="text" name="subtitle" value="subtitle default" placeholder="Краткое описание">
+        <label for="news__body">Основной текст новости. Подзаголовки заключайте между тегами &lth2&gt и &lt/h2&gt</label>
+        <textarea name="body" id="news__body"></textarea>
+        <label for="banner">Фото для баннера и миниатюры(автоматически выравнивается по центру)</label>
+        <input type="file" name="banner" id="news__banner">
+        <label for="banner">Фото в конце новости</label>
+        <input type="file" name="picture" id="news__picture">
+        <button type="submit" class="button">Submit</button>
     </form>
 {% endblock main %}
 {% block scripts %}
