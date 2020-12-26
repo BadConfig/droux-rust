@@ -9,7 +9,9 @@ newsArrowLeft.addEventListener('click', SwipeNews);
 newsArrowRight.addEventListener('click', SwipeNews);
 
 function SwipeNews(e) {
+    console.log(currentBanner);
     let sliderWidth = slider.clientWidth;
+    console.log(sliderWidth);
     newsMarkers[currentBanner].classList.remove('carousel__marker_active');
     newsMarkers[currentBanner].src = "/static/assets/carousel-marker.svg"
     if ((e.target === newsArrowLeft) && (currentBanner > 0)) {
