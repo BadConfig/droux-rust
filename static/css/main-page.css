@@ -377,5 +377,14 @@ a .photos__female img {
         width: 100%;
         height: 100%;
     }
+
+    .photos {
+        margin-bottom: 0;
+    }
+
+    .part:not(.doesntexist) {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }
 
