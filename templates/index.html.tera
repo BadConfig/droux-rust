@@ -124,7 +124,7 @@
                 <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>
         </div>
-        <div class="part news">
+        <div class="news container">
         {% for banner in banners %} <!-- лишние данные просто удали -->
         <div class="news__banner">
             <a href="news/{{ banner.id }}" class="news__img-link"><img src="/{{ banner.banner }}" class="news__banner"></a>
