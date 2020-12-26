@@ -366,6 +366,13 @@ a .photos__female img {
 
     .news__banner:not(:first-child) {
         display: none;
+        width: 100%;
+        height: 250px;
+    }
+
+    .news__img-link {
+        width: 100%;
+        height: 100%;
     }
 }
 
