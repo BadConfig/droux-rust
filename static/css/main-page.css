@@ -373,7 +373,7 @@ a .photos__female img {
         display: none;
     }
 
-    .news__img-link {
+    .news__banner:first-child > .news__img-link {
         width: 100%;
         height: 100%;
     }
