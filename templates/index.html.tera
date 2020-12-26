@@ -119,7 +119,7 @@
 
         <div class="show-all container show-all_most-viewed">
             <h2 class="show-all__header">Актуальные новости</h2>
-            <a href="/filters?limit=12&offset=0&order_by=Views&search_string="><div class="show-all__button">
+            <a href="/news/feed"><div class="show-all__button">
                 <span class="show-all__text">Показать все</span>
                 <img src="static/assets/show-all.svg" alt="Иконка стрелки показать все" class="show-all__arrow">
             </div></a>
