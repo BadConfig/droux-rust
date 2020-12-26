@@ -55,6 +55,7 @@ pub fn news_show(user: CommonUser, admin: crate::admin::AdminUser, conn: crate::
         return Ok(Either::Redirect(Redirect::to("/admin")))
     }
     let mut ctx = get_base_context(user, &conn);
+    ctx.insert("admin",&admin);
     ctx.insert("news_list", &News::pages(&conn)?);
     Ok(Either::Template(Template::render("admin/news", ctx)))
 }
