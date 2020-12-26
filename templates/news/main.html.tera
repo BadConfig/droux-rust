@@ -17,4 +17,5 @@
     </main>
 {% endblock main %}
 {% block scripts %}
+<script src="/static/js/news.js"></script>
 {% endblock scripts %}
