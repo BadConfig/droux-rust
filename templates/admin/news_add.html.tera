@@ -1,11 +1,12 @@
 {% extends "admin/main" %}
 {% block head %}
     <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
     <meta charset="UTF-8">
     <title>Панель администрирования</title>
 {% endblock head %}
 {% block main %}
-    <form action="/admin/news/add" method="POST" enctype="multipart/form-data">
+    <form action="/admin/news/add" method="POST" enctype="multipart/form-data" class="admin__add-news container">
         <input type="text" name="title" placeholder="Заголовок статьи">
         <input type="text" name="subtitle" placeholder="Краткое описание">
         <label for="news__body">Основной текст новости. Подзаголовки заключайте между тегами &lth2&gt и &lt/h2&gt</label>

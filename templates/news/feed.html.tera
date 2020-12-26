@@ -45,7 +45,7 @@
     <main class="news container">
         {% for article in articles %}
             <div class="news__item">
-                <a href="/news/{{ article.id }}"><img src="/{{ article.picture }}" class="news__photo" alt=""></a>
+                <a href="/news/{{ article.id }}" class="news__img-link"><img src="/{{ article.picture }}" class="news__photo" alt=""></a>
                 <a href="/news/{{ article.id }}"><h3 class="news__title">{{ article.title }}</h3></a>
                 <a href="/news/{{ article.id }}"><div class="news__text">{{ article.subtitle }}</div></a>
                 <div class="news__date">{{ article.creation_datetime | date(format="%A, %B %d") | upper }}</div>
