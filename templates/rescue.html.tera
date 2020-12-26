@@ -7,6 +7,7 @@
 {% endblock head %}
 {% block main %}
     <form action="/rescue/create"  method="POST" class="rescue container">
+    <h1 class="rescue__header">Помощь и поддержка</h1>
     <div class="rescue__div rescue__div_type_email">
         <label for="email">Ваш e-mail</label>
         <input type="text" name="address" id="email" placeholder="Введите свой e-mail">
