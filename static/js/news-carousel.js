@@ -13,6 +13,8 @@ newsArrowRight.addEventListener('click', SwipeNews);
 
 function SwipeNews(e) {
     let sliderWidth = slider.getElementsByClassName('carousel__item')[0].clientWidth;
+    console.log(sliderWidth);
+    console.log(slider.getElementsByClassName('carousel__item')[0]);
     newsMarkers[currentBanner].classList.remove('carousel__marker_active');
     newsMarkers[currentBanner].src = "/static/assets/carousel-marker.svg";
     if ((e.target === newsArrowLeft) && (currentBanner > 0)) {
