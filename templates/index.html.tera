@@ -127,7 +127,7 @@
         <div class="news container">
         {% for banner in banners %} <!-- лишние данные просто удали -->
         <div class="news__banner">
-            <a href="news/{{ banner.id }}" class="news__img-link"><img src="/{{ banner.banner }}" class="news__banner"></a>
+            <a href="news/{{ banner.id }}" class="news__img-link"><img src="/{{ banner.banner }}" class="news__image"></a>
             <a href="news/{{ banner.id }}"><h3 class="news__title">{{ banner.title }}</h3></a>
             <span class="news__date">{{ banner.creation_datetime | date(format="%A, %B %d") | upper }}</span>
         </div>
