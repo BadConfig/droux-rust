@@ -650,7 +650,18 @@ input[type=checkbox] + label {
     .header__base {
         padding: 25px 15px;
     }
-    
+
+    .header__nav {
+        align-items: center;
+    }
+
+    .dropdown__button {
+        padding: 0;
+    }
+
+    .dropdown__button:hover {
+        padding: 0;
+    }
     .services {
         min-height: 40px;
         height: unset;
