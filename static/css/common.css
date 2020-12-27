@@ -4,6 +4,12 @@ body{
     font-family: Helvetica, Roboto, "Liberation Sans", Arial, sans-serif;
 }
 
+textarea {
+    border-radius: 0!important;
+    -webkit-border-radius: 0!important;
+    -moz-border-radius: 0!important;
+}
+
 input[type=text], input[type=password] {
     appearance: none;
     -webkit-appearance: none;
