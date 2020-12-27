@@ -52,6 +52,7 @@
 @media (max-width: 1200px) {
     .rescue__div {
         flex-direction: column;
+        margin: unset;
     }
 
     .rescue__header {
