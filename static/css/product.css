@@ -349,6 +349,7 @@
 
     .product__top {
         justify-content: space-between;
+        margin-bottom: 30px;
     }
     .product__name-and-date {
         max-width: 65%;
@@ -371,6 +372,7 @@
     }
     .product__info {
         margin-top: 15px;
+        min-height: unset;
     }
     .author__stat-item:not(:last-child) {
         margin-right: 10px;

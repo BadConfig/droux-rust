@@ -46,6 +46,6 @@ pub fn products(user: CommonUser, conn: crate::db::Conn) -> Result<Template,Erro
 pub fn feed(user: CommonUser, conn: crate::db::Conn) -> Result<Template,Error> {
     let mut ctx = get_base_context(user, &conn);
     ctx.insert("articles", &News::pages(&conn)?);
-    ctx.insert("banners", &News::banners(&conn)?);
+    ctx.insert("banners", &News::banners(6, &conn)?);
     Ok(Template::render("news/feed", ctx))
 }

@@ -111,12 +111,12 @@ impl News {
         Ok(())
     }
 
-    pub fn banners(conn: &PgConnection) -> Result<Vec<News>,Error> {
+    pub fn banners(limit:i64, conn: &PgConnection) -> Result<Vec<News>,Error> {
         use crate::schema::news::dsl::*;
 
         Ok(news
-            .order_by(creation_datetime)
-            .limit(6)
+            .order_by(creation_datetime.desc())
+            .limit(limit)
             .get_results::<News>(conn)?)
     }
 

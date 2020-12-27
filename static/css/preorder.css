@@ -1,0 +1,125 @@
+.preorder__top {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    background-color: black;
+    z-index: 2;
+}
+
+.preorder__img {
+    width: 100%;
+    opacity: 0.7;
+}
+
+.preorder__header {
+    letter-spacing: -0.01em;
+    position: absolute;
+    color: white;
+    font-size: 80px;
+    font-weight: normal;
+}
+
+.preorder__content {
+    flex-direction: column;
+}
+
+.preorder__title {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 50px 0 30px;
+}
+
+.preorder__paragraph {
+    font-size: 24px;
+    margin: 0;
+}
+
+.preorder__paragraph:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+.preorder__row {
+    margin-top: 30px;
+    border-top: 1px solid #666666;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.preorder-item {
+    width: 22.3%;
+}
+
+.preorder-item__photo-link {
+    width: 100%;
+    padding-top: 114%;
+    position: relative;
+    display: block;
+}
+
+.preorder-item__photo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    top: 0;
+}
+
+.preorder-item__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 21px;
+    margin: 30px 0;
+}
+
+.preorder-item__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 14px;
+    margin-bottom: 48px;
+}
+
+.preorder-item__button {
+    width: 222px;
+    height: 36px;
+    font-size: 18px;
+}
+
+.preorder__row_second {
+    margin-bottom: 108px;
+}
+
+
+@media (max-width: 800px) {
+    .preorder__header {
+        font-size: 36px;
+        text-align: center;
+    }
+    .preorder__title {
+        font-size: 30px;
+    }
+    .preorder__paragraph {
+        font-size: 16px;
+    }
+
+    .preorder-item {
+        width: 47%;
+    }
+
+    .preorder-item:nth-child(2) ~ .preorder-item {
+        display: none;
+    }
+
+    .preorder-item__button {
+        width: 87%;
+    }
+}

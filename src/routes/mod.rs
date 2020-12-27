@@ -9,16 +9,18 @@ pub mod subs;
 pub mod news;
 pub mod rescue;
 
-use rocket_contrib::templates::{Template,tera::*};
+use rocket_contrib::templates::{Template,tera::Context};
 use rocket::response::Redirect;
 use diesel::PgConnection;
 
 use crate::models::product::ProductCard;
 
 use crate::users::CommonUser;
+use crate::models::news::News;
+use crate::Error;
 
 #[get("/")]
-pub fn index(user: CommonUser, conn: crate::db::Conn) -> Template {
+pub fn index(user: CommonUser, conn: crate::db::Conn) -> Result<Template,Error> {
     let mut ctx = get_base_context(user.clone(), &conn);
     let opt_id = match user.clone() {
         CommonUser::Logged(u) => Some(u.id),
@@ -27,7 +29,8 @@ pub fn index(user: CommonUser, conn: crate::db::Conn) -> Template {
     ctx.insert("most_viewed_products",&ProductCard::get_most_viewed(20,opt_id.clone(), &conn));
     ctx.insert("new_products", &ProductCard::get_recently_added(20,opt_id.clone(), &conn));
     ctx.insert("popular_seller_products", &ProductCard::get_by_seller_popular_products(opt_id.clone(), &conn));
-    Template::render("index", &ctx )
+    ctx.insert("banners", &News::banners(3, &conn)?);
+    Ok(Template::render("index", &ctx ))
 }
 
 use crate::models::users::Users;

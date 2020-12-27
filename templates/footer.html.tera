@@ -9,7 +9,7 @@
         </div>
         <div class="footer__column footer__column_second">
             <a href="/privacy_terms" class="footer__link footer__link_46">Политика конфиденциальности</a>
-            <a href="/save_deal" class="footer__link footer__link_46">Правила безопасной сделки</a>
+            <a href="/save_deal" class="footer__link footer__link_46" id="strange-link">Правила безопасной сделки</a>
             <a href="/faq">FAQ</a>
         </div>
         <div class="footer__column footer__column_third">
