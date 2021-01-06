@@ -8,6 +8,7 @@ use crate::db::chat::*;
 
 use crate::routes::Either;
 use crate::models::users::Users;
+use crate::models::subs::Subscribes;
 
 #[get("/chat/<prod_id>/<user_id>")]
 pub fn get_chat_messages(user: CommonUser, user_id: i32, prod_id: i32, conn: crate::db::Conn) -> Either {
@@ -23,6 +24,11 @@ pub fn get_chat_messages(user: CommonUser, user_id: i32, prod_id: i32, conn: cra
         } else {
             0
         };
+
+        let (you,yours) = Subscribes::count(user.id.clone(), &conn).expect("error in getting subs");
+        ctx.insert("your_sub_count", &yours);
+        ctx.insert("you_sub_count", &you);
+        
         ctx.insert("rating_floored", &rate_int);
         ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
         ctx.insert("other_user",&Users::get_by_id(user_id, &conn));
@@ -44,6 +50,11 @@ pub fn get_chats(user: CommonUser, conn: crate::db::Conn) -> Either {
         } else {
             0
         };
+
+        let (you,yours) = Subscribes::count(user.id.clone(), &conn).expect("error in getting subs");
+        ctx.insert("your_sub_count", &yours);
+        ctx.insert("you_sub_count", &you);
+
         ctx.insert("rating_floored", &rate_int);
         ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
         ctx.insert("people_list",&get_dialoge_list(user.id, &conn));
