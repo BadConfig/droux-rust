@@ -22,6 +22,7 @@ pub fn get_brands(conn: &PgConnection) ->  Vec<Brand> {
     use crate::schema::brands::dsl::*;
 
     brands
+        .order_by(name.asc())
         .load::<Brand>(conn)
         .expect("Error loading all brands")
 }
