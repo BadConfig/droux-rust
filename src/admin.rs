@@ -1,4 +1,3 @@
-
 use serde::Serialize;
 
 pub enum UserPriveleges {
@@ -40,7 +39,10 @@ fn get_priveleges_from_cookies(request: &Request) -> Option<UserPriveleges> {
     use crate::db::users::auth_user;
     let conn = &crate::db::establish_connection();
 
-    let user_jwt = match request.cookies().get_private("user").map(| x | x.value().to_string() ) {
+    let user_jwt = match request
+            .cookies()
+            .get_private("user")
+            .map(| x | x.value().to_string() ) {
         Some(s) => s,
         None => return None,
     };
