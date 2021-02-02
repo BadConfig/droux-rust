@@ -42,13 +42,34 @@ FROM products AS pr
     	ON u2.id = pr.seller_id 
 WHERE
 	pr.status = 'published' AND
-	(CASE WHEN ($1 IS NOT NULL) THEN POSITION(UPPER($1) IN UPPER(pr.title)) != 0 		END OR
-	CASE WHEN ($7 IS NOT NULL) THEN sc.category_id 		= $7 			END OR
-	CASE WHEN ($6 IS NOT NULL) THEN pr.sub_category_id 	= $6			END OR
-	CASE WHEN ($2 IS NOT NULL) THEN pr.size_id 			= $2 			END OR
-	CASE WHEN ($3 IS NOT NULL) THEN pr.product_state 	= $6 			END OR
-	CASE WHEN ($8 IS NOT NULL) THEN pr.brand_id 		= $8 			END OR
-	CASE WHEN ($9 IS NOT NULL) THEN pr.type_id 			= $9 			END)
+	(CASE 
+		WHEN ($1 IS NOT NULL) THEN POSITION(UPPER($1) IN UPPER(pr.title)) != 0
+		ELSE TRUE
+	END AND
+	CASE 
+		WHEN ($7 IS NOT NULL) THEN sc.category_id 		= $7 	
+		ELSE TRUE		
+	END AND
+	CASE 
+		WHEN ($6 IS NOT NULL) THEN pr.sub_category_id 	= $6
+		ELSE TRUE			
+	END AND
+	CASE 
+		WHEN ($2 IS NOT NULL) THEN pr.size_id 			= $2 			
+		ELSE TRUE
+	END AND
+	CASE 
+		WHEN ($3 IS NOT NULL) THEN pr.product_state 	= $6 
+		ELSE TRUE			
+	END AND
+	CASE 
+		WHEN ($8 IS NOT NULL) THEN pr.brand_id 		= $8 			
+		ELSE TRUE
+	END AND
+	CASE 
+		WHEN ($9 IS NOT NULL) THEN pr.type_id 			= $9
+		ELSE TRUE 			
+	END)
 ORDER BY 
 	CASE WHEN ($10 = 'Date')		THEN CAST(EXTRACT(epoch FROM pr.create_datetime) AS INTEGER) END ASC,
 	CASE WHEN ($10 = 'PriceDESC') 	THEN pr.price END DESC,
