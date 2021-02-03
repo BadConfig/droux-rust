@@ -213,9 +213,10 @@ async function PostProduct() {
     postAd.onload = function() {
         let redirectRoute = "/product/promotion/create/" + String(postAd.response);
         console.log(redirectRoute);
+        console.log(body);
         window.location.replace(redirectRoute);
     }
-    console.log(body);
+
     return false;
 }
 
