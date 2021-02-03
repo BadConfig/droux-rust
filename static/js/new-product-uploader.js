@@ -215,6 +215,7 @@ async function PostProduct() {
         console.log(redirectRoute);
         window.location.replace(redirectRoute);
     }
+    console.log(body);
     return false;
 }
 
