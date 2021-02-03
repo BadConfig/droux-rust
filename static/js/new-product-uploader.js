@@ -172,8 +172,8 @@ function MakeMini(){
 
 async function PostProduct() {
     let sex = document.getElementsByClassName('filters__sector_sex')[0];
-    let category = document.getElementsByClassName('filters__sector_type')[0];
-    let subcategory = document.getElementsByClassName('filters__sector_sex')[0];
+    let category = document.getElementsByClassName('filters__sector_category')[0];
+    let subcategory = document.getElementsByClassName('filters__sector_type')[0];
     let brand = document.getElementsByClassName('filters__sector_brand')[0];
     let size = document.getElementsByClassName('filters__sector_size')[0];
     let name = document.getElementsByClassName('ad-form__field-div_name')[0];
@@ -213,7 +213,6 @@ async function PostProduct() {
     postAd.onload = function() {
         let redirectRoute = "/product/promotion/create/" + String(postAd.response);
         console.log(redirectRoute);
-        console.log(body);
         window.location.replace(redirectRoute);
     }
 
@@ -222,8 +221,8 @@ async function PostProduct() {
 
 async function EditProduct() {
     let sex = document.getElementsByClassName('filters__sector_sex')[0];
-    let category = document.getElementsByClassName('filters__sector_type')[0];
-    let subcategory = document.getElementsByClassName('filters__sector_sex')[0];
+    let category = document.getElementsByClassName('filters__sector_category')[0];
+    let subcategory = document.getElementsByClassName('filters__sector_type')[0];
     let brand = document.getElementsByClassName('filters__sector_brand')[0];
     let size = document.getElementsByClassName('filters__sector_size')[0];
     let name = document.getElementsByClassName('ad-form__field-div_name')[0];

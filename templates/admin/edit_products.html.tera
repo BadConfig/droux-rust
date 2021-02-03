@@ -32,7 +32,7 @@
                                 <div class="filters__checkbox-div">
                                     <input type="radio"
                                     {% if prod_data.type_id == types.id %} checked {% endif %} name="type_id" value="{{ types.id }}" id="ad_types{{ types.id }}">
-                                    <label for="ad_types{{ types.id }}">{{ types.name }} {{ types.id }} </label>
+                                    <label for="ad_types{{ types.id }}">{{ types.name }}</label>
                                 </div>
                             {% endfor %}
                         </div>
