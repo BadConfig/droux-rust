@@ -182,6 +182,7 @@ async function PostProduct() {
     let price = document.getElementsByClassName('ad-form__price')[0];
     let number = document.getElementsByClassName('ad-form__num')[0];
     let email = document.getElementsByClassName('ad-form__email')[0];
+    console.log('Всё в норме');
 
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
@@ -206,7 +207,7 @@ async function PostProduct() {
         }
     }
 
-
+    console.log(body);
     let postAd = new XMLHttpRequest();
     postAd.open('POST', '/product/create', true);
     postAd.send(body);
@@ -231,6 +232,7 @@ async function EditProduct() {
     let price = document.getElementsByClassName('ad-form__price')[0];
     let number = document.getElementsByClassName('ad-form__num')[0];
     let email = document.getElementsByClassName('ad-form__email')[0];
+    console.log('Всё в норме');
 
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
@@ -254,6 +256,7 @@ async function EditProduct() {
             body.append(id, blob);
         }
     }
+    console.log(body);
     
     let prodId = document.getElementById('product_id').value;
     let route = "/admin/product/change/" + prodId
