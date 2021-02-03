@@ -187,7 +187,9 @@ async function PostProduct() {
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
     body.append('category_id', category.querySelector('input:checked').value);
+    console.log('category_id', category.querySelector('input:checked').value);
     body.append('sub_category_id', subcategory.querySelector('input:checked').value);
+    console.log('sub_category_id', subcategory.querySelector('input:checked').value);
     body.append('brand_id', brand.querySelector('input:checked').value);
     body.append('size_id', size.querySelector('input:checked').value);
     body.append('state_id', state.querySelector('input:checked').value);
@@ -237,7 +239,9 @@ async function EditProduct() {
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
     body.append('category_id', category.querySelector('input:checked').value);
+    console.log('category_id', category.querySelector('input:checked').value);
     body.append('sub_category_id', subcategory.querySelector('input:checked').value);
+    console.log('sub_category_id', subcategory.querySelector('input:checked').value);
     body.append('brand_id', brand.querySelector('input:checked').value);
     body.append('size_id', size.querySelector('input:checked').value);
     body.append('state_id', state.querySelector('input:checked').value);
