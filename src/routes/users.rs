@@ -98,6 +98,10 @@ pub fn post_user_reviews_add(form: Form<NewReview>, user: CommonUser, conn: crat
     use crate::models::product::ProductRating;
 
     if let CommonUser::Logged(user) = user {
+        //TODO: add verifying that product is bought
+        if user.id == form.u_id {
+            return Ok(Either::Redirect(Redirect::to("/")));
+        }
         ProductRating::set_rating(
             user.id, 
             form.u_id, 
