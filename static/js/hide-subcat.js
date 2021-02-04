@@ -9,7 +9,7 @@ for (let i =0; i < hide_categories.length; i++) {
             document.body.append(styleSheet);
         }
         document.getElementById('js_stylesheet').innerHTML = `
-            .filters__checkbox-div_subcategory:not([data-parent="${e.currentTarget.value}"]) {
+            .filters__checkbox-div_subcategory:not(div[data-parent="${e.currentTarget.value}"]) {
                 display: none;
             }
         `;
