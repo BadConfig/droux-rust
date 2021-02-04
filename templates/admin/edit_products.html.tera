@@ -231,4 +231,5 @@
     <script src="/static/js/search-filter.js"></script>
     <script src="/static/js/croppie.min.js"></script>
     <script src="/static/js/new-product-uploader.js"></script>
+    <script src="/static/js/hide-subcat.js"></script>
 {% endblock scripts %}
