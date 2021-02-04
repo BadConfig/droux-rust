@@ -84,7 +84,7 @@
                 <span>подписчики: {{ your_sub_count }}</span>
                 <span>подписки: {{ you_sub_count }}</span>
             </div>
-            {% if prods != [] %}
+            {% if prods | length != 0 %}
                 <div class="card__review-button-div card__button-div">
                     <button class="card__review-button button card__button">Оставить отзыв</button>
                 </div>
