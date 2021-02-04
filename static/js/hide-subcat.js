@@ -9,7 +9,7 @@ for (let i =0; i < hide_categories.length; i++) {
             document.body.append(styleSheet);
         }
         document.getElementById('js_stylesheet').innerHTML = `
-            input[name="sub_category_id"]:not(input[data-parent="${e.currentTarget.value}"]) + label {
+            .filters__checkbox-div_subcategory:not([data-parent="${e.currentTarget.value}"]) {
                 display: none;
             }
         `;

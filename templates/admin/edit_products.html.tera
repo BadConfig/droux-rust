@@ -70,9 +70,9 @@
                         <div class="safari-sucks">
                             {% for categories in ProductCategories %}
                                 {% for sub_cat in categories.sub_categories %}
-                                    <div class="filters__checkbox-div">
+                                    <div class="filters__checkbox-div filters__checkbox-div_subcategory" data-parent="{{ categories.category_id }}">
                                         <input
-                                        {% if prod_data.sub_category_id == sub_cat.id %} checked {% endif %} type="radio" name="sub_category_id" data-parent="{{ categories.category_id }}" value="{{ sub_cat.id }}" id="ad_sub_cat{{ sub_cat.id }}">
+                                        {% if prod_data.sub_category_id == sub_cat.id %} checked {% endif %} type="radio" name="sub_category_id" value="{{ sub_cat.id }}" id="ad_sub_cat{{ sub_cat.id }}">
                                         <label for="ad_sub_cat{{ sub_cat.id }}">{{ sub_cat.name }}</label>
                                     </div>
                                 {% endfor %}
