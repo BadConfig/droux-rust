@@ -124,14 +124,16 @@ pub fn get_user_products_profile(id: i32, user: CommonUser, conn: crate::db::Con
         ctx.insert("your_sub_count", &yours);
         ctx.insert("you_sub_count", &you);
         ctx.insert("in_subs", &Subscribes::exists(u.id, id.clone(), &conn)?);
+        ctx.insert("prods", &Product::get_for_profile(id,u.id.clone(), &conn)?);
     } else {
         ctx.insert("in_subs", &false);
         ctx.insert("your_sub_count", &0);
         ctx.insert("you_sub_count", &0);
+        let a: Vec<u8> = Vec::new();
+        ctx.insert("prods", &a);
     }
     ctx.insert("viewed_user", &user_viewed.clone());
     ctx.insert("reviews",&ProductRating::get_by_user(id,&conn));
-    ctx.insert("prods", &Product::get_for_profile(id, &conn)?);
     let rate_int = if user_viewed.rate_count != 0 {
         user_viewed.rate_summ/user_viewed.rate_count
     } else {
@@ -159,12 +161,15 @@ pub fn get_user_reviews_profile(id: i32, user: CommonUser, conn: crate::db::Conn
         ctx.insert("your_sub_count", &yours);
         ctx.insert("you_sub_count", &you);
         ctx.insert("in_subs", &Subscribes::exists(u.id, id.clone(), &conn)?);
+        ctx.insert("prods", &Product::get_for_profile(id,u.id.clone(), &conn)?);
     } else {
         ctx.insert("in_subs", &false);
         ctx.insert("your_sub_count", &0);
         ctx.insert("you_sub_count", &0);
+        let a: Vec<u8> = Vec::new();
+        ctx.insert("prods", &a);
     }
-    ctx.insert("prods", &Product::get_for_profile(id, &conn)?);
+
     ctx.insert("active_products",&Product::get_products_by_status_and_user("published".into(),id, &conn)?);
     ctx.insert("sold_products",&Product::get_products_by_status_and_user("sold".into(),id, &conn)?);
     ctx.insert("rating_floored", &rate_int);
