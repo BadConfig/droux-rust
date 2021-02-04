@@ -16,3 +16,18 @@ for (let i =0; i < hide_categories.length; i++) {
     })
 }
 
+const sectors = document.getElementsByClassName('filters__sector');
+
+if (document.getElementsByClassName('sort-by__discard')[0] !== null) {
+    const discardButton = document.getElementsByClassName('sort-by__discard')[0];
+    const discardButtonMobile = document.getElementsByClassName('sort-by__discard')[1];
+
+    function discardFilters() {
+        for (let i = 0; i < sectors.length; i++) {
+            sectors[i].querySelector('input:checked').checked = false;
+        }
+    }
+
+    discardButton.addEventListener('click', discardFilters);
+    discardButtonMobile.addEventListener('click', discardFilters);
+}
