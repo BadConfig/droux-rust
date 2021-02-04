@@ -500,13 +500,14 @@ impl Product {
 
     }
 
-    pub fn get_for_profile(u_id: i32, conn: &PgConnection) -> Result<Vec<(i32,String)>,Error> {
+    pub fn get_for_profile(seller_id: i32, customer_id: i32, conn: &PgConnection) -> Result<Vec<(i32,String)>,Error> {
 
         use crate::schema::users;
 
         Ok(products::table
-            .filter(products::seller_id.eq(u_id))
+            .filter(products::seller_id.eq(seller_id))
             .filter(products::status.eq("published").or(products::status.eq("sold")))
+            .filter(products::bought_with.eq(customer_id))
             .inner_join(users::table.on(products::seller_id.eq(users::id)))
             .select((products::id,products::title))
             .get_results::<(i32,String)>(conn)?)
