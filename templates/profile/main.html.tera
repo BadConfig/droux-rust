@@ -84,9 +84,11 @@
                 <span>подписчики: {{ your_sub_count }}</span>
                 <span>подписки: {{ you_sub_count }}</span>
             </div>
-            <div class="card__review-button-div card__button-div">
-                <button class="card__review-button button card__button">Оставить отзыв</button>
-            </div>
+            {% if prods != [] %}
+                <div class="card__review-button-div card__button-div">
+                    <button class="card__review-button button card__button">Оставить отзыв</button>
+                </div>
+            {% endif %}
             <div class="card__subscribe-button-div card__button-div">
                 {% if in_subs %}
                     <form action="/subs/unsub" method="POST">
