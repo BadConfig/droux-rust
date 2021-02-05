@@ -10,11 +10,11 @@
 {% block main %}
     <main class="main container">
         <div class="page-top">
-            <div class="page-top__commission-info">При успешной продаже лота мы взимаем комиссию 9% Изменения прошли
-                <a href="">Почему мы взимаем комиссию?</a>
+            <div class="page-top__commission-info">При успешной продаже лота мы взимаем комиссию 9%
+                <a href="/commission">Почему мы взимаем комиссию?</a>
             </div>
             <h1 class="page-top__header">Новое объявление</h1>
-            <a href="" class="page-top__requirements-info">Ознакомьтесь с критериями отбора публикаций</a>
+            <a href="/criteria" class="page-top__requirements-info">Ознакомьтесь с критериями отбора публикаций</a>
         </div>
 
         <form class="ad-form">

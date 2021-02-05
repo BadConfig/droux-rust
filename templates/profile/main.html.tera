@@ -13,8 +13,8 @@
         <h2>Отзыв о продавце</h2>
         <label for="chooseprod">Объявление</label>
         <select name="pr_id" id="chooseprod">
-        {% for p in prods %}
             <option selected disabled></option>
+        {% for p in prods %}
             <option value="{{ p.0 }}">{{ p.1 }}</option>       
         {% endfor %}
         </select>

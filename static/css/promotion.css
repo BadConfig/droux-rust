@@ -72,7 +72,7 @@ h1 {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin: 40px 0 0;
+    margin: 65px 0 0;
 }
 
 .promotion__coupon-and-button input[type=text] {
@@ -100,5 +100,31 @@ h1 {
 
     .promotion__item-div label {
         max-width: calc(100% - 55px);
+    }
+
+    .promotion__bottom-text_submit {
+        text-align: center;
+        color: #747474;
+        margin: 14px 0;
+        font-size: 12px;
+    }
+
+    .promotion__item-div:not(.promotion__item-div_nothing) {
+        margin-bottom: 40px;
+    }
+
+    .promotion__coupon-and-button {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .promotion__coupon-and-button > input:not(.nothing) {
+        width: 100%;
+        height: 36px;
+    }
+
+    .promotion__coupon-and-button > input:last-child {
+        margin-top: 20px;
+        height: 45px;
     }
 }

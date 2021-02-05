@@ -404,6 +404,10 @@ input[type=checkbox] + label {
     margin: 20px 0 10px;
 }
 
+.authorizer__form input[type="text"] {
+    text-transform: lowercase;
+}
+
 .sign-in__remember-and-forget {
     display: flex;
     justify-content: space-between;
