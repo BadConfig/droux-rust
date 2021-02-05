@@ -118,7 +118,7 @@ h1 {
         flex-direction: column;
     }
 
-    .promotion__coupon-and-button > input {
+    .promotion__coupon-and-button > input:not(.nothing) {
         width: 100%;
         height: 36px;
     }
