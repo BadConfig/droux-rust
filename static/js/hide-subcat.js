@@ -24,7 +24,7 @@ if (document.getElementsByClassName('sort-by__discard')[0] !== null) {
 
     function discardFilters() {
         for (let i = 0; i < sectors.length; i++) {
-            if (sectors[i].querySelector('input:checked').checked !== null) {
+            if (sectors[i].queryS('input:checked').checked !== null) {
                 sectors[i].querySelector('input:checked').checked = false;
             }
         }
