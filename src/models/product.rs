@@ -507,10 +507,10 @@ impl Product {
 
         Ok(products::table
             .filter(products::seller_id.eq(seller_id))
-            .filter(products::status.eq("published").or(products::status.eq("sold")))
+            .filter(products::status.eq("sold"))
             .filter(products::bought_with.eq(customer_id))
-            .inner_join(rating::table.on(rating::voter_id.nullable().eq(products::bought_with)))
-            .filter(rating::voter_id.ne(customer_id))
+            .left_outer_join(rating::table.on(rating::voter_id.nullable().eq(products::bought_with)))
+            .filter(rating::voter_id.is_null())
             .inner_join(users::table.on(products::seller_id.eq(users::id)))
             .select((products::id,products::title))
             .get_results::<(i32,String)>(conn)?)
