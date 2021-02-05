@@ -19,7 +19,6 @@
         </select>
         <label for="result">Объявление</label>
         <select name="status" id="result">
-            <option selected disabled></option>
             <option value="Не удалось договориться с продавцом">Не удалось договориться с продавцом</option>
             <option value="Сделка сорвалась (Товар не был получен или не соответствовал описанию)">Сделка сорвалась (Товар не был получен или не соответствовал описанию)</option>
             <option value="Сделка состоялась">Сделка состоялась</option>
