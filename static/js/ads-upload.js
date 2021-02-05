@@ -206,6 +206,7 @@ function jsonToAds(response) {
         searchResults.append(newAd);
     }
     if (resp.length > 0) {
+        console.log(resp.length);
         checkAds();
         listenFav();
         changeSize();
