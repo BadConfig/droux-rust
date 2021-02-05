@@ -108,4 +108,23 @@ h1 {
         margin: 14px 0;
         font-size: 12px;
     }
+
+    .promotion__item-div:not(.promotion__item-div_nothing) {
+        margin-bottom: 40px;
+    }
+
+    .promotion__coupon-and-button {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .promotion__coupon-and-button > input {
+        width: 100%;
+        height: 36px;
+    }
+
+    .promotion__coupon-and-button > input:last-child {
+        margin-top: 20px;
+        height: 45px;
+    }
 }
