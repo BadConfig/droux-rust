@@ -365,25 +365,25 @@ pub fn post_promotions(form: Form<PrivForm>, user: CommonUser, conn: crate::db::
         if form.none {
             return Ok(Either::Redirect(Redirect::to("/product/promotion/final")));
         }
-        let mut summ: i64 = if form.all || (form.take_in_news && form.top_cat && form.top_name) {
-            599
+        let mut summ: f64 = if form.all || (form.take_in_news && form.top_cat && form.top_name) {
+            599.0
         } else if form.take_in_news && form.top_cat {
-            399 + 149
+            399.0 + 149.0
         } else if form.take_in_news && form.top_name {
-            399 + 189
+            399.0 + 189.0
         } else if form.top_name && form.top_cat {
-            189 + 149
+            189.0 + 149.0
         } else if form.take_in_news {
-            399
+            399.0
         } else if form.top_cat {
-            149
+            149.0
         } else if form.top_name {
-            189
+            189.0
         } else {
-            0
+            0.0
         };
         if form.pre_order {
-            summ += 499;
+            summ += 499.0;
         }
         summ = Promo::get_sale(summ, form.promo.clone(), &conn);
         let url = form
