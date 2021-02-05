@@ -13,10 +13,10 @@
         <div class="mobile__page_1 mobile__page mobile__page_vis">
             <div class="page-top">
                 <div class="page-top__commission-info">При успешной продаже лота мы взимаем комиссию 9%
-                    <a href="">Почему мы взимаем комиссию?</a>
+                    <a href="/commission">Почему мы взимаем комиссию?</a>
                 </div>
                 <h1 class="page-top__header">Новое объявление</h1>
-                <a href="" class="page-top__requirements-info">Ознакомьтесь с критериями отбора публикаций</a>
+                <a href="/criteria" class="page-top__requirements-info">Ознакомьтесь с критериями отбора публикаций</a>
             </div>
             <div class="filters ad-form__filters">
 
