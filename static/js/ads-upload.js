@@ -205,8 +205,11 @@ function jsonToAds(response) {
         }
         searchResults.append(newAd);
     }
-    checkAds();
-    listenFav();
-    changeSize();
+    if (resp.length > 0) {
+        console.log(resp.length);
+        checkAds();
+        listenFav();
+        changeSize();
+    }
     stopItFlag = false;
 }

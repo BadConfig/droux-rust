@@ -21,12 +21,12 @@ pub struct Promo {
 }
 
 impl Promo {
-    pub fn get_sale(value: i64, try_promo: String, conn: &PgConnection) -> i64 {
+    pub fn get_sale(value: f64, try_promo: String, conn: &PgConnection) -> f64 {
         use crate::schema::promos::dsl::*;
         let my_sale = promos
             .filter(promo.eq(try_promo))
             .select(sale)
-            .get_result::<i32>(conn).unwrap_or(100) as i64;
-        value/100*my_sale
+            .get_result::<i32>(conn).unwrap_or(100) as f64;
+        value/100.0*my_sale
     }
 }

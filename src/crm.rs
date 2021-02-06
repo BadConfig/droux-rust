@@ -8,6 +8,8 @@ use serde::{
     Serialize,
     Deserialize,
 };
+extern crate chrono;
+use chrono::NaiveDateTime;
 
 
 impl BuyForm {
@@ -88,7 +90,7 @@ pub enum TrDescription {
 }
 
 impl PrivForm {
-    pub fn send_sber_pay_link(&self, summ: i64) -> Result<String,Error> {
+    pub fn send_sber_pay_link(&self, summ: f64) -> Result<String,Error> {
         let site_url = env::var("SITE_URL")
         .expect("SITE_URL must be set");
         let sber_uname = env::var("SBERBANK_USERNAME")
@@ -99,10 +101,10 @@ impl PrivForm {
         let params = [
             ("userName", &sber_uname[..]),
             ("password", &sber_pass[..]),
-            ("amount", &format!("{}",summ*100)[..]),
+            ("amount", &format!("{}",summ*100.0)[..]),
             ("currency", "643"),
             ("returnUrl", &(site_url + &("/product/pay".to_string()))[..]),
-            ("orderNumber", &format!("{}{}pay",self.product_name,self.product_id)[..]),
+            ("orderNumber", &format!("{}{}pay{}",self.product_name,self.product_id,chrono::Utc::now().timestamp())[..]),
             ("description", &serde_json::to_string(&TrDescription::Priveleges(self.clone()))?[..])];
 
         let client = reqwest::blocking::Client::new();
@@ -178,7 +180,7 @@ impl BuyForm {
             ("amount", &format!("{}",self.pr_price*100)),
             ("currency", &format!("{}",643)[..]),
             ("returnUrl", &(site_url + &"/product/pay".to_string())[..]),
-            ("orderNumber", &format!("{}{}order",self.pr_name,self.pr_id)[..]),
+            ("orderNumber", &format!("{}{}order{}",self.pr_name,self.pr_id,chrono::Utc::now().timestamp())[..]),
             ("description", &serde_json::to_string(&TrDescription::Order(self.clone()))?[..])];
 
         let client = reqwest::blocking::Client::new();

@@ -15,7 +15,7 @@ input[type=text], input[type=password] {
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: white;
-    border-radius: 0;
+    border-radius: 0
 }
 
 * {
@@ -402,6 +402,10 @@ input[type=checkbox] + label {
 
 .authorizer__form label {
     margin: 20px 0 10px;
+}
+
+.authorizer__form input[type="text"] {
+    text-transform: lowercase;
 }
 
 .sign-in__remember-and-forget {

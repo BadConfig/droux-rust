@@ -172,8 +172,8 @@ function MakeMini(){
 
 async function PostProduct() {
     let sex = document.getElementsByClassName('filters__sector_sex')[0];
-    let category = document.getElementsByClassName('filters__sector_type')[0];
-    let subcategory = document.getElementsByClassName('filters__sector_sex')[0];
+    let category = document.getElementsByClassName('filters__sector_category')[0];
+    let subcategory = document.getElementsByClassName('filters__sector_type')[0];
     let brand = document.getElementsByClassName('filters__sector_brand')[0];
     let size = document.getElementsByClassName('filters__sector_size')[0];
     let name = document.getElementsByClassName('ad-form__field-div_name')[0];
@@ -182,11 +182,14 @@ async function PostProduct() {
     let price = document.getElementsByClassName('ad-form__price')[0];
     let number = document.getElementsByClassName('ad-form__num')[0];
     let email = document.getElementsByClassName('ad-form__email')[0];
+    console.log('Всё в норме');
 
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
     body.append('category_id', category.querySelector('input:checked').value);
+    console.log('category_id', category.querySelector('input:checked').value);
     body.append('sub_category_id', subcategory.querySelector('input:checked').value);
+    console.log('sub_category_id', subcategory.querySelector('input:checked').value);
     body.append('brand_id', brand.querySelector('input:checked').value);
     body.append('size_id', size.querySelector('input:checked').value);
     body.append('state_id', state.querySelector('input:checked').value);
@@ -206,7 +209,7 @@ async function PostProduct() {
         }
     }
 
-
+    console.log(body);
     let postAd = new XMLHttpRequest();
     postAd.open('POST', '/product/create', true);
     postAd.send(body);
@@ -215,13 +218,14 @@ async function PostProduct() {
         console.log(redirectRoute);
         window.location.replace(redirectRoute);
     }
+
     return false;
 }
 
 async function EditProduct() {
     let sex = document.getElementsByClassName('filters__sector_sex')[0];
-    let category = document.getElementsByClassName('filters__sector_type')[0];
-    let subcategory = document.getElementsByClassName('filters__sector_sex')[0];
+    let category = document.getElementsByClassName('filters__sector_category')[0];
+    let subcategory = document.getElementsByClassName('filters__sector_type')[0];
     let brand = document.getElementsByClassName('filters__sector_brand')[0];
     let size = document.getElementsByClassName('filters__sector_size')[0];
     let name = document.getElementsByClassName('ad-form__field-div_name')[0];
@@ -230,11 +234,14 @@ async function EditProduct() {
     let price = document.getElementsByClassName('ad-form__price')[0];
     let number = document.getElementsByClassName('ad-form__num')[0];
     let email = document.getElementsByClassName('ad-form__email')[0];
+    console.log('Всё в норме');
 
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
     body.append('category_id', category.querySelector('input:checked').value);
+    console.log('category_id', category.querySelector('input:checked').value);
     body.append('sub_category_id', subcategory.querySelector('input:checked').value);
+    console.log('sub_category_id', subcategory.querySelector('input:checked').value);
     body.append('brand_id', brand.querySelector('input:checked').value);
     body.append('size_id', size.querySelector('input:checked').value);
     body.append('state_id', state.querySelector('input:checked').value);
@@ -253,6 +260,7 @@ async function EditProduct() {
             body.append(id, blob);
         }
     }
+    console.log(body);
     
     let prodId = document.getElementById('product_id').value;
     let route = "/admin/product/change/" + prodId
