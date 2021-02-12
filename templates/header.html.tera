@@ -5,7 +5,7 @@
                 <a href="/users/products">Мои объявления</a>
                 <a href="/users/favourites">Избранное</a>
                 <!-- <a href="">Мои покупки</a> -->
-                <a href="/users/products">Мои продажи</a>
+                <a href="/users/menu">Мой кабинет</a>
                 <a href="/logout">Выйти</a>
             </div>
         </div>

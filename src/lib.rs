@@ -126,6 +126,7 @@ pub fn app() -> rocket::Rocket {
             routes::users::get_users_favourites,
             routes::users::get_user_products_profile,
             routes::users::get_user_reviews_profile,
+            routes::users::get_user_menu_profile,
             routes::product::favourites_add,
             routes::product::favourites_delete,
             routes::admin::admin_users,

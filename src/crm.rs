@@ -180,7 +180,7 @@ impl BuyForm {
             ("amount", &format!("{}",self.pr_price*100)),
             ("currency", &format!("{}",643)[..]),
             ("returnUrl", &(site_url + &"/product/pay".to_string())[..]),
-            ("orderNumber", &format!("{}{}order{}",self.pr_name,self.pr_id,chrono::Utc::now().timestamp())[..]),
+            ("orderNumber", &format!("{}ord{}",self.pr_id,chrono::Utc::now().timestamp())[..]),
             ("description", &serde_json::to_string(&TrDescription::Order(self.clone()))?[..])];
 
         let client = reqwest::blocking::Client::new();

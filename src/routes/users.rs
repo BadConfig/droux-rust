@@ -58,6 +58,29 @@ pub fn get_users_products(user: CommonUser, conn: crate::db::Conn) -> Result<Eit
     }
 } 
 
+#[get("/users/menu")]
+pub fn get_user_menu_profile(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
+    let mut ctx = get_base_context(user.clone(), &conn);
+    if let CommonUser::Logged(user) = user {
+        ctx.insert("my_user", &user.clone());
+        let rate_int = if user.rate_count != 0 {
+            user.rate_summ/user.rate_count
+        } else {
+            0
+        };
+        ctx.insert("rating_floored", &rate_int);
+        let (you,yours) = Subscribes::count(user.id.clone(), &conn)?;
+        ctx.insert("your_sub_count", &yours);
+        ctx.insert("you_sub_count", &you);
+        ctx.insert("active_products",&Product::get_products_by_status_and_user("published".into(),user.id, &conn)?);
+        ctx.insert("sold_products",&Product::get_products_by_status_and_user("sold".into(),user.id, &conn)?);
+        ctx.insert("deleted_products",&Product::get_products_by_status_and_user("deleted".into(),user.id, &conn)?);
+        ctx.insert("unread_messages", &crate::db::chat::having_unread(user.id.clone(), &conn));
+        Ok(Either::Template(Template::render("users/menu_products_content", &ctx)))
+    } else {
+        Ok(Either::Redirect(Redirect::to("/")))
+    }
+} 
 #[get("/users/reviews")]
 pub fn get_users_reviews(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
     
