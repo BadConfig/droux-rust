@@ -2,7 +2,7 @@
     <div class="header__user-actions-layout">
         <div class="container">
             <div class="header__user-actions">
-                <a href="/users/products">Мои объявления</a>
+                <a href="/users/products_content">Мои объявления</a>
                 <a href="/users/favourites">Избранное</a>
                 <!-- <a href="">Мои покупки</a> -->
                 <a href="/users/menu">Мой кабинет</a>

@@ -29,6 +29,266 @@
   <component name="ChangeListManager">
     <list default="true" id="f1982821-1f2e-4e5c-a3e3-cbaa6c3bf3ee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/30e393ddd9afd2979a42d4f27436aa02/meta.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/30e393ddd9afd2979a42d4f27436aa02/meta.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/30e393ddd9afd2979a42d4f27436aa02/private_key.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/30e393ddd9afd2979a42d4f27436aa02/private_key.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/30e393ddd9afd2979a42d4f27436aa02/regr.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/certbot/conf/accounts/acme-v02.api.letsencrypt.org/directory/30e393ddd9afd2979a42d4f27436aa02/regr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init-letsencrypt.sh" beforeDir="false" afterPath="$PROJECT_DIR$/init-letsencrypt.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/arrow-hide.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-hide.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/arrow-left.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-left.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/arrow-right.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/arrow-right.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/buttons-bg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/buttons-bg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/chat.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/chat.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/check.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/check.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/close-trans.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/close-trans.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/close.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/close.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/delivery.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/delivery.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/droux-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/droux-logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/facebook.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/facebook.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/favourite.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/favourite.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/female.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/female.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/instagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/instagram.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/male.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/male.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/plus.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/plus.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/red-circle.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/red-circle.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/safety.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/safety.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/scan.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/scan.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/search.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/search.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/show-all.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/show-all.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/star-empty.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/star-empty.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/star-filled.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/star-filled.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/subscribe.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/subscribe.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/telegram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/telegram.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/tick-delivered.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/tick-delivered.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/tick-read.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/tick-read.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/vk-filled.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk-filled.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/vk.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/vk.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/youtube.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/youtube.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/ad.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/ad.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/croppie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/croppie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main-page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/new-product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/new-product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/product.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/ad-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/ad-carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/croppie.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/croppie.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/hide-sector.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/hide-sector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/mobile-profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/mobile-profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/new-product-uploader.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/new-product-uploader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/part-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/part-carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/product-carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/product-carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/search-filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/search-filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-04 21:58:39.984599-text default-1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-04 22:01:00.467727-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-04 22:01:25.135615-text defaulter-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-04 23:14:36.673761-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 01:17:49.275218-тавааар-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 01:17:49.276610-тавааар-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 01:17:49.276925-тавааар-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 01:17:49.277022-тавааар-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 01:21:06.171854-tea-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 01:21:06.172428-tea-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 01:21:06.172531-tea-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 01:21:06.172596-tea-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 09:40:38.617217-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 09:40:38.617962-text default-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 09:40:38.618614-text default-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-05 09:40:38.618741-text default-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-19 06:07:22.974851-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-19 19:12:52.615191-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-19 19:13:37.703597-fsadfsfsdf-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-19 21:11:43.542915-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-19 21:12:13.692717-text defaullkjt-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-26 07:49:58.232944-kris-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-26 07:49:58.233681-kris-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-10-26 07:57:52.266898-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-08 16:58:36.245218-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-08 19:04:06.046342-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-08 22:48:19.535848-text default-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-08 22:48:19.536224-text default-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293301-staff-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293620-staff-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293732-staff-3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293859-staff-4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.293974-staff-5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.294119-staff-6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.294278-staff-7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.294800-staff-8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.294984-staff-9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:18:30.295092-staff-10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:24:28.598666-Nazvanie-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:40:46.063595-Гуча-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:40:46.063961-Гуча-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:04.291791-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:06.002990-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:06.612434-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:08.154326-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:08.322495-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:08.484753-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:08.654644-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:08.830707-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:09.026980-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:09.185639-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:09.355865-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:09.533262-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:09.713705-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:09.869537-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:10.035686-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:10.187774-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:10.347250-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-11 02:43:10.504394-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-13 03:55:03.692643-new ad-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 02:10:04.828984-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 02:10:44.140231-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 02:39:09.022162-123-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 02:39:09.195477-123-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 02:56:55.013034-123-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 02:57:50.251088-Марин - Сидор-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 02:57:50.251438-Марин - Сидор-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 02:58:28.536857-Марин - Сидор-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 02:58:28.537183-Марин - Сидор-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 03:00:50.297858-123-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 03:01:08.832539-Мотя гей-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 03:01:51.984603-ч.т.д-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 03:01:51.984942-ч.т.д-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:43:20.211152-Марин - Сидор-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:43:20.211871-Марин - Сидор-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:43:30.962189-Мотя гей-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:43:38.368415-ч.т.д-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:43:38.368732-ч.т.д-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:43:49.089895-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:44:01.709320-new ad-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:44:09.332214-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:44:18.405457-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-15 08:44:28.965827-obyavl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-16 18:18:14.238848715-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-16 18:18:36.882650153-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-16 19:10:21.772029760-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-16 19:10:23.222862399-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-16 19:10:23.939103561-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-16 19:10:24.060515507-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-16 19:10:24.194736232-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-16 19:10:24.367638502-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-16 19:10:24.502071527-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:36:05.291123-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:36:11.101135-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:36:12.256583-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:36:12.502758-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:36:12.732804-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:36:12.929165-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:36:13.119817-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:36:57.965996-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:37:00.296980-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:37:20.016663-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:37:34.285579-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:37:39.622202-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:37:45.229792-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 04:37:51.092870-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:27.472716704-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:28.586442377-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:29.654854986-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:30.214826044-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:30.534251618-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:03:47.578363767-TItile1-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:03.454101238-TItile2-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:03.454486960-TItile2-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:19.288803478-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:19.289216253-TItile-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:33.039021919-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:33.039410778-TItile-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:45.309773291-TItile-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-18 07:04:45.310140030-TItile-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:57:28.107985-advert-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:20.778800-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:22.148576-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:23.225390-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:23.780516-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:24.046700-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:24.230942-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:24.398786-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:24.579913-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:24.753565-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:24.909486-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:25.093792-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:25.272947-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:25.420650-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:25.606426-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:25.805115-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:25.968940-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:26.148445-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:26.345081-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:26.538703-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:26.744347-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:26.894234-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:27.074145-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:27.273125-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:27.468444-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:27.658773-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:27.829448-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:28.018752-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:28.224142-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:28.385012-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:28.562649-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:28.760402-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:28.931408-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:29.129972-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:29.334148-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:29.541888-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:29.736398-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:29.948286-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:30.146816-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:30.312319-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:30.516603-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:30.678834-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:30.850044-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:31.013706-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:31.160004-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:31.344616-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:31.490021-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:31.677352-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:31.874017-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:32.046192-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:32.222567-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:32.430994-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:32.591204-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 19:59:32.774108-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:00:35.880986-lkj-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:02:33.472720-op-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:04:32.167771-klj-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:10:15.264440-klj-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:12:46.789693-wqfqd-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:16:05.299009-lkj-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:17:08.421283-3fs-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:18:58.468594-kiln;-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:20:47.831468-njkl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:22:17.984668-'''''-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:24:00.028678-staff-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:27:25.789005-kjnjkn-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:33:23.254101-lmnkl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:37:46.800659-lkj-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:46:55.728680-sad-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:48:56.720302-lkjk-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:50:11.705328-lkjk-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:57:45.021866-lkj-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:58:15.122135-sad-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-19 20:58:55.801772-lmnkl-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:10:56.199234445-Adidas-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:12:27.126811718-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:14:28.574335-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:17:30.356755300-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:17:47.345654394-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:28:24.285903611-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:31:44.377519161-123-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 03:48:33.240955116-title-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-20 21:31:10.238519896-Тестовое объявление-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-22 23:26:48.032795335-Тестовое объявление-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,12 +335,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-rust\static\assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-merge-conflict\droux-rust\static\assets" />
       <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-merge-conflict\droux-rust\static\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-rust\static\assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -134,6 +394,7 @@
       <workItem from="1611794732220" duration="38000" />
       <workItem from="1611794783203" duration="756000" />
       <workItem from="1611851593007" duration="24000" />
+      <workItem from="1613943236344" duration="1977000" />
     </task>
     <servers />
   </component>
