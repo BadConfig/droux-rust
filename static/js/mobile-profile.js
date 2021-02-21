@@ -9,6 +9,6 @@ function goToProfile() {
     card.classList.add('card_mob_vis');
 }
 
-if (window.location.href.includes('profile/users') && (window.location.href.includes('reviews') === false) && (window.location.href.includes('products') === false)) {
+if (window.location.href.includes('profile/users') && (window.location.href.includes('reviews') === false) && (window.location.href.includes('product') === false)) {
     goToProfile();
 }
