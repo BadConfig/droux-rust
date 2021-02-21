@@ -8,7 +8,3 @@ function goToProfile() {
     profileContent.classList.add('content_mob_invis');
     card.classList.add('card_mob_vis');
 }
-
-if ((window.location.href.includes('products')) || (window.location.href.includes('profile/users'))) {
-    goToProfile();
-}
