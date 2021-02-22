@@ -1,0 +1,51 @@
+{% extends "profile/main" %}
+{% block page_content %}
+    <div class="my-adss content__border">
+        <div class="content__top">
+            <h2 class="content__header my-ads__header">Объявления</h2>
+            <div class="my-ads__buttons">
+                <input type="radio" name="ads-types" id="active" class="content__radio" checked>
+                <label for="active" class="content__label button">Активные</label>
+                <input type="radio" name="ads-types" id="sold" class="content__radio">
+                <label for="sold" class="content__label button">Проданные</label>
+            </div>
+        </div>
+        <div class="profile-ads content__ads content__ads_active content__ads_visible">
+           {% for ad in active_products %}
+            <div class="ad-profile">
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                            <img src="/{{ ad.prod.pictures.0 }}" alt="" class="ad__img other-ad-img">
+                </div>
+                <div class="ad__info">
+                    <div class="ad__top">
+                        <div class="ad__title-and-price">
+                            <h2 class="ad__title">{{ ad.prod.title }}</h2>
+                            <span class="ad__price">{{ ad.prod.price }} руб.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>             
+           {% endfor %}
+        </div>
+        <div class="profile-ads content__ads content__ads_sold">
+           {% for ad in sold_products %}
+            <div class="ad-profile">
+                <div class="ad__img-container"> <!--Рамка для одной фотографии-->
+                            <img src="/{{ ad.prod.pictures.0 }}" alt="" class="ad__img other-ad-img">                                 
+                </div>
+                <div class="ad__info">
+                    <div class="ad__top">
+                        <div class="ad__title-and-price">
+                            <h2 class="ad__title">{{ ad.prod.title }}</h2>
+                            <span class="ad__price">{{ ad.prod.price }} руб.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>             
+           {% endfor %}
+        </div>
+    </div>
+{% endblock page_content %}
+{% block products %}
+    card__label_active
+{% endblock products %}

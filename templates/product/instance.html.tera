@@ -6,7 +6,7 @@
                 <img src="/static/profile_pictures/{{ad.profile_picture}}" alt="">
             </div>
             <div class="ad__author-info">
-                <a href="/profile/users/{{ ad.seller_id }}/product">
+                <a href="/profile/users/{{ ad.seller_id }}/profile">
                     <span class="ad__author-name">{{ ad.seller_uname }}</span>
                 </a>
                 <div class="ad__author-rating">
