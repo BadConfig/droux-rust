@@ -99,10 +99,10 @@ pub fn register(form: Form<RegisterForm>, user: CommonUser, conn: crate::db::Con
     };
     let url = "/verify/".to_string()+&link[..];
     print!("url: {}\n",&url);
-    Either::Redirect(Redirect::to(url))
-    //print!("auth ref: {}",reference);
-    //crate::auth::send_auth_link(reference, form.email.clone());
-    //Template::render("auth/verify",get_base_context(user, &conn))
+    //Either::Redirect(Redirect::to(url))
+    print!("auth ref: {}",url);
+    crate::auth::send_auth_link(url, form.email.clone());
+    Either::Template(Template::render("auth/verify",get_base_context(user, &conn)))
 
 }
 
