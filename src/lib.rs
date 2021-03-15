@@ -172,6 +172,8 @@ pub fn app() -> rocket::Rocket {
             routes::rescue::rescue,
             routes::admin::rescue_delete,
             routes::admin::rescue_list,
+            routes::users::rm_user_image,
+            routes::users::add_user_image,
             ])
         .attach(Template::fairing())
         .attach(db::Conn::fairing())

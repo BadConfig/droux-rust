@@ -21,6 +21,14 @@ pub struct Users {
 
 impl Users {
 
+    pub fn set_photo(self, filename: String, conn: &PgConnection) -> Result<(),Error> {
+        use crate::schema::users::dsl::*;
+        
+        diesel::update(users.filter(id.eq(self.id)))
+            .set(picture_path.eq(filename))
+            .execute(conn)?;
+        Ok(())
+    }
     pub fn get_by_id(u_id: i32, conn: &PgConnection) -> Users {
         
         use crate::schema::users::dsl::*;

@@ -1,6 +1,8 @@
 use rocket_contrib::templates::Template;
 use rocket::request::Form;
 use rocket::response::Redirect;
+use std::fs::File;
+use std::io::prelude::*;
 
 use super::get_base_context;
 use crate::users::CommonUser;
@@ -11,6 +13,15 @@ use crate::routes::Either;
 use crate::models::users::Users;
 use crate::models::product::Product;
 use crate::Error;
+
+extern crate rocket_multipart_form_data;
+use rocket_multipart_form_data::{
+    MultipartFormData, 
+    MultipartFormDataField, 
+    MultipartFormDataOptions,
+};
+use rocket::Data;
+use rocket::http::ContentType;
 
 #[get("/users/favourites")]
 pub fn get_users_favourites(user: CommonUser, conn: crate::db::Conn) -> Result<Either,Error> {
@@ -234,4 +245,63 @@ pub fn get_user_main_profile(id: i32, user: CommonUser, conn: crate::db::Conn) -
     ctx.insert("rating_floored", &rate_int);
     Ok(Either::Template(Template::render("profile/products_main", &ctx)))
 
+}
+
+#[post("/users/profile_pictures/delete")]
+pub fn rm_user_image(
+    user: CommonUser, 
+    conn: crate::db::Conn
+) -> Result<Either,Error> {
+    if let CommonUser::Logged(u) = user {
+        u.set_photo("default_picture.png".to_string(), &conn);
+        return Ok(Either::Redirect(Redirect::to("/users/menu")))
+    } 
+    Ok(Either::Redirect(Redirect::to("/")))
+}
+
+#[post("/users/profile_pictures/create",data="<form>")]
+pub fn add_user_image(
+    content_type: &ContentType, 
+    form: Data, 
+    user: CommonUser, 
+    conn: crate::db::Conn
+) -> Result<Either,Error> {
+    if let CommonUser::Logged(u) = user {
+        let fname = parse_image_multiform(content_type, form, u.username);
+        u.set_photo(fname, &conn);
+        return Ok(Either::Redirect(Redirect::to("/users/menu")))
+    } 
+    Ok(Either::Redirect(Redirect::to("/")))
+}
+
+pub fn parse_image_multiform(content_type: &ContentType, form: Data, uname: String) -> String {
+    
+    use crate::routes;
+
+    let options = MultipartFormDataOptions::with_multipart_form_data_fields(
+        vec! [
+            //.content_type_by_string(Some(mime::IMAGE_STAR)).unwrap()
+            MultipartFormDataField::raw("profile_photo")
+                .size_limit(16*1920*1080),
+        ]
+    );
+    let mut multipart_form_data = MultipartFormData::parse(content_type, form, options).unwrap();
+    let profile_photo = multipart_form_data.raw.get("profile_photo"); // Use the get method to preserve file fields from moving out of the MultipartFormData instance in order to delete them automatically when the MultipartFormData instance is being dropped
+    fn unpack_photo(
+        photo: &Option<&std::vec::Vec<routes::users::rocket_multipart_form_data::RawField>>, 
+        title: &String
+    ) -> Result<String,()> {
+        let ph = match photo {
+            Some(d) => &d[0],
+            None => return Err(()),
+        };
+        let ph = ph.raw.clone();
+        let store_path = format!("static/profile_pictures/{}.jpg",title);
+        let mut file = File::create(&store_path).expect("can't create file");
+        file.write_all(&ph).expect("error wfiting photo to file");
+        Ok(*title)
+    }
+
+    unpack_photo(&profile_photo, &(chrono::Local::now().naive_utc().to_string()+uname.as_ref()))
+        .expect("error while downloading image")
 }
