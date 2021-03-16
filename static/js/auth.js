@@ -131,3 +131,5 @@ function removeError() {
     signInLogin.classList.remove('authorizer__input_failed');
     signInPassword.classList.remove('authorizer__input_failed');
 }
+
+alert('ПАЙПЛАЙНЫ СНОВА В СТРОЮ!');
