@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="profile-ads content__ads content__ads_active content__ads_visible">
-            {% if active_products | len == 0 %}
+            {% if active_products | length == 0 %}
                 <p class="content__empty profile-ads__empty profile-ads__empty_active-products">Объявления отсутствуют</p>
             {% endif %}
             {% for ad in active_products %}
@@ -53,7 +53,7 @@
             {% endfor %}
         </div>
         <div class="profile-ads content__ads content__ads_sold">
-        {% if sold_products | len == 0 %}
+        {% if sold_products | length == 0 %}
             <p class="content__empty profile-ads__empty profile-ads__empty_sold-products">Объявления отсутствуют</p>
         {% endif %}
             {% for ad in sold_products %}
@@ -94,7 +94,7 @@
                 </div>
             {% endfor %}
         <div class="profile-ads content__ads content__ads_deleted">
-        {% if deleted_products | len == 0 %}
+        {% if deleted_products | length == 0 %}
             <p class="content__empty profile-ads__empty profile-ads__empty_deleted-products">Объявления отсутствуют</p>
         {% endif %}
         {% for ad in deleted_products %}
