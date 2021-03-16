@@ -120,3 +120,14 @@ function AllowReg() {
         }
     }
 }
+
+const signInLogin = document.querySelector('.sign-in__login');
+const signInPassword = document.querySelector('.sign-in__password');
+
+signInLogin.addEventListener('click', removeError);
+signInPassword.addEventListener('click', removeError);
+
+function removeError() {
+    signInLogin.classList.remove('authorizer__input_failed');
+    signInPassword.classList.remove('authorizer__input_failed');
+}
