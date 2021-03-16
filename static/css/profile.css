@@ -854,6 +854,13 @@
 
 }
 
+.content__empty {
+    font-size: 14px;
+    color: #949494;
+    text-align: center;
+    margin-top: 31%;
+}
+
 
 @media (max-width: 460px) {
     .ad__stat {

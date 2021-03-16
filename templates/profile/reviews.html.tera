@@ -5,6 +5,9 @@
             <h2 class="content__header my-reviews__header">Отзывы</h2>
         </div>
         <div class="content__reviews">
+            {% if reviews | len == 0 %}
+                <p class="content__empty content__empty_reviews">Отзывы отсутствуют</p>
+            {% endif %}
             {% for review in reviews %}
                 <div class="content__review review">
                     <div class="review__top">
