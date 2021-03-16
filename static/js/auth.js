@@ -54,7 +54,7 @@ let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 let login = document.getElementById('sign-up__login');
 
-login.addEventListener('change', checkLogin);
+login.addEventListener('input', checkLogin);
 
 function checkLogin() {
     login.classList.remove('authorizer__input_failed');
@@ -71,8 +71,8 @@ function checkLogin() {
 let pass = document.getElementById('sign-up__password');
 let repPass = document.getElementById('sign-up__repeat-password');
 
-pass.addEventListener('change', checkPass);
-repPass.addEventListener('change', checkRepPass);
+pass.addEventListener('input', checkPass);
+repPass.addEventListener('input', checkRepPass);
 
 function checkPass() {
     pass.classList.remove('authorizer__input_failed');
