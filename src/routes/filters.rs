@@ -22,18 +22,20 @@ pub fn get_filter_data(form: Form<SearchForm>, conn: crate::db::Conn) -> Json<Ve
 #[get("/filters?<search_string>&<prod_size_id>&<product_state_id>&\
 <limit>&<offset>&<subcategory_id>&<category_id>&<prod_brand_id>&\
 <prod_type_id>&<order_by>&<user_id>")]
-pub fn get_filter_page(search_string: Option<String>,
-        prod_size_id: Option<i32>,
-        product_state_id: Option<i32>,
+pub fn get_filter_page(
+        search_string: Option<String>,
+        prod_size_id: Option<String>,
+        product_state_id: Option<String>,
         limit: i32,
         offset: i32,
-        subcategory_id: Option<i32>,
-        category_id: Option<i32>,
-        prod_brand_id: Option<i32>,
-        prod_type_id: Option<i32>,
+        subcategory_id: Option<String>,
+        category_id: Option<String>,
+        prod_brand_id: Option<String>,
+        prod_type_id: Option<String>,
         order_by: Option<String>,
         user_id: Option<i32>, 
-        user: CommonUser, conn: crate::db::Conn) -> Template {
+        user: CommonUser, conn: crate::db::Conn
+    ) -> Template {
     let mut ctx = get_base_context(user, &conn);
     crate::db::filters::get_filter_context(&mut ctx, &conn);
     let form = SearchForm {

@@ -106,17 +106,44 @@ pub struct ProductCard {
     pub seller_rating: i64,
 }
 
+use rocket::request::FromFormValue;
+use rocket::http::RawStr;
+
+#[derive(Clone,Serialize,Deserialize,Queryable,Debug)]
+struct RowVec(Vec<i32>);
+
+impl<'v> FromFormValue<'v> for RowVec {
+    type Error = &'v RawStr;
+
+    fn from_form_value(form_value: &'v RawStr) -> Result<RowVec, &'v RawStr> {
+        Ok(RowVec(form_value
+            .split(',')
+            .filter_map(|r| r.to_string().parse::<i32>().ok())
+            .collect()))
+    }
+}
+
+fn parse_to_opt_vec(val: Option<String>) -> Option<Vec<i32>> {
+    match val {
+        Some(v) => Some(v
+            .split(',')
+            .filter_map(|r| r.parse::<i32>().ok())
+            .collect()),
+        None => None,
+    }
+}
+
 #[derive(FromForm,Clone,Serialize,Deserialize,Queryable,Debug)]
 pub struct SearchForm {
     pub search_string: Option<String>,
-    pub prod_size_id: Option<i32>,
-    pub product_state_id: Option<i32>,
+    pub prod_size_id: Option<String>,
+    pub product_state_id: Option<String>,
     pub limit: i32,
     pub offset: i32,
-    pub subcategory_id: Option<i32>,
-    pub category_id: Option<i32>,
-    pub prod_brand_id: Option<i32>,
-    pub prod_type_id: Option<i32>,
+    pub subcategory_id: Option<String>,
+    pub category_id: Option<String>,
+    pub prod_brand_id: Option<String>,
+    pub prod_type_id: Option<String>,
     pub order_by: Option<String>,
     pub user_id: Option<i32>,
 }
@@ -184,16 +211,16 @@ impl ProductCard {
 
     pub fn filter_search(form: SearchForm, conn: &PgConnection) -> Vec<ProductCard> {
     
-        diesel::sql_query(include_str!("../../SQL/filter.sql"))
+        diesel::sql_query("SELECT * FROM filters($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)")
             .bind::<Nullable<Text>,_>(form.search_string)
-            .bind::<Nullable<Integer>,_>(form.prod_size_id)
-            .bind::<Nullable<Integer>,_>(form.product_state_id)
+            .bind::<Nullable<Array<Integer>>,_>(parse_to_opt_vec(form.prod_size_id))
+            .bind::<Nullable<Array<Integer>>,_>(parse_to_opt_vec(form.product_state_id))
             .bind::<Integer,_>(form.limit)
             .bind::<Integer,_>(form.offset)
-            .bind::<Nullable<Integer>,_>(form.subcategory_id)
-            .bind::<Nullable<Integer>,_>(form.category_id)
-            .bind::<Nullable<Integer>,_>(form.prod_brand_id)
-            .bind::<Nullable<Integer>,_>(form.prod_type_id)
+            .bind::<Nullable<Array<Integer>>,_>(parse_to_opt_vec(form.subcategory_id))
+            .bind::<Nullable<Array<Integer>>,_>(parse_to_opt_vec(form.category_id))
+            .bind::<Nullable<Array<Integer>>,_>(parse_to_opt_vec(form.prod_brand_id))
+            .bind::<Nullable<Array<Integer>>,_>(parse_to_opt_vec(form.prod_type_id))
             .bind::<Nullable<Text>,_>(form.order_by)
             .bind::<Nullable<Integer>,_>(form.user_id)
             .load::<ProductCard>(conn)
