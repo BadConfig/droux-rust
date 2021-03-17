@@ -41,7 +41,7 @@ services:
       - "5433:5432"
     environment:
       POSTGRES_DB: diesel_db
-      POSTGRES_PASSWORD: docker
+      POSTGRES_PASSWORD: sdfjksfu2jkl45g343b
       POSTGRES_USER: docker
     networks:
       - app-network
