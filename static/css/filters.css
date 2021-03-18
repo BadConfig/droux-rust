@@ -135,13 +135,12 @@ aside.sort-by {
 }
 
 .filters__preloader_hidden {
-    /*display: none;*/
-
+    display: none;
 }
 
 .filters__preloader {
     width: 100px;
-    margin: 0 auto;
+    margin: 50px auto;
     align-self: center;
 }
 
