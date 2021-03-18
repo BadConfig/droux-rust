@@ -160,7 +160,7 @@
         {% for ad in FoundProducts %}
             {{prod_inst::instance(ad=ad,seller=false)}}           
         {% endfor %}
-        <img src="/static/assets/preloader.svg" class="filters__preloader_hidden" alt="preloader">
+        <img src="/static/assets/preloader.svg" class="filters__preloader filters__preloader_hidden" alt="preloader">
         </div>
     </main>
 {% endblock main %}
