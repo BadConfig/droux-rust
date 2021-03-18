@@ -59,25 +59,3 @@ function turnPage2() {
     add_pages[2].classList.add('mobile__page_vis');
     window.scrollTo(0, 0);
 }
-
-
-
-
-function check3() {
-    let flag=1
-    if (!document.querySelector('.uploader__frame-img')) {
-        flag=0;
-    }
-    if (flag) {
-        add_buttons[2].disabled = false;
-    } else{
-        add_buttons[2].disabled = true;
-    }
-
-}
-
-function turnPage3() {
-    add_pages[2].classList.remove('mobile__page_vis');
-    add_pages[3].classList.add('mobile__page_vis');
-    window.scrollTo(0, 0);
-}
