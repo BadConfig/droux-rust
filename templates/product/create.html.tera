@@ -192,7 +192,7 @@
                 Продолжить
             </button>
         </div>
-            <div class="ad-form__email">
+            <div class="ad-form__city">
                 <div class="ad-form__label">Город</div>
                 <input type="text">
             </div>
