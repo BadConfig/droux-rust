@@ -28,7 +28,7 @@
             <div class="ad__all-images"> <!--Все фото в линию-->
                 {% for pic_url in ad.pictures %}
                 <a href="/product/{{ ad.id }}">
-                    <img src="/{{pic_url}}" alt="" class="ad__img">
+                    <img src="/{{pic_url}}" loading="lazy" alt="" class="ad__img">
                 </a>
                 {% endfor %}
             </div>

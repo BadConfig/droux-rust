@@ -122,7 +122,7 @@ function MakeMini(){
         type: 'blob',
         size: imageSize,
         format: 'png',
-        quality: 1}).then(function(blob){
+        quality: 0.6}).then(function(blob){
 
         currentLastPhoto += 1;
 
