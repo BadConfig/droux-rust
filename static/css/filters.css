@@ -128,15 +128,22 @@
     display: flex;
     flex-direction: column;
     min-height: fit-content;
+
 }
 aside.sort-by {
     display: none;
 }
 
 .filters__preloader_hidden {
-    display: none;
+    /*display: none;*/
+
 }
 
+.filters__preloader {
+    width: 100px;
+    margin: 0 auto;
+    align-self: center;
+}
 
 @media (max-width: 1200px) {
     .filters__layout {
