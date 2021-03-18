@@ -194,7 +194,7 @@ async function PostProduct() {
     body.append('price', price.querySelector('input').value);
     body.append('location', city.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
-    body.append('number', "Исаков, дай денег");
+    body.append('phone_number', "Исаков, дай денег");
 
     let photos = document.getElementsByClassName('uploader__frame-img');
     for (let i = 0; i < 10; i++) {
