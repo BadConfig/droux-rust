@@ -11,10 +11,12 @@
                     <div class="dialogue__info">
                         <div class="dialogue__string dialogue__info_top">
                             <div class="dialogue__author">
+                            <a href="/chat/{{ person.pr_id }}/{{ person.talker_id }}">
                                 <img src="/static/profile_pictures/{{ person.talker_picture }}" alt="">
-                                    <a href="/chat/{{ person.pr_id }}/{{ person.talker_id }}">
-                                        <span>{{ person.talker_username }}</span>
-                                    </a>
+                            </a>
+                            <a href="/chat/{{ person.pr_id }}/{{ person.talker_id }}">
+                                <span>{{ person.talker_username }}</span>
+                            </a>
                             </div>
                             <div class="dialogue__date">
                             {% if person.last_msg_time %}

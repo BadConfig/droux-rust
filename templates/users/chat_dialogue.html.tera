@@ -20,10 +20,10 @@
                 <a href="/chat" class="chat__back">
                     <img src="../../static/assets/arrow-left.svg" alt="Кнопка возвращения назад">
                 </a>
-                <a href="" class="chat__author-photo">
+                <a href="../../../profile/users/{{ other_user.id }}/profile" class="chat__author-photo">
                     <img src="/static/profile_pictures/{{ other_user.picture_path}}" alt="">
                 </a>
-                <a href="" class="chat__author-name">
+                <a href="../../../profile/users/{{ other_user.id }}/profile" class="chat__author-name">
                     <span>{{ other_user.username }}</span>
                 </a>
             </div>
