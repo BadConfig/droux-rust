@@ -181,14 +181,11 @@ async function PostProduct() {
     let state = document.getElementsByClassName('ad-form__state')[0];
     let price = document.getElementsByClassName('ad-form__price')[0];
     let city = document.getElementsByClassName('ad-form__city')[0];
-    console.log('Всё в норме');
 
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
     body.append('category_id', category.querySelector('input:checked').value);
-    console.log('category_id', category.querySelector('input:checked').value);
     body.append('sub_category_id', subcategory.querySelector('input:checked').value);
-    console.log('sub_category_id', subcategory.querySelector('input:checked').value);
     body.append('brand_id', brand.querySelector('input:checked').value);
     body.append('size_id', size.querySelector('input:checked').value);
     body.append('state_id', state.querySelector('input:checked').value);
@@ -197,6 +194,7 @@ async function PostProduct() {
     body.append('price', price.querySelector('input').value);
     body.append('location', city.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
+    body.append('number', "Исаков, дай денег");
 
     let photos = document.getElementsByClassName('uploader__frame-img');
     for (let i = 0; i < 10; i++) {
