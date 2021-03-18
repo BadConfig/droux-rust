@@ -445,7 +445,19 @@ input[type=text] {
     overflow: hidden;
 }
 
+.ad-form__city_mobile {
+    display: none;
+}
+
 @media (max-width: 1200px) {
+    .city-mobile-hide {
+        display: none;
+    }
+
+    .ad-form__city_mobile {
+        display: flex;
+    }
+
     .mobile__page {
         width: 100%;
         display: none;
