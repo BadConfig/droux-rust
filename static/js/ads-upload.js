@@ -200,7 +200,7 @@ function jsonToAds(response) {
         } else {
             newAd.querySelector('.ad__favourite-icon-img_empty').classList.add('fav-icon_active');
         }
-        searchResults.append(newAd);
+        searchResults.insertBefore(newAd, preloader);
     }
     if (resp.length > 0) {
         checkAds();
