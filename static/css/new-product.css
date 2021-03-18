@@ -385,11 +385,11 @@ textarea {
     margin: 58px 0 20px;
 }
 
-.ad-form__num, .ad-form__email {
+.ad-form__num, .ad-form__city {
     display: flex;
 }
 
-.ad-form__num input[type=text], .ad-form__email input[type=text] {
+.ad-form__num input[type=text], .ad-form__city input[type=text] {
     width: 220px;
 }
 

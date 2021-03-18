@@ -181,7 +181,7 @@ async function PostProduct() {
     let state = document.getElementsByClassName('ad-form__state')[0];
     let price = document.getElementsByClassName('ad-form__price')[0];
     let number = document.getElementsByClassName('ad-form__num')[0];
-    let email = document.getElementsByClassName('ad-form__email')[0];
+    let city = document.getElementsByClassName('ad-form__city')[0];
     console.log('Всё в норме');
 
     let body = new FormData();
@@ -197,7 +197,7 @@ async function PostProduct() {
     body.append('descr', description.querySelector('textarea').value);
     body.append('price', price.querySelector('input').value);
     body.append('phone_number', number.querySelector('input').value);
-    body.append('location', email.querySelector('input').value);
+    body.append('location', city.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
 
     let photos = document.getElementsByClassName('uploader__frame-img');
@@ -233,7 +233,7 @@ async function EditProduct() {
     let state = document.getElementsByClassName('ad-form__state')[0];
     let price = document.getElementsByClassName('ad-form__price')[0];
     let number = document.getElementsByClassName('ad-form__num')[0];
-    let email = document.getElementsByClassName('ad-form__email')[0];
+    let city = document.getElementsByClassName('ad-form__city')[0];
     console.log('Всё в норме');
 
     let body = new FormData();
@@ -249,7 +249,7 @@ async function EditProduct() {
     body.append('descr', description.querySelector('textarea').value);
     body.append('price', price.querySelector('input').value);
     body.append('phone_number', number.querySelector('input').value);
-    body.append('location', email.querySelector('input').value);
+    body.append('location', city.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
 
     let photos = document.getElementsByClassName('uploader__frame-img');
