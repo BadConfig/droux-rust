@@ -16,7 +16,10 @@ function is_touch_device() {
 
 for (let i = 0; i < dropdownButtons.length; i++) {
     if (isTouchable) {
-        dropdownButtons[i].addEventListener('touch', showDD);
+        dropdownButtons[i].addEventListener('touch', (e) => {
+            showDD();
+            e.preventDefault();
+        });
         dropdownButtons[i].addEventListener('click', (e) => {
             e.preventDefault();
         })
