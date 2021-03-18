@@ -155,7 +155,9 @@ function useFilters() {
 
 function jsonToAds(response) {
     let resp = JSON.parse(response);
-    preloader.classList.toggle('filters__preloader_hidden')
+    setTimeout(() => {
+        preloader.classList.toggle('filters__preloader_hidden');
+    }, 500);
     if (resp.length < 12) {
         clearInterval(timer);
     }
