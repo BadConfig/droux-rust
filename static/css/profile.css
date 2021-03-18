@@ -842,7 +842,7 @@
     }
 
     .chat {
-        max-height: 90vh;
+        max-height: calc(100vh - 325px);
     }
     .other-ad-img {
         top: 0;
