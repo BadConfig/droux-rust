@@ -118,7 +118,6 @@
 
 .content {
     width: 730px;
-    min-height: 777px;
     border: 1px solid black;
     position: relative;
 }
@@ -505,9 +504,9 @@
 }
 
 .chat__field {
-    height: 666px;
     overflow-y: scroll;
     padding: 26px 9px 26px 15px;
+    max-height: calc(100vh - 325px);
 }
 
 .chat__messages {
@@ -842,7 +841,7 @@
     }
 
     .chat {
-        max-height: calc(100vh - 325px);
+
     }
     .other-ad-img {
         top: 0;
