@@ -193,8 +193,6 @@
                 </div>
             </div>
             <input type="button" value="Продолжить" class="button ad-form__submit-button mobile__button mobile__button_3" onclick="PostProduct()">
-                Продолжить
-            </button>
         </div>
         <div class="city-mobile-hide">
             <div class="ad-form__city">
