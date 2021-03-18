@@ -188,11 +188,21 @@
                     <img src="/static/assets/arrow-right.svg" alt="">
                 </div>
             </div>
-            <input type="button" value="Продолжить" class="button ad-form__submit-button" onclick="PostProduct()">
+            <button type="button" class="mobile__button mobile__button_3 button" onclick="turnPage3()" disabled>
+                Продолжить
+            </button>
         </div>
-        <div class="ad-form__email">
-            <div class="ad-form__label">Город</div>
-            <input type="text">
+        <div class="mobile__page_4 mobile__page">
+            <h2 class="ad-form__header ad-form__header_params">Контакты</h2>
+            <div class="ad-form__num">
+                <div class="ad-form__label">Телефон</div>
+                <input type="text">
+            </div>
+            <div class="ad-form__email">
+                <div class="ad-form__label">Город</div>
+                <input type="text">
+            </div>
+            <input type="button" value="Продолжить" class="button ad-form__submit-button" onclick="PostProduct()">
         </div>
         <input type="hidden" name="seller_id" value="{{ user.id }}" disabled>
     </form>
