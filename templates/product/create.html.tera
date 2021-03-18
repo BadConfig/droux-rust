@@ -194,10 +194,6 @@
         </div>
         <div class="mobile__page_4 mobile__page">
             <h2 class="ad-form__header ad-form__header_params">Контакты</h2>
-            <div class="ad-form__num">
-                <div class="ad-form__label">Телефон</div>
-                <input type="text">
-            </div>
             <div class="ad-form__email">
                 <div class="ad-form__label">Город</div>
                 <input type="text">
