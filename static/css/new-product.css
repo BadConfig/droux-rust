@@ -389,6 +389,10 @@ textarea {
     display: flex;
 }
 
+.ad-form__city {
+    margin-top: 40px;
+}
+
 .ad-form__num input[type=text], .ad-form__city input[type=text] {
     width: 220px;
 }
