@@ -133,6 +133,11 @@ aside.sort-by {
     display: none;
 }
 
+.filters__preloader_hidden {
+    display: none;
+}
+
+
 @media (max-width: 1200px) {
     .filters__layout {
         position: absolute;
