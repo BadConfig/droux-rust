@@ -14,6 +14,6 @@
             <br>
             Попробуйте шопинг на нашем сайте и испытайте приятные эмоции при заказе желанной вещи, а наши курьеры позаботятся о том, чтобы заказ пришел к Вам вовремя и бесплатно!<br>
         </p>
-        <a href="/" class="button static__button">Вернуться на главную</a>
+        <a href="../filters?limit=12&offset=0&order_by=Date&search_string=" class="button static__button">Перейти к покупкам</a>
     </main>
 {% endblock main %}
