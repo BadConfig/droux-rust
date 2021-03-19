@@ -16,6 +16,23 @@ for (let i =0; i < hide_categories.length; i++) {
     })
 }
 
+const sizes_div = document.getElementsByClassName('filters__sector_size')[0];
+const sizes_text = sizes_div.getElementsByTagName('label');
+const sizes_size_div = sizes_div.getElementsByClassName('filters__checkbox-div');
+
+for (let i=0; i < sizes.length; i++) {
+    let text = sizes_text[i];
+    if (text !== "no size") {
+        if (text.includes('X') || text.includes('L') || text.includes('M') || text.includes('S')) {
+            sizes_size_div[i].dataset.parent = "1";
+        } else {
+            sizes_size_div[i].dataset.parent = "2";
+        }
+    } else {
+        sizes_size_div[i].dataset.parent = "3 4";
+    }
+}
+
 const sectors = document.getElementsByClassName('filters__sector');
 
 if (document.getElementsByClassName('sort-by__discard')[0] !== null) {
