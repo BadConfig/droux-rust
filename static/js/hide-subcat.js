@@ -20,7 +20,7 @@ const sizes_div = document.getElementsByClassName('filters__sector_size')[0];
 const sizes_text = sizes_div.getElementsByTagName('label');
 const sizes_size_div = sizes_div.getElementsByClassName('filters__checkbox-div');
 
-for (let i=0; i < sizes.length; i++) {
+for (let i=0; i < sizes_text.length; i++) {
     let text = sizes_text[i];
     if (text !== "no size") {
         if (text.includes('X') || text.includes('L') || text.includes('M') || text.includes('S')) {
@@ -46,7 +46,8 @@ if (document.getElementsByClassName('sort-by__discard')[0] !== null) {
             }
         }
     }
-
-    discardButton.addEventListener('click', discardFilters);
-    discardButtonMobile.addEventListener('click', discardFilters);
+    if (discardButton !== null) {
+        discardButton.addEventListener('click', discardFilters);
+        discardButtonMobile.addEventListener('click', discardFilters);
+    }
 }
