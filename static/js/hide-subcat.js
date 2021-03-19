@@ -8,11 +8,26 @@ for (let i =0; i < hide_categories.length; i++) {
             styleSheet.id = "js_stylesheet";
             document.body.append(styleSheet);
         }
-        document.getElementById('js_stylesheet').innerHTML = `
-            .filters__checkbox-div_subcategory:not(div[data-parent="${e.currentTarget.value}"]), .filters__sector_size .filters__checkbox-div:not(div[data-parent="${e.currentTarget.value}"]) {
+        let v = e.currentTarget.value;
+        const ss = document.getElementById('js_stylesheet');
+        ss.innerHTML = `
+            .filters__checkbox-div_subcategory:not(div[data-parent="${ v }"]) {
                 display: none;
             }
         `;
+        if ((v !== '3') && (v !== '4')) {
+            ss.innerHTML += `
+                .filters__sector_size .filters__checkbox-div:not(div[data-nosize="${ v }"]) {
+                    display: none;
+                }
+            `;
+        } else {
+            ss.innerHTML += `
+                .filters__sector_size .filters__checkbox-div:not(div[data-nosize="true"]) {
+                        display: none;
+                    }
+            `;
+        }
     })
 }
 
@@ -29,7 +44,7 @@ for (let i=0; i < sizes_text.length; i++) {
             sizes_size_div[i].dataset.parent = "2";
         }
     } else {
-        sizes_size_div[i].dataset.parent = "3 4";
+        sizes_size_div[i].dataset.nosize = "true";
     }
 }
 
