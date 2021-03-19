@@ -21,7 +21,7 @@ const sizes_text = sizes_div.getElementsByTagName('label');
 const sizes_size_div = sizes_div.getElementsByClassName('filters__checkbox-div');
 
 for (let i=0; i < sizes_text.length; i++) {
-    let text = sizes_text[i];
+    let text = sizes_text[i].innerText;
     if (text !== "no size") {
         if (text.includes('X') || text.includes('L') || text.includes('M') || text.includes('S')) {
             sizes_size_div[i].dataset.parent = "1";
