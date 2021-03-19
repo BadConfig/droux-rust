@@ -17,7 +17,7 @@ for (let i =0; i < hide_categories.length; i++) {
         `;
         if ((v !== '3') && (v !== '4')) {
             ss.innerHTML += `
-                .filters__sector_size .filters__checkbox-div:not(div[data-nosize="${ v }"]) {
+                .filters__sector_size .filters__checkbox-div:not(div[data-parent="${ v }"]) {
                     display: none;
                 }
             `;
