@@ -479,7 +479,11 @@ input[type=text] {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
+}
+
+.commission-modal__title {
+    margin: 0;
 }
 
 .commission-modal__content {
