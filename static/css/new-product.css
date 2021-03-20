@@ -449,14 +449,18 @@ input[type=text] {
     display: none;
 }
 
-.commission-modal__header {
+.commission-modal__layer {
     width: 100vw;
     height: 100vw;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
+
 
 .commission-modal {
     width: 750px;
