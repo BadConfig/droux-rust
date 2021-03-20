@@ -469,12 +469,17 @@ input[type=text] {
     height: 450px;
 }
 
+.commission-modal__close{
+    height: 1rem;
+}
+
 .commission-modal__header {
     background-color: black;
     color: white;
     display: flex;
     justify-content: space-between;
     padding: 10px;
+    font-size: 1.5rem;
 }
 
 .commission-modal__content {
