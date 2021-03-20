@@ -217,7 +217,7 @@
 <aside class="commission-modal__layer">
     <div class="commission-modal">
         <div class="commission-modal__header">
-            <h1 class="commission-modal__title">Почему мы взимаем комиссию?<h1>
+            <h1 class="commission-modal__title">Почему мы взимаем комиссию?</h1>
             <img src="/static/assets/modal-cross.svg" alt="Закрыть модальное окно" class="commission-modal__close">
         </div>
         <div class="commission-modal__content">

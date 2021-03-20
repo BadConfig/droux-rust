@@ -471,6 +471,7 @@ input[type=text] {
 
 .commission-modal__close{
     height: 1rem;
+    cursor: pointer;
 }
 
 .commission-modal__header {
@@ -478,8 +479,8 @@ input[type=text] {
     color: white;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    font-size: 1.15rem;
+    padding: 15px;
+    font-size: 1rem;
 }
 
 .commission-modal__title {
@@ -497,7 +498,7 @@ input[type=text] {
     background-color: black;
     font-size: 18px;
     color: white;
-    margin: 45px 0;
+    margin: 25px 0;
     min-height: 38px;
 }
 
