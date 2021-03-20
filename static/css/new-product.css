@@ -451,7 +451,7 @@ input[type=text] {
 
 .commission-modal__layer {
     width: 100vw;
-    height: 100vw;
+    height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -473,6 +473,19 @@ input[type=text] {
     display: flex;
     justify-content: space-between;
     padding: 10px;
+}
+
+.commission-modal__content {
+    background-color: white;
+    border: 1px solid black;
+}
+
+.commision-modal__button {
+    width: 381px;
+    background-color: black;
+    font-size: 18px;
+    color: white;
+    margin: 45px 0;
 }
 
 @media (max-width: 1200px) {
