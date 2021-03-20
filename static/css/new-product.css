@@ -460,6 +460,7 @@ input[type=text] {
     left: 0;
     top: 0;
     background-color: rgba(0, 0, 0, 0.7);
+    z-index: 20px;
 }
 
 
