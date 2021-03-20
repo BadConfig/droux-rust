@@ -449,6 +449,28 @@ input[type=text] {
     display: none;
 }
 
+.commission-modal__header {
+    width: 100vw;
+    height: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commission-modal {
+    width: 750px;
+    height: 450px;
+}
+
+.commission-modal__header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
 @media (max-width: 1200px) {
     .city-mobile-hide {
         display: none;
