@@ -333,12 +333,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-rust\static\assets" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-merge-conflict\droux-rust\static\assets" />
       <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-merge-conflict\droux-rust\static\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\m1908761\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\egovar\droux-rust\static\assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -394,7 +394,7 @@
       <workItem from="1611851593007" duration="24000" />
       <workItem from="1613943236344" duration="5968000" />
       <workItem from="1615923006672" duration="20235000" />
-      <workItem from="1616186752260" duration="5481000" />
+      <workItem from="1616186752260" duration="5947000" />
     </task>
     <servers />
   </component>

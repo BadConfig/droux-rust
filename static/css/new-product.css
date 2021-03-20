@@ -478,9 +478,10 @@ input[type=text] {
 .commission-modal__content {
     background-color: white;
     border: 1px solid black;
+    padding: 1rem;
 }
 
-.commision-modal__button {
+.commission-modal__button {
     width: 381px;
     background-color: black;
     font-size: 18px;
