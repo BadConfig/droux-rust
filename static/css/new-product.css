@@ -489,6 +489,7 @@ input[type=text] {
     font-size: 18px;
     color: white;
     margin: 45px 0;
+    min-height: 38px;
 }
 
 @media (max-width: 1200px) {
