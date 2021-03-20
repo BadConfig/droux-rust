@@ -279,7 +279,8 @@ const commission_close_2 = document.getElementsByClassName('commission-modal__bu
 
 const modal = document.getElementsByClassName('commission-modal__layer')[0];
 
-commission.addEventListener('click', () => {
+commission.addEventListener('click', (e) => {
+    e.preventDefault();
     modal.classList.add('commission-modal__layer_visible');
 });
 
