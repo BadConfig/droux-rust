@@ -702,6 +702,48 @@
     font-size: 14px;
 }
 
+.cropper__layout {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.cropper {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.cropper__cross {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 20px;
+}
+
+.cropper__input {
+    display: none;
+}
+
+.cropper__button {
+    width: 100px;
+    height: 30px;
+    display: block;
+}
+
+.cropper__footer {
+    margin: 0 auto 30px;
+    display: flex;
+    width: 230px;
+    justify-content: space-between;
+}
+
 @media (max-width: 1200px) {
     .profile__content {
         width: 100%;
