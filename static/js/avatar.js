@@ -33,7 +33,7 @@ function upload_avatar() {
         type: 'square'
     }
     scissors.result({
-        type: 'blob',
+        type: 'base64',
         size: imageSize,
         format: 'png',
         quality: 0.6}).then((avatar) => {
