@@ -74,6 +74,8 @@
     min-height: 48px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
 }
 
 .card__nav {
@@ -747,6 +749,17 @@
     display: flex;
     width: 230px;
     justify-content: space-between;
+}
+
+.change-photo__button {
+    width: 90%;
+    height: 35px;
+    margin-bottom: 15px;
+}
+
+.change-photo__button_change {
+    background-color: black;
+    color: white;
 }
 
 @media (max-width: 1200px) {

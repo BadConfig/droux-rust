@@ -4,7 +4,7 @@ const cropper_layout = document.getElementsByClassName('cropper__layout')[0];
 
 
 const scissors = new Croppie(cropper_place, {
-    viewport: {width: document.documentElement.clientWidth * 0.32, height: document.documentElement.clientWidth * 0.285},
+    viewport: {width: 200, height: 200},
     boundary: {width: document.documentElement.clientWidth * 0.5, height: document.documentElement.clientHeight * 0.5},
     showZoomer: true,
     enableOrientation: false
@@ -55,6 +55,7 @@ function upload_avatar() {
 
 function close_cropper() {
     cropper_layout.classList.remove('cropper__layout_visible');
+    cropper_input.files = null;
 }
 
 cropper_input.addEventListener('change', upload_photo);
