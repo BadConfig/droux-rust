@@ -23,8 +23,6 @@ function upload_photo() {
         } else {
             alert('Разрешено загружать только фотографии!');
         }
-    } else {
-        alert('Только одно фото за раз!');
     }
 }
 
@@ -42,9 +40,9 @@ function upload_avatar() {
             let data = new FormData();
             data.append('profile_photo', avatar);
             let avatar_request = new XMLHttpRequest();
+            avatar_request.open('POST', '../profile_pictures/create');
             avatar_request.responseType = 'text';
             avatar_request.setRequestHeader("Content-Type", "multipart/form-data");
-            avatar_request.open('POST', '../profile_pictures/create');
             avatar_request.send(data);
             let link = URL.createObjectURL(avatar);
             document.querySelector('.card__photo > img').src = link;
@@ -55,7 +53,7 @@ function upload_avatar() {
 
 function close_cropper() {
     cropper_layout.classList.remove('cropper__layout_visible');
-    cropper_input.files = null;
+    cropper_input.value = null;
 }
 
 cropper_input.addEventListener('change', upload_photo);
