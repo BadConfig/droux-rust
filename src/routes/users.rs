@@ -253,7 +253,7 @@ pub fn rm_user_image(
     conn: crate::db::Conn
 ) -> Result<Either,Error> {
     if let CommonUser::Logged(u) = user {
-        u.set_photo("default_picture.png".to_string(), &conn);
+        u.set_photo("default_picture.png".to_string(), &conn)?;
         return Ok(Either::Redirect(Redirect::to("/users/menu")))
     } 
     Ok(Either::Redirect(Redirect::to("/")))
@@ -268,7 +268,7 @@ pub fn add_user_image(
 ) -> Result<Either,Error> {
     if let CommonUser::Logged(u) = user {
         let fname = parse_image_multiform(content_type, form, u.username.clone());
-        u.set_photo(fname, &conn);
+        u.set_photo(fname, &conn)?;
         return Ok(Either::Redirect(Redirect::to("/users/menu")))
     } 
     Ok(Either::Redirect(Redirect::to("/")))

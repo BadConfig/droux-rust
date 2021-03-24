@@ -22,11 +22,11 @@ pub fn send_auth_link(link: String, email: String) {
     .body(link)
     .unwrap();
 
-    let creds = Credentials::new("postmaster@sandbox7b0a037442a34c1982d64c8dcd9c5e87.mailgun.org"
-        .to_string(), "6215b5a30f46655980eaebf890c2d8c1-73e57fef-4fa027de".to_string());
+    let creds = Credentials::new("redberrymanager.contact@gmail.com"
+        .to_string(), "a22TsqWo6P9F".to_string());
 
     // Open a remote connection to gmail
-    let mailer = SmtpTransport::relay("smtp.mailgun.org")
+    let mailer = SmtpTransport::relay("smtp-pulse.com")
         .unwrap()
         .credentials(creds)
         .build();   
