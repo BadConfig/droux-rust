@@ -69,5 +69,5 @@ function delete_avatar() {
     avatar_request.open('POST', '/users/profile_pictures/delete');
     avatar_request.send();
     document.querySelector('.card__photo > img').src = '/static/profile_pictures/default_picture.png';
-    document.querySelector('.header__user-photo').src = '/static/profile_pictures/default_picture.png'
+    document.querySelector('.header__user-photo').src = '/static/profile_pictures/default_picture.png';
 }

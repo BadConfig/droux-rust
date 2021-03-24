@@ -288,6 +288,7 @@
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/me_main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/me_main.html.tera" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -396,7 +397,7 @@
       <workItem from="1613943236344" duration="5968000" />
       <workItem from="1615923006672" duration="20235000" />
       <workItem from="1616186752260" duration="8187000" />
-      <workItem from="1616616501727" duration="10207000" />
+      <workItem from="1616616501727" duration="10304000" />
     </task>
     <servers />
   </component>
