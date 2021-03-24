@@ -733,7 +733,7 @@
 }
 
 .cropper__main {
-    height: calc(100% - 40px - 65px;)
+    height: calc(100% - 40px - 65px)!important;
 }
 
 .cropper__header {
