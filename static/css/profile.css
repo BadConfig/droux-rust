@@ -718,6 +718,7 @@
 
 .cropper__layout_visible {
     display: flex;
+    z-index: 25;
 }
 
 .cropper {
