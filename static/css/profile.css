@@ -732,6 +732,10 @@
     border-radius: 10px;
 }
 
+.cropper__main {
+    height: calc(100% - 40px - 65px;)
+}
+
 .cropper__header {
     height: 40px;
 }
@@ -755,7 +759,7 @@
 }
 
 .cropper__footer {
-    height: 55px;
+    height: 65px;
     margin: 0 auto 30px;
     display: flex;
     width: 230px;
