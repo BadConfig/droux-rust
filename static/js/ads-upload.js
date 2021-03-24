@@ -47,27 +47,29 @@ for (let i = 0; i < subcategories.length; i++) {
     }
 }
 
+const preloader = document.getElementsByClassName("filters__preloader")[0];
 
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
+        preloader.classList.toggle('filters__preloader_hidden');
         stopItFlag = true;
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
         request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         if (filtersActive) {
             request.send(body + '&offset=' + (12 * portions));
-            console.log(body + '&offset=' + (12 * portions));
         } else {
             body = 'search_string=&limit=12' + '&offset=' + (12 * portions);
-            console.log(body);
             request.send(body)
         }
         portions+=1;
         request.onload = function() {
-            console.log(request.response)
-            jsonToAds(request.response);
-            changeSize();
+            setTimeout(() => {
+                preloader.classList.toggle('filters__preloader_hidden');
+                jsonToAds(request.response);
+                changeSize();
+            }, 1000);
         }
     }
 }
@@ -145,9 +147,7 @@ function useFilters() {
     request.open("POST", '/filters/lots', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     request.send(body  + '&offset=' + (12 * portions));
-    console.log(body);
     request.onload = function() {
-        console.log(request.response)
         jsonToAds(request.response);
     }
     portions += 1;
@@ -162,7 +162,6 @@ function jsonToAds(response) {
         clearInterval(timer);
     }
     for (let i = 0; i < resp.length; i++) {
-        console.log(i);
         let newAd = document.createElement('div');
         let adLink = '/product/' + resp[i].id
         newAd.className = 'ad';
@@ -203,10 +202,9 @@ function jsonToAds(response) {
         } else {
             newAd.querySelector('.ad__favourite-icon-img_empty').classList.add('fav-icon_active');
         }
-        searchResults.append(newAd);
+        searchResults.insertBefore(newAd, preloader);
     }
     if (resp.length > 0) {
-        console.log(resp.length);
         checkAds();
         listenFav();
         changeSize();

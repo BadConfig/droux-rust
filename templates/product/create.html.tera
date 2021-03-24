@@ -154,6 +154,10 @@
                     </div>
                 </div>
             </div>
+            <div class="ad-form__city ad-form__city_mobile">
+                            <div class="ad-form__label">Город</div>
+                            <input type="text">
+            </div>
             <div class="ad-form__price">
                 <div class="ad-form__label">Цена</div>
                 <div class="price__input"><input type="text" id="price"><span>₽</span></div>
@@ -188,17 +192,10 @@
                     <img src="/static/assets/arrow-right.svg" alt="">
                 </div>
             </div>
-            <button type="button" class="mobile__button mobile__button_3 button" onclick="turnPage3()" disabled>
-                Продолжить
-            </button>
+            <input type="button" value="Продолжить" class="button ad-form__submit-button mobile__button mobile__button_3" onclick="PostProduct()">
         </div>
-        <div class="mobile__page_4 mobile__page">
-            <h2 class="ad-form__header ad-form__header_params">Контакты</h2>
-            <div class="ad-form__num">
-                <div class="ad-form__label">Телефон</div>
-                <input type="text">
-            </div>
-            <div class="ad-form__email">
+        <div class="city-mobile-hide">
+            <div class="ad-form__city">
                 <div class="ad-form__label">Город</div>
                 <input type="text">
             </div>
@@ -217,6 +214,24 @@
         </div>
     </div>
 </main>
+<aside class="commission-modal__layer">
+    <div class="commission-modal">
+        <div class="commission-modal__header">
+            <h1 class="commission-modal__title">Почему мы взимаем комиссию?</h1>
+            <img src="/static/assets/modal-cross.svg" alt="Закрыть модальное окно" class="commission-modal__close">
+        </div>
+        <div class="commission-modal__content">
+            <p class="commission-modal__paragraph">Команда Droux делает все, чтобы покупатель получил оригинальную вещь, которую желал, без обмана и фейков.</p>
+            <p class="commission-modal__paragraph">
+                Чтобы обезопасить сделку, мы берем комиссию в размере 9% от стоимости товара, таким образом сокращается риск появления недоброжелательных продавцов.<br>
+                Комиссия покрывает услуги безопасной сделки, курьерской службы и экспертов, которые проверяют каждую вещь на подлинность.<br>
+                При проведении сделки между покупателем и продавцом, наша площадка выступает в роли гаранта, который обеспечивает передачу денег именно за тот товар, который выложен на нашей платформе.<br>
+                Мы дорожим качеством предоставляемых нами и услуг!
+            </p>
+            <button class="commission-modal__button button">Понятно</button>
+        </div>
+    </div>
+</aside>
 {% endblock main %}
 {% block scripts %}
 <script src="/static/js/search-filter.js"></script>

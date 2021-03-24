@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
 .profile {
-    min-height: 823px;
+    min-height: 50vh;
     padding: 20px 0 26px;
     justify-content: space-between;
     align-items: flex-start;
@@ -118,7 +118,6 @@
 
 .content {
     width: 730px;
-    min-height: 777px;
     border: 1px solid black;
     position: relative;
 }
@@ -505,9 +504,9 @@
 }
 
 .chat__field {
-    height: 666px;
     overflow-y: scroll;
     padding: 26px 9px 26px 15px;
+    height: calc(100vh - 350px);
 }
 
 .chat__messages {
@@ -842,7 +841,7 @@
     }
 
     .chat {
-        max-height: 90vh;
+
     }
     .other-ad-img {
         top: 0;
