@@ -299,7 +299,7 @@ pub fn parse_image_multiform(content_type: &ContentType, form: Data, uname: Stri
         let store_path = format!("static/profile_pictures/{}.jpg",title);
         let mut file = File::create(&store_path).expect("can't create file");
         file.write_all(&ph).expect("error wfiting photo to file");
-        Ok(title.clone())
+        Ok(title.clone()+".jpg")
     }
 
     unpack_photo(&profile_photo, &(chrono::Local::now().naive_utc().to_string()+uname.as_ref()))
