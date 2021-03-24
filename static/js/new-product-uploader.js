@@ -230,7 +230,6 @@ async function EditProduct() {
     let price = document.getElementsByClassName('ad-form__price')[0];
     let number = document.getElementsByClassName('ad-form__num')[0];
     let city = document.getElementsByClassName('ad-form__city')[0];
-    console.log('Всё в норме');
 
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);

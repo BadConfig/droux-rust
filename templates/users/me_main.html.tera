@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/ad.css">
     <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="stylesheet" href="/static/css/croppie.css">
     <meta charset="UTF-8">
     <title>Личный кабинет</title>
 {% endblock head %}
@@ -43,6 +44,8 @@
             </div>
             <div class="card__change-photo">
                 <a href="/lk/subscribes">Подписки: {{ your_sub_count }} Подписчики: {{ you_sub_count }}</a>
+                <label for="cropper__input" class="button change-photo__button change-photo__button_change">Сменить фото</label>
+                <button onclick="delete_avatar()" class="button change-photo__button change-photo__button_delete">Удалить фото</button>
             </div>
             <div class="card__nav">
                 <a href="/users/products"><span class="card__label {% block products %}{% endblock products %}">Мои объявления</span></a>
@@ -61,8 +64,24 @@
     {% endblock page_content %}
         </div>
 </main>
+<div class="cropper__layout">
+    <div class="cropper">
+        <div class="cropper__header">
+            <img src="/static/assets/close.svg" alt="close cropper" class="cropper__cross">
+        </div>
+        <div class="cropper__main">
+        </div>
+        <div class="cropper__footer">
+            <button class="cropper__button button cropper__button_ok" onclick="upload_avatar()">ОК</button>
+            <button class="cropper__button button cropper__button_cancel" onclick="close_cropper()">Отмена</button>
+        </div>
+    </div>
+</div>
+<input type="file" id="cropper__input" class="cropper__input">
 {% endblock main %}
 {% block scripts %}
+    <script src="/static/js/croppie.min.js"></script>
+    <script src="/static/js/avatar.js"></script>
     <script src="/static/js/ad-carousel.js"></script>
     <script src="/static/js/profile-ads-category.js"></script>
     <script src="/static/js/chat.js"></script>
