@@ -59,5 +59,9 @@ function close_cropper() {
 }
 
 cropper_input.addEventListener('change', upload_photo);
-cropper_layout.addEventListener('click', close_cropper);
+cropper_layout.addEventListener('click', (e) => {
+    if (e.target === cropper_layout) {
+        close_cropper();
+    }
+} );
 document.querySelector('.cropper__cross').addEventListener('click', close_cropper);
