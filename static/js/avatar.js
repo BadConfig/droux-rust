@@ -33,7 +33,7 @@ function upload_avatar() {
         type: 'square'
     }
     scissors.result({
-        type: 'blob',
+        type: 'base64',
         size: imageSize,
         format: 'png',
         quality: 0.6}).then((avatar) => {
@@ -44,9 +44,8 @@ function upload_avatar() {
             avatar_request.responseType = 'text';
             avatar_request.setRequestHeader("Content-Type", "multipart/form-data");
             avatar_request.send(data);
-            let link = URL.createObjectURL(avatar);
-            document.querySelector('.card__photo > img').src = link;
-            document.querySelector('.header__user-photo').src = link;
+            document.querySelector('.card__photo > img').src = avatar;
+            document.querySelector('.header__user-photo').src = avatar;
             close_cropper();
         });
 }
