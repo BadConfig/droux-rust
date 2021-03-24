@@ -4,7 +4,7 @@ const cropper_layout = document.getElementsByClassName('cropper__layout')[0];
 
 
 const scissors = new Croppie(cropper_place, {
-    viewport: {width: 200, height: 200},
+    viewport: {width: 200, height: 200, type: 'square'},
     boundary: {width: document.documentElement.clientWidth * 0.5, height: document.documentElement.clientHeight * 0.5},
     showZoomer: true,
     enableOrientation: false
