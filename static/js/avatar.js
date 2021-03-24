@@ -40,7 +40,7 @@ function upload_avatar() {
             let data = new FormData();
             data.append('profile_photo', avatar);
             let avatar_request = new XMLHttpRequest();
-            avatar_request.open('POST', '../profile_pictures/create');
+            avatar_request.open('POST', '/users/profile_pictures/create');
             avatar_request.responseType = 'text';
             avatar_request.setRequestHeader("Content-Type", "multipart/form-data");
             avatar_request.send(data);

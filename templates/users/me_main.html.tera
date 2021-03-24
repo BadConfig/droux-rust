@@ -45,7 +45,7 @@
             <div class="card__change-photo">
                 <a href="/lk/subscribes">Подписки: {{ your_sub_count }} Подписчики: {{ you_sub_count }}</a>
                 <label for="cropper__input" class="button change-photo__button change-photo__button_change">Сменить фото</label>
-                <button type="submit" formaction="../profile_pictures/delete" class="button change-photo__button change-photo__button_delete">Удалить фото</button>
+                <button type="submit" formaction="/users/profile_pictures/delete" class="button change-photo__button change-photo__button_delete">Удалить фото</button>
             </div>
             <div class="card__nav">
                 <a href="/users/products"><span class="card__label {% block products %}{% endblock products %}">Мои объявления</span></a>
@@ -72,8 +72,8 @@
         <div class="cropper__main">
         </div>
         <div class="cropper__footer">
-            <button class="cropper__button cropper__button_ok" onclick="upload_avatar()">ОК</button>
-            <button class="cropper__button cropper__button_cancel" onclick="close_cropper()">Отмена</button>
+            <button class="cropper__button button cropper__button_ok" onclick="upload_avatar()">ОК</button>
+            <button class="cropper__button button cropper__button_cancel" onclick="close_cropper()">Отмена</button>
         </div>
     </div>
 </div>

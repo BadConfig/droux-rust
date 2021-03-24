@@ -76,6 +76,11 @@
     border-bottom: 1px solid black;
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.card__change-photo > a {
+    margin: 15px 0 20px;
 }
 
 .card__nav {
@@ -727,6 +732,10 @@
     border-radius: 10px;
 }
 
+.cropper__header {
+    height: 40px;
+}
+
 .cropper__cross {
     position: absolute;
     top: 20px;
@@ -746,6 +755,7 @@
 }
 
 .cropper__footer {
+    height: 55px;
     margin: 0 auto 30px;
     display: flex;
     width: 230px;
