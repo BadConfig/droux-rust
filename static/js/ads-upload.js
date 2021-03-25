@@ -111,17 +111,6 @@ function useFilters() {
     stopItFlag = true;
     portions = 0;
     body = 'limit=12';
-    let filters_sex = filters[0].querySelectorAll('input:checked');
-    if (filters_sex != null) {
-        body += '&prod_type_id=';
-        let len = filters_sex.length;
-        for (let i = 0; i < len; i++) {
-            body += filters_sex[i].value;
-            if (i < len - 1) {
-                body += ','
-            }
-        }
-    }
 
     request_part(0, 'prod_type_id');
     request_part(1, 'category_id');
@@ -129,7 +118,7 @@ function useFilters() {
     request_part(3, 'prod_brand_id');
     request_part(4, 'prod_size_id');
     request_part(5, 'product_state_id');
-    
+
     if (document.documentElement.clientWidth >= 1200) {
         body += '&order_by=' + sort.querySelector('input:checked').value;
     } else {
