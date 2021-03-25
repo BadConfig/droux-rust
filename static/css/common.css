@@ -871,6 +871,10 @@ input[type=checkbox] + label {
     .dropdown__content_brands {
         width: 100vw;
     }
+
+    .dropdown__border-for-brands {
+        width: unset;
+    }
 }
 
 @media (max-width: 430px) {
