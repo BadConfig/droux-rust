@@ -66,7 +66,7 @@ function checkAndAdd() {
         portions+=1;
         request.onload = function() {
             setTimeout(() => {
-                // preloader.classList.add('filters__preloader_hidden');
+                preloader.classList.add('filters__preloader_hidden');
                 jsonToAds(request.response);
                 changeSize();
             }, 1000);
