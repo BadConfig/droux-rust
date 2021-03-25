@@ -52,7 +52,7 @@ const preloader = document.getElementsByClassName("filters__preloader")[0];
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
-        preloader.classList.toggle('filters__preloader_hidden');
+        preloader.classList.add('filters__preloader_hidden');
         stopItFlag = true;
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
@@ -66,7 +66,7 @@ function checkAndAdd() {
         portions+=1;
         request.onload = function() {
             setTimeout(() => {
-                preloader.classList.toggle('filters__preloader_hidden');
+                preloader.classList.remove('filters__preloader_hidden');
                 jsonToAds(request.response);
                 changeSize();
             }, 1000);
@@ -133,6 +133,12 @@ function useFilters() {
     searchResults.className = 'search-results';
     let main = document.querySelector('main');
     main.append(searchResults);
+    let preloader = document.createElement('img');
+    preloader.src = '/static/assets/preloader.svg';
+    preloader.className = 'filters__preloader';
+    preloader.alt = 'preloader';
+    let search_results = document.querySelector('.search-results');
+    search_results.append(preloader);
     let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -213,5 +219,6 @@ function jsonToAds(response) {
         listenFav();
         changeSize();
     }
+    preloader.classList.remove('preloader_hidden');
     stopItFlag = false;
 }
