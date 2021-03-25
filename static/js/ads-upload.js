@@ -111,24 +111,25 @@ function useFilters() {
     stopItFlag = true;
     portions = 0;
     body = 'limit=12';
-    if (filters[0].querySelector('input:checked') != null) {
-        body += '&prod_type_id=' + filters[0].querySelector('input:checked').value;
+    let filters_sex = filters[0].querySelectorAll('input:checked');
+    if (filters_sex != null) {
+        body += '&prod_type_id=';
+        let len = filters_sex.length;
+        for (let i = 0; i < len; i++) {
+            body += filters_sex[i].value;
+            if (i < len - 1) {
+                body += ','
+            }
+        }
     }
-    if (filters[1].querySelector('input:checked') != null) {
-        body += '&category_id=' + filters[1].querySelector('input:checked').value;
-    }
-    if (filters[2].querySelector('input:checked') != null) {
-        body += '&subcategory_id=' + filters[2].querySelector('input:checked').value;
-    }
-    if (filters[3].querySelector('input:checked') != null) {
-        body += '&prod_brand_id=' + filters[3].querySelector('input:checked').value;
-    }
-    if (filters[4].querySelector('input:checked') != null) {
-        body += '&prod_size_id=' + filters[4].querySelector('input:checked').value;
-    }
-    if (filters[5].querySelector('input:checked') != null) {
-        body += '&product_state_id=' + filters[5].querySelector('input:checked').value;
-    }
+
+    request_part(0, 'prod_type_id');
+    request_part(1, 'category_id');
+    request_part(2, 'subcategory_id');
+    request_part(3, 'prod_brand_id');
+    request_part(4, 'prod_size_id');
+    request_part(5, 'product_state_id');
+    
     if (document.documentElement.clientWidth >= 1200) {
         body += '&order_by=' + sort.querySelector('input:checked').value;
     } else {
@@ -153,6 +154,20 @@ function useFilters() {
     portions += 1;
     timeout = 0;
 
+}
+
+function request_part(n, alias) {
+    let filters_block_checked = filters[n].querySelectorAll('input:checked');
+    if (filters_block_checked != null) {
+        body += '&' + alias + '=';
+        let len = filters_block_checked.length;
+        for (let i = 0; i < len; i++) {
+            body += filters_block_checked[i].value;
+            if (i < len - 1) {
+                body += ','
+            }
+        }
+    }
 }
 
 
