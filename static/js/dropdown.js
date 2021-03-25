@@ -53,8 +53,6 @@ document.querySelector('.header-base__line').addEventListener('mouseover', hideD
 document.getElementsByClassName('header__base')[0].addEventListener('mouseover', hideDD);
 
 function hideDD(evt) {
-    if (document.documentElement.clientWidth > 700) {
-        dropdown.classList.remove('dropdown_visible');
-        dropdownLayout.classList.remove('dropdown__layout_visible');
-    }
+    dropdown.classList.remove('dropdown_visible');
+    dropdownLayout.classList.remove('dropdown__layout_visible');
 }
