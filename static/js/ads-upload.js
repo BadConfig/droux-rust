@@ -212,13 +212,13 @@ function jsonToAds(response) {
         } else {
             newAd.querySelector('.ad__favourite-icon-img_empty').classList.add('fav-icon_active');
         }
-        searchResults.insertBefore(newAd, document.getElementsByClassName('preloader')[0]);
+        searchResults.insertBefore(newAd, document.getElementsByClassName('filters__preloader')[0]);
     }
     if (resp.length > 0) {
         checkAds();
         listenFav();
         changeSize();
     }
-    preloader.classList.add('preloader_hidden');
+    preloader.classList.add('filters__preloader_hidden');
     stopItFlag = false;
 }
