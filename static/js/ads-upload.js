@@ -212,7 +212,7 @@ function jsonToAds(response) {
         } else {
             newAd.querySelector('.ad__favourite-icon-img_empty').classList.add('fav-icon_active');
         }
-        searchResults.insertBefore(newAd, preloader);
+        searchResults.insertBefore(newAd, document.getElementsByClassName('preloader')[0]);
     }
     if (resp.length > 0) {
         checkAds();
