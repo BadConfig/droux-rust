@@ -47,12 +47,10 @@ for (let i = 0; i < subcategories.length; i++) {
     }
 }
 
-const preloader = document.getElementsByClassName("filters__preloader")[0];
-
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
-        preloader.classList.remove('filters__preloader_hidden');
+        document.getElementsByClassName('filters__preloader')[0].classList.remove('filters__preloader_hidden');
         stopItFlag = true;
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
@@ -66,7 +64,7 @@ function checkAndAdd() {
         portions+=1;
         request.onload = function() {
             setTimeout(() => {
-                preloader.classList.add('filters__preloader_hidden');
+                document.getElementsByClassName('filters__preloader')[0].classList.add('filters__preloader_hidden');
                 jsonToAds(request.response);
                 changeSize();
             }, 1000);
@@ -219,6 +217,6 @@ function jsonToAds(response) {
         listenFav();
         changeSize();
     }
-    preloader.classList.add('filters__preloader_hidden');
+    document.getElementsByClassName('filters__preloader')[0].classList.add('filters__preloader_hidden');
     stopItFlag = false;
 }
