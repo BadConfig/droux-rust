@@ -15,7 +15,7 @@ pub fn send_auth_link(link: String, email: String) {
     use lettre::{Message, SmtpTransport, Transport};
 
     let email = Message::builder()
-    .from("DrouxTeam <noreply@droux.ru>".parse().unwrap())
+    .from("drouxgroup@gmail.com".parse().unwrap())
   //  .reply_to(email.parse().unwrap())
     .to(email.parse().unwrap())
     .subject("Verify your account")
