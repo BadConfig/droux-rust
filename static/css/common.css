@@ -851,9 +851,21 @@ input[type=checkbox] + label {
 }
 
 
-@media only screen and (max-width: 510px) {
+@media only screen and (max-width: 700px) {
     .services__item {
         font-size: 10px;
+    }
+
+    .dropdown__letter:nth-child(8) ~ .dropdown__letter {
+        display: none;
+    }
+
+    .dropdown__content > a:nth-child(12) ~ a {
+        display: none;
+    }
+
+    .dropdown__content {
+        margin-top: 20px;
     }
 }
 
