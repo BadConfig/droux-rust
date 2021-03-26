@@ -311,7 +311,6 @@ a .photos__female img {
 
     .photos a {
         height: fit-content;
-        width: fit-content;
         display: flex;
         justify-content: center;
     }
@@ -319,8 +318,8 @@ a .photos__female img {
     .photos__male span, .photos__female span {
         position: absolute;
         bottom: 45%;
-        text-align: center;
-        display: block;
+        align-items: center;
+        justify-content: center;
     }
     .part__arrow {
         display: none;
