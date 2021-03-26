@@ -318,8 +318,8 @@ a .photos__female img {
     .photos__male span, .photos__female span {
         position: absolute;
         bottom: 45%;
-        align-items: center;
-        justify-content: center;
+        text-align: center;
+        display: block;
     }
     .part__arrow {
         display: none;
