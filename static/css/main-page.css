@@ -311,8 +311,12 @@ a .photos__female img {
 
     .photos a {
         height: fit-content;
+        width: fit-content;
         display: flex;
         justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .photos__male span, .photos__female span {
@@ -398,6 +402,10 @@ a .photos__female img {
 
     .show-all_news {
         margin-top: 30px;
+    }
+
+    .photos__male img, .photos__female img {
+        position: unset;
     }
 }
 
