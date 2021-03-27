@@ -34,7 +34,7 @@ pub fn send_auth_link(link: String, email: String, username: String) {
 </body>
 </html>"#,username,link);
 
-    println!("email: {}",email);
+    println!("msg {}",html);
     let email = Message::builder()
     .from("noreply@droux.ru".parse().unwrap())
     .to(email.parse().unwrap())
