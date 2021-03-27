@@ -165,7 +165,9 @@ function request_part(n, alias) {
 
 
 function jsonToAds(response) {
+
     let resp = JSON.parse(response);
+    console.log(resp);
     if (resp.length < 12) {
         clearInterval(timer);
     }
