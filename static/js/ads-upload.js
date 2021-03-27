@@ -169,6 +169,11 @@ function jsonToAds(response) {
     if (resp.length < 12) {
         clearInterval(timer);
     }
+    if (resp.length === 0 && portions === 0) {
+        let notFound = document.createElement('div');
+        notFound.innerText='По вашему запросу ничего не найдено. <br> Измените запрос или фильтры';
+        notFound.id = 'not_found';
+    }
     for (let i = 0; i < resp.length; i++) {
         let newAd = document.createElement('div');
         let adLink = '/product/' + resp[i].id
