@@ -106,7 +106,6 @@ function NewSearch() {
         timeout = clearTimeout(timeout);
     }
     stopItFlag = false;
-    timer = setInterval(checkAndAdd,3000);
     timeout = setTimeout(useFilters, 1000);
 }
 function useFilters() {
@@ -229,6 +228,9 @@ function jsonToAds(response) {
         listenFav();
         changeSize();
     }
+    if (resp.length === 12) {
+        stopItFlag = false;
+    }
     document.getElementsByClassName('filters__preloader')[0].classList.add('filters__preloader_hidden');
-    stopItFlag = false;
+
 }
