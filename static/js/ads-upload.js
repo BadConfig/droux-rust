@@ -104,7 +104,6 @@ function NewSearch() {
         clearTimeout(timeout);
     }
     timer = setInterval(checkAndAdd,3000);
-    console.log('int set')
     timeout = setTimeout(useFilters, 1000);
 }
 function useFilters() {
@@ -170,12 +169,8 @@ function request_part(n, alias) {
 function jsonToAds(response) {
 
     let resp = JSON.parse(response);
-    console.log(resp);
     if (resp.length < 12) {
-        console.log(timer);
-        clearInterval(timer);
-        console.log(timer);
-        console.log('int clear')
+        timer = clearInterval(timer);
     }
     if (resp.length === 0 && portions === 1) {
         let notFound = document.createElement('div');
