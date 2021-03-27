@@ -15,14 +15,14 @@ pub fn send_auth_link(link: String, email: String) {
     use lettre::{Message, SmtpTransport, Transport};
 
     let email = Message::builder()
-    .from("drouxgroup@gmail.com".parse().unwrap())
+    .from("noreply@droux.ru".parse().unwrap())
   //  .reply_to(email.parse().unwrap())
     .to(email.parse().unwrap())
     .subject("Verify your account")
     .body(link)
     .unwrap();
 
-    let creds = Credentials::new("noreply@droux.ru".to_string(), 
+    let creds = Credentials::new("drouxgroup@gmail.com".to_string(), 
         "X5GYebjMARCR8".to_string());
 
     // Open a remote connection to gmail
