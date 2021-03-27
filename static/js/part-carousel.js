@@ -1,3 +1,11 @@
+document.getElementById('for_male').addEventListener('click', (e) => {
+    document.location.href = "/filters?limit=12&offset=0&prod_type_id=1";
+})
+
+document.getElementById('for_female').addEventListener('click', (e) => {
+    document.location.href = "/filters?limit=12&offset=0&prod_type_id=2";
+})
+
 let parts = document.getElementsByClassName('part');
 let adsCount = [];
 let currentFirstAd =[];
