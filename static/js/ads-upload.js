@@ -101,6 +101,7 @@ headerSearchField.addEventListener('input', NewSearch);
 headerSearchButton.addEventListener('click', NewSearch);
 let timeout = 0;
 function NewSearch() {
+    console.log('NewSearch');
     if (timeout != 0) {
         timeout = clearTimeout(timeout);
     }
