@@ -622,7 +622,7 @@ input[type=checkbox] + label {
 }
 
 
-.sign-up__bottom-text {
+.sign-up__bottom-text, .sign-in__bottom-text {
     font-size: 9px;
     color: #747474;
     margin-bottom: -10px;
@@ -637,6 +637,15 @@ input[type=checkbox] + label {
 
 .authorizer__window .authorizer__form .authorizer__input_failed + .sign-up__bottom-text {
     color: red;
+}
+
+.authorizer__window .authorizer__form .authorizer__input_failed + .sign-in__bottom-text {
+    display: block;
+    color: red
+}
+
+.authorizer__window .authorizer__form input:not(.authorizer__input_failed) + .sign-in__bottom-text {
+    display: none;
 }
 
 .footer__media-links-div {
