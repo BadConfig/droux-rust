@@ -27,12 +27,12 @@
    <main class="main">
         <div class="photos container">
             <div class="photos__male">
-                <a href="/filters?limit=12&offset=0&prod_type_id=1" photos__link photos__link_male>
+                <a href="/filters?limit=12&offset=0&prod_type_id=1" class="photos__link photos__link_male">
                     <span>ДЛЯ МУЖЧИН</span>
                 </a>
             </div>
             <div class="photos__female">
-                <a href="/filters?limit=12&offset=0&prod_type_id=2" photos__link photos__link_female>
+                <a href="/filters?limit=12&offset=0&prod_type_id=2" class="photos__link photos__link_female">
                     <span>ДЛЯ ЖЕНЩИН</span>
                 </a>
             </div>
