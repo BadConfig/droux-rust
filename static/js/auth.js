@@ -121,8 +121,8 @@ function AllowReg() {
     }
 }
 
-const signInLogin = document.querySelector('.sign-in__login');
-const signInPassword = document.querySelector('.sign-in__password');
+const signInLogin = document.querySelector('#sign-in__login');
+const signInPassword = document.querySelector('#sign-in__password');
 
 signInLogin.addEventListener('click', removeError);
 signInPassword.addEventListener('click', removeError);
@@ -132,4 +132,4 @@ function removeError() {
     signInPassword.classList.remove('authorizer__input_failed');
 }
 
-alert('ПАЙПЛАЙНЫ СНОВА В СТРОЮ!');
+
