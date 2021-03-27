@@ -34,9 +34,6 @@
         </div>
         <div class="chat__field">
             <div class="chat__messages">
-             {% if messages | length == 0 %}
-                <div class="messages_empty">Помните, при переходе в другой мессенджер мы не сможем обезопасить вас от мошенничества </div>
-               {% endif %}
             {% for msg in messages %}
                 {% if msg.from_user_id == user.id %}
                     <div class="chat__message-div chat__message-div_author_user 
