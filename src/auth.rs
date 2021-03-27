@@ -6,6 +6,7 @@ use diesel::PgConnection;
 use rand::{thread_rng, Rng};
 use rand::distributions::Alphanumeric;
 
+use maud::html;
 use data_encoding::HEXUPPER;
 use ring::digest::{Context, SHA256};
 
@@ -15,6 +16,22 @@ pub fn send_auth_link(link: String, email: String, username: String) {
     use lettre::{Message, SmtpTransport, Transport};
     use lettre::message::{header, MultiPart, SinglePart};
 
+    let html = html! {
+        head {
+            title { "Подтверждение почты" }
+            style type="text/css" {
+                "h2, h4 { font-family: Arial, Helvetica, sans-serif; }"
+            }
+        }
+        div style="display: flex; flex-direction: column; align-items: center;" {
+            h2 { "Добрый день" (username) }
+            p {
+                "Чтобы обезопасить свой аккаунт Вам необходимо подтвердить адрес электронной почты, указанный при регистрации профиля."
+                a href={"https://droux.ru" (link)} { "maud" }
+                "Если вы уже подтвердили адрес электронной почты, Вы можете начать использовать весь функционал нашей платформы, подтверждать его снова не нужно."
+            }
+        }
+    };
 
     let html = format!(r#"<!DOCTYPE html>
 <html lang="en">
