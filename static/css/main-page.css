@@ -270,6 +270,8 @@ a .photos__female img {
     position: absolute;
     width: calc(50% - 5px);
     padding-top: 46%;
+    background-size: 120%;
+    background-position: center;
 }
 
 .photos__link_male {

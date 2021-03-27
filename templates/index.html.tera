@@ -26,16 +26,12 @@
 {% block main %}
    <main class="main">
         <div class="photos container">
-            <div class="photos__male">
                 <a href="/filters?limit=12&offset=0&prod_type_id=1" class="photos__link photos__link_male">
                     <span>ДЛЯ МУЖЧИН</span>
                 </a>
-            </div>
-            <div class="photos__female">
                 <a href="/filters?limit=12&offset=0&prod_type_id=2" class="photos__link photos__link_female">
                     <span>ДЛЯ ЖЕНЩИН</span>
                 </a>
-            </div>
             <div class="photos__buttons">
                 <h1>Первый сервис для покупки<br>и перепродажи брендовых вещей в России</h1>
                 <a href="/for_customer" class="button photos-buttons__button photos-buttons__button_seller">Для покупателей</a>
