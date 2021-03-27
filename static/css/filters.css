@@ -147,6 +147,7 @@ aside.sort-by {
 #not_found {
     font-size: 16px;
     text-align: center;
+    margin: auto;
 }
 #not_found > p {
     color: #747474;
