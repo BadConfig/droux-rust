@@ -66,7 +66,9 @@ function checkAndAdd() {
             setTimeout(() => {
                 document.getElementsByClassName('filters__preloader')[0].classList.add('filters__preloader_hidden');
                 jsonToAds(request.response);
-                changeSize();
+                if (request.response.length > 0) {
+                    changeSize();
+                }
             }, 1000);
         }
     }
@@ -170,7 +172,7 @@ function jsonToAds(response) {
     let resp = JSON.parse(response);
     console.log(resp);
     if (resp.length < 12) {
-        clearInterval(timer);
+        timer = null;
         console.log('int clear')
     }
     if (resp.length === 0 && portions === 1) {
