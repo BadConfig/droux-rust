@@ -47,12 +47,10 @@ for (let i = 0; i < subcategories.length; i++) {
     }
 }
 
-const preloader = document.getElementsByClassName("filters__preloader")[0];
-
 function checkAndAdd() {
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
-        preloader.classList.toggle('filters__preloader_hidden');
+        document.getElementsByClassName('filters__preloader')[0].classList.remove('filters__preloader_hidden');
         stopItFlag = true;
         let request = new XMLHttpRequest();
         request.open("POST", '/filters/lots', true);
@@ -66,9 +64,11 @@ function checkAndAdd() {
         portions+=1;
         request.onload = function() {
             setTimeout(() => {
-                preloader.classList.toggle('filters__preloader_hidden');
+                document.getElementsByClassName('filters__preloader')[0].classList.add('filters__preloader_hidden');
                 jsonToAds(request.response);
-                changeSize();
+                if (request.response.length > 0) {
+                    changeSize();
+                }
             }, 1000);
         }
     }
@@ -76,7 +76,7 @@ function checkAndAdd() {
 
 let filters = document.getElementsByClassName('filters__sector-options');
 for (let i = 0; i < filters.length; i++) {
-    let options = filters[i].querySelectorAll('input[type="radio"]');
+    let options = filters[i].querySelectorAll('input[type="checkbox"]');
     for (let j = 0; j < options.length; j++) {
         options[j].addEventListener('change', NewSearch);
     }
@@ -101,9 +101,9 @@ headerSearchButton.addEventListener('click', NewSearch);
 let timeout = 0;
 function NewSearch() {
     if (timeout != 0) {
-        clearTimeout(timeout);
+        timeout = clearTimeout(timeout);
     }
-    timer = setInterval(checkAndAdd,3000);
+    stopItFlag = false;
     timeout = setTimeout(useFilters, 1000);
 }
 function useFilters() {
@@ -111,24 +111,14 @@ function useFilters() {
     stopItFlag = true;
     portions = 0;
     body = 'limit=12';
-    if (filters[0].querySelector('input:checked') != null) {
-        body += '&prod_type_id=' + filters[0].querySelector('input:checked').value;
-    }
-    if (filters[1].querySelector('input:checked') != null) {
-        body += '&category_id=' + filters[1].querySelector('input:checked').value;
-    }
-    if (filters[2].querySelector('input:checked') != null) {
-        body += '&subcategory_id=' + filters[2].querySelector('input:checked').value;
-    }
-    if (filters[3].querySelector('input:checked') != null) {
-        body += '&prod_brand_id=' + filters[3].querySelector('input:checked').value;
-    }
-    if (filters[4].querySelector('input:checked') != null) {
-        body += '&prod_size_id=' + filters[4].querySelector('input:checked').value;
-    }
-    if (filters[5].querySelector('input:checked') != null) {
-        body += '&product_state_id=' + filters[5].querySelector('input:checked').value;
-    }
+
+    request_part(0, 'prod_type_id');
+    request_part(1, 'category_id');
+    request_part(2, 'subcategory_id');
+    request_part(3, 'prod_brand_id');
+    request_part(4, 'prod_size_id');
+    request_part(5, 'product_state_id');
+
     if (document.documentElement.clientWidth >= 1200) {
         body += '&order_by=' + sort.querySelector('input:checked').value;
     } else {
@@ -143,6 +133,12 @@ function useFilters() {
     searchResults.className = 'search-results';
     let main = document.querySelector('main');
     main.append(searchResults);
+    let preloader = document.createElement('img');
+    preloader.src = '/static/assets/preloader.svg';
+    preloader.className = 'filters__preloader';
+    preloader.alt = 'preloader';
+    let search_results = document.querySelector('.search-results');
+    search_results.append(preloader);
     let request = new XMLHttpRequest();
     request.open("POST", '/filters/lots', true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -155,11 +151,32 @@ function useFilters() {
 
 }
 
+function request_part(n, alias) {
+    let filters_block_checked = filters[n].querySelectorAll('input:checked');
+    if (filters_block_checked != null) {
+        body += '&' + alias + '=';
+        let len = filters_block_checked.length;
+        for (let i = 0; i < len; i++) {
+            body += filters_block_checked[i].value;
+            if (i < len - 1) {
+                body += ','
+            }
+        }
+    }
+}
+
 
 function jsonToAds(response) {
+
     let resp = JSON.parse(response);
     if (resp.length < 12) {
-        clearInterval(timer);
+        stopItFlag = true;
+    }
+    if (resp.length === 0 && portions === 1) {
+        let notFound = document.createElement('div');
+        notFound.innerHTML='По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p>';
+        notFound.id = 'not_found';
+        document.getElementsByClassName('search-results')[0].append(notFound);
     }
     for (let i = 0; i < resp.length; i++) {
         let newAd = document.createElement('div');
@@ -202,12 +219,16 @@ function jsonToAds(response) {
         } else {
             newAd.querySelector('.ad__favourite-icon-img_empty').classList.add('fav-icon_active');
         }
-        searchResults.insertBefore(newAd, preloader);
+        searchResults.insertBefore(newAd, document.getElementsByClassName('filters__preloader')[0]);
     }
     if (resp.length > 0) {
         checkAds();
         listenFav();
         changeSize();
     }
-    stopItFlag = false;
+    if (resp.length === 12) {
+        stopItFlag = false;
+    }
+    document.getElementsByClassName('filters__preloader')[0].classList.add('filters__preloader_hidden');
+
 }

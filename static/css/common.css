@@ -622,7 +622,7 @@ input[type=checkbox] + label {
 }
 
 
-.sign-up__bottom-text {
+.sign-up__bottom-text, .sign-in__bottom-text {
     font-size: 9px;
     color: #747474;
     margin-bottom: -10px;
@@ -637,6 +637,15 @@ input[type=checkbox] + label {
 
 .authorizer__window .authorizer__form .authorizer__input_failed + .sign-up__bottom-text {
     color: red;
+}
+
+.authorizer__window .authorizer__form .authorizer__input_failed + .sign-in__bottom-text {
+    display: block;
+    color: red
+}
+
+.authorizer__window .authorizer__form input:not(.authorizer__input_failed) + .sign-in__bottom-text {
+    display: none;
 }
 
 .footer__media-links-div {
@@ -851,9 +860,38 @@ input[type=checkbox] + label {
 }
 
 
-@media only screen and (max-width: 510px) {
+@media (max-width: 700px) {
     .services__item {
         font-size: 10px;
+    }
+
+    .dropdown__letter:nth-child(8) ~ .dropdown__letter {
+        display: none;
+    }
+
+    .dropdown__content > a:nth-child(12) ~ a {
+        display: none;
+    }
+
+    .dropdown__content {
+        margin-top: 20px;
+    }
+
+    .dropdown__content_brands {
+        width: 100vw;
+    }
+
+    .dropdown__border-for-brands {
+        width: unset;
+    }
+
+    .dropdown__all-brands {
+        position: static;
+    }
+
+    .dropdown__content a{
+        font-size: 12px;
+        width: 40%;
     }
 }
 

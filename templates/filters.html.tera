@@ -171,5 +171,4 @@
     <script src="/static/js/ads-upload.js"></script>
     <script src="/static/js/favourite.js"></script>
     <script src="/static/js/filters-hide.js"></script>
-    <script src="/static/js/hide-subcat.js"></script>
 {% endblock scripts %}
