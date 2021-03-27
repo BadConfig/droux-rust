@@ -105,6 +105,7 @@ function NewSearch() {
     if (timeout != 0) {
         timeout = clearTimeout(timeout);
     }
+    stopItFlag = false;
     timer = setInterval(checkAndAdd,3000);
     timeout = setTimeout(useFilters, 1000);
 }
@@ -172,7 +173,7 @@ function jsonToAds(response) {
 
     let resp = JSON.parse(response);
     if (resp.length < 12) {
-        clearInterval(timer);
+        stopItFlag = true;
     }
     if (resp.length === 0 && portions === 1) {
         let notFound = document.createElement('div');
