@@ -48,7 +48,6 @@ for (let i = 0; i < subcategories.length; i++) {
 }
 
 function checkAndAdd() {
-    console.log('checkAndAdd');
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
         document.getElementsByClassName('filters__preloader')[0].classList.remove('filters__preloader_hidden');
@@ -101,7 +100,6 @@ headerSearchField.addEventListener('input', NewSearch);
 headerSearchButton.addEventListener('click', NewSearch);
 let timeout = 0;
 function NewSearch() {
-    console.log('NewSearch');
     if (timeout != 0) {
         timeout = clearTimeout(timeout);
     }
@@ -176,7 +174,7 @@ function jsonToAds(response) {
     }
     if (resp.length === 0 && portions === 1) {
         let notFound = document.createElement('div');
-        notFound.innerText='По вашему запросу ничего не найдено. <br> Измените запрос или фильтры';
+        notFound.innerHTML='По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p>';
         notFound.id = 'not_found';
         document.getElementsByClassName('search-results')[0].append(notFound);
     }
