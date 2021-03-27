@@ -1,0 +1,14 @@
+{% extends "main" %}
+{% block head %}
+    <link rel="stylesheet" href="/static/css/ad.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/profile.css">
+    <link rel="stylesheet" href="/static/css/product.css">
+    <meta charset="UTF-8">
+    <title>Email veification</title>
+{% endblock head %}
+{% block main %}
+	Account verification link was sent to your email
+{% endblock main %}
+{% block scripts %}
+{% endblock scripts %}
