@@ -27,7 +27,7 @@ pub fn send_auth_link(link: String, email: String, username: String) {
 <body>
     <div style="display: flex; flex-direction: column; align-items: center;">
         <p>Добрый день, {}\nЧтобы обезопасить свой аккаунт Вам необходимо подтвердить адрес электронной почты, указанный при регистрации профиля.
-<a href=\"https://droux.ru{}\">cсылкa для подтверждения</a>
+<a href="https://droux.ru{}">cсылкa для подтверждения</a>
 Если вы уже подтвердили адрес электронной почты, Вы можете начать использовать 
 весь функционал нашей платформы, подтверждать его снова не нужно.</p>
     </div>
@@ -54,7 +54,7 @@ pub fn send_auth_link(link: String, email: String, username: String) {
                         .header(header::ContentType(
                             "text/html; charset=utf8".parse().unwrap(),
                         ))
-                        .body(String::from(html)),
+                        .body(html),
                 ),
         )
     .unwrap();
