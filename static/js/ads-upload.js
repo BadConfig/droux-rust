@@ -1,6 +1,6 @@
 let searchResults = document.querySelector('.search-results');
 
-var timer = setInterval(checkAndAdd,3000);
+let timer = setInterval(checkAndAdd,3000);
 
 let portions = 1;
 let filtersActive = false;
@@ -172,7 +172,7 @@ function jsonToAds(response) {
 
     let resp = JSON.parse(response);
     if (resp.length < 12) {
-        timer = clearInterval(timer);
+        clearInterval(timer);
     }
     if (resp.length === 0 && portions === 1) {
         let notFound = document.createElement('div');
