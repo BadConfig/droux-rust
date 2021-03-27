@@ -102,6 +102,7 @@ function NewSearch() {
         clearTimeout(timeout);
     }
     timer = setInterval(checkAndAdd,3000);
+    console.log('int set')
     timeout = setTimeout(useFilters, 1000);
 }
 function useFilters() {
