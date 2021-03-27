@@ -171,7 +171,7 @@ function jsonToAds(response) {
     if (resp.length < 12) {
         clearInterval(timer);
     }
-    if (resp.length === 0 && portions === 0) {
+    if (resp.length === 0 && portions === 1) {
         let notFound = document.createElement('div');
         notFound.innerText='По вашему запросу ничего не найдено. <br> Измените запрос или фильтры';
         notFound.id = 'not_found';
