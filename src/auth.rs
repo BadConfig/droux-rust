@@ -5,7 +5,6 @@ extern crate rand;
 use diesel::PgConnection;
 use rand::{thread_rng, Rng};
 use rand::distributions::Alphanumeric;
-use maud::html;
 
 use data_encoding::HEXUPPER;
 use ring::digest::{Context, SHA256};
@@ -46,7 +45,7 @@ pub fn send_auth_link(link: String, email: String, username: String) {
                         .header(header::ContentType(
                             "text/plain; charset=utf8".parse().unwrap(),
                         ))
-                        .body(format!("VERIFY LINK: {}",link)), 
+                        .body(format!("VERIFY LINK: {}",link).to_string()), 
                         // Every message should have a plain text fallback.
                 )
                 .singlepart(
@@ -54,7 +53,7 @@ pub fn send_auth_link(link: String, email: String, username: String) {
                         .header(header::ContentType(
                             "text/html; charset=utf8".parse().unwrap(),
                         ))
-                        .body(html),
+                        .body(html.to_string()),
                 ),
         )
     .unwrap();
