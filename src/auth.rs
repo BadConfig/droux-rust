@@ -22,7 +22,7 @@ pub fn send_auth_link(link: String, email: String) {
     .body(link)
     .unwrap();
 
-    let creds = Credentials::new("drouxgroup@gmail.com".to_string(), 
+    let creds = Credentials::new("noreply@droux.ru".to_string(), 
         "X5GYebjMARCR8".to_string());
 
     // Open a remote connection to gmail
