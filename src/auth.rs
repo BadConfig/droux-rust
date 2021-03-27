@@ -17,14 +17,12 @@ pub fn send_auth_link(link: String, email: String, username: String) {
     println!("email: {}",email);
     let email = Message::builder()
     .from("noreply@droux.ru".parse().unwrap())
-  //  .reply_to(email.parse().unwrap())
     .to(email.parse().unwrap())
     .subject("Verify your account")
-    .body(format!("Добрый день, {}\nЧтобы обезопасить свой аккаунт Вам необходимо \
-    подтвердить адрес электронной почты, указанный при регистрации профиля.
-    <a href=\"https://droux.ru{}\">cсылкa для подтверждения</href>
-    Если вы уже подтвердили адрес электронной почты, Вы можете начать использовать \
-    весь функционал нашей платформы, подтверждать его снова не нужно.",username,link))
+    .body(format!("Добрый день, {}\nЧтобы обезопасить свой аккаунт Вам необходимо подтвердить адрес электронной почты, указанный при регистрации профиля.
+<a href=\"https://droux.ru{}\">cсылкa для подтверждения</a>
+Если вы уже подтвердили адрес электронной почты, Вы можете начать использовать 
+весь функционал нашей платформы, подтверждать его снова не нужно.",username,link))
     .unwrap();
 
     let creds = Credentials::new("drouxgroup@gmail.com".to_string(), 
