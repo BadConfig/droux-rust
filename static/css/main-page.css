@@ -424,5 +424,8 @@ a .photos__female img {
     .show-all_news {
         margin-top: 30px;
     }
+    .photos__link > span {
+        font-size: 20px;
+    }
 }
 
