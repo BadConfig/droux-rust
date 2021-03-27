@@ -48,6 +48,7 @@ for (let i = 0; i < subcategories.length; i++) {
 }
 
 function checkAndAdd() {
+    console.log('checkAndAdd');
     let currentBottom = document.documentElement.getBoundingClientRect().bottom;
     if ((currentBottom < document.documentElement.clientHeight + 450) && (!stopItFlag)){
         document.getElementsByClassName('filters__preloader')[0].classList.remove('filters__preloader_hidden');
@@ -101,7 +102,7 @@ headerSearchButton.addEventListener('click', NewSearch);
 let timeout = 0;
 function NewSearch() {
     if (timeout != 0) {
-        clearTimeout(timeout);
+        timeout = clearTimeout(timeout);
     }
     timer = setInterval(checkAndAdd,3000);
     timeout = setTimeout(useFilters, 1000);
