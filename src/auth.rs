@@ -5,6 +5,7 @@ extern crate rand;
 use diesel::PgConnection;
 use rand::{thread_rng, Rng};
 use rand::distributions::Alphanumeric;
+use maud::html;
 
 use data_encoding::HEXUPPER;
 use ring::digest::{Context, SHA256};
@@ -13,16 +14,49 @@ pub fn send_auth_link(link: String, email: String, username: String) {
     
     use lettre::transport::smtp::authentication::Credentials;
     use lettre::{Message, SmtpTransport, Transport};
+    use lettre::message::{header, MultiPart, SinglePart};
+
+
+    let html = format!(r#"<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello from Lettre!</title>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <p>Добрый день, {}\nЧтобы обезопасить свой аккаунт Вам необходимо подтвердить адрес электронной почты, указанный при регистрации профиля.
+<a href=\"https://droux.ru{}\">cсылкa для подтверждения</a>
+Если вы уже подтвердили адрес электронной почты, Вы можете начать использовать 
+весь функционал нашей платформы, подтверждать его снова не нужно.</p>
+    </div>
+</body>
+</html>"#,username,link);
 
     println!("email: {}",email);
     let email = Message::builder()
     .from("noreply@droux.ru".parse().unwrap())
     .to(email.parse().unwrap())
     .subject("Verify your account")
-    .body(format!("Добрый день, {}\nЧтобы обезопасить свой аккаунт Вам необходимо подтвердить адрес электронной почты, указанный при регистрации профиля.
-<a href=\"https://droux.ru{}\">cсылкa для подтверждения</a>
-Если вы уже подтвердили адрес электронной почты, Вы можете начать использовать 
-весь функционал нашей платформы, подтверждать его снова не нужно.",username,link))
+    .multipart(
+            MultiPart::alternative() // This is composed of two parts.
+                .singlepart(
+                    SinglePart::builder()
+                        .header(header::ContentType(
+                            "text/plain; charset=utf8".parse().unwrap(),
+                        ))
+                        .body(format!("VERIFY LINK: {}",link)), 
+                        // Every message should have a plain text fallback.
+                )
+                .singlepart(
+                    SinglePart::builder()
+                        .header(header::ContentType(
+                            "text/html; charset=utf8".parse().unwrap(),
+                        ))
+                        .body(String::from(html)),
+                ),
+        )
     .unwrap();
 
     let creds = Credentials::new("drouxgroup@gmail.com".to_string(), 
