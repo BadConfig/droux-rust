@@ -173,6 +173,7 @@ function jsonToAds(response) {
         let notFound = document.createElement('div');
         notFound.innerText='По вашему запросу ничего не найдено. <br> Измените запрос или фильтры';
         notFound.id = 'not_found';
+        document.getElementsByClassName('search-results')[0].append(notFound);
     }
     for (let i = 0; i < resp.length; i++) {
         let newAd = document.createElement('div');
