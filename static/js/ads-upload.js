@@ -170,6 +170,7 @@ function jsonToAds(response) {
     console.log(resp);
     if (resp.length < 12) {
         clearInterval(timer);
+        console.log('int clear')
     }
     if (resp.length === 0 && portions === 1) {
         let notFound = document.createElement('div');
