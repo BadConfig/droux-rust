@@ -780,6 +780,13 @@
     color: white;
 }
 
+.messages_empty {
+    text-align: center;
+    color: #747474;
+    margin: 40px auto;
+    max-width: 300px;
+}
+
 @media (max-width: 1200px) {
     .profile__content {
         width: 100%;
