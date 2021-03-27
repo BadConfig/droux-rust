@@ -266,6 +266,19 @@ a .photos__female img {
     margin: 50px auto 40px;
 }
 
+.photos__link {
+    position: absolute;
+    width: calc(50% - 5px);
+    padding-top: 46%;
+}
+
+.photos__link_male {
+    background-image: url(../assets/male.jpg);
+}
+
+.photos__link_female {
+    background-image: url(../assets/female.jpg);
+}
 @media (max-width: 1200px) {
 
     .show-all__text {
