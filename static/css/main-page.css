@@ -271,13 +271,18 @@ a .photos__female img {
 }
 
 .photos__link > span {
-    text-align: center;
     z-index: 2;
     color: white;
     font-size: 36px;
     text-shadow: 1px 1px 2px gray;
     position: absolute;
-    top: calc(50% - 18px);
+    text-align: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    top: 0
 }
 
 .photos__link_male {
