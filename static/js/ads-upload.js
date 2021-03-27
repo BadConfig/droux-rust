@@ -172,7 +172,8 @@ function jsonToAds(response) {
     let resp = JSON.parse(response);
     console.log(resp);
     if (resp.length < 12) {
-        timer = null;
+        console.log(timer);
+        clearInterval(timer);
         console.log('int clear')
     }
     if (resp.length === 0 && portions === 1) {
