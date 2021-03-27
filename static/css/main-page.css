@@ -38,11 +38,7 @@
 }
 
 .photos__male span, .photos__female span {
-    z-index: 2;
-    color: white;
-    font-size: 36px;
-    text-shadow: 1px 1px 2px gray;
-    position: relative;
+
 }
 
 .photos__buttons {
@@ -271,6 +267,16 @@ a .photos__female img {
     padding-top: 46%;
     background-size: 120%;
     background-position: center;
+    position: relative;
+}
+
+.photos__link > span {
+    text-align: center;
+    z-index: 2;
+    color: white;
+    font-size: 36px;
+    text-shadow: 1px 1px 2px gray;
+    position: relative;
 }
 
 .photos__link_male {
@@ -313,8 +319,7 @@ a .photos__female img {
     }
 
     .photos__male span, .photos__female span {
-        font-size: 20px;
-        text-align: center;
+
     }
 
     .photos__male img, .photos__female img {
