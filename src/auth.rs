@@ -10,48 +10,63 @@ use data_encoding::HEXUPPER;
 use ring::digest::{Context, SHA256};
 
 pub fn send_auth_link(link: String, email: String, username: String) {
-    use maud::html;
+    
+    use lettre::transport::smtp::authentication::Credentials;
+    use lettre::{Message, SmtpTransport, Transport};
+    use lettre::message::{header, MultiPart, SinglePart};
 
-    use lettre::smtp::authentication::Credentials;
-    use lettre::{SmtpClient, Transport};
-    use lettre_email::EmailBuilder;
+    let html = format!(r#"<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello from Lettre!</title>
+</head>
+<body>
+    <p>Добрый день, {}
 
-    let html = html! {
-        head {
-            title { "Подтверждение почты" }
-            style type="text/css" {
-                "h2, h4 { font-family: Arial, Helvetica, sans-serif; }"
-            }
-        }
-        div style="display: flex; flex-direction: column; align-items: center;" {
-            h2 { "Добрый день" (username) }
-            p {
-                "Чтобы обезопасить свой аккаунт Вам необходимо подтвердить адрес электронной почты, указанный при регистрации профиля."
-                a href={"https://droux.ru" (link)} { "maud" }
-                "Если вы уже подтвердили адрес электронной почты, Вы можете начать использовать весь функционал нашей платформы, подтверждать его снова не нужно."
-            }
-        }
-    };
+Чтобы обезопасить свой аккаунт Вам необходимо подтвердить адрес электронной почты, указанный при регистрации профиля.
+    <a href="https://droux.ru{}">Ссылка для подтверждения</a>
+Если вы уже подтвердили адрес электронной почты, Вы можете начать использовать весь функционал нашей платформы, подтверждать его снова не нужно. </p>
+</body>
+</html>"#,username,link);
 
-    println!("msg {:?}",html);
-    let email = EmailBuilder::new()
-    .from("noreply@droux.ru")
-    .to(email)
+    println!("msg {}",html);
+    let email = Message::builder()
+    .from("noreply@droux.ru".parse().unwrap())
+    .to(email.parse().unwrap())
     .subject("Verify your account")
-    .html(html.into_string())
-    .build()
+    .multipart(
+            MultiPart::alternative() // This is composed of two parts.
+                .singlepart(
+                    SinglePart::builder()
+                        .header(header::ContentType(
+                            "text/plain; charset=utf8".parse().unwrap(),
+                        ))
+                        .body(format!("VERIFY LINK: {}",link).to_string()), 
+                        // Every message should have a plain text fallback.
+                )
+                .singlepart(
+                    SinglePart::builder()
+                        .header(header::ContentType(
+                            "text/html; charset=utf8".parse().unwrap(),
+                        ))
+                        .body(html.to_string()),
+                ),
+        )
     .unwrap();
 
     let creds = Credentials::new("drouxgroup@gmail.com".to_string(), 
         "X5GYebjMARCR8".to_string());
 
     // Open a remote connection to gmail
-    let mut mailer = SmtpClient::new_simple("smtp-pulse.com")
+    let mailer = SmtpTransport::relay("smtp-pulse.com")
         .unwrap()
         .credentials(creds)
-        .transport();
+        .build();   
+
     // Send the email
-    match mailer.send(email.into()) {
+    match mailer.send(&email) {
         Ok(_) => println!("Email sent successfully!"),
         Err(e) => panic!("Could not send email: {:?}", e),
     };
