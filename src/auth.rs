@@ -5,6 +5,7 @@ extern crate rand;
 use diesel::PgConnection;
 use rand::{thread_rng, Rng};
 use rand::distributions::Alphanumeric;
+use std::env;
 
 use data_encoding::HEXUPPER;
 use ring::digest::{Context, SHA256};
@@ -15,6 +16,7 @@ pub fn send_auth_link(link: String, email: String, username: String) {
     use lettre::{Message, SmtpTransport, Transport};
     use lettre::message::{header, MultiPart, SinglePart};
 
+    let dom = env::var("SITE_URL").expect("SITE URL NOT SET");
     let html = format!(r#"<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -26,10 +28,10 @@ pub fn send_auth_link(link: String, email: String, username: String) {
     <p>Добрый день, {}
 
 Чтобы обезопасить свой аккаунт Вам необходимо подтвердить адрес электронной почты, указанный при регистрации профиля.
-    <a href="https://droux.ru{}">Ссылка для подтверждения</a>
+    <a href="{}{}">Ссылка для подтверждения</a>
 Если вы уже подтвердили адрес электронной почты, Вы можете начать использовать весь функционал нашей платформы, подтверждать его снова не нужно. </p>
 </body>
-</html>"#,username,link);
+</html>"#,username,dom,link);
 
     println!("msg {}",html);
     let email = Message::builder()

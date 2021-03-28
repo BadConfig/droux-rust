@@ -118,8 +118,10 @@ pub fn verify_link(link: String, conn: crate::db::Conn) -> Redirect {
 
     match activate_user(link, &conn) {
         Ok(()) => Redirect::to("/"),
-        Err(()) => Redirect::to("/"),
+        Err(()) => { 
+            println!("error del link");
+            Redirect::to("/")
+        }
     }
-
 }
 
