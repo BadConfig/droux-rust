@@ -6,15 +6,15 @@ use diesel::PgConnection;
 use rand::{thread_rng, Rng};
 use rand::distributions::Alphanumeric;
 
-use maud::html;
 use data_encoding::HEXUPPER;
 use ring::digest::{Context, SHA256};
 
 pub fn send_auth_link(link: String, email: String, username: String) {
-    
-    use lettre::transport::smtp::authentication::Credentials;
-    use lettre::{Message, SmtpTransport, Transport};
-    use lettre::message::{header, MultiPart, SinglePart};
+    use maud::html;
+
+    use lettre::smtp::authentication::Credentials;
+    use lettre::{SmtpClient, Transport};
+    use lettre_email::EmailBuilder;
 
     let html = html! {
         head {
@@ -33,42 +33,25 @@ pub fn send_auth_link(link: String, email: String, username: String) {
         }
     };
 
-    println!("msg {}",html);
-    let email = Message::builder()
-    .from("noreply@droux.ru".parse().unwrap())
-    .to(email.parse().unwrap())
+    println!("msg {:?}",html);
+    let email = EmailBuilder::new()
+    .from("noreply@droux.ru")
+    .to(email)
     .subject("Verify your account")
-    .multipart(
-            MultiPart::alternative() // This is composed of two parts.
-                .singlepart(
-                    SinglePart::builder()
-                        .header(header::ContentType(
-                            "text/plain; charset=utf8".parse().unwrap(),
-                        ))
-                        .body(format!("VERIFY LINK: {}",link).to_string()), 
-                        // Every message should have a plain text fallback.
-                )
-                .singlepart(
-                    SinglePart::builder()
-                        .header(header::ContentType(
-                            "text/html; charset=utf8".parse().unwrap(),
-                        ))
-                        .body(html.into_string()),
-                ),
-        )
+    .html(html.into_string())
+    .build()
     .unwrap();
 
     let creds = Credentials::new("drouxgroup@gmail.com".to_string(), 
         "X5GYebjMARCR8".to_string());
 
     // Open a remote connection to gmail
-    let mailer = SmtpTransport::relay("smtp-pulse.com")
+    let mut mailer = SmtpClient::new_simple("smtp-pulse.com")
         .unwrap()
         .credentials(creds)
-        .build();   
-
+        .transport();
     // Send the email
-    match mailer.send(&email) {
+    match mailer.send(email.into()) {
         Ok(_) => println!("Email sent successfully!"),
         Err(e) => panic!("Could not send email: {:?}", e),
     };
