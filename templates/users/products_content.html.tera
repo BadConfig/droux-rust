@@ -93,6 +93,7 @@
                     </div>
                 </div>
             {% endfor %}
+            </div>
         <div class="profile-ads content__ads content__ads_deleted">
         {% if deleted_products | length == 0 %}
             <p class="content__empty profile-ads__empty profile-ads__empty_deleted-products">Объявления отсутствуют</p>
