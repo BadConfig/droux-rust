@@ -152,6 +152,12 @@ function useFilters() {
     request.onload = function() {
         jsonToAds(request.response);
     }
+    if ((JSOn.parse(request.response).length === 0) && (portions === 1) && (document.getElementById('not_found') === null) && (document.getElementsByClassName('ad')[0] === null)) {
+        let notFound = document.createElement('div');
+        notFound.innerHTML='По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p>';
+        notFound.id = 'not_found';
+        document.getElementsByClassName('search-results')[0].append(notFound);
+    }
     portions += 1;
     timeout = 0;
 
@@ -229,12 +235,6 @@ function jsonToAds(response) {
     }
     if (resp.length === 12) {
         stopItFlag = false;
-    }
-    if ((resp.length === 0) && (portions === 1) && (document.getElementById('not_found') === null) && (document.getElementsByClassName('ad')[0] === null)) {
-        let notFound = document.createElement('div');
-        notFound.innerHTML='По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p>';
-        notFound.id = 'not_found';
-        document.getElementsByClassName('search-results')[0].append(notFound);
     }
     document.getElementsByClassName('filters__preloader')[0].classList.add('filters__preloader_hidden');
 
