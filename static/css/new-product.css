@@ -577,4 +577,9 @@ input[type=text] {
     .mobile__page_3 {
         position: static;
     }
+
+    .commission-modal {
+        width: 300px;
+        height: unset;
+    }
 }
