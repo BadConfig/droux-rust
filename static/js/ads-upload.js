@@ -151,20 +151,9 @@ function useFilters() {
     request.send(body  + '&offset=' + (12 * portions));
     request.onload = function() {
         jsonToAds(request.response);
+        portions += 1;
+        timeout = 0;
     }
-    console.log(JSON.parse(request.response).length)
-    console.log(portions)
-    console.log(document.getElementById('not_found'))
-    console.log(document.getElementsByClassName('ad').length)
-    if ((JSON.parse(request.response).length === 0) && (portions === 0) && (document.getElementById('not_found') === null) && (document.getElementsByClassName('ad').length === 0)) {
-        let notFound = document.createElement('div');
-        notFound.innerHTML='По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p>';
-        notFound.id = 'not_found';
-        document.getElementsByClassName('search-results')[0].append(notFound);
-    }
-    portions += 1;
-    timeout = 0;
-
 }
 
 function request_part(n, alias) {
@@ -239,6 +228,17 @@ function jsonToAds(response) {
     }
     if (resp.length === 12) {
         stopItFlag = false;
+    }
+
+    console.log(resp.length)
+    console.log(portions)
+    console.log(document.getElementById('not_found'))
+    console.log(document.getElementsByClassName('ad').length)
+    if ((resp.length === 0) && (portions === 0) && (document.getElementById('not_found') === null) && (document.getElementsByClassName('ad').length === 0)) {
+        let notFound = document.createElement('div');
+        notFound.innerHTML='По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p>';
+        notFound.id = 'not_found';
+        document.getElementsByClassName('search-results')[0].append(notFound);
     }
     document.getElementsByClassName('filters__preloader')[0].classList.add('filters__preloader_hidden');
 
