@@ -341,10 +341,6 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
     display: none;
 }
 
-.authorizer input[type=text] {
-    text-transform: lowercase;
-}
-
 .authorizer_visible {
     display: block;
 }
