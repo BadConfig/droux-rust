@@ -50,7 +50,7 @@
         </div>
         <div class="ad__name-and-size">
             <a href="/product/{{ ad.id }}" class="ad__name">{{ ad.title }}</a>
-            <span class="ad__size">{% if ad.size_name == "no size"%}OS{% else %} {{ ad.size_name }} {% endif %}</span>
+            <span class="ad__size">{% if ad.size_name == "one size"%}OS{% else %} {{ ad.size_name }} {% endif %}</span>
         </div>
         <div class="ad__category">{{ ad.category_name }}</div>
         <div class="ad__price">{{ ad.price }}₽</div>
