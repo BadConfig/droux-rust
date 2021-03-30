@@ -736,7 +736,7 @@
 }
 
 .cropper__main {
-    height: calc(100% - 40px - 65px)!important;
+    height: calc(100% - 80px - 65px)!important;
 }
 
 .cropper__header {
@@ -942,7 +942,7 @@
     font-size: 14px;
     color: #949494;
     text-align: center;
-    margin-top: 31%;
+    margin: 31% auto;
 }
 
 
