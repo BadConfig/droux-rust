@@ -22,7 +22,6 @@ if (address.includes("order_by=Date")) {
 if (address.includes('search_string=') && (address.includes('search_string=&') === false)) {
     filtersActive = true;
     body = address.slice(address.indexOf('?')+1);
-    console.log(body);
 }
 
 if (address.includes("prod_type_id=1")) {
@@ -177,7 +176,6 @@ function jsonToAds(response) {
     if (resp.length < 12) {
         stopItFlag = true;
     }
-    console.log(resp.length, portions);
     for (let i = 0; i < resp.length; i++) {
         let newAd = document.createElement('div');
         let adLink = '/product/' + resp[i].id
@@ -230,10 +228,6 @@ function jsonToAds(response) {
         stopItFlag = false;
     }
 
-    console.log(resp.length)
-    console.log(portions)
-    console.log(document.getElementById('not_found'))
-    console.log(document.getElementsByClassName('ad').length)
     if ((resp.length === 0) && (portions === 0) && (document.getElementById('not_found') === null) && (document.getElementsByClassName('ad').length === 0)) {
         let notFound = document.createElement('div');
         notFound.innerHTML='По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p>';
