@@ -26,13 +26,13 @@ a {
     color: black;
 }
 
-input[type=checkbox], input[type=radio] {
+input[type=checkbox], .promotion input[type=radio] {
     position: absolute;
     opacity: 0;
     z-index: -1;
 }
 
-input[type=checkbox] + label::before, input[type=radio] + label::before {
+input[type=checkbox] + label::before, .promotion input[type=radio] + label::before {
     display: block;
     border: 1px solid black;
     min-width: 14px;
@@ -44,11 +44,11 @@ input[type=checkbox] + label::before, input[type=radio] + label::before {
     background-repeat: no-repeat;
     cursor: pointer;
 }
-input[type=checkbox]:checked + label::before, input[type=radio]:checked + label::before {
+input[type=checkbox]:checked + label::before, .promotion input[type=radio]:checked + label::before {
     background-image: url('../assets/check.svg');
 }
 
-input[type=checkbox] + label, input[type=radio] + label {
+input[type=checkbox] + label, .promotion input[type=radio] + label {
     display: flex;
     align-items: center;
 }
