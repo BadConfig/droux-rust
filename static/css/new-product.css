@@ -583,7 +583,7 @@ input[type=text] {
         height: unset;
     }
 
-    .commission-modal p {
+    .commission-modal__paragraph {
         font-size: 12px;
     }
 
