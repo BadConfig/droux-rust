@@ -152,7 +152,7 @@ function useFilters() {
     request.onload = function() {
         jsonToAds(request.response);
     }
-    if ((JSOn.parse(request.response).length === 0) && (portions === 0) && (document.getElementById('not_found') === null) && (document.getElementsByClassName('ad').length === 0)) {
+    if ((JSON.parse(request.response).length === 0) && (portions === 0) && (document.getElementById('not_found') === null) && (document.getElementsByClassName('ad').length === 0)) {
         let notFound = document.createElement('div');
         notFound.innerHTML='По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p>';
         notFound.id = 'not_found';
