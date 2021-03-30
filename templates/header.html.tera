@@ -106,7 +106,7 @@
                     authorizer__form_visible 
                 {% endif %}" action="/login" method="POST">
                 <label for="sign-in__login">Логин</label>
-                <input type="text" pattern="[a-z]" id="sign-in__login" name="login" {% if login_fail %}class="authorizer__input_failed"{% endif %}>                <label for="sign-in__password">Пароль</label>
+                <input type="text" id="sign-in__login" name="login" {% if login_fail %}class="authorizer__input_failed"{% endif %}>                <label for="sign-in__password">Пароль</label>
                 <input type="password" id="sign-in__password" name="pass" {% if login_fail %}class="authorizer__input_failed"{% endif %}>
                 <span class="sign-in__bottom-text">Неверный логин/пароль</span>
                 <div class="sign-in__remember-and-forget">
@@ -122,7 +122,7 @@
                     authorizer__form_visible 
                 {% endif %}" action="/register" method="POST">
                 <label for="sign-up__login">Логин</label>
-                <input type="text" pattern="[a-z]" id="sign-up__login" name="username">
+                <input type="text" id="sign-up__login" name="username">
                 <span class="sign-up__bottom-text">*Необходимо ввести логин на английском языке и только прописными буквами</span>
                 <label for="sign-up__email">Адрес электронной почты</label>
                 <input type="text" id="sign-up__email" name="email">
