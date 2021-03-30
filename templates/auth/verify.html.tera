@@ -8,7 +8,11 @@
     <title>Email veification</title>
 {% endblock head %}
 {% block main %}
-	Account verification link was sent to your email
+<main class="main">
+    <div class="verification container">
+	    Ссылка для верификации аккаунта была отправлена Вам на почту
+	</div>
+</main>
 {% endblock main %}
 {% block scripts %}
 {% endblock scripts %}
