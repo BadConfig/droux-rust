@@ -173,8 +173,8 @@ function jsonToAds(response) {
         stopItFlag = true;
     }
     console.log(resp.length, portions);
-    
-    if ((resp.length === 0) && (portions === 0)) {
+
+    if ((resp.length === 0) && (portions === 1)) {
         let notFound = document.createElement('div');
         notFound.innerHTML='По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p>';
         notFound.id = 'not_found';
