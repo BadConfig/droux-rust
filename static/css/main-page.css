@@ -265,7 +265,7 @@ a .photos__female img {
 .photos__link {
     width: calc(50% - 5px);
     padding-top: 46%;
-    background-size: 120%;
+    background-size: 100%;
     background-position: center;
     position: relative;
     cursor: pointer;
