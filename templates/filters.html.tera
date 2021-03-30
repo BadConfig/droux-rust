@@ -157,6 +157,9 @@
             </aside>
         </div>
         <div class="search-results">
+        {% if FoundProducts | length == 0%}
+            <div id="not_found">По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p></div>
+        {% endif %}
         {% for ad in FoundProducts %}
             {{prod_inst::instance(ad=ad,seller=false)}}           
         {% endfor %}
