@@ -287,6 +287,7 @@
       <change beforePath="$PROJECT_DIR$/static/product_pictures/2020-11-22 23:26:48.032795335-Тестовое объявление-1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/edit_products.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
@@ -403,7 +404,7 @@
       <workItem from="1616616501727" duration="33171000" />
       <workItem from="1617039280925" duration="3654000" />
       <workItem from="1617064231036" duration="429000" />
-      <workItem from="1617095978931" duration="5420000" />
+      <workItem from="1617095978931" duration="5724000" />
     </task>
     <servers />
   </component>
