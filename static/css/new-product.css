@@ -582,4 +582,12 @@ input[type=text] {
         width: 300px;
         height: unset;
     }
+
+    .commission-modal p {
+        font-size: 12px;
+    }
+
+    .commission-modal__button {
+        width: 100%;
+    }
 }
