@@ -284,7 +284,7 @@ textarea {
 
 .pop-up__cropper-bg {
     width: 90vw;
-    height: 90vh;
+    height: 75vh;
     background-color: white;
     border-radius: 10px;
     position: relative;
