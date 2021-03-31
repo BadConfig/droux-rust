@@ -16,6 +16,8 @@ if (field != null) {
 }
 
 const chats = document.getElementsByClassName('dialogue');
-if (chats.length > 0) [...chats].forEach((div) => div.addEventListener('click', () => window.location.assign(
-    div.querySelector('.dialogue__author > a').href
-)));
+if (chats != null) {
+    if (chats.length > 0) [...chats].forEach((div) => div.addEventListener('click', () => window.location.assign(
+        div.querySelector('.dialogue__author > a').href
+    )));
+}
