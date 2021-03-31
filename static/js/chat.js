@@ -12,3 +12,8 @@ for (let i = 0; i < messages.length; i++) {
         flag = 0
     }
 }
+
+let chats = document.getElementsByClassName('dialogue');
+if (chats.length > 0) [...chats].forEach((div) => div.addEventListener('click', () => window.location.assign(
+    div.querySelector('.dialogue__author > a').href
+)));
