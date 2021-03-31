@@ -945,6 +945,9 @@
     margin: 31% auto;
 }
 
+.dialogue {
+    cursor: pointer;
+}
 
 @media (max-width: 460px) {
     .ad__stat {
