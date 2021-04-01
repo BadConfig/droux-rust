@@ -670,10 +670,11 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
 
     .services__container {
         justify-content: center;
+        margin: 0 0 0 5px;
     }
 
-    .services__icon {
-        margin-right: unset;
+    .services__icon:not(.doesntexist) {
+        margin-right: -5px;
     }
 
     .header__base {
