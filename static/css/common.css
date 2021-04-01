@@ -668,7 +668,7 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
         width: 100%;
     }
 
-    .services__container {
+    .services__container:not(.doesntexist) {
         justify-content: center;
         margin: 0 0 0 5px;
     }
