@@ -669,7 +669,11 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
     }
 
     .services__container {
-        justify-content: space-between;
+        justify-content: center;
+    }
+
+    .services__icon {
+        margin: 0;
     }
 
     .header__base {
