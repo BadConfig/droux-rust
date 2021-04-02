@@ -893,8 +893,11 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
 
     .dropdown__content_brands > .dropdown__letter > .dropdown__link {
         width: 100%;
-        margin: 0 0 3px 0;
+        margin: 0 0 5px 0;
+    }
 
+    .dropdown__letter_d {
+        margin-bottom: 30px;
     }
 
     .dropdown__content_brands {
