@@ -680,7 +680,7 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
     .dropdown__content:not(.doesntexist) {
         margin-top: 20px;
         padding-left: 10px;
-        padding-right: 10px;
+        padding-right: 0;
     }
 
     .dropdown__content_brands > .dropdown__letter > .dropdown__link {
