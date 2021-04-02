@@ -716,7 +716,7 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
         font-size: 12px;
         width: 40%;
     }
-    .dropdown__letter:not(.dropdown__letter_last) {
+    .dropdown__letter {
         margin-bottom: 22px;
     }
     
