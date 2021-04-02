@@ -878,6 +878,7 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
 
     .dropdown__letter {
         font-size: 9px;
+        width: calc(33% - 7px);
     }
 
     .dropdown__content > a:nth-child(12) ~ a {
