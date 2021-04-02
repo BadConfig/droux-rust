@@ -738,7 +738,7 @@
     height: 75vh;
 }
 
-.cropper__main {
+.cropper__main:not(.doesntexist) {
     width: 100%;
     height: fit-content;
 }
