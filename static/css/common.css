@@ -662,6 +662,63 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
 
 
 @media (max-width: 1200px) {
+
+    .services__item {
+        font-size: 10px;
+    }
+
+    .dropdown__letter {
+        font-size: 9px;
+        width: 103px;
+        margin-right: 8px
+    }
+
+    .dropdown__content > a:nth-child(12) ~ a {
+        display: none;
+    }
+
+    .dropdown__content {
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .dropdown__content_brands > .dropdown__letter > .dropdown__link {
+        width: 100%;
+        margin: 0 0 5px 0;
+    }
+
+    .dropdown__letter_d {
+        margin-bottom: 30px;
+    }
+    .dropdown__letter_d ~ .dropdown__letter {
+        margin-right: 0;
+        width: 114px;
+    }
+
+    .dropdown__letter_o ~ .dropdown__letter {
+        width: 90px;
+    }
+
+    .dropdown__content_brands {
+        width: 100vw;
+    }
+
+    .dropdown__border-for-brands {
+        width: unset;
+    }
+
+    .dropdown__all-brands {
+        position: static;
+    }
+
+    .dropdown__content a{
+        font-size: 12px;
+        width: 40%;
+    }
+    .dropdown__letter:not(.dropdown__letter_last) {
+        margin-bottom: 22px;
+    }
     
     .container {
         padding: 0 17px;
@@ -872,59 +929,7 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
 
 
 @media (max-width: 700px) {
-    .services__item {
-        font-size: 10px;
-    }
 
-    .dropdown__letter {
-        font-size: 9px;
-        width: 103px;
-        margin-right: 8px
-    }
-
-    .dropdown__content > a:nth-child(12) ~ a {
-        display: none;
-    }
-
-    .dropdown__content {
-        margin-top: 20px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .dropdown__content_brands > .dropdown__letter > .dropdown__link {
-        width: 100%;
-        margin: 0 0 5px 0;
-    }
-
-    .dropdown__letter_d {
-        margin-bottom: 30px;
-    }
-    .dropdown__letter_d ~ .dropdown__letter {
-        margin-right: 0;
-        width: 114px;
-    }
-
-    .dropdown__letter_o ~ .dropdown__letter {
-        width: 90px;
-    }
-
-    .dropdown__content_brands {
-        width: 100vw;
-    }
-
-    .dropdown__border-for-brands {
-        width: unset;
-    }
-
-    .dropdown__all-brands {
-        position: static;
-    }
-
-    .dropdown__content a{
-        font-size: 12px;
-        width: 40%;
-    }
 }
 
 @media (max-width: 430px) {
