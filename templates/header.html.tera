@@ -155,7 +155,7 @@
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1571" class="dropdown__link">Cartier</a>
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1614" class="dropdown__link">Comme De Garçons</a>
                 </div>
-                <div class="dropdown__letter dropdown__letter_last">
+                <div class="dropdown__letter dropdown__letter_last dropdown__letter_d">
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1636" class="dropdown__link">Dior</a>
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1640" class="dropdown__link">Dolce & Gabbana</a>
                 </div>
