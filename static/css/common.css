@@ -683,7 +683,7 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
         padding-right: 0;
     }
 
-    .dropdown__all-brands {
+    .dropdown__all-brands:not(.doesntexist) {
         position: absolute;
         bottom: 0;
         width: 100%;
@@ -715,10 +715,6 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
 
     .dropdown__border-for-brands {
         width: unset;
-    }
-
-    .dropdown__all-brands {
-        position: static;
     }
 
     .dropdown__content a{
