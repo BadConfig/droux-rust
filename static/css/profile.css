@@ -727,16 +727,20 @@
 .cropper__layout_visible {
     display: flex;
     z-index: 25;
+    align-items: center;
+    justify-content: center;
 }
 
 .cropper {
     position: relative;
     background-color: white;
     border-radius: 10px;
+    height: 75vh;
 }
 
 .cropper__main {
-    height: calc(100% - 80px - 65px)!important;
+    width: 100%;
+    height: fit-content;
 }
 
 .cropper__header {
