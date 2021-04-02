@@ -176,7 +176,7 @@
                 <div class="dropdown__letter">
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1932" class="dropdown__link">Nike</a>
                 </div>
-                <div class="dropdown__letter dropdown__letter_last dropdown__letter_d">
+                <div class="dropdown__letter dropdown__letter_last dropdown__letter_o">
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1941" class="dropdown__link">Off-white</a>
                 </div>
                 <div class="dropdown__letter">
