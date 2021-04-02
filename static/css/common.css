@@ -677,7 +677,7 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
         display: none;
     }
 
-    .dropdown__content {
+    .dropdown__content:not(.doesntexist) {
         margin-top: 20px;
         padding-left: 10px;
         padding-right: 10px;
