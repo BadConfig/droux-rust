@@ -878,7 +878,8 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
 
     .dropdown__letter {
         font-size: 9px;
-        width: calc(33% - 7px);
+        width: calc(33% - 10px);
+        margin-right: 10px
     }
 
     .dropdown__content > a:nth-child(12) ~ a {
@@ -898,6 +899,9 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
 
     .dropdown__letter_d {
         margin-bottom: 30px;
+    }
+    .dropdown__letter_d ~ .dropdown__letter {
+        margin-right: 0;
     }
 
     .dropdown__content_brands {
