@@ -905,6 +905,10 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
         width: 114px;
     }
 
+    .dropdown__letter_o ~ .dropdown__letter {
+        width: 90px;
+    }
+
     .dropdown__content_brands {
         width: 100vw;
     }
