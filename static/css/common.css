@@ -878,7 +878,7 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
 
     .dropdown__letter {
         font-size: 9px;
-        width: calc(33% - 7px);
+        width: 103px;
         margin-right: 8px
     }
 
@@ -902,6 +902,7 @@ input[type=checkbox] + label, .promotion input[type=radio] + label {
     }
     .dropdown__letter_d ~ .dropdown__letter {
         margin-right: 0;
+        width: 114px;
     }
 
     .dropdown__content_brands {
