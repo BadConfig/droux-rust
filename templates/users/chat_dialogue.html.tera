@@ -77,4 +77,5 @@
 
 {% block scripts %}
 <script src="/static/js/hide-profile-button-chat.js"></script>
+<script src="/static/js/scroll-dialogue.js"></script>
 {% endblock scripts %}
