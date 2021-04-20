@@ -368,7 +368,8 @@
         width: unset;
     }
     .author__profile-photo {
-        display: none;
+        width: 40px;
+        height: 40px;
     }
     .product__info {
         margin-top: 15px;

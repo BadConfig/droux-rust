@@ -8,12 +8,44 @@ for (let i =0; i < hide_categories.length; i++) {
             styleSheet.id = "js_stylesheet";
             document.body.append(styleSheet);
         }
-        document.getElementById('js_stylesheet').innerHTML = `
-            .filters__checkbox-div_subcategory:not(div[data-parent="${e.currentTarget.value}"]) {
+        let v = e.currentTarget.value;
+        const ss = document.getElementById('js_stylesheet');
+        ss.innerHTML = `
+            .filters__checkbox-div_subcategory:not(div[data-parent="${ v }"]) {
                 display: none;
             }
         `;
+        if ((v !== '3') && (v !== '4')) {
+            ss.innerHTML += `
+                .filters__sector_size .filters__checkbox-div:not(div[data-parent="${ v }"]) {
+                    display: none;
+                }
+            `;
+        } else {
+            ss.innerHTML += `
+                .filters__sector_size .filters__checkbox-div:not(div[data-nosize="true"]) {
+                        display: none;
+                    }
+            `;
+        }
     })
+}
+
+const sizes_div = document.getElementsByClassName('filters__sector_size')[0];
+const sizes_text = sizes_div.getElementsByTagName('label');
+const sizes_size_div = sizes_div.getElementsByClassName('filters__checkbox-div');
+
+for (let i=0; i < sizes_text.length; i++) {
+    let text = sizes_text[i].innerText;
+    if (text !== "one size") {
+        if (text.includes('X') || text.includes('L') || text.includes('M') || text.includes('S')) {
+            sizes_size_div[i].dataset.parent = "1";
+        } else {
+            sizes_size_div[i].dataset.parent = "2";
+        }
+    } else {
+        sizes_size_div[i].dataset.nosize = "true";
+    }
 }
 
 const sectors = document.getElementsByClassName('filters__sector');
@@ -29,7 +61,8 @@ if (document.getElementsByClassName('sort-by__discard')[0] !== null) {
             }
         }
     }
-
-    discardButton.addEventListener('click', discardFilters);
-    discardButtonMobile.addEventListener('click', discardFilters);
+    if (discardButton !== null) {
+        discardButton.addEventListener('click', discardFilters);
+        discardButtonMobile.addEventListener('click', discardFilters);
+    }
 }

@@ -38,11 +38,7 @@
 }
 
 .photos__male span, .photos__female span {
-    z-index: 2;
-    color: white;
-    font-size: 36px;
-    text-shadow: 1px 1px 2px gray;
-    position: relative;
+
 }
 
 .photos__buttons {
@@ -266,6 +262,37 @@ a .photos__female img {
     margin: 50px auto 40px;
 }
 
+.photos__link {
+    width: calc(50% - 5px);
+    padding-top: 46%;
+    background-size: 100%;
+    background-position: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.photos__link > span {
+    z-index: 2;
+    color: white;
+    font-size: 36px;
+    text-shadow: 1px 1px 2px gray;
+    position: absolute;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    top: 0
+}
+
+.photos__link_male {
+    background-image: url(../assets/male.jpg);
+}
+
+.photos__link_female {
+    background-image: url(../assets/female.jpg);
+}
 @media (max-width: 1200px) {
 
     .show-all__text {
@@ -299,8 +326,7 @@ a .photos__female img {
     }
 
     .photos__male span, .photos__female span {
-        font-size: 20px;
-        text-align: center;
+
     }
 
     .photos__male img, .photos__female img {
@@ -398,6 +424,9 @@ a .photos__female img {
 
     .show-all_news {
         margin-top: 30px;
+    }
+    .photos__link > span {
+        font-size: 20px;
     }
 }
 

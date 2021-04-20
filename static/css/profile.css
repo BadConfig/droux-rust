@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
 
 .profile {
-    min-height: 823px;
+    min-height: 50vh;
     padding: 20px 0 26px;
     justify-content: space-between;
     align-items: flex-start;
@@ -74,6 +74,13 @@
     min-height: 48px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__change-photo > a {
+    margin: 15px 0 20px;
 }
 
 .card__nav {
@@ -118,7 +125,6 @@
 
 .content {
     width: 730px;
-    min-height: 777px;
     border: 1px solid black;
     position: relative;
 }
@@ -389,6 +395,7 @@
     width: 100%;
     font-size: 14px;
     padding: 30px 18px 0 19px;
+    overflow: hidden;
 }
 
 .dialogue__photo {
@@ -436,6 +443,7 @@
 
 .dialogue__last-message {
     color: #747474;
+
 }
 
 .my-dialogues__header {
@@ -505,9 +513,9 @@
 }
 
 .chat__field {
-    height: 666px;
     overflow-y: scroll;
     padding: 26px 9px 26px 15px;
+    height: calc(100vh - 420px);
 }
 
 .chat__messages {
@@ -536,6 +544,7 @@
     max-width: 428px;
     background-color: #e9e9e9;
     padding: 12px;
+    word-wrap: break-word;
 }
 
 .chat__companion-photo {
@@ -703,6 +712,85 @@
     font-size: 14px;
 }
 
+.cropper__layout {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-content: center;
+}
+
+.cropper__layout_visible {
+    display: flex;
+    z-index: 25;
+    align-items: center;
+    justify-content: center;
+}
+
+.cropper {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    height: 60vh;
+}
+
+.cropper__main:not(.doesntexist) {
+    width: 100%;
+    height: fit-content;
+}
+
+.cropper__header {
+    height: 40px;
+}
+
+.cropper__cross {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 20px;
+}
+
+.cropper__input {
+    display: none;
+}
+
+.cropper__button {
+    width: 100px;
+    height: 30px;
+    display: block;
+}
+
+.cropper__footer {
+    height: 65px;
+    margin: 0 auto 30px;
+    display: flex;
+    width: 230px;
+    justify-content: space-between;
+}
+
+.change-photo__button {
+    width: 90%;
+    height: 35px;
+    margin-bottom: 15px;
+}
+
+.change-photo__button_change {
+    background-color: black;
+    color: white;
+}
+
+.messages_empty {
+    text-align: center;
+    color: #747474;
+    margin: 40px auto;
+    max-width: 300px;
+}
+
 @media (max-width: 1200px) {
     .profile__content {
         width: 100%;
@@ -842,7 +930,7 @@
     }
 
     .chat {
-        max-height: 90vh;
+
     }
     .other-ad-img {
         top: 0;
@@ -854,6 +942,16 @@
 
 }
 
+.content__empty {
+    font-size: 14px;
+    color: #949494;
+    text-align: center;
+    margin: 31% auto;
+}
+
+.dialogue {
+    cursor: pointer;
+}
 
 @media (max-width: 460px) {
     .ad__stat {

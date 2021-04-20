@@ -59,7 +59,9 @@
                             </a>
                             <span class="author__reg-date">На Droux с {{ seller.register_data | date }}</span>
                         </div>
+                        <a href="/profile/users/{{ seller.id }}/profile">
                         <img src="/static/profile_pictures/{{seller.picture_path}}" alt="" class="author__profile-photo">
+                        </a>
                         <div class="author__stat">
                             <div class="author__rating author__stat-item">
                                 <span class="stat__value">

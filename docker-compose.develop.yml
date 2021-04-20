@@ -8,7 +8,7 @@ services:
     ports:
       - "8001:8000"
     environment:
-      - DATABASE_URL=postgres://docker:docker@postgres1_dev:5432/diesel_db
+      - DATABASE_URL=postgres://docker:sdfjksfu2jkl45g343b@postgres1_dev:5432/diesel_db
       - RETAIL_CRM_API_KEY=qZPXO3WaF2LLQI3YEZHdpJLoYZxhHdzH
       - SBERBANK_USERNAME=T773007004660-api
       - SBERBANK_PASSWORD=T773007004660
@@ -41,7 +41,7 @@ services:
       - "5433:5432"
     environment:
       POSTGRES_DB: diesel_db
-      POSTGRES_PASSWORD: docker
+      POSTGRES_PASSWORD: sdfjksfu2jkl45g343b
       POSTGRES_USER: docker
     networks:
       - app-network

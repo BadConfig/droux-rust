@@ -50,7 +50,7 @@
                         <form class="filters__sector-options">
                             {% for types in ProductTypes %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" name="prod_type_id" value="{{ types.id }}" id="ad_types{{ types.id }}">
+                                    <input type="checkbox" name="prod_type_id" value="{{ types.id }}" id="ad_types{{ types.id }}">
                                     <label for="ad_types{{ types.id }}">{{ types.name }}</label>
                                 </div>                             
                             {% endfor %}
@@ -68,7 +68,7 @@
                             <div class="safari-sucks">
                             {% for categories in ProductCategories %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" name="category_id" value="{{ categories.category_id }}" id="ad_cat{{ categories.category_id }}">
+                                    <input type="checkbox" name="category_id" value="{{ categories.category_id }}" id="ad_cat{{ categories.category_id }}">
                                     <label for="ad_cat{{ categories.category_id }}">{{ categories.category_name }}</label>
                                 </div>                             
                             {% endfor %}
@@ -88,7 +88,7 @@
                             {% for categories in ProductCategories %}
                                 {% for sub_cat in categories.sub_categories %}
                                     <div class="filters__checkbox-div filters__checkbox-div_subcategory" data-parent="{{ categories.category_id }}">
-                                        <input type="radio" name="sub_category_id" value="{{ sub_cat.id }}" id="ad_sub_cat{{ sub_cat.id }}">
+                                        <input type="checkbox" name="sub_category_id" value="{{ sub_cat.id }}" id="ad_sub_cat{{ sub_cat.id }}">
                                         <label for="ad_sub_cat{{ sub_cat.id }}">{{ sub_cat.name }}</label>
                                     </div>           
                                 {% endfor %}   
@@ -109,7 +109,7 @@
                             <div class="safari-sucks">
                             {% for brand in ProductBrands %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" name="prod_brand_id" value="{{ brand.id }}" id="ad_brand{{ brand.id }}">
+                                    <input type="checkbox" name="prod_brand_id" value="{{ brand.id }}" id="ad_brand{{ brand.id }}">
                                     <label for="ad_brand{{ brand.id }}">{{ brand.name }}</label>
                                 </div>                             
                             {% endfor %}
@@ -129,7 +129,7 @@
                             <div class="safari-sucks">
                             {% for size in ProductSizes %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" name="prod_size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
+                                    <input type="checkbox" name="prod_size_id" value="{{ size.id }}" id="ad_size{{ size.id }}">
                                     <label for="ad_size{{ size.id }}">{{ size.name }}</label>
                                 </div>                             
                             {% endfor %}
@@ -147,7 +147,7 @@
                         <form class="filters__sector-options">
                             {% for state in ProductStates %}
                                 <div class="filters__checkbox-div">
-                                    <input type="radio" name="prod_state_id" value="{{ state.id }}" id="ad_state{{ state.id }}">
+                                    <input type="checkbox" name="prod_state_id" value="{{ state.id }}" id="ad_state{{ state.id }}">
                                     <label for="ad_state{{ state.id }}">{{ state.name }}</label>
                                 </div>                             
                             {% endfor %}
@@ -157,9 +157,13 @@
             </aside>
         </div>
         <div class="search-results">
+        {% if FoundProducts | length == 0%}
+            <div id="not_found">По вашему запросу ничего не найдено. <p>Измените запрос или фильтры</p></div>
+        {% endif %}
         {% for ad in FoundProducts %}
             {{prod_inst::instance(ad=ad,seller=false)}}           
         {% endfor %}
+        <img src="/static/assets/preloader.svg" class="filters__preloader filters__preloader_hidden" alt="preloader">
         </div>
     </main>
 {% endblock main %}
@@ -170,5 +174,4 @@
     <script src="/static/js/ads-upload.js"></script>
     <script src="/static/js/favourite.js"></script>
     <script src="/static/js/filters-hide.js"></script>
-    <script src="/static/js/hide-subcat.js"></script>
 {% endblock scripts %}

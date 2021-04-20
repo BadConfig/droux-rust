@@ -284,7 +284,7 @@ textarea {
 
 .pop-up__cropper-bg {
     width: 90vw;
-    height: 90vh;
+    height: 75vh;
     background-color: white;
     border-radius: 10px;
     position: relative;
@@ -385,11 +385,15 @@ textarea {
     margin: 58px 0 20px;
 }
 
-.ad-form__num, .ad-form__email {
+.ad-form__num, .ad-form__city {
     display: flex;
 }
 
-.ad-form__num input[type=text], .ad-form__email input[type=text] {
+.ad-form__city {
+    margin-top: 40px;
+}
+
+.ad-form__num input[type=text], .ad-form__city input[type=text] {
     width: 220px;
 }
 
@@ -441,7 +445,77 @@ input[type=text] {
     overflow: hidden;
 }
 
+.ad-form__city_mobile {
+    display: none;
+}
+
+.commission-modal__layer {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 20;
+}
+
+.commission-modal__layer_visible {
+    display: flex;
+}
+
+
+.commission-modal {
+    width: 750px;
+    height: 450px;
+}
+
+.commission-modal__close{
+    height: 1rem;
+    cursor: pointer;
+}
+
+.commission-modal__header {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    font-size: 0.8rem;
+    align-content: center;
+}
+
+.commission-modal__title {
+    margin: 0;
+}
+
+.commission-modal__content {
+    background-color: white;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
+.commission-modal__button {
+    width: 381px;
+    background-color: black;
+    font-size: 18px;
+    color: white;
+    margin: 25px 0;
+    min-height: 38px;
+}
+
 @media (max-width: 1200px) {
+    .city-mobile-hide {
+        display: none;
+    }
+
+    .ad-form__city_mobile {
+        display: flex;
+    }
+
     .mobile__page {
         width: 100%;
         display: none;
@@ -502,5 +576,18 @@ input[type=text] {
     }
     .mobile__page_3 {
         position: static;
+    }
+
+    .commission-modal {
+        width: 300px;
+        height: unset;
+    }
+
+    .commission-modal__paragraph {
+        font-size: 12px;
+    }
+
+    .commission-modal__button {
+        width: 100%;
     }
 }

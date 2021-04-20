@@ -5,27 +5,64 @@ extern crate rand;
 use diesel::PgConnection;
 use rand::{thread_rng, Rng};
 use rand::distributions::Alphanumeric;
+use std::env;
 
 use data_encoding::HEXUPPER;
 use ring::digest::{Context, SHA256};
 
-pub fn send_auth_link(link: String, email: String) {
+pub fn send_auth_link(link: String, email: String, username: String) {
     
     use lettre::transport::smtp::authentication::Credentials;
     use lettre::{Message, SmtpTransport, Transport};
+    use lettre::message::{header, MultiPart, SinglePart};
 
+    let dom = env::var("SITE_URL").expect("SITE URL NOT SET");
+    let html = format!(r#"<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello from Lettre!</title>
+</head>
+<body>
+    <p>Добрый день, {}
+
+Чтобы обезопасить свой аккаунт Вам необходимо подтвердить адрес электронной почты, указанный при регистрации профиля.
+    <a href="{}{}">Ссылка для подтверждения,</a>
+если вы уже подтвердили адрес электронной почты, Вы можете начать использовать весь функционал нашей платформы, подтверждать его снова не нужно. </p>
+</body>
+</html>"#,username,dom,link);
+
+    println!("msg {}",html);
     let email = Message::builder()
-    .from("DrouxTeam <noreply@droux.ru>".parse().unwrap())
-  //  .reply_to(email.parse().unwrap())
+    .from("noreply@droux.ru".parse().unwrap())
     .to(email.parse().unwrap())
     .subject("Verify your account")
-    .body(link)
+    .multipart(
+            MultiPart::alternative() // This is composed of two parts.
+                .singlepart(
+                    SinglePart::builder()
+                        .header(header::ContentType(
+                            "text/plain; charset=utf8".parse().unwrap(),
+                        ))
+                        .body(format!("VERIFY LINK: {}",link).to_string()), 
+                        // Every message should have a plain text fallback.
+                )
+                .singlepart(
+                    SinglePart::builder()
+                        .header(header::ContentType(
+                            "text/html; charset=utf8".parse().unwrap(),
+                        ))
+                        .body(html.to_string()),
+                ),
+        )
     .unwrap();
 
-    let creds = Credentials::new("noreply@droux.ru".to_string(), "QwErTy_FoR_DrOuX".to_string());
+    let creds = Credentials::new("drouxgroup@gmail.com".to_string(), 
+        "X5GYebjMARCR8".to_string());
 
     // Open a remote connection to gmail
-    let mailer = SmtpTransport::relay("smtp.beget.com")
+    let mailer = SmtpTransport::relay("smtp-pulse.com")
         .unwrap()
         .credentials(creds)
         .build();   

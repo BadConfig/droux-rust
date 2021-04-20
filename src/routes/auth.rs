@@ -101,7 +101,7 @@ pub fn register(form: Form<RegisterForm>, user: CommonUser, conn: crate::db::Con
     print!("url: {}\n",&url);
     //Either::Redirect(Redirect::to(url))
     print!("auth ref: {}",url);
-    crate::auth::send_auth_link(url, form.email.clone());
+    crate::auth::send_auth_link(url, form.email.clone(),form.username.clone());
     Either::Template(Template::render("auth/verify",get_base_context(user, &conn)))
 
 }
@@ -118,8 +118,10 @@ pub fn verify_link(link: String, conn: crate::db::Conn) -> Redirect {
 
     match activate_user(link, &conn) {
         Ok(()) => Redirect::to("/"),
-        Err(()) => Redirect::to("/"),
+        Err(()) => { 
+            println!("error del link");
+            Redirect::to("/")
+        }
     }
-
 }
 

@@ -122,7 +122,7 @@ function MakeMini(){
         type: 'blob',
         size: imageSize,
         format: 'png',
-        quality: 1}).then(function(blob){
+        quality: 0.6}).then(function(blob){
 
         currentLastPhoto += 1;
 
@@ -180,25 +180,21 @@ async function PostProduct() {
     let description = document.getElementsByClassName('ad-form__field-div_description')[0];
     let state = document.getElementsByClassName('ad-form__state')[0];
     let price = document.getElementsByClassName('ad-form__price')[0];
-    let number = document.getElementsByClassName('ad-form__num')[0];
-    let email = document.getElementsByClassName('ad-form__email')[0];
-    console.log('Всё в норме');
+    let city = document.getElementsByClassName('ad-form__city')[0];
 
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
     body.append('category_id', category.querySelector('input:checked').value);
-    console.log('category_id', category.querySelector('input:checked').value);
     body.append('sub_category_id', subcategory.querySelector('input:checked').value);
-    console.log('sub_category_id', subcategory.querySelector('input:checked').value);
     body.append('brand_id', brand.querySelector('input:checked').value);
     body.append('size_id', size.querySelector('input:checked').value);
     body.append('state_id', state.querySelector('input:checked').value);
     body.append('title', name.querySelector('input').value);
     body.append('descr', description.querySelector('textarea').value);
     body.append('price', price.querySelector('input').value);
-    body.append('phone_number', number.querySelector('input').value);
-    body.append('location', email.querySelector('input').value);
+    body.append('location', city.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
+    body.append('phone_number', "Исаков, дай денег");
 
     let photos = document.getElementsByClassName('uploader__frame-img');
     for (let i = 0; i < 10; i++) {
@@ -233,8 +229,7 @@ async function EditProduct() {
     let state = document.getElementsByClassName('ad-form__state')[0];
     let price = document.getElementsByClassName('ad-form__price')[0];
     let number = document.getElementsByClassName('ad-form__num')[0];
-    let email = document.getElementsByClassName('ad-form__email')[0];
-    console.log('Всё в норме');
+    let city = document.getElementsByClassName('ad-form__city')[0];
 
     let body = new FormData();
     body.append('type_id', sex.querySelector('input:checked').value);
@@ -249,7 +244,7 @@ async function EditProduct() {
     body.append('descr', description.querySelector('textarea').value);
     body.append('price', price.querySelector('input').value);
     body.append('phone_number', number.querySelector('input').value);
-    body.append('location', email.querySelector('input').value);
+    body.append('location', city.querySelector('input').value);
     body.append('seller_id', document.querySelector('input[name=\'seller_id\']').value);
 
     let photos = document.getElementsByClassName('uploader__frame-img');
@@ -276,3 +271,22 @@ async function EditProduct() {
     return false;
 }
 
+const commission = document.querySelector('.page-top__commission-info > a');
+
+const commission_close_1 = document.getElementsByClassName('commission-modal__close')[0];
+const commission_close_2 = document.getElementsByClassName('commission-modal__button')[0];
+
+const modal = document.getElementsByClassName('commission-modal__layer')[0];
+
+commission.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('commission-modal__layer_visible');
+});
+
+commission_close_1.addEventListener('click', () => {
+    modal.classList.remove('commission-modal__layer_visible');
+});
+
+commission_close_2.addEventListener('click', () => {
+    modal.classList.remove('commission-modal__layer_visible');
+});

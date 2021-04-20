@@ -33,6 +33,7 @@ serde_json = "1.0"
 chrono = { version = "0.4.10", features = ["serde"] }
 diesel = { version = "1.4.3", features = ["postgres", "chrono"] }
 dotenv = "0.15.0"
+maud = "0.22.1"
 
 [dependencies.rocket_contrib]
 version = "0.4.5"

@@ -28,7 +28,7 @@
             <div class="ad__all-images"> <!--Все фото в линию-->
                 {% for pic_url in ad.pictures %}
                 <a href="/product/{{ ad.id }}">
-                    <img src="/{{pic_url}}" alt="" class="ad__img">
+                    <img src="/{{pic_url}}" loading="lazy" alt="" class="ad__img">
                 </a>
                 {% endfor %}
             </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="ad__name-and-size">
             <a href="/product/{{ ad.id }}" class="ad__name">{{ ad.title }}</a>
-            <span class="ad__size">{{ ad.size_name }}</span>
+            <span class="ad__size">{% if ad.size_name == "one size"%}OS{% else %} {{ ad.size_name }} {% endif %}</span>
         </div>
         <div class="ad__category">{{ ad.category_name }}</div>
         <div class="ad__price">{{ ad.price }}₽</div>

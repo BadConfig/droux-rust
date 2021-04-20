@@ -5,16 +5,21 @@
             <h2 class="content__header my-dialogues__header">Мои сообщения</h2>
         </div>
         <div class="content__dialogues">
+        {% if people_list | length == 0 %}
+            <p class="content__empty profile-ads__empty profile-ads__empty_active-products">Cообщения отсутствуют</p>
+        {% endif %}
             {% for person in people_list %}
                 <div class="content__dialogue dialogue">
                     <img src="{{ person.pr_pictures.0 }}" alt="" class="dialogue__photo">
                     <div class="dialogue__info">
                         <div class="dialogue__string dialogue__info_top">
                             <div class="dialogue__author">
+                            <a href="/chat/{{ person.pr_id }}/{{ person.talker_id }}">
                                 <img src="/static/profile_pictures/{{ person.talker_picture }}" alt="">
-                                    <a href="/chat/{{ person.pr_id }}/{{ person.talker_id }}">
-                                        <span>{{ person.talker_username }}</span>
-                                    </a>
+                            </a>
+                            <a href="/chat/{{ person.pr_id }}/{{ person.talker_id }}">
+                                <span>{{ person.talker_username }}</span>
+                            </a>
                             </div>
                             <div class="dialogue__date">
                             {% if person.last_msg_time %}

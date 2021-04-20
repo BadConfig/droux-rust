@@ -20,10 +20,10 @@
                 <a href="/chat" class="chat__back">
                     <img src="../../static/assets/arrow-left.svg" alt="Кнопка возвращения назад">
                 </a>
-                <a href="" class="chat__author-photo">
+                <a href="../../../profile/users/{{ other_user.id }}/profile" class="chat__author-photo">
                     <img src="/static/profile_pictures/{{ other_user.picture_path}}" alt="">
                 </a>
-                <a href="" class="chat__author-name">
+                <a href="../../../profile/users/{{ other_user.id }}/profile" class="chat__author-name">
                     <span>{{ other_user.username }}</span>
                 </a>
             </div>
@@ -34,6 +34,9 @@
         </div>
         <div class="chat__field">
             <div class="chat__messages">
+             {% if messages | length == 0 %}
+                <div class="messages_empty">Помните, при переходе в другой мессенджер мы не сможем обезопасить вас от мошенничества </div>
+               {% endif %}
             {% for msg in messages %}
                 {% if msg.from_user_id == user.id %}
                     <div class="chat__message-div chat__message-div_author_user 
@@ -74,4 +77,5 @@
 
 {% block scripts %}
 <script src="/static/js/hide-profile-button-chat.js"></script>
+<script src="/static/js/scroll-dialogue.js"></script>
 {% endblock scripts %}

@@ -106,8 +106,9 @@
                     authorizer__form_visible 
                 {% endif %}" action="/login" method="POST">
                 <label for="sign-in__login">Логин</label>
-                <input type="text" id="sign-in__login" name="login" {% if login_fail %}class="authorizer__input_failed"{% endif %}>                <label for="sign-in__password">Пароль</label>
+                <input type="text" autocapitalize="off" id="sign-in__login" name="login" {% if login_fail %}class="authorizer__input_failed"{% endif %}>                <label for="sign-in__password">Пароль</label>
                 <input type="password" id="sign-in__password" name="pass" {% if login_fail %}class="authorizer__input_failed"{% endif %}>
+                <span class="sign-in__bottom-text">Неверный логин/пароль</span>
                 <div class="sign-in__remember-and-forget">
                     <input type="checkbox" id="remember-me">
                     <label for="remember-me" class="authorizer__checkbox-label">Запомнить меня</label>
@@ -121,7 +122,7 @@
                     authorizer__form_visible 
                 {% endif %}" action="/register" method="POST">
                 <label for="sign-up__login">Логин</label>
-                <input type="text" id="sign-up__login" name="username">
+                <input type="text" autocapitalize="off" id="sign-up__login" name="username">
                 <span class="sign-up__bottom-text">*Необходимо ввести логин на английском языке и только прописными буквами</span>
                 <label for="sign-up__email">Адрес электронной почты</label>
                 <input type="text" id="sign-up__email" name="email">
@@ -154,7 +155,7 @@
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1571" class="dropdown__link">Cartier</a>
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1614" class="dropdown__link">Comme De Garçons</a>
                 </div>
-                <div class="dropdown__letter dropdown__letter_last">
+                <div class="dropdown__letter dropdown__letter_last dropdown__letter_d">
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1636" class="dropdown__link">Dior</a>
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1640" class="dropdown__link">Dolce & Gabbana</a>
                 </div>
@@ -175,7 +176,7 @@
                 <div class="dropdown__letter">
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1932" class="dropdown__link">Nike</a>
                 </div>
-                <div class="dropdown__letter dropdown__letter_last">
+                <div class="dropdown__letter dropdown__letter_last dropdown__letter_o">
                     <a href="/filters?limit=12&offset=0&prod_brand_id=1941" class="dropdown__link">Off-white</a>
                 </div>
                 <div class="dropdown__letter">

@@ -253,7 +253,7 @@ pub fn rm_user_image(
     conn: crate::db::Conn
 ) -> Result<Either,Error> {
     if let CommonUser::Logged(u) = user {
-        u.set_photo("default_picture.png".to_string(), &conn);
+        u.set_photo("default_picture.png".to_string(), &conn)?;
         return Ok(Either::Redirect(Redirect::to("/users/menu")))
     } 
     Ok(Either::Redirect(Redirect::to("/")))
@@ -267,8 +267,8 @@ pub fn add_user_image(
     conn: crate::db::Conn
 ) -> Result<Either,Error> {
     if let CommonUser::Logged(u) = user {
-        let fname = parse_image_multiform(content_type, form, u.username);
-        u.set_photo(fname, &conn);
+        let fname = parse_image_multiform(content_type, form, u.username.clone());
+        u.set_photo(fname, &conn)?;
         return Ok(Either::Redirect(Redirect::to("/users/menu")))
     } 
     Ok(Either::Redirect(Redirect::to("/")))
@@ -299,7 +299,7 @@ pub fn parse_image_multiform(content_type: &ContentType, form: Data, uname: Stri
         let store_path = format!("static/profile_pictures/{}.jpg",title);
         let mut file = File::create(&store_path).expect("can't create file");
         file.write_all(&ph).expect("error wfiting photo to file");
-        Ok(*title)
+        Ok(title.clone()+".jpg")
     }
 
     unpack_photo(&profile_photo, &(chrono::Local::now().naive_utc().to_string()+uname.as_ref()))
