@@ -13,35 +13,35 @@
             </div>
             <h1>Продвижение публикации</h1>
             <div class="preorder">
-                <input type="radio" name="promotion" id="preorder-check" name="pre_order" value="true">
+                <input type="checkbox" id="preorder-check" name="pre_order" value="true">
                 <label for="preorder-check">Предзаказ - 499<span>₽</span></label>
                 <div>Выводит публикацию в раздел новостей, что повышает вероятность продажи в несколько раз.</div>
             </div>
             <div class="promotion__item-div">
-                <input type="radio" name="promotion" id="top-name" name="top_name" value="true">
+                <input type="checkbox" id="top-name" name="top_name" value="true">
                 <label for="top-name">Поднятие публикации в топ по названию на 7 дней</label>
                 <span class="promotion__price">189 ₽</span>
             </div>
             <div class="promotion__item-div">
-                <input type="radio" name="promotion" id="top-category" name="top_cat" value="true">
+                <input type="checkbox" id="top-category" name="top_cat" value="true">
                 <label for="top-category">Поднятие публикации в топ по категории на 7 дней</label>
                 <span class="promotion__price">149 ₽</span>
             </div>
             <div class="promotion__item-div">
-                <input type="radio" name="promotion" id="to-news" name="take_in_news" value="true">
+                <input type="checkbox" id="to-news" name="take_in_news" value="true">
                 <label for="to-news">Выведение публикации в раздел новостей на 7 дней</label>
                 <span class="promotion__price">399 ₽</span>
             </div>
             <div class="promotion__item-div">
                 <div class="promotion__turbo-wrapper">
-                    <input type="radio" name="promotion" id="turbo" name="all" value="true">
+                    <input type="checkbox" id="turbo" name="all" value="true">
                     <label for="turbo">Турбо-продажа</label>
                     <span class="promotion__bottom-text">Все пункты одновременно</span>
                 </div>
                 <span class="promotion__price">599 ₽</span>
             </div>
             <div class="promotion__item-div promotion__item-div_nothing">
-                <input type="radio" name="promotion" checked id="nothing" name="none" value="true">
+                <input type="checkbox" name="none" checked id="nothing" value="true" checked>
                 <label for="nothing">Продвижение публикации без услуг</label>
                 <span class="promotion__price">Бесплатно</span>
             </div>
