@@ -515,7 +515,7 @@
 .chat__field {
     overflow-y: scroll;
     padding: 26px 9px 26px 15px;
-    height: calc(100vh - 350px);
+    height: calc(100vh - 420px);
 }
 
 .chat__messages {
