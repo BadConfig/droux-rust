@@ -290,12 +290,10 @@
       <change beforePath="$PROJECT_DIR$/templates/filters.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/filters.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/create.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/create.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/product/main.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/main.html.tera" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/product/promotion.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product/promotion.html.tera" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/new-product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/product.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/raw__html/search-notemp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/static_pages/contacts.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static_pages/contacts.html.tera" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/static_pages/criteria.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static_pages/criteria.html.tera" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/static_pages/serve_terms.html.tera" beforeDir="false" afterPath="$PROJECT_DIR$/templates/static_pages/serve_terms.html.tera" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -409,7 +407,7 @@
       <workItem from="1617064231036" duration="429000" />
       <workItem from="1617095978931" duration="9927000" />
       <workItem from="1617308699441" duration="6739000" />
-      <workItem from="1620464740714" duration="2530000" />
+      <workItem from="1620464740714" duration="3507000" />
     </task>
     <servers />
   </component>
