@@ -57,5 +57,5 @@
     </main>
 {% endblock main %}
 {% block scripts %}
-<script src="static/js/promotion-checkbox.js"></script>
+<script src="/static/js/promotion-checkbox.js"></script>
 {% endblock scripts %}
